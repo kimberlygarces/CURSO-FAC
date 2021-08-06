@@ -1,0 +1,1846 @@
+<!DOCTYPE html>
+<html id="html_completo" width="auto" style="overflow:hidden" >
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1260, initial-scale=0, maximum-scale=0"/>
+<title>index</title>
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="cjs/jquery.mCustomScrollbar.css" />
+<link href="fonts/font-awesome/css/all.css" rel="stylesheet">
+
+
+		
+<script src="cjs/easeljs-0.8.2.min.js"></script>
+<script src="cjs/tweenjs-0.6.2.min.js"></script>
+
+<script src="cjs/preloadjs-0.6.2.min.js"></script>
+<script src="cjs/soundjs-0.6.2.min.js"></script>
+
+<script src="index.js"></script>
+<script type="text/javascript" src="cjs/mapper.js"></script>
+
+<script src="cjs/jquery.min.js"></script>
+<script src="cjs/jquery.1.5.2.js"></script>
+<script src="cjs/jquery.imagemapster.js"></script>
+
+
+<script src="cjs/jquery.mCustomScrollbar.concat.min.js"></script>
+
+
+
+
+
+
+<script>
+
+$.getJSON("images/index_atlas_.json", function(json) {
+    frames_principal = json.frames;
+});	
+
+titulos_pantallas = [
+	"COMPETENCIAS PARA CONTRATAR EN EL EXTERIOR",
+	"DEFINICIONES",
+	"Etapa contractual – Equipo contractual",
+	"Etapa contractual – Supervisor",
+	"Etapa postcontractual – Supervisor",
+	"Planes de mejoramiento",
+	"Actividad 1",
+	"Actividad 2",
+	"Actividad 3"
+]
+
+con_restriccion = true;
+
+videos_vimeo = false;
+con_globotxt = true;
+con_videoini = false;
+trato_usted = true; 
+
+znPages = titulos_pantallas.length;
+znThisPage = 1;
+pagina_superior = 1;
+
+con_menunumeros_v2 = true;
+con_menunumeros_old = false;
+con_botonesavance = false;
+con_botonmenu = false;
+
+
+es_evaluacion = false;
+
+version_personaje = [1,1,1,1,1,1,1,1,1,1,1,1];
+con_instruccion_inicial = false;
+
+con_instrucciones_nav = false;
+
+audios_totales = [];
+audios_totales[0] = [0];
+audios_totales[1] = [0];
+audios_totales[2] = [0];
+audios_totales[3] = [0];
+audios_totales[4] = [0];
+audios_totales[5] = [0];
+audios_totales[6] = [0];
+audios_totales[7] = [0];
+audios_totales[8] = [[[0,6240,11314],[740,6732,11946]]];
+
+
+
+
+
+//[0,pausas_audio1,pausas_audio2,0,pausas_audio4];
+//console.log(audios_totales)
+nuevo_puntaje = 0;
+nuevo_puntaje_arrastre = 0;
+nuevo_puntaje_vf = 0;
+puntaje = 0;
+puntaje_aprueba = 70;
+
+en_carga = true;
+
+alto_barra_azul = 0;
+
+margen_x_canvas_principal = 10;
+margen_y_canvas_principal = 30;
+
+ancho_canvas_principal = 1260;
+alto_canvas_principal = 600;
+
+razon_anchos = ancho_canvas_principal / (ancho_canvas_principal+margen_x_canvas_principal);
+razon_altos = alto_canvas_principal / (alto_canvas_principal+margen_y_canvas_principal);
+
+razon_alto_ancho_margen = (alto_canvas_principal+margen_y_canvas_principal)/(ancho_canvas_principal+margen_x_canvas_principal);
+razon_alto_ancho = alto_canvas_principal/ancho_canvas_principal;
+var_puntos = "";
+
+unavez_dispositivo_alto = true;
+unavez_dispositivo_ancho = true;
+
+
+
+control_puntos = true;
+
+
+
+//x_inicial_atras = 359;
+leida_funcion_principal = false;
+
+var canvas_principal, stage_principal, exportRoot;
+	
+	
+
+	activar_fondo = false;
+	activar_ajuste = true;
+	activar_pm = false;
+	pagina_mayor = 1;
+	dispositivo_movil = false;
+	activar_loader = true;
+	un_ajuste = false;
+	//var bitmap = new createjs.Bitmap("images/loader.png");
+	//bounds_bitmap = bitmap.getBounds();
+
+	ancho_1 = window.innerWidth;
+	alto_1 = window.innerHeight;
+	almacenaVariable();
+	//alto_actual = alto_1;	
+	//ancho_actual = ancho_1;
+	function mobileAndTabletcheck(){
+	if( navigator.userAgent.match(/Android/i)
+ 	|| navigator.userAgent.match(/webOS/i)
+ 	|| navigator.userAgent.match(/iPhone/i)
+	|| navigator.userAgent.match(/iPad/i)
+ 	|| navigator.userAgent.match(/iPod/i)
+ 	|| navigator.userAgent.match(/BlackBerry/i)
+ 	|| navigator.userAgent.match(/Windows Phone/i)
+ 	){
+	dispositivo_movil = true;
+	}
+	}
+
+
+	mobileAndTabletcheck();
+	ax = 0
+	//createjs.Ticker.addEventListener("tick", ajustePantalla);
+	window.addEventListener("resize", ajuste2, false);
+
+
+	function ajustePantalla() {
+
+		//if (activado1) {
+			//activado1 = false;
+			//activado2 = true;
+		ancho_1 = window.innerWidth;
+		alto_1 = window.innerHeight;
+		//}
+
+		//if (activado2) {
+			//activado1 = true;
+			//activado2 = false;
+			
+		//}
+
+		if(un_ajuste){
+			//ancho_1 = window.innerHeight;
+			//alto_1 = window.innerWidth;
+			//activar_ajuste = true;
+
+		}
+
+		if(dispositivo_movil){
+			if(ancho_1<alto_1){
+			activar_ajuste = true;
+			//un_ajuste = false;
+			//ajuste2();
+			//almacenaVariable();	
+			document.getElementById("orientacion").style.visibility = "visible"; 
+			
+
+			} else {
+			//ajuste2();
+			//almacenaVariable();	
+			//activar_ajuste = false;
+			document.getElementById("orientacion").style.visibility = "hidden"; 
+			setTimeout(function () {
+				activar_ajuste = false;
+			}, 4500);
+
+			}
+
+		} else {
+			document.getElementById("orientacion").style.visibility = "hidden"; 
+
+			if (ancho_1 != ancho_2 || alto_1 != alto_2){
+			//ajuste2();
+			//almacenaVariable();
+			}
+
+		}
+		
+		
+		
+
+
+	}
+	
+	function almacenaVariable(){
+		alto_2 = alto_1;	
+		ancho_2 = ancho_1;
+	}
+	/*
+	setInterval(function () {
+				ancho_2 = window.innerWidth;
+				alto_2 = window.innerHeight;
+	}, 500);
+	*/
+	/*
+	tiempo_revision = 100
+	setInterval(function () {
+		ancho_1 = window.innerWidth;
+		alto_1 = window.innerHeight;
+
+		setTimeout(function () {
+		ancho_2 = window.innerWidth;
+		alto_2 = window.innerHeight;
+
+			if (ancho_1 != ancho_2 || alto_1 != alto_2){
+				ajuste();
+			}
+
+		}, tiempo_revision/2);
+
+			
+	}, tiempo_revision);
+	*/
+	
+
+	
+
+	
+	//znThisPage = 1;
+
+	
+	function tiempoPuntos(){
+	control_puntos = false;
+	
+			//bitmap.rotation += 15;
+			
+
+			//var_puntos = var_puntos+"." ;
+			numero_puntos = var_puntos.split("").length;
+			
+			if (numero_puntos<3){
+				var_puntos = var_puntos+"." ;
+			} else {
+				var_puntos = ""; 
+			}
+	setTimeout(function(){
+		tiempoPuntos();			
+		}, 600);
+	}
+	
+	/*
+	setInterval(function () {
+		
+		if (en_carga){
+			ajuste();
+		}
+
+	}, 300);
+	*/
+		
+	
+	/*
+	setInterval(function () {
+		ancho_1 = window.innerWidth;
+		alto_1 = window.innerHeight;
+
+		ancho_2 = window.innerWidth;
+		alto_2 = window.innerHeight;
+
+			if (ancho_1 != ancho_2 || alto_1 != alto_2){
+				ajuste();
+			}
+
+	}, 1000);
+	*/
+	
+
+	function ajuste2(){
+		ax++
+		
+
+
+		ancho_ventana =  window.innerWidth;// || parent.document.body.clientWidth;
+		alto_ventana =  window.innerHeight;
+		
+		//document.getElementById("contenedor_nombre_leccion").innerHTML = dispositivo_movil+"_"+leida_funcion_principal +" "+ ax
+
+		if(dispositivo_movil&&leida_funcion_principal){
+				
+			if(alto_ventana>ancho_ventana&&unavez_dispositivo_alto){
+				unavez_dispositivo_alto = false;
+				unavez_dispositivo_ancho = true;
+				permite_ajuste = true;
+
+			} else if(alto_ventana<=ancho_ventana&&unavez_dispositivo_ancho) {
+				unavez_dispositivo_alto = true;
+				unavez_dispositivo_ancho = false;
+				permite_ajuste = true;
+
+			}
+		} else {
+				permite_ajuste = true;
+
+		}
+
+		if(permite_ajuste){
+			ajustePantalla();
+				permite_ajuste = false;
+
+		razon_alto_ancho_ventana = alto_ventana/ancho_ventana;
+		
+		//razon_ventana = ancho_ventana/alto_ventana;
+		//razon_ventana = alto_ventana/ancho_ventana;
+
+		
+
+
+	
+		//razon_ventana = ((ancho_ventana-margen_x_canvas_principal*razon_anchos)) / alto_ventana;
+		razon_ancho_ventana = ancho_ventana/(ancho_canvas_principal+margen_x_canvas_principal);
+		
+
+		razon_alto_ventana = alto_ventana/(alto_canvas_principal+margen_y_canvas_principal);
+
+		ancho_canvas = ancho_ventana*razon_anchos;
+		alto_canvas = alto_ventana*razon_altos;
+
+		if(razon_alto_ancho_ventana<razon_alto_ancho_margen){
+			
+			razon_venta = razon_alto_ventana;
+			
+			y_princial = (alto_ventana-alto_canvas)/razon_alto_ventana/2;
+			
+			x_principal = ancho_ventana/razon_alto_ventana/2-ancho_canvas/razon_ancho_ventana/2;
+			//x_principal = ancho_canvas;
+			if(dispositivo_movil){
+			//document.getElementById("orientacion").style.visibility = "hidden"; 
+			
+			}
+		} else {
+		
+
+			razon_venta = razon_ancho_ventana;
+			y_princial = (alto_ventana/razon_ancho_ventana)/2-alto_canvas/razon_alto_ventana/2;
+			x_principal = ((ancho_ventana-ancho_canvas)/razon_ancho_ventana)/2;
+
+		if(dispositivo_movil){
+			//document.getElementById("orientacion").style.visibility = "visible"; 
+
+		}
+		}
+
+		
+		//margin_left_nuevo = ancho_ventana-(ancho_canvas_principal/razon_ventana);
+		
+		//if(ancho_ventana>(ancho_canvas_principal+margen_x_canvas_principal)*razon_anchos){
+		//document.getElementById("html_completo").style.transform = "scale("+razon_venta+")";
+		
+		//document.getElementById("html_completo").style.width = Math.ceil(ancho_ventana/razon_venta)+"px";
+		//document.getElementById("html_completo").style.height = Math.ceil(alto_ventana/razon_venta)+"px";
+				//document.getElementById("html_completo").style.width = ancho_ventana+"px";
+		//document.getElementById("html_completo").style.height = alto_ventana+"px";
+		//console.log(razon_venta)
+		//razon_venta = razon_venta.toFixed(1);
+		razon_venta = Math.floor(razon_venta * 10) / 10
+		
+		document.getElementById("body_completo").style.transform = "scale("+razon_venta+")";
+
+
+		//console.log(razon_venta)
+
+		ancho_contenedor = document.getElementById("body_completo").clientWidth*razon_venta;
+		ancho_html = document.getElementById("html_completo").clientWidth
+
+		document.getElementById("body_completo").style.marginLeft = (ancho_html-ancho_contenedor)/2+"px";
+		
+		alto_contenedor = document.getElementById("body_completo").clientHeight*razon_venta;
+		alto_html = document.getElementById("html_completo").clientHeight
+
+		document.getElementById("body_completo").style.marginTop = (alto_html-alto_contenedor)/2+"px";
+
+
+		//console.log(ancho_contenedor,ancho_html)
+
+		//} else{
+		
+		//canvas_principal.style.width = ancho_canvas+"px"
+		
+		//stage_principal.x = x_principal;
+		//canvas_principal.style.marginLeft = x_principal+"px"
+
+		//stage_principal.y = (alto_ventana/razon_ancho_ventana)/2-(alto_canvas/razon_alto_ventana);
+		//stage_principal.y = alto_canvas/razon_alto_ventana;
+		
+		//stage_principal.y = y_princial;
+		//canvas_principal.style.marginTop = y_princial+"px"
+		if(leida_funcion_principal){
+						lugarFlechas();
+						
+					}  
+		//if(leido_personaje){
+						
+						//lugarPersonaje();
+
+		//			}
+		
+		//canvas_principal.style.marginTop = stage_principal.y+"px"
+		
+		//canvas_principal.style.height = alto_canvas+"px"
+		//canvas_principal.style.marginTop = (alto_ventana-alto_canvas)/2+"px"
+		//}
+		
+		
+		//canvas_principal.style.marginLeft = margin_left_nuevo+"px"
+		//canvas_principal.style.marginLeft = ancho_ventana+"px"
+				//stage_principal.x = ((alto_ventana - nuevo_alto)/2)/razon_ventana/2;
+
+}
+	}
+
+
+function ajuste() {
+
+		
+
+		///LOADER
+
+		if(activar_loader){
+
+			/*
+			setTimeout(function(){
+	
+			//bitmap.rotation += 15;
+			
+
+			//var_puntos = var_puntos+"." ;
+			numero_puntos = var_puntos.split("").length;
+			
+			console.log(var_puntos,numero_puntos)
+
+
+				if (numero_puntos<3){
+					var_puntos = var_puntos+"." ;
+				} else {
+					var_puntos = ""; 
+				}
+				
+
+			}, 1000);
+
+			*/
+		}
+
+		////
+		if (activar_pm) {
+
+
+		if (pagina_mayor > znThisPage) {
+				//document.getElementById("flecha_abajo").style.visibility = "visible"; 
+			} else {
+				pagina_mayor = znThisPage;
+			}
+		}
+		///
+
+		ancho_ventana =  window.innerWidth;// || parent.document.body.clientWidth;
+		alto_ventana =  window.innerHeight;
+
+		razon_alto_ancho = alto_canvas_principal/ancho_canvas_principal;
+
+		alto_canvas = ancho_ventana * razon_alto_ancho;
+		alto_canvas = ancho_ventana * razon_alto_ancho;
+
+		razon_ventana = ((ancho_ventana-margen_x_canvas_principal)*(razon_alto_ancho)) / alto_canvas_principal;
+	//	razon_ventana = ancho_ventana / ancho_canvas_principal;
+
+		//document.getElementById("html_completo").style.backgroundSize  = cover;//ancho_ventana+"px " + alto_ventana+"px"; 
+
+		ancho_pantalla = screen.width;
+		alto_pantalla = screen.height;
+
+		//document.getElementById("html_completo");
+		
+
+		//console.log(ancho_ventana, ancho_pantalla,razon_ventana)
+		//razon_ventana_d = razon_ventana.toFixed(2)
+		if (activar_ajuste){ //&& dispositivo_movil == false
+
+			
+			
+		
+			
+
+			
+
+			if (activar_fondo){
+					valor = margen_y_canvas_principal///1.3///(razon_ventana*2);
+					nuevo_ancho = (alto_ventana-valor)/razon_alto_ancho;
+					
+					razon_ventana_2 = nuevo_ancho / ancho_canvas_principal;
+					
+					//diferencia_anchos = ancho_ventana - nuevo_ancho;
+
+					diferencia_anchos = (ancho_ventana - nuevo_ancho)/razon_ventana_2;
+					
+
+
+					valorb = margen_x_canvas_principal;
+					nuevo_alto = nuevo_ancho*razon_alto_ancho;//(ancho_ventana-valorb)*razon_alto_ancho;
+					
+					razon_ventana_c = nuevo_alto / alto_canvas_principal;
+					
+					//diferencia_anchos = ancho_ventana - nuevo_ancho;
+
+					diferencia_altos = (alto_ventana - nuevo_alto)/razon_ventana_c;
+				if (alto_canvas+margen_y_canvas_principal<alto_ventana || un_ajuste){
+
+				//if (alto_canvas+margen_y_canvas_principal<alto_ventana){
+
+
+				document.getElementById("html_completo").style.width = Math.ceil(ancho_ventana/razon_ventana)+"px";
+				document.getElementById("html_completo").style.height = Math.ceil(alto_ventana/razon_ventana)+"px";
+
+				document.getElementById("imagen_fp").style.width = Math.ceil(ancho_ventana/razon_ventana)+"px";
+				document.getElementById("imagen_fp").style.height = Math.ceil(alto_ventana/razon_ventana)+"px";
+				
+
+				//document.getElementById("html_completo").style.backgroundSize  = "100% 100%";
+		
+
+					//diferencia_anchos = ancho_ventana - nuevo_ancho;
+
+				document.getElementById("html_completo").style.transform = "scale("+razon_ventana+")";
+				document.getElementById("html_completo").style.webkitTransform = "scale("+razon_ventana+")"; // Chrome
+				document.getElementById("html_completo").style.MozTransform = "scale("+razon_ventana+")"; //Mozilla
+
+				alto_barra_azul = (alto_ventana-alto_canvas)*(1/razon_ventana);
+				
+
+				//document.getElementById("barra_inferior").style.height = alto_barra_azul+"px";
+
+				//console.log(margen_x_canvas_principal)
+				if(dispositivo_movil){
+					canvas_principal.style.marginLeft = 5+"px"
+				stage_principal.x = 5;
+				} else {
+				canvas_principal.style.marginLeft = (alto_ventana - nuevo_alto)/razon_ventana/2+"px"
+				stage_principal.x = (alto_ventana - nuevo_alto)/razon_ventana/2;
+				}
+				if (alto_barra_azul<margen_y_canvas_principal){
+						//alto_barra_azul = margen_y_canvas_principal;
+					}
+
+
+
+				
+				if(dispositivo_movil){
+						canvas_principal.style.marginTop = 5+"px"
+				stage_principal.y = 5;
+
+					} else {
+						canvas_principal.style.marginTop = alto_barra_azul/2+"px"
+				stage_principal.y = alto_barra_azul/2;
+					}
+
+				
+				if(leida_funcion_principal){
+						lugarFlechas();
+
+					}
+
+				//stage_principal.update();
+				if(un_ajuste){
+
+					//setTimeout(function () {
+						un_ajuste=false;
+						activar_ajuste=true;
+						ajuste();
+					//}, 1000);
+					
+				}
+				
+
+				} else {
+
+					
+					alto_barra_azul = 0;
+					//document.getElementById("barra_inferior").style.height = 0+"px";
+					/*
+					valor = margen_y_canvas_principal///1.3///(razon_ventana*2);
+					nuevo_ancho = (alto_ventana-valor)/razon_alto_ancho;
+					
+					razon_ventana_2 = nuevo_ancho / ancho_canvas_principal;
+					
+					//diferencia_anchos = ancho_ventana - nuevo_ancho;
+
+					diferencia_anchos = (ancho_ventana - nuevo_ancho)/razon_ventana_2;
+					
+
+
+					valorb = margen_x_canvas_principal;
+					nuevo_alto = nuevo_ancho*razon_alto_ancho;//(ancho_ventana-valorb)/(ancho_canvas_principal/alto_canvas_principal);
+					
+					razon_ventana_c = nuevo_alto / alto_canvas_principal;
+					
+					//diferencia_anchos = ancho_ventana - nuevo_ancho;
+
+					diferencia_altos = (alto_ventana - nuevo_alto)/razon_ventana_c;
+
+					//diferencia_altos = margen_y_canvas_principal;
+					*/
+					document.getElementById("html_completo").style.width = Math.ceil(ancho_ventana/razon_ventana_2)+"px";
+					document.getElementById("html_completo").style.height = Math.ceil(alto_ventana/razon_ventana_2)+"px";
+
+					document.getElementById("imagen_fp").style.width = Math.ceil(ancho_ventana/razon_ventana_2)+"px";
+					document.getElementById("imagen_fp").style.height = Math.ceil(alto_ventana/razon_ventana_2)+"px";
+				
+					//document.getElementById("html_completo").style.backgroundSize  = "100% 100%";
+		
+					//console.log(razon_ventana) 
+					document.getElementById("html_completo").style.transform = "scale("+razon_ventana_2+")";
+					document.getElementById("html_completo").style.webkitTransform = "scale("+razon_ventana_2+")"; // Chrome
+					document.getElementById("html_completo").style.MozTransform = "scale("+razon_ventana_2+")"; //Mozilla
+					//document.getElementById("canvas_principal").style.position = "relative"
+					//document.getElementById("canvas_principal").style.width = diferencia_anchos+"px;"
+					//canvas_principal.style.marginLeft = diferencia_anchos/2+"px"
+					//document.getElementById("canvas_principal").style.height = diferencia_anchos+"px;"
+					alto_barra_azul = (alto_ventana-alto_canvas)*(1/razon_ventana);
+					if (alto_barra_azul<margen_y_canvas_principal){
+						alto_barra_azul = margen_y_canvas_principal;
+					}
+
+					/*
+					if (diferencia_anchos<margen_x_canvas_principal){
+						diferencia_anchos = margen_x_canvas_principal;
+					}
+					*/
+
+
+					stage_principal.x = diferencia_anchos/2 //- margen_x_canvas_principal;
+					canvas_principal.style.marginLeft = diferencia_anchos/2 + "px"//- margen_x_canvas_principal +"px";
+
+					canvas_principal.style.marginTop = diferencia_altos/2+"px"
+					stage_principal.y = diferencia_altos/2;
+
+
+					if(leida_funcion_principal){
+						lugarFlechas();
+						
+					}
+					
+					//stage_principal.update();
+
+
+				}
+			}
+
+			//document.getElementById("html_completo").style.backgroundImage = "url('images/fondo_general.png')";
+		
+		} else {
+		//document.getElementById("html_completo").style.backgroundImage = "none";
+		//document.getElementById("fondo").style.visibility = "hidden"; 
+		//document.getElementById("nombre_curso").style.fontSize = 14+"px"; 
+		//document.getElementById("art").style.fontSize = 11+"px"; 
+
+		}
+		//parent.document.getElementById("html_completo").style.MsTransform = "scale("+razon_ventana+")"; 
+		//parent.document.getElementById("html_completo").style.zoom = razon_ventana;
+		
+	}
+
+
+function init() {
+	//opener.ventanaCargada();
+	canvas_principal = document.getElementById("canvas_principal");
+	images = images||{};
+	ss = ss||{};
+
+	var loader = new createjs.LoadQueue(false);
+	loader.installPlugin(createjs.Sound);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.addEventListener("progress", handleProgress);
+	loader.loadManifest(lib.properties.manifest);
+	loader.loadFile({src:"images/index_atlas_.json", type:"spritesheet", id:"index_atlas_"}, true);
+	iniciarScorm();
+
+	
+		document.getElementById("total_pag").innerHTML = znPages;
+		document.getElementById("actual_pag").innerHTML = znThisPage;
+
+	/*
+	for (i = 0; i < audios_totales.length; i++) {
+		for (int = 0; int < audios_totales[i].length; int++) {
+			//console.log(sig,audios_totales[sig-1]) 
+			if(audios_totales[i][int]!=0){
+				loader.loadFile({src:"pages/page"+i+"/sounds/audio"+i+"_"+int+".mp3"});
+				console.log("pages/page"+i+"/sounds/audio"+i+"_"+int+".mp3")
+			}	
+		}
+	}
+	*/
+
+
+	
+}
+
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+
+}
+
+
+function playSound(id, loop) {
+	createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+}
+
+
+var ancho_linea = 0;
+var alto_linea = 35;
+var max_ancho = 200;
+ajuste_una_vez = true;
+function handleProgress(evt) {
+
+	
+	activar_loader = true;
+	
+
+	//console.log("HOLa")
+	
+	stage_principal = new createjs.Stage(canvas_principal);
+	//if (ajuste_una_vez){
+		
+		//ajuste_una_vez = false;
+	//}
+
+	//console.log(bounds_bitmap)
+	//console.log(bounds_bitmap.width)
+	//bitmap.regX = 168/2;
+	//bitmap.regY = 168/2;
+	//bitmap.alpha = .5;
+	//bitmap.x = ancho_canvas_principal/2;
+	//bitmap.y = alto_canvas_principal/2;
+	
+	//bitmap.rotation = progreso;	
+	max_ancho = 720;
+	//progreso = Math.round(evt.loaded * max_ancho);
+	progreso = (evt.loaded)
+	progreso = progreso.toFixed(2);
+	 
+
+	/*
+	var_logo_client_principal = document.getElementById("logo_client0");
+	logo_client_principal = new createjs.DOMElement(var_logo_client_principal);
+	logo_client_principal.x = 3;
+	logo_client_principal.y = 0;
+	logo_client_principal.scaleX = Number(progreso);	
+	*/
+	
+
+	texto_carga = new createjs.Text("Cargando...", "40px Raleway-Regular", "#666666");
+	bounds_texto_carga = texto_carga.getBounds();
+
+	ancho_ventana =  window.innerWidth;// || parent.document.body.clientWidth;
+	alto_ventana =  window.innerHeight;
+
+	texto_carga.x = 400 + stage_principal.x;
+	texto_carga.y = 200 - stage_principal.y;
+
+	
+	
+	/*
+	setTimeout(function(){
+	
+	bitmap.rotation += 4;	
+				
+
+	}, 40);
+	*/
+	
+	
+	
+
+	//stage_principal.addChild(texto_carga);
+	//if (ajuste_una_vez){
+		stage_principal.update();
+		
+	//}
+	if (control_puntos){
+		
+		//logo_client0.visible = true;
+		tiempoPuntos();
+	}
+	
+
+
+	//ajuste();
+
+	if (ajuste_una_vez){
+	ajuste2();
+		ajuste_una_vez = false;
+		
+	}
+	//ajuste();
+
+			
+	
+
+
+			
+	
+
+}
+
+
+
+
+
+function handleComplete(evt) {
+	var queue = evt.target;
+	ss["index_atlas_"] = queue.getResult("index_atlas_");
+	exportRoot = new lib.index();
+
+
+	
+
+	stage_principal = new createjs.Stage(canvas_principal);
+	stage_principal.addChild(exportRoot);
+	stage_principal.update();
+
+	createjs.Ticker.setFPS(lib.properties.fps);
+	createjs.Ticker.addEventListener("tick", stage_principal);
+
+	activar_loader = false;
+
+	interface_principal();
+
+	ajuste2();
+
+	en_carga = false;
+
+
+	//imagen_logo = document.getElementById("imagen_logo");
+	//imagen_logo.src = "";
+	//imagen_logo.src = "images/intro.gif"+"?a="+Math.random();
+	
+	
+	/*
+	setTimeout(function(){
+		imagen_logo2 = document.getElementById("imagen_logo2");
+		imagen_logo2.src = "";
+		imagen_logo2.src = "images/logoIntroT.gif"+"?a="+Math.random();
+
+		}, 800);
+	*/
+
+	top_scrollMenu = 0;
+
+	$(".menunav").mCustomScrollbar({
+   	  
+   	  	theme:"inset-3-dark",
+		scrollButtons:{
+			enable:true
+		},
+		setWidth: true
+
+	});
+	
+	$(".menunav_n").mCustomScrollbar({
+   	  
+   	  	theme:"light-thin",
+		scrollButtons:{
+			enable:true
+		},
+		callbacks:{
+	        whileScrolling:function(){
+	            myCustomFn(this);
+	        }
+    	},
+		setWidth: true
+
+	});
+
+	
+	function myCustomFn(el){
+    	//top_scrollMenu = el;
+    	top_scrollMenu = el.mcs.top;
+	//	console.log(top_scrollMenu)
+
+	}
+
+}
+
+</script>
+
+<script src="SCORMlibHTM.js" type="text/javascript" language="JavaScript"> </script>
+<script type="text/javascript" language="JavaScript"> 
+	
+	function guardaAvance() {
+		//znThisPage = pagina_superior;
+		//alert("terminar(), znThisPage:"+znThisPage);
+		status = "";
+
+		try {			
+			status = SCOGetValue("cmi.core.lesson_status");
+			SCOSetValue("cmi.core.lesson_location",pagina_superior);
+			//SCOSetValue("cmi.core.score.raw", 100);
+			SCOSetValue("cmi.core.score.raw", puntaje);
+			if (completado) {
+			
+			SCOSetValue("cmi.core.lesson_status","completed");
+			SCOSetValue("cmi.success_status","passed");
+						
+			//try {
+			//}
+			//catch (e) {}
+
+
+			} 	else{
+			
+				SCOSetValue("cmi.core.lesson_status","incomplete");
+			
+			}
+
+		}
+		catch (e) {}	
+	}
+
+
+	function terminar() {
+		guardaAvance();
+		SCOFinish();
+		//opener.ventanaCerrada();
+
+	}
+	
+	
+	function iniciarScorm() {
+		var iniLMS = SCOInitialize();
+
+		//pagina_superior = 5;
+
+		if (iniLMS=="true") {  //El tipo de datos de SCOInitialize es String
+			console.log("conectado")
+			puntaje = SCOGetValue(  "cmi.core.score.raw" );
+			znThisPage = parseInt(SCOGetValue(  "cmi.core.lesson_location" ),10);
+			if (!isNaN(znThisPage) && znThisPage>0 && znThisPage<znPages+1) {
+				// myStage.location.href = preFijoPage + znThisPage + extPage; 
+				//DCRI
+				if(con_restriccion){
+
+				pagina_superior = znThisPage;
+				} else {
+					pagina_superior = znPages-1;
+					if(znPages==znThisPage){
+						pagina_superior = znPages;
+
+					} else {
+						pagina_superior = znPages-1;
+
+					}
+				}
+			}
+			else {
+				znThisPage=1; 
+				//DCRI
+
+				if(con_restriccion){
+
+					pagina_superior = znThisPage;
+					pagina_mayor = znThisPage;
+				} else {
+					pagina_superior = znPages-1;
+					pagina_mayor = znPages-1;
+				}
+			}
+			pagina = "pages/page"+znThisPage+"/page"+znThisPage+".html";
+			activar_pm = true;	
+
+					
+			status_2 = SCOGetValue("cmi.core.lesson_status");
+
+			if(status_2 == "completed"){
+				completado = true;
+			} else {
+				completado = false;
+
+			}
+			
+		}	else {
+			console.log("no-conectado")
+			status_2 = "incomplete";
+			completado = false;
+
+
+		}
+
+		//alert("iniLMS(), znThisPage:"+znThisPage+", puntaje:"+", pagina:"+pagina);
+		//document.getElementById('pagina_actual').innerHTML = znThisPage;
+		
+	}
+
+	
+
+	
+
+</script>
+
+
+</head>
+<body onload="init()" id="body_completo" width="1260" height="600" style="margin: 0; overflow:hidden;background-color:transparent;"
+	onunload="terminar()" onbeforeunload="terminar()">
+	<div id="orientacion" class="orientacion">
+	<table style="height:100%;width:100%">
+		<td style="vertical-align: middle;width:100%;text-align:center">
+			<div>
+			<img src="images/gif_cel.gif" height="500">
+			</div>
+			<p>
+			Gira tu celular.
+							
+			</p>
+		</td>
+		
+	</table>
+		
+	</div>
+	
+	<script src="variables.js"></script>
+	<script src="principal.js"></script>
+	
+	<div class="div_invisible">
+				<img src="images/logo_cx2.png">
+		
+	</div>
+	
+	<div id="element_per" class="element_per">
+			
+		</div>
+
+			<div id="logo_client" class="logo_client">
+				<img src="images/logo_cx.png" height="110">
+			</div>
+
+	
+	<div id="zona_superior" class="zona_superior">
+			<div id="div_contenidos" class="div_contenidos">
+			<div>
+				
+			</div>
+			
+			</div>
+
+			
+		<div id="txt_creditos" class="txt_creditos">CRÉDITOS:</div>
+		
+		<div id="contiene_menunav_n" class="contiene_menunav_n">
+			
+			<div id="txt_menu_n" class="txt_menu_n">
+				MENÚ
+			</div>
+			<div id="menunav_n" class="menunav_n">
+				<div id="menunavint_n" class="menunavint_n">
+					
+				</div>
+				<div id="fin_menunav_n" class="fin_menunav_n">
+					
+				</div>
+			</div>
+		</div>		
+
+
+		<div id="contiene_menunav" class="contiene_menunav">
+			<div id="cierra_menunav" class="cierra_menunav">
+					<i class="fas fa-times"></i>
+				</div>
+			<div style="margin-bottom: 10px;position: relative;">
+				MENÚ
+				
+			</div>
+			<div id="menunav" class="menunav">
+				<div id="menunavint" class="menunavint">
+					
+				</div>
+				<div id="fin_menunav" class="fin_menunav">
+					
+				</div>
+			</div>
+		</div>
+
+		<div id="boton_cerrar" class="boton_cerrar"><div id="boton_cerrar_b" class="boton_cerrar_b"></div></div>
+
+		<div id="boton_menunav" class="boton_menunav"><div id="boton_menunav_b" class="boton_menunav_b"><i class="fas fa-bars"></i></div></div>
+
+		<div id="fondo_general" class="fondo_general">
+			
+		</div>
+		<div id="mensaje_cierre" class="mensaje_cierre">
+			<div>
+				<div id="preg_salir" style="color:#FFFFFF;font-size: 20px;margin: 10px">
+				¿Estás seguro de desear salir del módulo?
+				</div>
+				<div>
+				<span id="cont_salir">Al salir del módulo tu avance es guardado, por lo que cuando regreses serás dirigido a la pantalla</span> <span id="pagina_llega"></span>
+				</div>
+
+			</div>
+			<div>
+				<table style="margin:0 auto;margin-top: 20px">
+					<td>
+						<div id="acepta_salir" class="btn_salida">
+							Salir
+						</div>
+					</td>
+					<td style="width: 40px">
+						
+					</td>
+					<td>
+						<div id="cancela_salir" class="btn_salida">
+							No salir
+						</div>
+					</td>
+				</table>
+			</div>
+		</div>
+
+
+		<div id="mensaje_retrocede" class="mensaje_cierre">
+			<div>
+				<div style="color:#2097D3;font-size: 22px;margin: 10px">
+				¿Estás seguro de querer volver a la pantalla anterior?
+				</div>
+				Ten en cuenta que al retroceder y volver a la página actual (<span id="pagina_llega2"></span>), deberás iniciar su consulta desde la introducción que hace el personaje.
+
+			</div>
+			<div>
+				<table style="margin:0 auto;margin-top: 20px">
+					<td>
+						<div id="acepta_retrocede" class="btn_salida">
+							Retroceder
+						</div>
+					</td>
+					<td style="width: 40px">
+						
+					</td>
+					<td>
+						<div id="cancela_retrocede" class="btn_salida">
+							No retroceder
+						</div>
+					</td>
+				</table>
+			</div>
+		</div>
+
+		<div id="logo_client0" class="logo_client0"></div>
+		<div id="barra_negra" class="barra_negra"></div>
+		<div id="contenedor_nombre_curso" class="contenedor_nombre_curso"><p><img src="images/flecha_curso.png" style="margin-right:15px"> CURSO: <span>OPERATORIAS EN</span></p><span class="segunda_linea">NACAR EXPRESS</span></div>
+		<div id="nombre_curso" class="nombre_curso_inicial">La Gestión del Desempeño en el Grupo Éxito</div>
+		
+
+
+		<div id="personajes" class="personajes">
+			<div>
+				<img src="images/dcri2.png">
+			</div>
+			<div style="margin:0 40px;width: 2px;background: #cccccc">
+				
+			</div>
+			<div>
+				<img src="images/logo_cx.png">
+			</div>
+		</div>
+
+		<div id="explorador" class="explorador">
+			<img id="explorador1"  src="images/explorador1.png" class="explora_invisible">
+			<img id="explorador2" src="images/explorador2.png"  class="explora_invisible">
+		</div>
+
+		<div id="avanza_explora" class="avanza_explora">
+				<table>
+					<td style="width:120px">
+						<p>
+						AVANCE
+						</p>
+						<div>
+							Pantalla <span id="actual_pag"></span> de <span id="total_pag">5</span>
+						</div>
+					</td>
+					<td style="width: 10px">
+						
+					</td>
+					<td>
+			<img src="images/ruta.png">
+						
+					</td>
+				</table>
+		</div>
+		
+		<div id="div_contenidos_2" class="div_contenidos2">
+			
+		</div>
+		<div id="personaje_inicial" class="personaje_inicial">
+			<div id="logo_c1">
+				<img src="images/personaje_completo.png">
+			</div>
+			<div id="logo_c2" style="visibility: hidden;">
+				
+
+			</div>
+		</div>
+
+		<div id="arrow_anterior" class="flecha_inactiva">
+			<i class="fas fa-angle-left"></i> Anterior
+		</div>
+		<div id="arrow_siguiente" class="flecha_inactiva">
+			Siguiente <i class="fas fa-angle-right"></i>
+		</div>
+		
+		<div id="btn_ini" class="btn_ini">
+			<div>
+			<i class="fal fa-play-circle"></i> INICIAR 
+			</div>
+		</div>
+
+		<div id="contenedor_nombre_leccion" class="contenedor_nombre_leccion_ini">
+			<div id="nom_curso" class="nom_curso">
+				<div class="txt_nomcurso">
+				Contratación <span>a través de la agencia de compras FAC</span>
+				</div>
+				<div class="fondo_titcurso">
+					<img src="images/fondo_nomcurso.png">
+				</div>
+			</div>
+			<div id="txt_mod" class="txt_mod">
+				
+			<span>Módulo 5:</span> Lecciones aprendidas
+
+			</div>
+		</div>
+
+		<div id="txt_leccion" class="txt_leccion">
+			<div id="fondod_titlecc" style="position: absolute;top:0;left:0">
+			
+			
+			
+			</div>
+			<div id="fondod_titlecc2" style="position: absolute;top:0;left:0;visibility: hidden">
+			
+			
+			
+			</div>
+			<div id="txt_leccion_txt" class="txt_leccion_txt">
+			
+		<div class="modulo_numero"></div>
+
+		
+		
+				</div>	
+
+
+			
+			
+			
+		</div>
+		<div id="contenedor_nombre_capitulo" class="contenedor_nombre_capitulo">
+								
+		
+			<video id="video0" preload="auto" style="height:580px;margin-top: 0px;border-radius: 40px">
+  					<source src="" type="video/mp4">
+  						Su navegador no soporta video HTML5.
+				</video>
+			
+			
+		</div>
+		
+		
+		<div id="contenedor_numero_capitulo" class="contenedor_numero_capitulo">
+			<div class="img_cap">
+				<i class="fa fa-angle-down" aria-hidden="true"></i>
+			</div>
+			<div id="txt_capitulo" class="txt_capitulo">CAPÍTULO</div>
+		<div id="num_capitulo" class="num_capitulo">2</div>
+
+		</div>
+		
+		<div id="curso" class="curso"></div>
+
+	
+	
+		
+		
+		<div id="cont_txt_leccion" class="cont_txt_leccion"></div>
+
+		
+		<div id="div_txtmenu" class="div_txtmenu">
+		
+			<div style="margin-top: 5px;background: #1D1D1B;padding:5px 0">
+						
+			MENÚ
+			</div>
+						
+		
+		
+			<div id="div_txtmenu2" class="div_txtmenu2">
+				
+			</div>
+		</div>
+
+		<div id="modulo" class="numero_modulo">1</div>
+		<div id="numero_modulo" class="numero_modulo">1</div>
+
+		<div id="nombre_modulo" class="nombre_modulo">
+			<div>Generalidades</div>
+			
+		</div>
+		<div id="nombre_modulo_2" class="nombre_modulo_2">
+			PARA EL ACCESO A FINANCIACIÓN
+		</div>
+
+		
+
+	
+		
+		
+		
+		<div id="logo" class="logo"></div>
+		<div class="logo_exc"></div>
+
+	</div>
+	
+	
+	</div>
+	
+	
+	<div id="flechas" class="flechas">
+		<div id="flechas2" class="flechas2">
+			<div id="flecha_arriba" class="flecha_arriba"></div>
+			<div id="flecha_abajo" class="flecha_abajo" ></div>
+		</div>
+	</div>
+	<canvas id="canvas_principal" width="1260" height="600" style="position:absolute"></canvas>
+
+	
+
+	<div id="barra_inferior" class="barra_inferior"></div>
+
+	<div id="instruccion_especial" class="instruccion_especial">
+		<table>
+			<td style="vertical-align:top">
+				<span id="s1" class="simbolos">ì</span>
+			</td>
+			<td style="vertical-align:top">
+				<span id="txt_ie"></span>
+			</td>
+			<td style="vertical-align:top">
+				<span id="s2" class="simbolos">ì</span>
+
+			</td>
+		</table>
+	</div>
+
+	<div id="cont_over_principal_n" class="cont_over_principal_n"><div id="over_principal_n" class="over_principal_n"></div><div id="cont_enlace_principal_n" class="cont_enlace_principal_n"><div id="enlace_principal_n" class="enlace_principal_n"></div></div></div>
+	
+	<div id="cont_over_principal" class="cont_over_principal"><div id="over_principal" class="over_principal"></div><div id="cont_enlace_principal" class="cont_enlace_principal"><div id="enlace_principal" class="enlace_principal"></div></div></div>
+	
+	<div id="cont_over_principalbtn" class="cont_over_principalbtn"><div id="over_principalbtn" class="over_principalbtn"></div><div id="cont_enlace_principalbtn" class="cont_enlace_principalbtn"><div id="enlace_principalbtn" class="enlace_principalbtn"></div></div></div>
+	
+	
+	<div id="instruccion_especial2" class="instruccion_especial">
+		<table>
+			<td style="vertical-align:top">
+				<span id="s3" class="simbolos">ì</span>
+			</td>
+			<td style="vertical-align:top">
+				<span id="txt_ie2"></span>
+			</td>
+			<td style="vertical-align:top">
+				<span id="s4" class="simbolos">ì</span>
+
+			</td>
+		</table>
+	</div>
+
+	<div id="mensaje_avance" class="mensaje_avance"><div id="equis_mensaje" class="equis_mensaje"><i class="fas fa-times"></i></div><div id="texto_mensaje_avance" class="texto_mensaje_avance"></div></div>
+
+
+
+	<div id="desarrollado" class="desarrollado"><i class="fa fa-copyright" aria-hidden="true"></i></div>
+
+	<div id="cont_over_principalb" class="cont_over_principalb"><div id="cont_enlace_principalb" class="cont_enlace_principalb"><div id="enlace_principalb" class="enlace_principalb"></div></div>
+		
+		<div id="over_principalb" class="over_principalb">
+
+			<div class="negrilla" style="margin-bottom: 10px">
+							ACERCA DEL CURSO
+						</div>
+		<table>
+			<td>
+				<div style="font-size: 13px;line-height: 14px;width:330px">
+
+				Este curso está a disposición de las entidades del Gobierno Nacional a través del liderazgo que realiza el <span class="negrilla">Departamento Nacional de Planeación – DNP</span> en la implementación de la Política de Mejora Regulatoria y el CONPES de “Mejora Normativa”, como parte de las acciones desarrolladas por el proyecto de cooperación técnica internacional <span class="negrilla">PRO-Motion</span> para el fortalecimiento de la Industria Colombiana del Movimiento, de la <span class="negrilla">Agencia de Cooperación Internacional de Corea – KOICA</span> el cual es ejecutado por la <span class="negrilla">Organización de las Naciones Unidas para el Desarrollo Industrial - ONUDI</span> con el <span class="negrilla">Programa de Transformación Productiva – PTP</span> y el <span class="negrilla">Ministerio de Comercio, Industria y Turismo – MinCIT</span>.
+				<div style="margin-top: 20px">
+
+Los contenidos de esta herramienta han sido desarrollados por la Experta Senior en Mejora regulatoria <span class="negrilla">Delia Rodrigo</span>, con el asesoramiento del <span class="negrilla">Grupo de Mejora Regulatoria del Departamento Nacional de Planeación – DNP</span> y de las entidades comprometidas con la continuidad y sistematización de mejores prácticas regulatorias y la generación de capacidades necesarias en la actividad normativa.
+</div>
+
+				</div> 
+			</td>
+			<td style="width:30px">
+				
+			</td>
+			<td>
+				<div style="font-size: 12px;line-height: 12px;width:630px">
+
+					<div style="border:3px solid #cccccc;padding: 10px;border-radius:20px; background-color: #CCCCCC;color:#4D4D4D;padding: 20px ">
+						
+						<table>
+							<td>
+								<div style="text-align: center;margin:10px">
+									<div style="margin:0 auto;width:140px;height:140px;border-radius: 50%;overflow: hidden;border:5px solid #0094d2">
+										<img src="images/delia.jpg" style="margin-left: -40px;margin-top: -20px;width:200px">
+										
+									</div>
+								</div>
+								<div class="negrilla" style="text-align: center;margin:10px">DELIA RODRIGO</div>
+								Es Directora de allio|Rodrigo consulting y Experta Senior en Mejora Regulatoria.  Tiene más de dieciséis años de experiencia profesional en las áreas de gobernanza regulatoria, políticas públicas, desarrollo del sector privado y clima de inversiones. Ha participado en el diseño de programas para implementar el Análisis de Impacto Normativo (AIN) en varios países, como Brasil, Rumania, Ecuador, India, Turquía, Bangladesh, Argentina, Kenia, y capacitado a más de 2000 funcionarios y representantes del sector privado en el uso de esta herramienta. 
+							</td>
+							<td style="width: 10px">
+								
+							</td>
+							<td style="width: 270px">
+								Trabajó en el área de mejora regulatoria en la Organización para la Cooperación y el Desarrollo Económicos (OCDE) en París y el Banco Mundial en Washington. Fue responsable de la implementación del uso de AIN en Brasil, apoyando al Programa de Fortalecimiento de la Capacidad para la Gestión Regulatoria (PRO-REG) de la Presidencia de la República. Actualmente colabora con la OCDE, Banco Mundial, ONUDI, BID e instituciones públicas de varios países en proyectos de asistencia técnica en la diseminación de buenas prácticas regulatorias y el uso de herramientas para mejorar la calidad de la regulación. <br/>
+								En Colombia ha brindado apoyo técnico a entidades gubernamentales como el Departamento Nacional de Planeación (DNP), la Comisión de Regulación de Comunicaciones (CRC), la Comisión de Regulación de Energía y Gas (CREG), el Ministerio de Minas y Energía y el Departamento de la Función Pública (DAFP). Desarrolló junto a ONUDI este Curso Virtual y ofrece apoyo técnico para mejorar la preparación de reglamentos técnicos de alta calidad. 
+							</td>
+
+						</table>
+					</div>
+					
+
+
+
+
+
+
+				</div>
+			</td>
+		</table>
+		</div>
+		<div style="display:inline-block;text-align:right;margin-top:20px">
+			<img src="images/enlace_globo.png">
+		</div>
+			
+		
+	</div>
+
+	<div id="loader" >
+		<div class="spinner">
+		  <div class="dot1"></div>
+		  <div class="dot2"></div>
+		</div>
+	</div>
+	<div id="zoom" class="zoom">
+		<div id="contenido_zoom" class="contenido_zoom"><i class="fa fa-window-close" aria-hidden="true"></i></div>
+		<div id="equis_zoom" class="equis_zoom"> CERRAR IMAGEN </div>
+	</div>
+
+	<div id="instruccion_circ" class="instruccion_nav">
+	
+				
+				<div class="instruccion_navtxtx" style="width:1090px;top:40px;left:100px">
+					<div class="ayuda">
+					<i class="fas fa-star"></i> Ayuda de navegación 
+				</div>
+
+				<table>
+					<tr>
+					<td>
+						<div style="padding-left: 20px;border-left: 6px solid #95C11E">
+						Algunas pantallas, como esta, contienen subsecciones internas representadas por botones.
+						</div>
+					</td>
+				
+				
+					<td>
+						<img src="images/inst_1.png">
+					</td>	
+					</tr>
+
+			</table>
+			<div style="height: 20px">
+				
+			</div>
+			<table>
+					<tr>
+					<tr>
+					<td>
+						Para acceder a cada subsección, debes pulsar en el botón correspondiente siempre y cuando se encuentre habilitado.
+					</td>
+					<td>
+						<div style="margin:10px">
+						<img src="images/inst_2.png">
+						</div>
+					</td>	
+					<td style="width: 30px">
+						
+					</td>
+					<td>
+						<div style="font-size: 24px;color:#004996;font-style: italic;padding: 10px">
+						Sabrás que un botón se encuentra habilitado porque está acompañado de un símbolo de un candado abierto.
+						</div>
+					</td>
+					<td>
+						<img src="images/inst_3.png">
+						
+					</td>	
+					</tr>
+					</tr>
+			</table>
+			<div style="height: 20px">
+				
+			</div>
+			
+			<table>
+					<tr>
+					<td>
+						Cada subsección se habilitará a medida que consultes totalmente la sección anterior.
+					</td>
+					<td>
+						<img src="images/inst_4.png">
+						
+					</td>	
+					</tr>
+					
+				</table>
+			    
+		</div>
+
+		<div id="cerrar_ic" class="equis_zoom" style="width:182px;font-size: 25px;border-radius: 20px;top:560px;margin-right: 40px "> Entendido <div style="color:#fbb900"><i class="fas fa-angle-double-right"></i></div></div>
+				
+		
+	</div>
+
+
+	<div id="instruccion_inf" class="instruccion_nav">
+	
+				
+				<div class="instruccion_navtxtx" style="width:1090px;top:40px;left:100px">
+					<div class="ayuda">
+					<i class="fas fa-star"></i> Ayuda de navegación 
+				</div>
+
+				<table>
+					<tr>
+					<td>
+						<img src="images/inst_5.png">
+						
+					</td>	
+					<td>
+						<div style="padding-left: 20px;border-left: 6px solid #95C11E">
+
+					A veces los contenidos incluyen gráficos e infografías interactivas.
+					</div>
+					
+					</td>
+					
+					</tr>
+				</table>
+				<table>
+
+					<tr>
+					<td>
+						Para ampliar la información deberás pasar el mouse sobre diferentes zonas.
+						<div style="margin: 20px;color:#E5007D;text-align: center;text-shadow: 0 0 3px #ffffff">
+					Asegúrate de consultar todas ellas.
+							
+						</div>
+
+						Sabrás que consultaste una zona porque su tono cambia de color.
+
+					</td>
+					<td>
+						<img src="images/inst_6.png">
+						
+					</td>	
+					</tr>
+					
+					
+				</table>
+			    
+		</div>
+
+		<div id="cerrar_inf" class="equis_zoom" style="width:182px;font-size: 25px;border-radius: 20px;top:560px;margin-right: 40px "> Entendido <div style="color:#fbb900"><i class="fas fa-angle-double-right"></i></div></div>
+				
+		
+	</div>
+
+
+
+	<div id="instruccion_ov" class="instruccion_nav">
+	
+				
+				<div class="instruccion_navtxtx" style="width:1090px;top:40px;left:100px">
+					<div class="ayuda">
+					<i class="fas fa-star"></i> Ayuda de navegación 
+				</div>
+
+				<table>
+					<tr>
+					<td>
+						<div style="padding-left: 20px;border-left: 6px solid #FBB900">
+
+					Algunos textos despliegan información adicional al ubicar el cursor sobre ellos.<br/>
+					Identificarás los textos interactivos porque tienen un fondo que resplandece.
+
+					</div>
+					<div style="margin: 20px;color:#E5007D;text-align: center;text-shadow: 0 0 3px #ffffff">
+					
+					Asegúrate de consultar la información de todos los textos interactivos.
+				</div>
+					</td>
+					<td>
+						<img src="images/inst_7.png">
+						
+					</td>	
+					</tr>
+					</table>
+					<table>
+					<tr>
+					<td>
+
+						Visualmente sabrás que ya consultaste un texto interactivo porque su fondo cambia de color.
+						
+					</td>
+					<td>
+						<img src="images/inst_8.png">
+						
+					</td>	
+					</tr>
+					
+				</table>
+			    
+		</div>
+
+		<div id="cerrar_ov" class="equis_zoom" style="width:182px;font-size: 25px;border-radius: 20px;top:560px;margin-right: 40px "> Entendido <div style="color:#fbb900"><i class="fas fa-angle-double-right"></i></div></div>
+				
+		
+	</div>
+
+
+		<div id="instruccion_mas" class="instruccion_nav">
+	
+				
+				<div class="instruccion_navtxtx" style="width:1090px;top:40px;left:100px">
+					<div class="ayuda">
+					<i class="fas fa-star"></i> Ayuda de navegación 
+				</div>
+
+				<table>
+					<tr>
+					<td>
+
+						<div style="padding-left: 20px;border-left: 6px solid #FBB900">
+
+					En algunas secciones encontrarás botones como este.
+					
+
+					</div>
+					
+					
+					
+					</td>
+					<td>
+						<img src="images/inst_9.png">
+						
+					</td>	
+					</tr>
+</table>
+<table>
+					<tr>
+					<td>
+
+						
+					No olvides pulsarlos ya que contienen información complementaria importante.
+					
+					
+					</td>
+					<td>
+						<div style="margin: 10px;margin-top: 70px">
+						<img src="images/inst_10.png">
+						</div>
+					</td>	
+					</tr>
+					
+				</table>
+			    
+		</div>
+
+		<div id="cerrar_mas" class="equis_zoom" style="width:182px;font-size: 25px;border-radius: 20px;top:560px;margin-right: 40px "> Entendido <div style="color:#fbb900"><i class="fas fa-angle-double-right"></i></div></div>
+				
+		
+	</div>
+			<div id="instruccion_per" class="instruccion_nav">
+	
+				
+				<div class="instruccion_navtxtx" style="width:1090px;top:40px;left:100px">
+					<div class="ayuda">
+					<i class="fas fa-star"></i> Ayuda de navegación 
+				</div>
+
+				<table>
+					<tr>
+					<td>
+						<div style="padding-left: 20px;border-left: 6px solid #FBB900">
+
+					En ocasiones encontrarás la imagen de alguno de los personajes guía:
+					</div>
+					</td>
+					<td>
+						<div style="margin: 10px">
+						<img src="images/inst_11.png">
+						</div>
+					</td>	
+					</tr>
+				</table>
+				<table>
+					<tr>
+					<td>
+						Recuerda pulsar sobre esas imágenes para escuchar información complementaria.
+					
+					</td>
+					<td>
+						<div style="margin: 10px;margin-top: 70px">
+						<img src="images/inst_12.png">
+						</div>
+					</td>	
+					</tr>
+					
+				</table>
+			    
+		</div>
+
+		<div id="cerrar_per" class="equis_zoom" style="width:182px;font-size: 25px;border-radius: 20px;top:560px;margin-right: 40px "> Entendido <div style="color:#fbb900"><i class="fas fa-angle-double-right"></i></div></div>
+				
+		
+	</div>
+
+
+	<div id="instruccion_clics" class="instruccion_nav">
+	
+				
+				<div class="instruccion_navtxtx" style="width:1090px;top:40px;left:100px">
+					<div class="ayuda">
+					<i class="fas fa-star"></i> Ayuda de navegación 
+				</div>
+
+				<table>
+					<tr>
+						<td rowspan="2">
+						<div style="margin: 10px">
+						<img src="images/inst_13.png">
+						</div>
+					</td>	
+					<td rowspan="2">
+						<div style="padding-left: 20px;border-left: 6px solid #FBB900;width: 170px">
+
+					En la parte izquierda de esta pantalla encontrarás un esquema conformado por varias opciones
+					</div>
+					</td>
+					
+				<td style="width: 40px" rowspan="2">
+					
+				</td>
+					<td>
+						Deberás pulsar la primera opción para acceder a su contenido, el cual se desplegará a la derecha de la pantalla.
+					
+					</td>
+					<td>
+						<div style="margin: 10px">
+						<img src="images/inst_14.png">
+						</div>
+					</td>	
+					</tr>
+			
+					<tr>
+					<td>
+						Una vez consultes el contenido de una sección, podrás acceder al contenido de la siguiente.
+					<div style="margin: 20px;color:#E5007D;text-align: center;text-shadow: 0 0 3px #ffffff">
+						
+
+						El cambio de color te indicará cuando cada opción se encuentra habilitada para ser consultada.
+					</div>
+					</td>
+					<td>
+						<div style="margin: 10px">
+						<img src="images/inst_15.png">
+						</div>
+					</td>	
+					</tr>
+					
+				</table>
+			    
+		</div>
+
+		<div id="cerrar_clics" class="equis_zoom" style="width:182px;font-size: 25px;border-radius: 20px;top:560px;margin-right: 40px "> Entendido <div style="color:#fbb900"><i class="fas fa-angle-double-right"></i></div></div>
+				
+		
+	</div>
+<div id="indica_nav" class="indica_nav">
+			<div id="indica_nav_int" class='animated bounceup indica_nav_int'></div>
+		</div>
+
+	<script type="text/javascript">activar_fondo = true;</script>
+	
+</body>
+</html>

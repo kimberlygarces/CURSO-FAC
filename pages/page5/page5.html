@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<link rel="stylesheet" href="../../index.css">
+<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
+<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
+<script src="../../cjs/easeljs-0.8.2.min.js"></script> 
+<script src="../../cjs/tweenjs-0.6.2.min.js"></script> 
+<script src="../../cjs/preloadjs-0.6.2.min.js"></script> 
+<script src="../../cjs/soundjs-0.6.2.min.js"></script> 
+<script src="page.js"></script> 
+<script src="../../principal.js"></script> 
+<script src="../../cjs/jquery.min.js"></script> 
+<script src="../../cjs/jquery.imagemapster.js"></script> 
+<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script> 
+<script>
+var canvas, stage, exportRoot;
+
+function init() {
+
+	canvas = document.getElementById("canvas");
+
+	var loader = new createjs.LoadQueue(false);
+	loader.installPlugin(createjs.Sound);
+	loader.addEventListener("fileload", handleFileLoad);
+	loader.addEventListener("complete", handleComplete);
+	loader.addEventListener("progress", handleProgress);
+	loader.loadManifest(lib.properties.manifest);	
+}
+
+function handleFileLoad(evt) {
+	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
+}
+
+function playSound(id, loop) {
+	createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+}
+
+ancho_linea = 0;
+alto_linea = 10;
+max_ancho = 450;
+
+function handleProgress(evt) {
+	stage = new createjs.Stage(canvas);
+	var bordePadding = 2;
+    var borde = new createjs.Shape;
+    borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding*2, alto_linea).endFill();
+    var linea_carga = new createjs.Shape();
+	linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding,0 + bordePadding, ancho_linea, alto_linea - bordePadding*2).endFill();
+	
+    progreso = Math.round(evt.loaded * max_ancho);
+	ancho_linea = progreso;
+	
+	contenedor = new createjs.Container();
+	contenedor.x = 1240/2 - max_ancho/2;
+	contenedor.y = 495*4/5 - alto_linea/2;
+	contenedor.addChild(borde, linea_carga);
+	
+	//stage.addChild(contenedor);
+	stage.update();
+}
+
+function handleComplete(evt) {
+	var queue = evt.target;
+	
+	stage = new createjs.Stage(canvas);
+	createjs.Ticker.addEventListener("tick", stage);
+
+	/////Variables
+	sin_personaje = false;
+	globo_personaje = "Continuemos analizando los hallazgos relacionados con el supervisor, pero ahora en la etapa postcontractual.";
+	pausas_audio = [[0,4398,7509],[687,4772,8247]];
+	
+	contenidos();	
+}
+
+</script>
+</head>
+
+<body onload="init();">
+<canvas id="canvas" width="1165" height="550"></canvas>
+<div id="instruccion_circulos" class="instruccion_circulos"> </div>
+
+<!--INICIO CONTENIDO--> 
+
+<!-- Inicio contenido principal-->
+<div class="c_principal c_1_1"><!--modificar clase c_1_1 según distribución de contenido;-->
+  <h1>Transparencia</h1>
+  <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)--> 
+    <img src="images/diap73.png" height="290">
+    </div>
+  <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+    <div class="txt_c">
+      <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
+        <div class="resaltado_especial">
+De la muestra seleccionada de los contratos de 2007 que debieron ser liquidados en la vigencia 2008, se evidenció que no existen actas de liquidación en cinco (5) . En algunos casos han superado un (1)  año de vencimiento en la entrega de éstas Actas al Departamento de contratos.
+
+        </div>
+      <div id="zona_sensible0" class="negrilla_sensible">
+        <p><i class="fad fa-lightbulb-on"></i></p>
+        <p> Lección aprendida </p>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+<div id="pop0" class="pop">
+    El supervisor del contrato tiene la función de adelantar las gestiones necesarias para la oportuna liquidación del contrato, teniendo en cuenta el procedimiento y los plazos definidos en la Ley 80 de 1993, el Decreto 019 de 2012 y la Ley 1150 de 2007.
+
+
+</div>
+<div id="pop1" class="pop"> Escoger al contratista a través de licitación (salvo excepciones previstas en la Ley). </div>
+<div id="pop2" class="pop"> Permitir a los interesados conocer y controvertir los informes, conceptos y decisiones que se rindan o adopten. </div>
+<div id="pop3" class="pop"> Expedientes abiertos al público. </div>
+<div id="pop4" class="pop"> No incluir en los pliegos de condiciones exigencias de imposible cumplimiento. </div>
+<div id="pop5" class="pop"> Previamente al inicio de un proceso de selección, la entidad estatal debe asegurarse de contar con las partidas presupuestales necesarias y los estudios previos que permitan establecer el objeto a contratar. </div>
+<div id="pop6" class="pop"> Adelantar los trámites con austeridad en tiempo y de recursos. </div>
+<div id="pop7" class="pop"> Evitar dilaciones o retardos injustificados en la selección del contratista y en la ejecución del contrato. </div>
+<div id="pop8" class="pop"> Buscar la mejor relación costo/beneficio. </div>
+<div id="pop9" class="pop"> Los funcionarios de las entidades estatales podrán responder civil, penal, disciplinariamente cuando por sus actos y/o omisiones causen perjuicios a los proponentes y/o contratistas. </div>
+<div id="pop10" class="pop"> Velar por el cumplimiento de los fines de la contratación (vigilar la correcta ejecución del contrato). </div>
+<div id="pop11" class="pop"> Aplicar las sanciones a las que haya lugar (económicas y/o penales, según el caso) a los contratistas que actúen de mala fe en contra del interés público. </div>
+<div id="pop12" class="pop"> Para propender por la objetividad, bajo el principio de reciprocidad, en los procesos de selección pública los proponentes extranjeros deben ser tratados en igualdad de condiciones que los nacionales cuando exista un trato igual en el país de origen de dicho extranjero para proponentes colombianos (países con los que se tienen acuerdos, tratados o convenios). </div>
+<div id="pop13" class="pop"> Establecer en los pliegos de condiciones los requisitos objetivos necesarios para participar en el correspondiente proceso de selección. </div>
+<div id="pop14" class="pop"> Establecer de manera precisa, detallada y concreta los criterios de selección y su ponderación en el pliego de condiciones. </div>
+<div id="pop15" class="pop"> Realizar, previo a la adjudicación, la comparación objetiva de las propuestas presentadas, la consulta de precios o condiciones del mercado y los estudios y deducciones pertinentes. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop17" class="pop"> Si dicha igualdad o equivalencia se rompe por causas no imputables a quien resulte afectado, las partes deben adoptar en el menor tiempo posible las medidas necesarias para su restablecimiento. </div>
+<div id="pop18" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop19" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop20" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop21" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+</body>
+</html>

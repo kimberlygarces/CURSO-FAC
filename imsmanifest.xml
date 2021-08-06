@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!-- created with "Manifest Maker for ADL SCORM 1.2 Version 2.0.0" for Dreamweaver,
+ on Mon Sep 09 2013 15:38:26 GMT-0500 (SA Pacific Standard Time) -->
+
+<manifest identifier="Familia-MANIFEST" version="1.0"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                        http://www.imsglobal.org/xsd/imsmd_rootv1p2p1 imsmd_rootv1p2p1.xsd
+                        http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd" >
+
+
+<metadata>
+<schema>ADL SCORM</schema>
+<schemaversion>1.2</schemaversion>
+<adlcp:location>imsmetadata.xml</adlcp:location>
+</metadata>
+ 
+<organizations default="TOC1">
+<organization identifier="TOC1">
+<title>Contratación Pública</title >
+<item identifier="I_SCO0" identifierref="SCO0">
+<title>index</title>
+</item>
+</organization>
+</organizations>
+
+<resources>
+<resource identifier="SCO0" type="webcontent" adlcp:scormtype="sco" href="index.html">
+<file href="index.html" />
+<dependency identifierref="ALLRESOURCES" />
+</resource>
+
+<resource identifier="ALLRESOURCES" type="webcontent" adlcp:scormtype="asset">
+<file href="pages/page1/page1.html"/>
+<file href="pages/page2/page2.html"/>
+<file href="pages/page3/page3.html"/>
+<file href="pages/page4/page4.html"/>
+<file href="pages/page5/page5.html"/>
+<file href="pages/page6/page6.html"/>
+<file href="pages/page7/page7.html"/>
+<file href="pages/page8/page8.html"/>
+<file href="pages/page9/page9.html"/>
+<file href="pages/page10/page10.html"/>
+<file href="pages/page11/page11.html"/>
+<file href="pages/page12/page12.html"/>
+<file href="pages/page13/page13.html"/>
+<file href="pages/page14/page14.html"/>
+</resource>
+
+</resources>
+
+</manifest>
