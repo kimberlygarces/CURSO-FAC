@@ -8,7 +8,7 @@ lib.properties = {
 	height: 485,
 	fps: 24,
 	color: "#FFFFFF",
-	manifest: [{src:"sounds/audio2.mp3"}]
+	manifest: [{src:"sounds/audio2.mp3"},{src:"sounds/audio2_0.mp3"}]
 };
 
 
