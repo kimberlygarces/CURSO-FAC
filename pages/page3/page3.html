@@ -1,1052 +1,1466 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title></title>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="../../page.css">
+  <link rel="stylesheet" href="../../index.css">
+  <link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
+  <link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-<link rel="stylesheet" href="../../index.css">
-<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
-<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
 
-<script src="../../cjs/easeljs-0.8.2.min.js"></script>
-<script src="../../cjs/tweenjs-0.6.2.min.js"></script>
-<script src="../../cjs/preloadjs-0.6.2.min.js"></script>
-<script src="../../cjs/soundjs-0.6.2.min.js"></script>
-<script src="page.js"></script>
-<script src="../../principal.js"></script>
-<script src="../../cjs/jquery.min.js"></script>
-<script src="../../cjs/jquery.imagemapster.js"></script>
-<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
+  <!-- CSS only -->
 
-<script>
-var canvas, stage, exportRoot;
 
-function init() {
+  <script src="../../cjs/easeljs-0.8.2.min.js"></script>
+  <script src="../../cjs/tweenjs-0.6.2.min.js"></script>
+  <script src="../../cjs/preloadjs-0.6.2.min.js"></script>
+  <script src="../../cjs/soundjs-0.6.2.min.js"></script>
+  <script src="page.js"></script>
+  <script src="../../principal.js"></script>
+  <script src="../../cjs/jquery.min.js"></script>
+  <script src="../../cjs/jquery.imagemapster.js"></script>
+  <script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
 
-	canvas = document.getElementById("canvas");
 
-	var loader = new createjs.LoadQueue(false);
-	loader.installPlugin(createjs.Sound);
-	loader.addEventListener("fileload", handleFileLoad);
-	loader.addEventListener("complete", handleComplete);
-	loader.addEventListener("progress", handleProgress);
-	loader.loadManifest(lib.properties.manifest);	
-}
 
-function handleFileLoad(evt) {
-	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
-}
 
-function playSound(id, loop) {
-	createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
-}
+  <script>
+    var canvas, stage, exportRoot;
 
-ancho_linea = 0;
-alto_linea = 10;
-max_ancho = 450;
+    function init() {
 
-function handleProgress(evt) {
-	stage = new createjs.Stage(canvas);
-	var bordePadding = 2;
-    var borde = new createjs.Shape;
-    borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding*2, alto_linea).endFill();
-    var linea_carga = new createjs.Shape();
-	linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding,0 + bordePadding, ancho_linea, alto_linea - bordePadding*2).endFill();
-	
-    progreso = Math.round(evt.loaded * max_ancho);
-	ancho_linea = progreso;
-	
-	contenedor = new createjs.Container();
-	contenedor.x = 1240/2 - max_ancho/2;
-	contenedor.y = 495*4/5 - alto_linea/2;
-	contenedor.addChild(borde, linea_carga);
-	
-	//stage.addChild(contenedor);
-	stage.update();
-}
+      canvas = document.getElementById("canvas");
 
-function handleComplete(evt) {
-	var queue = evt.target;
-	
-	stage = new createjs.Stage(canvas);
-	createjs.Ticker.addEventListener("tick", stage);
+      var loader = new createjs.LoadQueue(false);
+      loader.installPlugin(createjs.Sound);
+      loader.addEventListener("fileload", handleFileLoad);
+      loader.addEventListener("complete", handleComplete);
+      loader.addEventListener("progress", handleProgress);
+      loader.loadManifest(lib.properties.manifest);
+    }
 
-	/////Variables
-	sin_personaje = false;
-	globo_personaje = "Analicemos ahora los hallazgos correspondientes a la etapa contractual. Empecemos con aquellos que tienen como principal responsable al equipo de gestión contractual.";
-	pausas_audio = [[0,5205,11377],[819,5620,12128]];
-	
-	contenidos();	
-}
+    function handleFileLoad(evt) {
+      if (evt.item.type == "image") {
+        images[evt.item.id] = evt.result;
+      }
+    }
 
-</script>
+    function playSound(id, loop) {
+      createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+    }
+
+    ancho_linea = 0;
+    alto_linea = 10;
+    max_ancho = 450;
+
+    function handleProgress(evt) {
+      stage = new createjs.Stage(canvas);
+      var bordePadding = 2;
+      var borde = new createjs.Shape;
+      borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding * 2, alto_linea)
+        .endFill();
+      var linea_carga = new createjs.Shape();
+      linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding, 0 + bordePadding, ancho_linea, alto_linea -
+        bordePadding * 2).endFill();
+
+      progreso = Math.round(evt.loaded * max_ancho);
+      ancho_linea = progreso;
+
+      contenedor = new createjs.Container();
+      contenedor.x = 1240 / 2 - max_ancho / 2;
+      contenedor.y = 495 * 4 / 5 - alto_linea / 2;
+      contenedor.addChild(borde, linea_carga);
+
+      //stage.addChild(contenedor);
+      stage.update();
+    }
+
+    function handleComplete(evt) {
+      var queue = evt.target;
+
+      stage = new createjs.Stage(canvas);
+      createjs.Ticker.addEventListener("tick", stage);
+
+      /////Variables
+      sin_personaje = false;
+      globo_personaje =
+        "Analicemos las diferentes etapas contractuales, cada una de ellas sera definida detalladante a conticuación, empezaremos con la etapa de planeación";
+      pausas_audio = [
+        [0, 5205, 11377],
+        [819, 5620, 12128]
+      ];
+
+      contenidos();
+    }
+  </script>
 
 </head>
 
 <body onload="init();">
-<canvas id="canvas" width="1165" height="550"></canvas>
-	<div id="instruccion_circulos" class="instruccion_circulos"> 
-	</div>
-	
-	<div class="c_principal c_1_7"><!--modificar clase c_1_1 según distribución de contenido;-->
-  <h1></h1>
-  
-  <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-  
+  <canvas id="canvas" width="1165" height="550"></canvas>
+  <div id="instruccion_circulos" class="instruccion_circulos">
   </div>
-  <div class="item_c" ><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-    
-    <div class="txt_interno c_1">
-      <h1>Inicio<br/>
-      </h1>
-      <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-          
-          <div class='instruccion_interna'><span class='indica_instclic'></span>Pulsa los números para conocer los hallazgos.</div>
+
+  <div class="c_principal c_1_7">
+    <!--modificar clase c_1_1 según distribución de contenido;-->
+    <h1></h1>
+
+    <div class="item_c">
+      <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+
+    </div>
+    <div class="item_c">
+      <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+
+      <div class="txt_interno c_1">
+        <h1>Inicio<br />
+        </h1>
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
+
+            <div class='instruccion_interna'><span class='indica_instclic'></span>Pulsa los números para conocer los
+              hallazgos.</div>
+          </div>
         </div>
       </div>
-    </div>
-    
-	  
-	  
-        <div class="txt_interno c_1_2">
+
+              
+   
+
+      <div class="txt_interno c_1_2">
         <h1>1</h1>
-            <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap29.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En varios contratos se observó que la constitución de la póliza, el pago de los derechos para la publicación del contrato y el pago del impuesto de timbre, se realizó por fuera del término establecido en las cláusulas.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato se observa que el inicio de la ejecución contractual se realiza antes de la aprobación de la póliza de cumplimiento, toda vez que la misma se aprobó hasta el 2 de marzo y la ejecución inicia en el mes de febrero, de acuerdo a la cuenta de cobro No. 1 del 2 de marzo de 2010 y la constancia suscrita por la supervisora y responsable con fecha 8 de marzo, en donde se menciona la prestación del servicio en el mes de febrero.
-		</td>
-	</tr>
-</table>            </div>
-            <div id="zona_sensible0" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+        <div id="id01" class="w3-modal">
+          <div class="w3-modal-content ">
+            <div class="w3-container">
+              <div class="w3-display-topleft">
+                <button onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-black">X</button>
+              </div>
+              <div class="w3-col w3-card" style="width:45%">
+                <p  class="w3-serif"  style="font-size: 22px;">Contrato Cerrado:</p>
+                Es el contrato que especifica cantidades, precios, condiciones técnicas y términos de entrega.
+              </div>
+              <div class="w3-col w3-card" style="width:45%">
+                <div id="zona_sensible0" class="w3-display-topmiddle w3-padding w3-hide-small" >
+                  <!-- <p><i class="fad fa-lightbulb-on"></i></p> -->
+                  <p class="w3-serif" style="font-size: 22px;">
+                    Contrato Abierto:
+                  </p>
+                </div>    
+                <p>
+                  El contrato abierto, posee dos tipologías, como son: Contrato Abierto Marco y Contrato Abierto con Lista de
+                  Precios.
+                </p>                
+            
+            
+              </div>
+
+        
+           
             </div>
+          </div>
         </div>
-        </div>	
+   
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap29.png" height="">
+          <!-- <button class="btn_negrilla_sensible" name="button">
+            <i class="fad fa-lightbulb-on"></i>
+            Tipos de Contrato</button> -->
+        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button btn_negrilla_sensible">    <i class="fad fa-lightbulb-on"></i>Tipos de Contrato</button>
+
+
         </div>
-      
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
+            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
+            <div>
+
+            </div>
+
+            <div class="resaltado_especial">
+                                         
+         
+              <h3>Etapa de planeación</h3>
+              Esta etapa constituye el período en que se realizan las actividades necesarias para adelantar el proceso
+              de contratación o actos preliminares a la celebración del contrato en procura de seleccionar la mejor
+              propuesta que satisfaga la necesidad de adquirir bienes y servicios.
+              Los procedimientos de estructuración, selección, coordinación, evaluación y seguimiento estarán sometidos
+              a los principios generales de la buena fe, igualdad, moralidad, celeridad, economía, imparcialidad,
+              eficacia, participación, responsabilidad, transparencia, y selección objetiva. Es responsable el Gerente
+              del Proyecto por lo contemplado en este numeral.
+              Inicialmente las Unidades Ejecutoras definirán la necesidad de manera específica y en coordinación con el
+              Área de Estructuración Técnica definirán el tipo de contrato a celebrar.
+
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
       <div class="txt_interno c_1_7">
         <h1>2</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap30.png" height="">
+             <!-- 4. MODAL Causales de contratación -->
+             <div id="id04" class="w3-modal">
+              <div class="w3-modal-content ">
+                <div class="w3-container">
+                  <div class="w3-display-topleft">
+                    <button onclick="document.getElementById('id04').style.display='none'" class="w3-button w3-black">X</button>
+                  </div>
+                  <div class="w3-col w3-card" style="width:95%">
+                    <p  class="w3-serif"  style="font-size: 22px;">Causales de contratación
+                    </p>
+                      cuadrooo
+                  </div>           
+                </div>
+              </div>
+            </div>
+        <!-- 1. MODAL MODALIDAD DE SELECCIÓN -->
+        <div id="id02" class="w3-modal">
+          <div class="w3-modal-content ">
+            <div class="w3-container">
+              <div class="w3-display-topleft">
+                <button onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-black">X</button>
+              </div>
+              <div class="w3-col w3-card" style="width:95%">
+                <p  class="w3-serif"  style="font-size: 22px;">Modalidad de selección</p>
+                Para garantizar la eficiencia y la transparencia en la contratación realizada a través de la Dirección de la Agencia de Compras FAC, se aplicarán las siguientes modalidades: 
+                1) Proceso Abreviado. 
+                2) Proceso Mayor. 
+                Teniendo en cuenta que los procesos contractuales en ACOFA se someten bajo la jurisdicción del Estado de la Florida tanto la etapa precontractual y la ejecución, los mismos estarán sometidos a los principios de la función administrativa a que se refiere el Artículo 209 de la Constitución Política de Colombia de 1991.
+                La Unidad Ejecutora deberá justificar de manera previa a la apertura del proceso de selección los fundamentos que soportan la modalidad de selección que se pretende adelantar.
+              </div>           
+            </div>
+          </div>
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-                
-                <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-Al revisar la póliza única se encontró que el amparo de estabilidad de la obra no está de acuerdo con lo establecido en el contrato. Aparece ver nota 1, nota que no aclara la vigencia respectiva; en donde el contrato establece una vigencia de 5 años y la póliza está expedida por menos vigencia.
+        <!-- 2. Modal Causales de contratación -->
 
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato se constituyó la póliza de salarios y prestaciones sociales, evidenciándose una vigencia de 1 año adicional a la duración del contrato.
-		</td>
-	</tr>
-                    <tr>
-		<td class="vineta"></td>
-		<td>
-En varios contratos la vigencia del amparo de estabilidad de la obra se estableció por un año a partir del recibido a satisfacción de las obras.
-		</td>
-	</tr>
-                    <tr>
-		<td class="vineta"></td>
-		<td>
-En varios contratos el amparo de estabilidad de la obra no está constituido de acuerdo a lo establecido contractualmente.
-		</td>
-	</tr>
-                    <tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato el amparo de estabilidad de la obra solo está por un año, y no se evidencio justificación al respecto.
-		</td>
-	</tr>
-                    <tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato no se realizó el ajuste del amparo de calidad y correcto funcionamiento, amparo que era de un año más una vez se recibieran los elementos, es decir hasta el 25 de septiembre de 2011, el cual está hasta el 28 de junio de 2010.
-		</td>
-	</tr>
-</table>
-                
+        <div id="id03" class="w3-modal">
+          <div class="w3-modal-content ">
+            <div class="w3-container">
+              <div class="w3-display-topleft">
+                <button onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-black">X</button>
+              </div>
+              <p  class="w3-serif"  style="font-size: 22px;">Causales de contratación                </p>
+
+              <div class="w3-col w3-card" style="width:45%">
+                <p  class="w3-serif"  style="font-size: 22px;">Proceso Abreviado.
+                  Serán causales del proceso abreviado las siguientes:
+                </p>
+                <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Procesos iguales o inferiores a USD$200.000
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Publicaciones y suscripciones sin importar la cuantía.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Por requerimientos AOG (Aircraft On Ground)
+                  Contratos de Capacitación y Entrenamiento, sin Importar la Cuantía.
+                </td>
+              </tr>
+                </table>
+            </div>        
+              <div class="w3-col w3-card" style="width:45%">
+                <p  class="w3-serif"  style="font-size: 22px;">Proceso Mayor.
+                  Serán causales del proceso mayor las siguientes
+                </p>
+              <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Procesos por cuantía superior a USD$200.000
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Procesos para mantenimiento de Productos Clase I (Mensaje Técnico 920 o el que lo derogue, modifique o complemente).
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Procesos de adquisición de Productos Clase I (Mensaje Técnico 920 o el que lo derogue, modifique o complemente).
+                </td>
+              </tr>
+              </table>
+
+               
+              </div>    
+
+              <button onclick="document.getElementById('id04').style.display='block'" class="w3-button btn_negrilla_sensible">  
+              Tipos de contratación.
+              </button>
+          
             </div>
+          </div>
+        </div>
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap30.png" height="">     
+        </div>
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
+            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div id="zona_sensible1" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                conceptualización
+              </p>
             </div>
+            <div class="resaltado_especial">
+              <button onclick="document.getElementById('id02').style.display='block'" class="w3-button btn_negrilla_sensible">Modalidad de selección.
+              </button>
+              <button onclick="document.getElementById('id03').style.display='block'" class="w3-button btn_negrilla_sensible">  Causales de contratación.
+              </button>
+
+              <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+             
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Estudios de mercado.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Solicitud de cotizaciones.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Negociaciones
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Solicitud de oferta.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Recepción y evaluación de ofertas
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Perfeccionamiento y requisitos de ejecución del contrato.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Garantías contractuales.
+                  </td>
+                </tr>
+              </table>
+
+            </div>
+           
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_2">
         <h1>3</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap31.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap31.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato de obra, dentro de los amparos no se contempló el amparo de estabilidad de la obra.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En la cláusula novena “Garantía Única” de un contrato no se exige la constitución de póliza por Amparo de pago de salarios, prestaciones sociales e indemnizaciones laborales para garantizar el pago de estas obligaciones.
-		</td>
-	</tr>
-</table>
+              <table class="lista_vinetas">
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En un contrato de obra, dentro de los amparos no se contempló el amparo de estabilidad de la obra.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En la cláusula novena “Garantía Única” de un contrato no se exige la constitución de póliza por
+                    Amparo de pago de salarios, prestaciones sociales e indemnizaciones laborales para garantizar el
+                    pago de estas obligaciones.
+                  </td>
+                </tr>
+              </table>
             </div>
             <div id="zona_sensible2" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
-      
-      
+      </div>
+
+
+
       <div class="txt_interno c_1_3">
         <h1>4</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap32.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap32.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En la cláusula vigésima de un contrato se establece como requisito de ejecución la aprobación de la garantía única, cuando en los requisitos previos no se le exigió la constitución de póliza alguna al contratista, y por la cuantía del mismo se podía omitir este requisito. En las páginas 2 a 6 de un contrato se denomina como un contrato de mínima cuantía, cuando se trata de uno de menor cuantía, así mismo dentro del clausulado no se menciona la obligación de publicar el contrato.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-Un contrato presenta inconsistencias de registro de información, como son: la inclusión en el texto de un número de Certificado de Disponibilidad (187) diferente al número del realmente utilizado para el efecto (661), 
-		</td>
-	</tr>
-</table>            </div>
-            <div id="zona_sensible3" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <table class="lista_vinetas">
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En la cláusula vigésima de un contrato se establece como requisito de ejecución la aprobación de la
+                    garantía única, cuando en los requisitos previos no se le exigió la constitución de póliza alguna al
+                    contratista, y por la cuantía del mismo se podía omitir este requisito. En las páginas 2 a 6 de un
+                    contrato se denomina como un contrato de mínima cuantía, cuando se trata de uno de menor cuantía,
+                    así mismo dentro del clausulado no se menciona la obligación de publicar el contrato.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Un contrato presenta inconsistencias de registro de información, como son: la inclusión en el texto
+                    de un número de Certificado de Disponibilidad (187) diferente al número del realmente utilizado para
+                    el efecto (661),
+                  </td>
+                </tr>
+              </table>
             </div>
+            <div id="zona_sensible3" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
+            </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
-      
-      
-      
-      
+      </div>
+
+
+
+
+
       <div class="txt_interno c_1_7">
         <h1>5</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap33.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap33.png" height="">
         </div>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato, el certificado de inscripción, clasificación y calificación del contratista es una copia simple y data del 01/11/06:
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En varios contratos las facturas presentadas por los contratistas no tienen fecha de emisión ni de vencimiento.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-Existen carpetas de contratos que presentan debilidades de archivo como: falta de foliación, foliación sin terminar y documentos repetidos.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-Se observó que algunas de las carpetas que conforman los archivos de los contratos ejecutados en la vigencia 2014 presentan deficiencias en la aplicación de los procesos, procedimientos y normas archivísticas, toda vez que éstas no presentan índices, tablas de retención documental, falta de rótulos de identificación, foliación, documentación repetida y carpetas conformadas con más de 200 folios.
-		</td>
-	</tr>
-    
-</table>
+              <table class="lista_vinetas">
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En un contrato, el certificado de inscripción, clasificación y calificación del contratista es una
+                    copia simple y data del 01/11/06:
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En varios contratos las facturas presentadas por los contratistas no tienen fecha de emisión ni de
+                    vencimiento.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Existen carpetas de contratos que presentan debilidades de archivo como: falta de foliación,
+                    foliación sin terminar y documentos repetidos.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Se observó que algunas de las carpetas que conforman los archivos de los contratos ejecutados en la
+                    vigencia 2014 presentan deficiencias en la aplicación de los procesos, procedimientos y normas
+                    archivísticas, toda vez que éstas no presentan índices, tablas de retención documental, falta de
+                    rótulos de identificación, foliación, documentación repetida y carpetas conformadas con más de 200
+                    folios.
+                  </td>
+                </tr>
+
+              </table>
             </div>
             <div id="zona_sensible4" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
-      
+      </div>
+
+
       <div class="txt_interno c_1_2">
         <h1>6</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap34.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap34.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-La suscripción del documento modificatorio se realizó el 3 de diciembre, después de la fecha límite de entrega, la cual estaba establecida para el 15 de noviembre, con lo cual el contrato modificatorio resultó firmado con fecha posterior a la prevista como plazo de entrega.
+              La suscripción del documento modificatorio se realizó el 3 de diciembre, después de la fecha límite de
+              entrega, la cual estaba establecida para el 15 de noviembre, con lo cual el contrato modificatorio resultó
+              firmado con fecha posterior a la prevista como plazo de entrega.
             </div>
             <div id="zona_sensible5" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_2">
         <h1>7</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap35.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap35.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-En un contrato se evidenció el incumplimiento de la cláusula pactada respecto al término de solicitud de ampliación del plazo para la ejecución del contrato; la solicitud se efectuó 5 días calendario antes del vencimiento de la entrega de los elementos y no 20 días antes como estaba pactado contractualmente, sin que obre en el expediente justificación alguna sobre el particular; y la suscripción del documento modificatorio el 7 de diciembre de 2009, después de la fecha límite de entrega, la cual estaba prevista para el 29 de noviembre de 2009, con lo cual el contrato modificatorio resultó firmado con fecha posterior a la prevista como plazo de entrega.
+              En un contrato se evidenció el incumplimiento de la cláusula pactada respecto al término de solicitud de
+              ampliación del plazo para la ejecución del contrato; la solicitud se efectuó 5 días calendario antes del
+              vencimiento de la entrega de los elementos y no 20 días antes como estaba pactado contractualmente, sin
+              que obre en el expediente justificación alguna sobre el particular; y la suscripción del documento
+              modificatorio el 7 de diciembre de 2009, después de la fecha límite de entrega, la cual estaba prevista
+              para el 29 de noviembre de 2009, con lo cual el contrato modificatorio resultó firmado con fecha posterior
+              a la prevista como plazo de entrega.
             </div>
             <div id="zona_sensible6" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_3">
         <h1>8</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap36.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap36.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En varios contratos no se reporta constancia de la notificación personal de la Resolución de adjudicación al oferente seleccionado, la notificación a los proponentes no seleccionados, ni se está utilizando el formato establecido en el Manual de Contratación para la notificación personal.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En la carpeta de uno de los contratos no se adjunta la Resolución motivada de la adjudicación.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato, los actos de notificación personal de la resolución de adjudicación no están suscritos por quienes debieron ser notificados.
-		</td>
-	</tr>
-</table>            </div>
-            <div id="zona_sensible7" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <table class="lista_vinetas">
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En varios contratos no se reporta constancia de la notificación personal de la Resolución de
+                    adjudicación al oferente seleccionado, la notificación a los proponentes no seleccionados, ni se
+                    está utilizando el formato establecido en el Manual de Contratación para la notificación personal.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En la carpeta de uno de los contratos no se adjunta la Resolución motivada de la adjudicación.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En un contrato, los actos de notificación personal de la resolución de adjudicación no están
+                    suscritos por quienes debieron ser notificados.
+                  </td>
+                </tr>
+              </table>
             </div>
+            <div id="zona_sensible7" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
+            </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_7">
         <h1>9</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap37.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap37.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial" style=" margin: -13px 5px;">
-            <div style="font-size: 13px; line-height: 17px">
-Se evidenció falta de publicación en unas actuaciones contractuales y extemporaneidad en otras, por ejemplo:
-        </div>
-<table class="lista_vinetas" style="font-size: 13px; line-height: 17px; margin-top: -4px;">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-Una adición a un contrato no fue registrada en el SECOP
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-Un contrato de 13/07/12 se publica en el SECOP el 4/10/12
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-El acto administrativo de justificación de un proceso contractual es de 06/08/12 y el contrato es de 27/08/12 y se publican en el SECOP el 15/01/13
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-La modificación 2 a un contrato es del 30/10/12 y se publica en el SECOP una oferta de otro proceso
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-La aceptación de la oferta que equivale al contrato es de 30/08/12 y se publica en el SECOP en 12/09/12.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-El acta de liquidación es de 15/11/12 y no se ha publicado en el SECOP. 
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-El acto administrativo de justificación de la contratación directa es de 10/12/12 y se publica el 14/01/13
-		</td>
-	</tr>
-    
-	<tr>
-		<td class="vineta"></td>
-		<td>
-No se publica la invitación pública a participar
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-La publicación de un contrato se realizó 28 días después de la fecha de inicio, requisito indispensable de publicidad para todos los procedimientos y actos asociados a los procesos de contratación. Igual situación se dio en la constitución de la póliza de cumplimiento, presupuesto para el inicio de la ejecución contractual, contrariando lo establecido en el Decreto 2474 de 2008 Art. 8º numeral 17, Art. 84 inciso 1º, evidenciándose debilidades de control y supervisión en los responsables de estos procesos.
+              <div style="font-size: 13px; line-height: 17px">
+                Se evidenció falta de publicación en unas actuaciones contractuales y extemporaneidad en otras, por
+                ejemplo:
+              </div>
+              <table class="lista_vinetas" style="font-size: 13px; line-height: 17px; margin-top: -4px;">
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Una adición a un contrato no fue registrada en el SECOP
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Un contrato de 13/07/12 se publica en el SECOP el 4/10/12
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    El acto administrativo de justificación de un proceso contractual es de 06/08/12 y el contrato es de
+                    27/08/12 y se publican en el SECOP el 15/01/13
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    La modificación 2 a un contrato es del 30/10/12 y se publica en el SECOP una oferta de otro proceso
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    La aceptación de la oferta que equivale al contrato es de 30/08/12 y se publica en el SECOP en
+                    12/09/12.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    El acta de liquidación es de 15/11/12 y no se ha publicado en el SECOP.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    El acto administrativo de justificación de la contratación directa es de 10/12/12 y se publica el
+                    14/01/13
+                  </td>
+                </tr>
 
-		</td>
-	</tr>
-</table>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    No se publica la invitación pública a participar
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    La publicación de un contrato se realizó 28 días después de la fecha de inicio, requisito
+                    indispensable de publicidad para todos los procedimientos y actos asociados a los procesos de
+                    contratación. Igual situación se dio en la constitución de la póliza de cumplimiento, presupuesto
+                    para el inicio de la ejecución contractual, contrariando lo establecido en el Decreto 2474 de 2008
+                    Art. 8º numeral 17, Art. 84 inciso 1º, evidenciándose debilidades de control y supervisión en los
+                    responsables de estos procesos.
+
+                  </td>
+                </tr>
+              </table>
             </div>
-            <div id="zona_sensible8" class="negrilla_sensible" >
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+            <div id="zona_sensible8" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_3">
         <h1>10</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap38.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap38.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato no se evidencia la copia de la libreta militar del contratista, necesaria para la suscripción del contrato, de acuerdo a lo ordenado por el Decreto 2150 de 1995 en su artículo 111.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato, el monto de los aportes al sistema de seguridad social en salud y pensión cancelados por el contratista, no está acorde a lo establecido en el Decretos 1703 de 2002 y 510 de 2003.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-En las carpetas contentivas de varios contratos no se evidenciaron las certificaciones de falta de personal o con el perfil requerido, para realizar las actividades requeridas. 
-		</td>
-	</tr>
-</table>            </div>
-            <div id="zona_sensible9" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <table class="lista_vinetas">
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En un contrato no se evidencia la copia de la libreta militar del contratista, necesaria para la
+                    suscripción del contrato, de acuerdo a lo ordenado por el Decreto 2150 de 1995 en su artículo 111.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En un contrato, el monto de los aportes al sistema de seguridad social en salud y pensión cancelados
+                    por el contratista, no está acorde a lo establecido en el Decretos 1703 de 2002 y 510 de 2003.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En las carpetas contentivas de varios contratos no se evidenciaron las certificaciones de falta de
+                    personal o con el perfil requerido, para realizar las actividades requeridas.
+                  </td>
+                </tr>
+              </table>
             </div>
+            <div id="zona_sensible9" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
+            </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_4">
         <h1>11</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap39.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap39.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato, el pago de los derechos de publicación no se efectuó dentro del plazo establecido en el contrato.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En varios contratos la constitución de la póliza de cumplimiento no se realizó dentro del plazo establecido contractualmente.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-En varios contratos la constitución de la póliza única de cumplimiento no se realizó dentro del plazo establecido contractualmente.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-En la legalización de un contrato no se evidencia requerimiento alguno al contratista por parte de la entidad, para corregir la vigencia de la póliza única de cumplimiento en el menor tiempo posible.
-		</td>
-	</tr>
-</table>            </div>
-            <div id="zona_sensible10" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <table class="lista_vinetas">
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En un contrato, el pago de los derechos de publicación no se efectuó dentro del plazo establecido en
+                    el contrato.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En varios contratos la constitución de la póliza de cumplimiento no se realizó dentro del plazo
+                    establecido contractualmente.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En varios contratos la constitución de la póliza única de cumplimiento no se realizó dentro del
+                    plazo establecido contractualmente.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    En la legalización de un contrato no se evidencia requerimiento alguno al contratista por parte de
+                    la entidad, para corregir la vigencia de la póliza única de cumplimiento en el menor tiempo posible.
+                  </td>
+                </tr>
+              </table>
             </div>
+            <div id="zona_sensible10" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
+            </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_2">
         <h1>12</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap40.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap40.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-En un contrato no se evidencia el registro presupuestal de los recursos de la vigencia 2010.
+              En un contrato no se evidencia el registro presupuestal de los recursos de la vigencia 2010.
             </div>
             <div id="zona_sensible11" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_3">
         <h1>13</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap41.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap41.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-Se realizó una gestión fiscal ineficiente e ineficaz, por concepto de pactar en la forma de pago de los contratos el anticipo para obra sin obtener previamente la licencia de construcción, y pago anticipado para desarrollar las labores de Interventoría. Lo anterior debido a una ineficiente planificación que permitió entregar anticipo de obra, sin que a la fecha se cuente con la respectiva licencia de construcción. Similar situación ocurrió con otro contrato al convenir un pago anticipado para la labor de Interventoría, con recursos de la vigencia 2009. Lo delicado del tema del pago anticipado realizado a este contrato, es que continuaron desembolsando los recursos de la vigencia 2010, sin ser coherentes las labores de Interventoría.
+              Se realizó una gestión fiscal ineficiente e ineficaz, por concepto de pactar en la forma de pago de los
+              contratos el anticipo para obra sin obtener previamente la licencia de construcción, y pago anticipado
+              para desarrollar las labores de Interventoría. Lo anterior debido a una ineficiente planificación que
+              permitió entregar anticipo de obra, sin que a la fecha se cuente con la respectiva licencia de
+              construcción. Similar situación ocurrió con otro contrato al convenir un pago anticipado para la labor de
+              Interventoría, con recursos de la vigencia 2009. Lo delicado del tema del pago anticipado realizado a este
+              contrato, es que continuaron desembolsando los recursos de la vigencia 2010, sin ser coherentes las
+              labores de Interventoría.
             </div>
             <div id="zona_sensible12" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_6">
         <h1>14</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap42.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap42.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-Dentro de las especificaciones técnicas del contrato, se establece que el contratista debe: seleccionar cada una de las vacantes requeridas de acuerdo con las especificaciones técnicas para que la entidad entreviste al profesional y dé el visto bueno del candidato, recopilar toda la documentación como prerrequisito de admisión y aprobación por parte de la entidad, y garantizar la calidad de los servicios objeto del contrato. No obstante, la entidad se encarga de la convocatoria docente hora cátedra, recepciona las hojas de vida vía electrónica por parte de la sección de planeación del grupo de formación, y el Comité de selección de docentes hace la selección y evaluación de las hojas de vida. Por lo anterior se evidencia que el proceso de recepción, estudio de la documentación, selección y análisis de las hojas de vida de los docentes contratados la está realizando la entidad, dejando a la empresa contratante sólo la realización de los descuentos de Ley y el pago a los docentes. Debido a que no se tiene toda información del porcentaje de los costos en que se incurre en el servicio de la contratación de los docentes hora cátedra, se iniciará una indagación preliminar. 
+              Dentro de las especificaciones técnicas del contrato, se establece que el contratista debe: seleccionar
+              cada una de las vacantes requeridas de acuerdo con las especificaciones técnicas para que la entidad
+              entreviste al profesional y dé el visto bueno del candidato, recopilar toda la documentación como
+              prerrequisito de admisión y aprobación por parte de la entidad, y garantizar la calidad de los servicios
+              objeto del contrato. No obstante, la entidad se encarga de la convocatoria docente hora cátedra,
+              recepciona las hojas de vida vía electrónica por parte de la sección de planeación del grupo de formación,
+              y el Comité de selección de docentes hace la selección y evaluación de las hojas de vida. Por lo anterior
+              se evidencia que el proceso de recepción, estudio de la documentación, selección y análisis de las hojas
+              de vida de los docentes contratados la está realizando la entidad, dejando a la empresa contratante sólo
+              la realización de los descuentos de Ley y el pago a los docentes. Debido a que no se tiene toda
+              información del porcentaje de los costos en que se incurre en el servicio de la contratación de los
+              docentes hora cátedra, se iniciará una indagación preliminar.
             </div>
-            <div id="zona_sensible13" class="negrilla_sensible" >
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+            <div id="zona_sensible13" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_7">
         <h1>15</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap43.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap43.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-                <div style="font-size: 15px; line-height: 18px">
-El anexo técnico de un contrato determina las necesidades de contratación de docentes de acuerdo con las materias que se requieren dictar, debido a que los docentes de planta no son suficientes o no tienen el perfil requerido. Una vez revisado el contrato se evidenciaron las siguientes inconsistencias:
-                    <table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-De las materias que se lograron identificar en el 1er y 2do semestre existen cátedras que no coinciden con las del pensum académico de los diferentes programas.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-Se está incluyendo dentro del contrato de hora cátedra de docentes, pagos por actividades administrativas.
+              <div style="font-size: 15px; line-height: 18px">
+                El anexo técnico de un contrato determina las necesidades de contratación de docentes de acuerdo con las
+                materias que se requieren dictar, debido a que los docentes de planta no son suficientes o no tienen el
+                perfil requerido. Una vez revisado el contrato se evidenciaron las siguientes inconsistencias:
+                <table class="lista_vinetas">
+                  <tr>
+                    <td class="vineta"></td>
+                    <td>
+                      De las materias que se lograron identificar en el 1er y 2do semestre existen cátedras que no
+                      coinciden con las del pensum académico de los diferentes programas.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="vineta"></td>
+                    <td>
+                      Se está incluyendo dentro del contrato de hora cátedra de docentes, pagos por actividades
+                      administrativas.
 
-		</td>
-	</tr><tr>
-		<td class="vineta"></td>
-		<td>
-El docente identificado con cédula de ciudadanía xxx, no aparece dentro de los docentes hora cátedra de la relación suministrada por la entidad, ni en los reportes de SIEFA y SIGA.
-		</td>
-	</tr>
-                        <tr>
-		<td class="vineta"></td>
-		<td>
-La relación de docentes hora cátedra que se suministró no coincide en su totalidad con los docentes que aparecen en los sistemas SIEFA y SIGA.
-		</td>
-	</tr>
-</table>
-                    Las diferencias que presenta el contrato permite inferir irregularidades en su celebración. Además, no es posible determinar el cumplimiento del contrato, debido a que no existe certeza de los docentes contratados, del número de horas ni de las materias dictadas. 
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="vineta"></td>
+                    <td>
+                      El docente identificado con cédula de ciudadanía xxx, no aparece dentro de los docentes hora
+                      cátedra de la relación suministrada por la entidad, ni en los reportes de SIEFA y SIGA.
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="vineta"></td>
+                    <td>
+                      La relación de docentes hora cátedra que se suministró no coincide en su totalidad con los
+                      docentes que aparecen en los sistemas SIEFA y SIGA.
+                    </td>
+                  </tr>
+                </table>
+                Las diferencias que presenta el contrato permite inferir irregularidades en su celebración. Además, no
+                es posible determinar el cumplimiento del contrato, debido a que no existe certeza de los docentes
+                contratados, del número de horas ni de las materias dictadas.
 
-                    
-            </div>
+
+              </div>
             </div>
             <div id="zona_sensible14" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_2">
         <h1>16</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap44.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap44.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-            Una vez revisados los subcontratos derivados de un contrato, correspondientes al segundo semestre de 2012 y primer semestre de 2013, se evidenció que no fueron firmados por el representante legal.
+              Una vez revisados los subcontratos derivados de un contrato, correspondientes al segundo semestre de 2012
+              y primer semestre de 2013, se evidenció que no fueron firmados por el representante legal.
 
             </div>
             <div id="zona_sensible15" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_2">
         <h1>17</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap45.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap45.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-En el desarrollo del proceso auditor al proyecto de Adquisición de alojamiento para el personal militar a nivel nacional, mediante oficio se solicitaron las escrituras correspondientes a la compra de 24 casas en el municipio de Mosquera, Cundinamarca y la escritura mediante la cual se adquirieron cinco (5) apartamentos en Bogotá y otros documentos relacionados con dichas compras. De la respuesta de la Entidad se evidencia que esta no suscribe el contrato de compraventa. 
+              En el desarrollo del proceso auditor al proyecto de Adquisición de alojamiento para el personal militar a
+              nivel nacional, mediante oficio se solicitaron las escrituras correspondientes a la compra de 24 casas en
+              el municipio de Mosquera, Cundinamarca y la escritura mediante la cual se adquirieron cinco (5)
+              apartamentos en Bogotá y otros documentos relacionados con dichas compras. De la respuesta de la Entidad
+              se evidencia que esta no suscribe el contrato de compraventa.
 
             </div>
             <div id="zona_sensible16" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_2">
         <h1>18</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap46.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap46.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-El 08-JUL/2014 se suscribió un contrato de obra para la adecuación del andén y el cerramiento de una vía. De acuerdo con la documentación allegada al expediente contractual, se evidencia que dicho contrato fue objeto de adiciones en cuantía y modificaciones en plazo y forma de pago. Así mismo se encontró acta de fecha 28-ENE/2015, suscrita por el ordenador del gasto, supervisor y contratista, por medio de la cual se suspende el contrato, por cuanto no se han obtenido licencias y permisos por parte del DAMA para remover unos árboles que están impidiendo continuar y culminar el objeto contractual pactado.
+              El 08-JUL/2014 se suscribió un contrato de obra para la adecuación del andén y el cerramiento de una vía.
+              De acuerdo con la documentación allegada al expediente contractual, se evidencia que dicho contrato fue
+              objeto de adiciones en cuantía y modificaciones en plazo y forma de pago. Así mismo se encontró acta de
+              fecha 28-ENE/2015, suscrita por el ordenador del gasto, supervisor y contratista, por medio de la cual se
+              suspende el contrato, por cuanto no se han obtenido licencias y permisos por parte del DAMA para remover
+              unos árboles que están impidiendo continuar y culminar el objeto contractual pactado.
             </div>
             <div id="zona_sensible17" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_5">
         <h1>19</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap47.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap47.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-                <div style="font-size: 15px; line-height: 18px">
-En los pliegos de condiciones, en la oferta del contratista, en el contrato de obra pública, en las actas de recibo parcial y en el ingreso de registros a SAP, no se especificó a qué bienes inmuebles se les debería realizar el mantenimiento preventivo, correctivo, etc.; como tampoco se evidenciaron planes, cronogramas ni procedimientos para realizar dichos mantenimientos durante la ejecución del contrato, de igual forma no se indican los tipos o clases de reparaciones locativas, necesarias y urgentes, pues conociendo y describiendo estas clasificaciones de reparaciones y/o mantenimientos se logra identificar cada caso donde se invierten los recursos del contrato, todo lo cual debe estar sustentado en una solicitud de reparación o mantenimiento por quienes administran o residen en el inmueble, así mismo identificar el bien inmueble con el número, dirección, conjunto, sector o barrio, ciudad de ubicación etc.; y detallar las actividades, material, cantidades y valores de obras de mantenimiento realizadas en cada uno, pues no es suficiente mencionar de manera general si el bien es de administración mixta o de propiedad única, omisión que no permite identificar dónde se realizó el mantenimiento que se está pagando, ni determinar la inversión correspondiente a cada uno. De otra parte en los informes de supervisión y en las actas de recibo a satisfacción se relacionan ítems diferentes a los relacionados en el anexo técnico del contrato, lo cual tampoco es concordante con la necesidad plasmada en los estudios previos, denotándose debilidades de control y supervisión especialmente en los pagos realizados al contratista con respecto a lo realizado y recibido a satisfacción.
+              <div style="font-size: 15px; line-height: 18px">
+                En los pliegos de condiciones, en la oferta del contratista, en el contrato de obra pública, en las
+                actas de recibo parcial y en el ingreso de registros a SAP, no se especificó a qué bienes inmuebles se
+                les debería realizar el mantenimiento preventivo, correctivo, etc.; como tampoco se evidenciaron planes,
+                cronogramas ni procedimientos para realizar dichos mantenimientos durante la ejecución del contrato, de
+                igual forma no se indican los tipos o clases de reparaciones locativas, necesarias y urgentes, pues
+                conociendo y describiendo estas clasificaciones de reparaciones y/o mantenimientos se logra identificar
+                cada caso donde se invierten los recursos del contrato, todo lo cual debe estar sustentado en una
+                solicitud de reparación o mantenimiento por quienes administran o residen en el inmueble, así mismo
+                identificar el bien inmueble con el número, dirección, conjunto, sector o barrio, ciudad de ubicación
+                etc.; y detallar las actividades, material, cantidades y valores de obras de mantenimiento realizadas en
+                cada uno, pues no es suficiente mencionar de manera general si el bien es de administración mixta o de
+                propiedad única, omisión que no permite identificar dónde se realizó el mantenimiento que se está
+                pagando, ni determinar la inversión correspondiente a cada uno. De otra parte en los informes de
+                supervisión y en las actas de recibo a satisfacción se relacionan ítems diferentes a los relacionados en
+                el anexo técnico del contrato, lo cual tampoco es concordante con la necesidad plasmada en los estudios
+                previos, denotándose debilidades de control y supervisión especialmente en los pagos realizados al
+                contratista con respecto a lo realizado y recibido a satisfacción.
+              </div>
             </div>
+            <div id="zona_sensible18" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
-            <div id="zona_sensible18" class="negrilla_sensible"  >
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
-            </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
-      
+      </div>
+
+
       <div class="txt_interno c_1_6">
         <h1>20</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap48.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap48.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-En la revisión de los contratos de bienes inmuebles entregados en arrendamiento a particulares se observaron deficiencias relacionadas con la responsabilidad en el control y supervisión del proceso contractual realizado por la entidad para la vigencia 2012, a saber:
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-No se aporta acta de entrega y recibo del bien inmueble.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-No se aporta constancia de pago a la seguridad social integral del contratista ni del o los subcontratistas.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-No se determina supervisor para el contrato.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-Los pagos de los cánones de arrendamiento se efectúan de manera irregular, y por tanto no coinciden con lo planteado en el contrato.
-		</td>
-	</tr>
-</table>            </div>
-            <div id="zona_sensible19" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              En la revisión de los contratos de bienes inmuebles entregados en arrendamiento a particulares se
+              observaron deficiencias relacionadas con la responsabilidad en el control y supervisión del proceso
+              contractual realizado por la entidad para la vigencia 2012, a saber:
+              <table class="lista_vinetas">
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    No se aporta acta de entrega y recibo del bien inmueble.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    No se aporta constancia de pago a la seguridad social integral del contratista ni del o los
+                    subcontratistas.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    No se determina supervisor para el contrato.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    Los pagos de los cánones de arrendamiento se efectúan de manera irregular, y por tanto no coinciden
+                    con lo planteado en el contrato.
+                  </td>
+                </tr>
+              </table>
             </div>
+            <div id="zona_sensible19" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
+            </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_4">
         <h1>21</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap49.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap49.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-Al analizar un convenio marco suscrito entre el Ministerio de Defensa Nacional – xxx y Ecopetrol S. A. cuyo objeto es la seguridad de las Infraestructura de los oleoductos petroleros en Caño Limón Coveñas, y Transandino en Nariño, se observó que ingresó a la Tesorería de la entidad lo correspondiente a un 39% y su ejecución correspondió a un 84% y a Terceros lo correspondiente a un 61% y su ejecución se encuentra en un 64,3%. Analizada la ejecución de los recursos ejecutados a través de terceros, se evidencia que no se ejecutaron recursos asignados a la Agencia Logística. Igualmente se evidencia que no se efectuó una adecuada planeación y gestión para la construcción de las edificaciones en otros terrenos teniendo que esperar ocho (8) meses para que emitieran el Nuevo Plan de Ordenamiento Territorial y no se pudiera llevar a cabo la ejecución de los recursos en otros proyectos.  
+              Al analizar un convenio marco suscrito entre el Ministerio de Defensa Nacional – xxx y Ecopetrol S. A.
+              cuyo objeto es la seguridad de las Infraestructura de los oleoductos petroleros en Caño Limón Coveñas, y
+              Transandino en Nariño, se observó que ingresó a la Tesorería de la entidad lo correspondiente a un 39% y
+              su ejecución correspondió a un 84% y a Terceros lo correspondiente a un 61% y su ejecución se encuentra en
+              un 64,3%. Analizada la ejecución de los recursos ejecutados a través de terceros, se evidencia que no se
+              ejecutaron recursos asignados a la Agencia Logística. Igualmente se evidencia que no se efectuó una
+              adecuada planeación y gestión para la construcción de las edificaciones en otros terrenos teniendo que
+              esperar ocho (8) meses para que emitieran el Nuevo Plan de Ordenamiento Territorial y no se pudiera llevar
+              a cabo la ejecución de los recursos en otros proyectos.
             </div>
             <div id="zona_sensible20" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_2">
         <h1>22</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap50.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap50.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-En un contrato se efectuó una adición al valor del contrato, el concepto técnico que justifica la misma no fue relacionado en el expediente contractual, situación que limitó establecer su justificación. 
+              En un contrato se efectuó una adición al valor del contrato, el concepto técnico que justifica la misma no
+              fue relacionado en el expediente contractual, situación que limitó establecer su justificación.
             </div>
             <div id="zona_sensible21" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
             </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
+      </div>
+
       <div class="txt_interno c_1_3">
         <h1>23</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap51.png" height="">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <img src="images/diap51.png" height="">
         </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
+        <div class="item_c">
+          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+          <div class="txt_c">
             <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
             <div class="resaltado_especial">
-                <div style="font-size: 15px; line-height: 18px">
-Evaluado un contrato, cuyo objeto es el estudio y diseños y construcción para la modernización de edificaciones; se evidenció en los estudios previos y las solicitudes de oferta, que el costo de la comisión fiduciaria será cubierto por el contratista; de igual manera, en las condiciones exigidas a los oferentes en el capítulo anticipo, se establece que el costo de la comisión será cubierto por el contratista, más adelante el comité de adquisiciones establece que la comisión fiduciaria será a cargo del mismo. En la carta de presentación del contratista manifiesta aceptar y conocer el contenido de la oferta junto con sus anexos y formularios. Una vez suscrito el contrato, encontramos la cláusula octava parágrafo primero del contrato que reza lo siguiente “Los recursos transferidos junto con sus rendimientos, incrementarán el FONDO DE RESERVA que serán utilizados para el pago de la comisión fiduciaria a favor de la fiducia, los costos bancarios, el gravamen al movimiento financiero y demás costos, tasas y contribuciones que deban asumirse en la ejecución del presente contrato”. Lo anterior contraviene lo establecido en los estudios previos, solicitudes de oferta, condiciones de oferta requeridos y exigidas al contratista y lo establecido por el comité de adquisiciones, así como a las condiciones que acepta el contratista para la adjudicación del contrato. 
-            </div> </div>
-            <div id="zona_sensible22" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            PAGINA 3
-            </p>	
+              <div style="font-size: 15px; line-height: 18px">
+                Evaluado un contrato, cuyo objeto es el estudio y diseños y construcción para la modernización de
+                edificaciones; se evidenció en los estudios previos y las solicitudes de oferta, que el costo de la
+                comisión fiduciaria será cubierto por el contratista; de igual manera, en las condiciones exigidas a los
+                oferentes en el capítulo anticipo, se establece que el costo de la comisión será cubierto por el
+                contratista, más adelante el comité de adquisiciones establece que la comisión fiduciaria será a cargo
+                del mismo. En la carta de presentación del contratista manifiesta aceptar y conocer el contenido de la
+                oferta junto con sus anexos y formularios. Una vez suscrito el contrato, encontramos la cláusula octava
+                parágrafo primero del contrato que reza lo siguiente “Los recursos transferidos junto con sus
+                rendimientos, incrementarán el FONDO DE RESERVA que serán utilizados para el pago de la comisión
+                fiduciaria a favor de la fiducia, los costos bancarios, el gravamen al movimiento financiero y demás
+                costos, tasas y contribuciones que deban asumirse en la ejecución del presente contrato”. Lo anterior
+                contraviene lo establecido en los estudios previos, solicitudes de oferta, condiciones de oferta
+                requeridos y exigidas al contratista y lo establecido por el comité de adquisiciones, así como a las
+                condiciones que acepta el contratista para la adjudicación del contrato.
+              </div>
             </div>
+            <div id="zona_sensible22" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p>
+                PAGINA 3
+              </p>
+            </div>
+          </div>
         </div>
-        </div>	
-        </div>
-      
-      
-      
-      
-      
       </div>
-        </div>
-    
-      
-      
-      
-      
-	  
-	  
-	 
-
-	<div id="pop0" class="pop">
-Una entidad pública no puede aprobar una póliza de cumplimiento de un contrato después de haber iniciado sus ejecuciones debido a que el artículo 41 de la ley 80 de 1993, modificado por el artículo 23 de la ley 1150 de 2007 establece que la aprobación de la póliza es un requisito para la ejecución del contrato. Además, la finalidad de la póliza de cumplimiento es amparar toda la ejecución del contrato, por lo que este no puede iniciar su cumplimiento sin que dicha garantía no haya sido previamente aprobada. 
-	</div>
-    <div id="pop1" class="pop">
-Es necesario verificar que las garantías se soliciten y expidan con las vigencias aplicables, de acuerdo con lo establecido en el Decreto 1510 de 2013 (compilado en el Decreto 1082 de 2015).<br>
-
-La garantía de estabilidad y calidad de la obra debe estar vigente por un término no inferior a cinco años contados a partir de la fecha en la cual la Entidad Estatal recibe a satisfacción la obra.<br>
-
-La garantía de pagos de salarios, prestaciones sociales legales e indemnizaciones laborales debe tener una vigencia igual al plazo del contrato y tres años más.
-
-	</div>
-    <div id="pop2" class="pop">
-Es necesario asegurarse de solicitar las garantías que apliquen al proceso de contratación, de acuerdo con lo establecido en el Decreto 1510 de 2013 (compilado en el Decreto 1082 de 2015).<br>
-
-El amparo de estabilidad y calidad de la obra es obligatorio para las obras de construcción nuevas que impliquen suministro de materiales. <br>
-
-El amparo de pago de salarios debe ser solicitado en los contratos donde se requiera la vinculación de personal para la ejecución del mismo, por ejemplo, los contratos de obra, los contratos de prestación de servicio de aseo y los contratos de vigilancia.
-
-	</div>
-    <div id="pop3" class="pop">
-Situaciones como las descritas en este hallazgo son generadas por falta de control en la calidad de la información contenida en las minutas contractuales, lo que origina que se induzca a errores a los contratistas.<br>
-
-Es necesario realizar una verificación detallada del contenido del contrato.
 
 
-	</div>
-    <div id="pop4" class="pop">
-Situaciones como las descritas en este hallazgo obedecen a debilidades en el archivo y control de la documentación contractual, lo cual dificulta su manipulación, consulta, custodia y puede ocasionar pérdida de documentos o duplicidad de información.<br>
-
-Es necesario realizar un exhaustivo control documental. Se debe realizar un proceso administrativo - documental como se establece en la ley 594 de 2000 capítulos IV y V.
-
-	</div>
-    <div id="pop5" class="pop">
-El vencimiento del plazo contractual determina la finalización del contrato y, en consecuencia, la imposibilidad del contratista para continuar con la ejecución del mismo. En este sentido, una entidad pública no puede prorrogar el plazo original de ejecución cuando ya venció el plazo contractual.
- 
-	</div>
-    <div id="pop6" class="pop">
-Este hallazgo denota falta de control en los documentos y términos contractuales, generando riesgos en el cumplimento del objeto contractual.<br>
-
-Es fundamental garantizar el cumplimiento de las condiciones establecidas en el contrato.<br>
-
-Además, es de recordar que una entidad pública no puede prorrogar el plazo original de ejecución cuando ya venció el plazo contractual.
-
-	</div>
-    <div id="pop7" class="pop">
-La falta o irregularidad de la notificación de los actos administrativos trae como consecuencia la ineficacia de los mismos.<br>
-
-Recordemos que al adjudicar un contrato, es necesario notificar la decisión al proponente seleccionado y a los demás oferentes utilizando el formato para la notificación personal establecido en el Manual de Contratación.
-
-	</div>
-    <div id="pop8" class="pop">
-El principio de publicidad implica que todas las autoridades deben dar a conocer sus actuaciones y decisiones a través de los distintos mecanismos previstos en la ley, como comunicaciones, notificaciones o publicaciones, a fin de que sean vinculantes y puedan ser controvertidas por sus destinatarios.<br>
-
-El Decreto 734 de 2012, reglamentario del Estatuto General de contratación, dispone que la entidad contratante será responsable de garantizar la publicidad de todos los procedimientos y actos asociados a los procesos de contratación, la cual se llevará a cabo en el sistema electrónico para la contratación pública (SECOP), y que esta se hará a más tardar dentro de los (3) tres días hábiles siguientes a la fecha de su expedición.
-
-	</div>
-    <div id="pop9" class="pop">
-Se debe realizar un control de legalidad para evitar una indebida celebración de contratos, como se estipula en la ley 80 de 1993. 
-	</div>
-    <div id="pop10" class="pop">
-Es deber de la entidad estatal adelantar las acciones necesarias para garantizar el cumplimiento de los plazos establecidos en el proceso de contratación.
-
-	</div>
-    <div id="pop11" class="pop">
-El registro presupuestal es necesario para que se destine efectivamente el presupuesto de la entidad al cumplimiento de sus obligaciones. Una entidad pública puede perfeccionar un contrato sin contar con dicho registro, pero no generarlo constituye una falta a los principios de planeación y legalidad. 
-
-	</div>
-    <div id="pop12" class="pop">
-Una adecuada gestión de los recursos públicos implica adoptar medidas para evitar el pago de bienes o servicios que no sean entregados a satisfacción por el contratista.<br>
-
-Por esta razón, únicamente deben incluirse anticipos o pagos anticipados en los casos estrictamente necesarios. Además, en términos generales, los pagos deben estar supeditados al cumplimiento de las obligaciones del contratista.
-
-	</div>
-    <div id="pop13" class="pop">
-La ejecución de un contrato debe realizarse fielmente según lo establecido en la minuta, teniendo en cuenta las obligaciones establecidas para cada una de las partes.<br>
-
-En ningún caso la entidad debería ejecutar actividades que, de acuerdo con el contrato, corresponden al contratista.
 
 
-	</div>
-    <div id="pop14" class="pop">
-Es necesario implementar labores de control interno y supervisión del contrato para garantizar que la ejecución del contrato sea acorde con lo establecido en el mismo.<br>
 
-El anexo técnico debe ser claro y coherente con las necesidades reales. De lo contrario, puede generar contratación de personal sin el lleno de requisitos legales y pagos que no corresponden a lo realmente necesitado. 
+    </div>
+  </div>
 
 
-	</div>
-    <div id="pop15" class="pop">
-De conformidad con lo dispuesto por el Código Civil, para que un contrato de lugar al nacimiento de obligaciones, debe ser suscrito por el representante legal de la persona natural o jurídica que habrá de obligarse.<br>
-
-Si un contrato está firmado por quien no tiene la facultad legal para ello, como una autorización o un poder, presentará nulidad.
-
-	</div>
-    <div id="pop16" class="pop">
-Para el caso que nos ocupa se considera que tal situación refleja incumplimiento con lo establecido en el artículo 40 de la Ley 80, que reza: “Del Contenido del Contrato Estatal. Las estipulaciones de los contratos serán las que de acuerdo con las normas civiles, comerciales y las previstas en esta Ley, correspondan a su esencia y naturaleza”, Ahora bien, dada la tipología del contrato en mención y de conformidad con el artículo 1880 del Código Civil, en los contratos de compraventa las obligaciones del vendedor, se reducen a dos: (i) la entrega o tradición de la cosa vendida, y (ii) el saneamiento de la cosa vendida, según la cual “el vendedor debe entregar la cosas al comprador en estado tal que sirva para el uso que está normalmente destinada, de suerte que su utilización o disfrute no se vean menguados a consecuencia de los vicios que los afecten.” Situación que no permite evidenciar las obligaciones y cláusulas contenidas en el modo de adquirir un bien inmueble por tradición, lo cual denota debilidades en el sistema de control interno y limita determinar el cumplimiento de los principios de legalidad, economía, efectividad, eficiencia y eficacia.
-
-	</div>
-    <div id="pop17" class="pop">
-Cuando el objeto de la contratación incluya la realización de una obra, la entidad contratante deberá contar con los estudios y diseños que permitan establecer la viabilidad del proyecto y su impacto social, económico y ambiental. Esta condición será aplicable incluso para los contratos que incluyan dentro del objeto el diseño.
-
-	</div>
-    <div id="pop18" class="pop">
-Es importante detallar de manera clara las actividades a ejecutar en el contrato.<br>
-
-Además, necesario elaborar planes, cronogramas y procedimientos de mantenimiento periódicos que sirvan como mecanismos de control y seguimiento para evidenciar que lo requerido en los estudios previos y contratado efectivamente se haya realizado.
 
 
-	</div>
-    <div id="pop19" class="pop">
-Este hallazgo evidencia debilidades de control interno del área contractual, lo que puede generar deterioro de los bienes arrendados, demandas laborales por responsabilidad civil extracontractual y pérdida de recursos económicos, con lo que eventualmente podría verse afectado el flujo de caja de la entidad. <br>
-
-Las entidades públicas deben vigilar permanentemente la correcta ejecución del objeto contratado a través de un supervisor o un interventor, según corresponda.  Es obligación de los supervisores el seguimiento técnico administrativo, financiero contable y jurídico de los contratos.
 
 
-	</div>
-     <div id="pop20" class="pop">
-Este hallazgo denota debilidades de control interno en la planeación y ejecución, como de los informes de ejecución lo cual no permite realizar seguimiento adecuado de las obligaciones contractuales.
-
-	</div>
-     <div id="pop21" class="pop">
-Cuando se requiera efectuar una adición a un contrato es necesario incluir en la documentación del contrato el concepto técnico que presente la justificación de la adición.
-
-	</div>
-     <div id="pop22" class="pop">
-La entidad debe asegurarse de no incurrir en contradicciones como las indicadas para dar total claridad acerca de las condiciones del contrato.<br>
-
-Además, se debe tener en cuenta que los rendimientos de los anticipos son del dueño del capital o recurso, es decir del Estado. No se deben incluir disposiciones contrarias.
 
 
-	</div>
-     <div id="pop23" class="pop">
-El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
 
-	</div>
-     <div id="pop24" class="pop">
-El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
+  <div id="pop0" class="pop">
+    <div>
+      <h4>Contrato Abierto Macro:</h4>
+      Conocido en los Estados Unidos como Blanket Purchase Agreement y Blanket Service Agreement, el contrato abierto tiene una vigencia específica y un valor determinado que permite simplificar el proceso de adquisición de bienes y servicios cuya adquisición es recurrente. 
+      <h4>Contrato Abierto Con Lista de Precios:</h4>
+      Posee las mismas características del contrato abierto marco, sin embargo, contiene una lista de precios y tiempos de entrega negociados desde la etapa precontractual. 
 
-	</div>
-     <div id="pop25" class="pop">
-El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
 
-	</div>
-     <div id="pop26" class="pop">
-El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
+    </div>
 
-	</div>
-    
-    
-	
-</div></div></body>
+  </div>
+  <div id="pop1" class="pop">
+    <h3>conceptualización</h3>
+  </div>
+  <div id="pop2" class="pop">
+    Es necesario asegurarse de solicitar las garantías que apliquen al proceso de contratación, de acuerdo con lo
+    establecido en el Decreto 1510 de 2013 (compilado en el Decreto 1082 de 2015).<br>
+
+    El amparo de estabilidad y calidad de la obra es obligatorio para las obras de construcción nuevas que impliquen
+    suministro de materiales. <br>
+
+    El amparo de pago de salarios debe ser solicitado en los contratos donde se requiera la vinculación de personal para
+    la ejecución del mismo, por ejemplo, los contratos de obra, los contratos de prestación de servicio de aseo y los
+    contratos de vigilancia.
+
+  </div>
+  <div id="pop3" class="pop">
+    Situaciones como las descritas en este hallazgo son generadas por falta de control en la calidad de la información
+    contenida en las minutas contractuales, lo que origina que se induzca a errores a los contratistas.<br>
+
+    Es necesario realizar una verificación detallada del contenido del contrato.
+
+
+  </div>
+  <div id="pop4" class="pop">
+    Situaciones como las descritas en este hallazgo obedecen a debilidades en el archivo y control de la documentación
+    contractual, lo cual dificulta su manipulación, consulta, custodia y puede ocasionar pérdida de documentos o
+    duplicidad de información.<br>
+
+    Es necesario realizar un exhaustivo control documental. Se debe realizar un proceso administrativo - documental como
+    se establece en la ley 594 de 2000 capítulos IV y V.
+
+  </div>
+  <div id="pop5" class="pop">
+    El vencimiento del plazo contractual determina la finalización del contrato y, en consecuencia, la imposibilidad del
+    contratista para continuar con la ejecución del mismo. En este sentido, una entidad pública no puede prorrogar el
+    plazo original de ejecución cuando ya venció el plazo contractual.
+
+  </div>
+  <div id="pop6" class="pop">
+    Este hallazgo denota falta de control en los documentos y términos contractuales, generando riesgos en el
+    cumplimento del objeto contractual.<br>
+
+    Es fundamental garantizar el cumplimiento de las condiciones establecidas en el contrato.<br>
+
+    Además, es de recordar que una entidad pública no puede prorrogar el plazo original de ejecución cuando ya venció el
+    plazo contractual.
+
+  </div>
+  <div id="pop7" class="pop">
+    La falta o irregularidad de la notificación de los actos administrativos trae como consecuencia la ineficacia de los
+    mismos.<br>
+
+    Recordemos que al adjudicar un contrato, es necesario notificar la decisión al proponente seleccionado y a los demás
+    oferentes utilizando el formato para la notificación personal establecido en el Manual de Contratación.
+
+  </div>
+  <div id="pop8" class="pop">
+    El principio de publicidad implica que todas las autoridades deben dar a conocer sus actuaciones y decisiones a
+    través de los distintos mecanismos previstos en la ley, como comunicaciones, notificaciones o publicaciones, a fin
+    de que sean vinculantes y puedan ser controvertidas por sus destinatarios.<br>
+
+    El Decreto 734 de 2012, reglamentario del Estatuto General de contratación, dispone que la entidad contratante será
+    responsable de garantizar la publicidad de todos los procedimientos y actos asociados a los procesos de
+    contratación, la cual se llevará a cabo en el sistema electrónico para la contratación pública (SECOP), y que esta
+    se hará a más tardar dentro de los (3) tres días hábiles siguientes a la fecha de su expedición.
+
+  </div>
+  <div id="pop9" class="pop">
+    Se debe realizar un control de legalidad para evitar una indebida celebración de contratos, como se estipula en la
+    ley 80 de 1993.
+  </div>
+  <div id="pop10" class="pop">
+    Es deber de la entidad estatal adelantar las acciones necesarias para garantizar el cumplimiento de los plazos
+    establecidos en el proceso de contratación.
+
+  </div>
+  <div id="pop11" class="pop">
+    El registro presupuestal es necesario para que se destine efectivamente el presupuesto de la entidad al cumplimiento
+    de sus obligaciones. Una entidad pública puede perfeccionar un contrato sin contar con dicho registro, pero no
+    generarlo constituye una falta a los principios de planeación y legalidad.
+
+  </div>
+  <div id="pop12" class="pop">
+    Una adecuada gestión de los recursos públicos implica adoptar medidas para evitar el pago de bienes o servicios que
+    no sean entregados a satisfacción por el contratista.<br>
+
+    Por esta razón, únicamente deben incluirse anticipos o pagos anticipados en los casos estrictamente necesarios.
+    Además, en términos generales, los pagos deben estar supeditados al cumplimiento de las obligaciones del
+    contratista.
+
+  </div>
+  <div id="pop13" class="pop">
+    La ejecución de un contrato debe realizarse fielmente según lo establecido en la minuta, teniendo en cuenta las
+    obligaciones establecidas para cada una de las partes.<br>
+
+    En ningún caso la entidad debería ejecutar actividades que, de acuerdo con el contrato, corresponden al contratista.
+
+
+  </div>
+  <div id="pop14" class="pop">
+    Es necesario implementar labores de control interno y supervisión del contrato para garantizar que la ejecución del
+    contrato sea acorde con lo establecido en el mismo.<br>
+
+    El anexo técnico debe ser claro y coherente con las necesidades reales. De lo contrario, puede generar contratación
+    de personal sin el lleno de requisitos legales y pagos que no corresponden a lo realmente necesitado.
+
+
+  </div>
+  <div id="pop15" class="pop">
+    De conformidad con lo dispuesto por el Código Civil, para que un contrato de lugar al nacimiento de obligaciones,
+    debe ser suscrito por el representante legal de la persona natural o jurídica que habrá de obligarse.<br>
+
+    Si un contrato está firmado por quien no tiene la facultad legal para ello, como una autorización o un poder,
+    presentará nulidad.
+
+  </div>
+  <div id="pop16" class="pop">
+    Para el caso que nos ocupa se considera que tal situación refleja incumplimiento con lo establecido en el artículo
+    40 de la Ley 80, que reza: “Del Contenido del Contrato Estatal. Las estipulaciones de los contratos serán las que de
+    acuerdo con las normas civiles, comerciales y las previstas en esta Ley, correspondan a su esencia y naturaleza”,
+    Ahora bien, dada la tipología del contrato en mención y de conformidad con el artículo 1880 del Código Civil, en los
+    contratos de compraventa las obligaciones del vendedor, se reducen a dos: (i) la entrega o tradición de la cosa
+    vendida, y (ii) el saneamiento de la cosa vendida, según la cual “el vendedor debe entregar la cosas al comprador en
+    estado tal que sirva para el uso que está normalmente destinada, de suerte que su utilización o disfrute no se vean
+    menguados a consecuencia de los vicios que los afecten.” Situación que no permite evidenciar las obligaciones y
+    cláusulas contenidas en el modo de adquirir un bien inmueble por tradición, lo cual denota debilidades en el sistema
+    de control interno y limita determinar el cumplimiento de los principios de legalidad, economía, efectividad,
+    eficiencia y eficacia.
+
+  </div>
+  <div id="pop17" class="pop">
+    Cuando el objeto de la contratación incluya la realización de una obra, la entidad contratante deberá contar con los
+    estudios y diseños que permitan establecer la viabilidad del proyecto y su impacto social, económico y ambiental.
+    Esta condición será aplicable incluso para los contratos que incluyan dentro del objeto el diseño.
+
+  </div>
+  <div id="pop18" class="pop">
+    Es importante detallar de manera clara las actividades a ejecutar en el contrato.<br>
+
+    Además, necesario elaborar planes, cronogramas y procedimientos de mantenimiento periódicos que sirvan como
+    mecanismos de control y seguimiento para evidenciar que lo requerido en los estudios previos y contratado
+    efectivamente se haya realizado.
+
+
+  </div>
+  <div id="pop19" class="pop">
+    Este hallazgo evidencia debilidades de control interno del área contractual, lo que puede generar deterioro de los
+    bienes arrendados, demandas laborales por responsabilidad civil extracontractual y pérdida de recursos económicos,
+    con lo que eventualmente podría verse afectado el flujo de caja de la entidad. <br>
+
+    Las entidades públicas deben vigilar permanentemente la correcta ejecución del objeto contratado a través de un
+    supervisor o un interventor, según corresponda. Es obligación de los supervisores el seguimiento técnico
+    administrativo, financiero contable y jurídico de los contratos.
+
+
+  </div>
+  <div id="pop20" class="pop">
+    Este hallazgo denota debilidades de control interno en la planeación y ejecución, como de los informes de ejecución
+    lo cual no permite realizar seguimiento adecuado de las obligaciones contractuales.
+
+  </div>
+  <div id="pop21" class="pop">
+    Cuando se requiera efectuar una adición a un contrato es necesario incluir en la documentación del contrato el
+    concepto técnico que presente la justificación de la adición.
+
+  </div>
+  <div id="pop22" class="pop">
+    La entidad debe asegurarse de no incurrir en contradicciones como las indicadas para dar total claridad acerca de
+    las condiciones del contrato.<br>
+
+    Además, se debe tener en cuenta que los rendimientos de los anticipos son del dueño del capital o recurso, es decir
+    del Estado. No se deben incluir disposiciones contrarias.
+
+
+  </div>
+  <div id="pop23" class="pop">
+    El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
+
+  </div>
+  <div id="pop24" class="pop">
+    El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
+
+  </div>
+  <div id="pop25" class="pop">
+    El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
+
+  </div>
+  <div id="pop26" class="pop">
+    El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
+
+  </div>
+
+
+
+  </div>
+  </div>
+</body>
+
 </html>
+
+<script>
+   function myFunc(){
+    document.getElementById('id04').style.display='none'
+    
+   }
+</script>
