@@ -22,104 +22,161 @@
   }
 
   .ventana1{
-      background: honeydew;
-      width: 50%;
+      background: rgb(255, 255, 255);
+      width: 80%;
+      height: 80%;
       color: black;
       font-family: "klavika-regular";
       font-size: 18px;
       text-align: justify;
       padding: 50px;
       min-height: 200px;
-      border-radius: 22px;
       position: absolute;
-      left: 20%;
-      top: 20%;
+      left: 10%;
+      top: 15%;
       display: none;
-      border: double;
+      z-index: 1;
+      -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+        
+        box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+        border-style: solid;
+        border: 2px solid #0877B5;
+        color:#0877B5;
+
   }
   
   .ventana2{
-    background: honeydew;
-    width: 50%;
+    background: rgb(255, 255, 255);
+    width: 80%;
+    height: 80%;
     color: black;
     font-family: "klavika-regular";
     font-size: 18px;
     text-align: justify;
     padding: 50px;
     min-height: 200px;
-    border-radius: 22px;
     position: absolute;
-    left: 20%;
-    top: 20%;
+    left: 10%;
+    top: 15%;
     display: none;
-    border: double;
+    z-index: 1;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+      
+      box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+      border-style: solid;
+      border: 2px solid #0877B5;
+      color:#0877B5;
+
+
 }
 
 .ventana3{
-    background: honeydew;
-    width: 50%;
+    background: rgb(255, 255, 255);
+    width: 80%;
+    height: 80%;
     color: black;
     font-family: "klavika-regular";
     font-size: 18px;
     text-align: justify;
     padding: 50px;
     min-height: 200px;
-    border-radius: 22px;
     position: absolute;
-    left: 20%;
-    top: 20%;
+    left: 10%;
+    top: 15%;
     display: none;
-    border: double;
+    z-index: 1;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+      
+      box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+      border-style: solid;
+      border: 2px solid #0877B5;
+      color:#0877B5;
+
+
 }
 .ventana4{
-    background: honeydew;
-    width: 50%;
+    background: rgb(255, 255, 255);
+    width: 80%;
+    height: 80%;
     color: black;
     font-family: "klavika-regular";
     font-size: 18px;
     text-align: justify;
     padding: 50px;
     min-height: 200px;
-    border-radius: 22px;
     position: absolute;
-    left: 20%;
-    top: 20%;
+    left: 10%;
+    top: 15%;
     display: none;
-    border: double;
+    z-index: 1;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+      
+      box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+      border-style: solid;
+      border: 2px solid #0877B5;
+      color:#0877B5;
+
+
 }
 
   .ventana5{
-    background: honeydew;
-    width: 50%;
-    color: black;
-    font-family: "klavika-regular";
-    font-size: 14px;
-    text-align: justify;
-    padding: 50px;
-    min-height: 200px;
-    border-radius: 22px;
-    position: absolute;
-    left: 20%;
-    top: 20%;
-    display: none;
-    border: double;
-}
-
-.ventana6{
-    background: honeydew;
-    width: 50%;
+    background: rgb(255, 255, 255);
+    width: 80%;
+    height: 80%;
     color: black;
     font-family: "klavika-regular";
     font-size: 18px;
     text-align: justify;
     padding: 50px;
-    min-height: 300px;
-    border-radius: 22px;
+    min-height: 200px;
     position: absolute;
-    left: 20%;
-    top: 20%;
+    left: 10%;
+    top: 15%;
     display: none;
-    border: double;
+    z-index: 1;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+      
+      box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+      border-style: solid;
+      border: 2px solid #0877B5;
+      color:#0877B5;
+
+}
+
+.ventana6{
+    background: rgb(255, 255, 255);
+    width: 80%;
+    height: 80%;
+    color: black;
+    font-family: "klavika-regular";
+    font-size: 18px;
+    text-align: justify;
+    padding: 50px;
+    min-height: 200px;
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    display: none;
+    z-index: 1;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+      
+      box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+      border-style: solid;
+      border: 2px solid #0877B5;
+      color:#0877B5;
+
 }
 
 #cerrar1{
