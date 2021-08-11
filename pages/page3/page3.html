@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
   <link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 
   <!-- CSS only -->
@@ -128,22 +129,20 @@
         </div>
       </div>
 
-              
-   
-
       <div class="txt_interno c_1_2">
         <h1>1</h1>
         <div id="id01" class="w3-modal">
-          <div class="w3-modal-content ">
+          <div  id="modal-content" class="w3-modal-content">
             <div class="w3-container">
               <div class="w3-display-topleft">
-                <button onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-black">X</button>
+                <button onclick="document.getElementById('id01').style.display='none'" 
+                id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
               </div>
-              <div class="w3-col w3-card" style="width:45%">
+              <div class="w3-col resaltado_especial" style="width:45%">
                 <p  class="w3-serif"  style="font-size: 22px;">Contrato Cerrado:</p>
                 Es el contrato que especifica cantidades, precios, condiciones técnicas y términos de entrega.
               </div>
-              <div class="w3-col w3-card" style="width:45%">
+              <div class="w3-col  resaltado_especial" style="width:45%">
                 <div id="zona_sensible0" class="w3-display-topmiddle w3-padding w3-hide-small" >
                   <!-- <p><i class="fad fa-lightbulb-on"></i></p> -->
                   <p class="w3-serif" style="font-size: 22px;">
@@ -155,10 +154,14 @@
                   Precios.
                 </p>                
             
-            
+              </div>
+              <div class="img_id01">
+                <img src="images/diap42.png" height="250px">
+
               </div>
 
-        
+              <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
+
            
             </div>
           </div>
@@ -167,24 +170,22 @@
         <div class="item_c">
           <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
           <img src="images/diap29.png" height="">
-          <!-- <button class="btn_negrilla_sensible" name="button">
-            <i class="fad fa-lightbulb-on"></i>
-            Tipos de Contrato</button> -->
-        <button onclick="document.getElementById('id01').style.display='block'" class="w3-button btn_negrilla_sensible">    <i class="fad fa-lightbulb-on"></i>Tipos de Contrato</button>
-
-
+              
+        <div id="btn-abrir">
+          <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-blue btn-abrir"> 
+            <i class="fa fa-book" aria-hidden="true"></i>  Tipos de Contrato</button>
+        </div>
+           
         </div>
         <div class="item_c">
           <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
           <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
+            <div class="instruccion_interna">Debe dar click sobre el botón.</div>
             <div>
 
             </div>
 
-            <div class="resaltado_especial">
-                                         
-         
+            <div class="resaltado_especial">                   
               <h3>Etapa de planeación</h3>
               Esta etapa constituye el período en que se realizan las actividades necesarias para adelantar el proceso
               de contratación o actos preliminares a la celebración del contrato en procura de seleccionar la mejor
@@ -195,9 +196,6 @@
               del Proyecto por lo contemplado en este numeral.
               Inicialmente las Unidades Ejecutoras definirán la necesidad de manera específica y en coordinación con el
               Área de Estructuración Técnica definirán el tipo de contrato a celebrar.
-
-
-
             </div>
 
           </div>
@@ -206,84 +204,173 @@
 
       <div class="txt_interno c_1_7">
         <h1>2</h1>
+  <!-- Excepción de Garantías -->
+
+      <div id="id018" class="w3-modal">
+         <div  id="modal-content" class="w3-modal-content">
+          <div class="w3-container">
+            <div class="w3-display-topleft">
+              <button onclick="Salir_id018()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
+            </div>
+            <div class="w3-col resaltado_especial" style="width:95%">
+              <p  class="w3-serif"  style="font-size: 22px;">
+                Excepción de Garantías
+              </p>
+              El Director de ACOFA podrá exceptuar de la obligación de proveer una garantía de cumplimiento y/o pago anticipado según lo expuesto por el Gerente de proyecto y/o solicitado por la empresa proveedora en los siguientes casos:
+              <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    a. Cuando la compañía contratista es fabricante, proveedor y/o distribuidor exclusivo del material o servicio objeto del contrato.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    b. En los contratos de capacitación, entrenamiento. 
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    c. Cuando se trate de contratos cuyo valor sea inferior a USD$50.000,00 dólares.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    d. Cuando el plazo de ejecución sea igual o inferior a 30 días calendario, contados a partir de la firma del contrato.
+                  </td>
+                </tr>
+
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    e. En los contratos celebrados por ACOFA con cargo a su presupuesto básico.
+                  </td>
+                </tr>
+            
+              </table>
+              </div>           
+          </div>
+        </div>
+    </div>
+
+        
+
+      <!-- Aprobación de las garantías contractuales -->
+      <div id="id017" class="w3-modal">
+        <div  id="modal-content" class="w3-modal-content">
+          <div class="w3-container">
+            <div class="w3-display-topleft">
+              <button onclick="Salir_id017()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
+            </div>
+            <div class="w3-col resaltado_especial" style="width:95%">
+              <p  class="w3-serif"  style="font-size: 22px;">
+                Aprobación de las Garantías Contractuales
+              </p>
+              La aprobación de la garantía contractual será responsabilidad del Director de ACOFA, mediante el formato de Aprobación de Garantía (Anexo J).
+              El banco emisor, la compañía de financiamiento comercial y/o la compañía aseguradora deberá ser reconocida en el mercado financiero de EEUU, requisito indispensable para su aceptación. Cuando la institución emisora tiene su casa matriz fuera de EEUU, no posee subsidiarias en dicho país y no es una institución reconocida internacionalmente, ACOFA podrá exigir que el documento de garantía sea confirmado por una institución de EEUU o que el mismo se acoja a los estándares internacionales ISP-98 o UCP-600.
+              Los documentos originales que conforman las garantías contractuales reposarán en cada expediente contractual, a cargo de la Subdirección Administrativa, la cual será la responsable de su seguimiento y control.
+              Todos los cargos y tarifas relacionados con la emisión o Administración de tales garantías serán asumidos por el contratista y en ningún caso por el beneficiario.
+              
+              </div>           
+          </div>
+        </div>
+</div>
+
           <!-- Cláusula por entrega superior a los 30 días -->
-          <div id="id012_5" class="w3-modal">
-            <div class="w3-modal-content ">
+          <div id="id016" class="w3-modal">
+             <div  id="modal-content" class="w3-modal-content">
               <div class="w3-container">
                 <div class="w3-display-topleft">
-                  <button onclick="document.getElementById('id012_5').style.display='none'" class="w3-button w3-black">X</button>
+                  <button onclick="Salir_id016()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                 </div>
-                <div class="w3-col w3-card" style="width:95%">
+                <div class="w3-col resaltado_especial" style="width:95%">
                   <p  class="w3-serif"  style="font-size: 22px;">
-                    Perfeccionamiento y requisitos de ejecución del contrato
+                    Cláusula por entrega superior a los 30 días 
                   </p>
-                      La Subdirección Financiera de ACOFA o quien haga sus veces en las demás Unidades Ejecutaras expedirán el Registro presupuestal una vez reciba la minuta firmada por el contratista.  Se entenderá perfeccionado el contrato cuando la minuta se encuentra firmada por ambas partes.
-                      Los requisitos de ejecución iniciaran una vez se expida el Registro Presupuestal (CRP).
-                      Ahora bien, respecto a la entrega de las pólizas, se deberán entregar dentro de los diez (10) días hábiles a la firma de la minuta, so pena de dar por terminado el contrato y proceder aplicar el régimen sancionatorio.   
-                      La Subdirección Administrativa SUBAD deberá revisar las pólizas contractuales y aprobarlas previo cumplimiento de los requisitos exigidos, de lo contrario devolverá las pólizas al contratista para su corrección.
-                  
-                      <button onclick="Anterior_id011()" class="w3-button btn_negrilla_sensible">  
-                        anterior
-                      </button>    
+                  Cuando el incumplimiento supere los 30 días de retraso en la entrega, la NACIÓN-MINISTERIO DE DEFENSA NACIONAL- UNIDAD EJECUTORA -DIRECCIÓN AGENCIA DE COMPRAS FAC deberá ser reparada adicionalmente con un 10% del valor del producto no entregado y a su propia discreción podrá cancelar la orden del producto o servicio o declarar la terminación del contrato siguiendo el debido proceso. Esta cláusula surtirá el efecto de protección del riesgo de incumplimiento (garantía de cumplimiento), en aquellos casos donde no sea exigida de acuerdo a la autorización del Director de la Agencia y según la naturaleza del contrato o sea pactado en la negociación.
+
                   </div>           
               </div>
             </div>
     </div>
         <!-- Penalidad por demora -->
-        <div id="id012_5" class="w3-modal">
-          <div class="w3-modal-content ">
+        <div id="id015" class="w3-modal">
+          <div  id="modal-content" class="w3-modal-content">=
             <div class="w3-container">
               <div class="w3-display-topleft">
-                <button onclick="document.getElementById('id012_5').style.display='none'" class="w3-button w3-black">X</button>
+                <button onclick="Salir_id015()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
               </div>
-              <div class="w3-col w3-card" style="width:95%">
+              <div class="w3-col resaltado_especial" style="width:95%">
                 <p  class="w3-serif"  style="font-size: 22px;">
-                  Perfeccionamiento y requisitos de ejecución del contrato
+                  Penalidad por demora
                 </p>
-                    La Subdirección Financiera de ACOFA o quien haga sus veces en las demás Unidades Ejecutaras expedirán el Registro presupuestal una vez reciba la minuta firmada por el contratista.  Se entenderá perfeccionado el contrato cuando la minuta se encuentra firmada por ambas partes.
-                    Los requisitos de ejecución iniciaran una vez se expida el Registro Presupuestal (CRP).
-                    Ahora bien, respecto a la entrega de las pólizas, se deberán entregar dentro de los diez (10) días hábiles a la firma de la minuta, so pena de dar por terminado el contrato y proceder aplicar el régimen sancionatorio.   
-                    La Subdirección Administrativa SUBAD deberá revisar las pólizas contractuales y aprobarlas previo cumplimiento de los requisitos exigidos, de lo contrario devolverá las pólizas al contratista para su corrección.
-                
-                    <button onclick="Siguiente_id011()" class="w3-button btn_negrilla_sensible">  
-                      anterior
-                    </button>    
+                En el caso, que no se entregue en la fecha indicada cualquier bien o no se realice la prestación de cualquier servicio por parte del proveedor, y en ausencia de fuerza mayor o caso fortuito debidamente justificado, el proveedor estará sujeto a una penalidad por demora que consiste en pagar a la NACIÓN-MINISTERIO DE DEFENSA NACIONAL - UNIDAD EJECUTORA - DIRECCIÓN AGENCIA DE COMPRAS FAC, el 0,2% del valor del producto o servicio no entregado por cada día de retraso hasta que se cumpla la entrega o alcance el 6 %. 
+                En el caso de que la Administración se viera obligada a cancelar el material y/o servicio a solicitud del contratista sin causa justificada, se considerará como material y/o servicio no entregado y se generará el cobro a favor de la Administración del 6%. 
+                NOTA: Los porcentajes deben ser determinados por la Administración en cabeza del Gerente del Proyecto en la etapa de estructuración del proceso, los cuales deben ser aprobados por el Director de la Agencia sin sobrepasar el 6% del material y/o servicio no entregado. 
+                 
                 </div>           
             </div>
           </div>
   </div>
                 <!-- Garantía técnica -->
-                <div id="id012_4" class="w3-modal">
-                  <div class="w3-modal-content ">
+              <div id="id012_4" class="w3-modal">
+               <div  id="modal-content" class="w3-modal-content">
                     <div class="w3-container">
                       <div class="w3-display-topleft">
-                        <button onclick="document.getElementById('id012_4').style.display='none'" class="w3-button w3-black">X</button>
+                        <button onclick="Salir_id012_4()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                       </div>
-                      <div class="w3-col w3-card" style="width:95%">
+                      <div class="w3-col resaltado_especial" style="width:95%">
                         <p  class="w3-serif"  style="font-size: 22px;">
-                          Perfeccionamiento y requisitos de ejecución del contrato
+                          Garantía Técnica 
                         </p>
-                            La Subdirección Financiera de ACOFA o quien haga sus veces en las demás Unidades Ejecutaras expedirán el Registro presupuestal una vez reciba la minuta firmada por el contratista.  Se entenderá perfeccionado el contrato cuando la minuta se encuentra firmada por ambas partes.
-                            Los requisitos de ejecución iniciaran una vez se expida el Registro Presupuestal (CRP).
-                            Ahora bien, respecto a la entrega de las pólizas, se deberán entregar dentro de los diez (10) días hábiles a la firma de la minuta, so pena de dar por terminado el contrato y proceder aplicar el régimen sancionatorio.   
-                            La Subdirección Administrativa SUBAD deberá revisar las pólizas contractuales y aprobarlas previo cumplimiento de los requisitos exigidos, de lo contrario devolverá las pólizas al contratista para su corrección.
-                        
-                            <button onclick="Siguiente_id011()" class="w3-button btn_negrilla_sensible">  
-                              anterior
-                            </button>    
-                        </div>           
+                            La garantía técnica busca amparar los bienes y servicios objeto del contrato, una vez recibidos y por un tiempo determinado, según las condiciones señaladas y establecidas en la minuta contractual, dependiendo de la naturaleza y cuantía del contrato.  
+                            Por lo anterior, la  Administración solicitará una garantía y deberá hacerla efectiva en el momento mismo en que el contratista no cumpla con los términos y condiciones de dicha garantía, para tal fin se exigirá para la garantía técnica una póliza denominada “Bond” 
+                            que será expedida por un ente asegurador por un monto mínimo del 10% y máximo del 20% del valor total del contrato y por el término de vigencia de la garantía técnica, dependiendo de la naturaleza y cuantía del contrato, en cuyo caso será el Comité Estructurador 
+                            quien determinará aplicarla y el porcentaje de la misma; las casas fabricantes y distribuidores exclusivos podrán ser exonerados de la mencionada póliza. 
+                          
+                        </div>          
+                        <button onclick="Siguiente_id012_4_2()" class="w3-button btn_negrilla_sensible">  
+                          Siguiente
+                        </button>   
                     </div>
                   </div>
           </div>
         
+
+          <!-- Garantía técnica page 2-->
+          <div id="id012_4_2" class="w3-modal">
+           <div  id="modal-content" class="w3-modal-content">
+              <div class="w3-container">
+                <div class="w3-display-topleft">
+                  <button onclick="Salir_id012_4_2()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
+                </div>
+                <div class="w3-col resaltado_especial" style="width:95%">
+                  <p  class="w3-serif"  style="font-size: 22px;">
+                    Garantía Técnica 
+                  </p>
+                  Las compañías contratistas deberán cumplir con la póliza “Bond”· mediante el certificado expedido por el ente asegurador, así: 
+                  Póliza Bond: El Bond deberá tener una vigencia igual al término de la garantía técnica y (60) días más.  De igual forma el contratista debe constituirla en el tiempo establecido en el contrato. Su porcentaje será por un monto mínimo del 10% y máximo del 20% del contrato o de la orden de compra del elemento o servicio.  
+                  Cuando el contrato sea modificado en tiempo y/o valor, la póliza bond deberá modificarse según sea el caso.
+                  
+                  </div>       
+                  <button onclick="Anterior_id012_4_2()" class="w3-button btn_negrilla_sensible">  
+                    Anterior
+              </button>      
+              </div>
+            </div>
+    </div>
+  
                 <!-- Garantía de pago anticipado -->
                 <div id="id012_3" class="w3-modal">
-                  <div class="w3-modal-content ">
+                  <div  id="modal-content" class="w3-modal-content">
                     <div class="w3-container">
                       <div class="w3-display-topleft">
-                        <button onclick="Salir_id012_3()" class="w3-button w3-black">X</button>
+                        <button onclick="Salir_id012_3()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                       </div>
-                      <div class="w3-col w3-card" style="width:95%">
+                      <div class="w3-col resaltado_especial" style="width:95%">
                         <p  class="w3-serif"  style="font-size: 22px;">
                           Garantía de pago anticipado
                         </p>
@@ -300,21 +387,24 @@
           </div>
               <!-- Garantía de pago anticipado  Pagina 2 -->
               <div id="id012_3_1" class="w3-modal">
-                <div class="w3-modal-content ">
+                <div  id="modal-content" class="w3-modal-content">
                   <div class="w3-container">
                     <div class="w3-display-topleft">
-                      <button onclick="Salir_id012_3()" class="w3-button w3-black">X</button>
+                      <button onclick="Salir_id012_3()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                     </div>
-                    <div class="w3-col w3-card" style="width:95%">
+                    <div class="w3-col resaltado_especial" style="width:95%">
                       <p  class="w3-serif"  style="font-size: 22px;">
                         Garantía de pago anticipado
                       </p>
-                      Las compañías contratistas deberán cumplir con la garantía contractual de pago anticipado mediante uno de los siguientes documentos:
+                      <p>
+                        Las compañías contratistas deberán cumplir con la garantía contractual de pago anticipado mediante uno de los siguientes documentos:
+                      </p>
+                      <div>
                       <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
                         <tr>
                           <td class="vineta"></td>
                           <td>
-                            Garantía bancaria.
+                            Garantía bancaria
                           </td>
                         </tr>
                         <tr>
@@ -337,6 +427,7 @@
                         </tr>
                     
                       </table>
+                    </div>
                 
                       </div>   
                       <button onclick="Anterior_id012_3_1()" class="w3-button btn_negrilla_sensible">  
@@ -351,12 +442,12 @@
 
         <!-- Garantía de pago anticipado  Pagina 3 -->
         <div id="id012_3_2" class="w3-modal">
-          <div class="w3-modal-content ">
+     <div  id="modal-content" class="w3-modal-content">
             <div class="w3-container">
               <div class="w3-display-topleft">
-                <button onclick="Salir_id012_3()" class="w3-button w3-black">X</button>
+                <button onclick="Salir_id012_3()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
               </div>
-              <div class="w3-col w3-card" style="width:95%">
+              <div class="w3-col resaltado_especial" style="width:95%">
                 <p  class="w3-serif"  style="font-size: 22px;">
                   Garantía de pago anticipado
                 </p>
@@ -376,12 +467,12 @@
   </div>
         <!-- Garantía de cumplimiento -->
         <div id="id012_2" class="w3-modal">
-          <div class="w3-modal-content ">
+           <div  id="modal-content" class="w3-modal-content">
             <div class="w3-container">
               <div class="w3-display-topleft">
-                <button onclick="Salir_id012_2()" class="w3-button w3-black">X</button>
+                <button onclick="Salir_id012_2()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
               </div>
-              <div class="w3-col w3-card" style="width:95%">
+              <div class="w3-col resaltado_especial" style="width:95%">
                 <p  class="w3-serif"  style="font-size: 22px;">
                   Garantía de cumplimiento
                 </p>
@@ -399,12 +490,12 @@
 
           <!-- Garantía de cumplimiento -->
           <div id="id012_2_2" class="w3-modal">
-            <div class="w3-modal-content ">
+            <div  id="modal-content" class="w3-modal-content">
               <div class="w3-container">
                 <div class="w3-display-topleft">
-                  <button onclick="Salir_id012_2_2()" class="w3-button w3-black">X</button>
+                  <button onclick="Salir_id012_2_2()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                 </div>
-                <div class="w3-col w3-card" style="width:95%">
+                <div class="w3-col resaltado_especial" style="width:95%">
                   <p  class="w3-serif"  style="font-size: 22px;">
                     Garantía de cumplimiento
                   </p>
@@ -412,7 +503,8 @@
                   Las compañías contratistas deberán cumplir con la garantía contractual de cumplimiento
                   mediante uno de los siguientes documentos:
                  </p>
-                  <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+                 <div>
+                   <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
                     <tr>
                       <td class="vineta"></td>
                       <td>
@@ -439,7 +531,8 @@
                     </tr>
                 
                   </table>
-                        
+                </div>
+
                   </div>  
                   <button onclick="Anterior_id012_2_2()" class="w3-button btn_negrilla_sensible">  
                     Anterior
@@ -452,12 +545,12 @@
     </div>
           <!-- Garantía de cumplimiento -->
           <div id="id012_2_3" class="w3-modal">
-            <div class="w3-modal-content ">
+           <div  id="modal-content" class="w3-modal-content">
               <div class="w3-container">
                 <div class="w3-display-topleft">
-                  <button onclick="Salir_id012_2_2()" class="w3-button w3-black">X</button>
+                  <button onclick="Salir_id012_2_2()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                 </div>
-                <div class="w3-col w3-card" style="width:95%">
+                <div class="w3-col resaltado_especial" style="width:95%">
                   <p  class="w3-serif"  style="font-size: 22px;">
                     Garantía de cumplimiento
                   </p>
@@ -477,45 +570,56 @@
   
 
                  <!-- 12_1. Riesgo de incumplimiento contractual -->
-                 <div id="id012_1" class="w3-modal">
-                  <div class="w3-modal-content ">
+          <div id="id012_1" class="w3-modal">
+                  <div  id="modal-content" class="w3-modal-content">
                     <div class="w3-container">
                       <div class="w3-display-topleft">
-                        <button onclick="document.getElementById('id012_1').style.display='none'" class="w3-button w3-black">X</button>
+                        <button onclick="Salir_id012_1()" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                       </div>
-                      <div class="w3-col w3-card" style="width:95%">
-                        <p  class="w3-serif"  style="font-size: 22px;">
+                      <div class="w3-col resaltado_especial" style="width:95%">
+                        <p  class="w3-serif"  style="font-size: 20px;">
                           Riesgo de incumplimiento contractual
                         </p>
-                        Para asegurar la ejecución oportuna y correcta de los contratos y proteger patrimonialmente el interés público, se establecerán penalidades por demora, por daños causados a la FAC y demás Unidades Ejecutoras por el incumplimiento de los términos y condiciones del contrato, así:
-                        <button onclick="Siguiente_id012_2()" class="w3-button btn_negrilla_sensible">
-                          <p  class="w3-serif"  style="font-size: 22px;">
-                            Garantía de cumplimiento
-                          </p>
-                          </button>
-                          <button onclick="Siguiente_id012_5()" class="w3-button btn_negrilla_sensible">
-                            <p  class="w3-serif"  style="font-size: 22px;">
-                              Garantía de pago anticipado
+                        <p  style="font-size: 15px;">
+                          Para asegurar la ejecución oportuna y correcta de los contratos y proteger patrimonialmente el interés público, se establecerán penalidades por demora, por daños causados a la FAC y demás Unidades Ejecutoras por el incumplimiento de los términos y condiciones del contrato, así:
+                        </p>
+                     <hr>
+                        <div class="w3-col w3-card" style="width:43%"> 
+                          <button onclick="Siguiente_id012_2()" class="w3-button w3-khaki"  style="	margin: 2%;">
+                            <p  class="w3-serif"  style="font-size: 15px;">
+                              Garantía de cumplimiento
                             </p>
-                            </button>
-
-                          <button onclick="Siguiente_id012_3()" class="w3-button btn_negrilla_sensible">
-                            <p  class="w3-serif"  style="font-size: 22px;">
-                              Garantía técnica
+                          </button>
+                          
+                          <button onclick="Siguiente_id012_5()" class="w3-button w3-khaki" style="	margin: 2%;">
+                              <p  class="w3-serif"  style="font-size: 15px;">
+                                Garantía de pago anticipado
                               </p>
-                            </button>
-                            <button onclick="Siguiente_id012_4()" class="w3-button btn_negrilla_sensible">
-                              <p  class="w3-serif"  style="font-size: 22px;">
+                          </button>
+  
+                          <button onclick="Siguiente_id012_4()" class="w3-button w3-khaki" style="	margin: 2%;">
+                              <p  class="w3-serif"  style="font-size: 15px;">
+                                Garantía técnica
+                                </p>
+                          </button>
+                        
+                        </div>
+                        <div class="w3-col w3-card" style="width:43%"> 
+
+                  
+                            <button onclick="Siguiente_id015()" class="w3-button w3-khaki" style="	margin: 2%;">
+                              <p  class="w3-serif"  style="font-size: 15px;">
                                 Penalidad por demora
                               </p>
                               </button>
                             
-                                <button onclick="Siguiente_id012_6()" class="w3-button btn_negrilla_sensible">
-                                  <p  class="w3-serif"  style="font-size: 22px;">
+                                <button onclick="Siguiente_id016()" class="w3-button w3-khaki" style="	margin: 2%;">
+                                  <p  class="w3-serif"  style="font-size: 15px;">
                                     Cláusula por entrega superior a los 30 días
                                   </p>
                                 </button>
-                           
+                              </div>           
+  
                         </div>           
                     </div>
                   </div>
@@ -524,18 +628,18 @@
               
 
               <div id="id012" class="w3-modal">
-                <div class="w3-modal-content ">
+              <div  id="modal-content" class="w3-modal-content">
                   <div class="w3-container">
                     <div class="w3-display-topleft">
-                      <button onclick="document.getElementById('id012').style.display='none'" class="w3-button w3-black">X</button>
+                      <button onclick="document.getElementById('id012').style.display='none'" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                     </div>
-                    <div class="w3-col w3-card" style="width:95%">
+                    <div class="w3-col" style="width:95%">
                       <p  class="w3-serif"  style="font-size: 22px;">Garantías contractuales </p>
-                      <button onclick="Siguiente_id012_1()" class="w3-button btn_negrilla_sensible">
+                      <button onclick="Siguiente_id012_1()" class="w3-button w3-khaki">
                         Riesgo de incumplimiento contractual
                       </button>
                     
-
+                      <hr>
                       <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
                         <tr>
                           <td class="vineta"></td>
@@ -569,26 +673,30 @@
                           </td>
                         </tr>
                       </table>
-                      <p  class="w3-serif"  style="font-size: 22px;">
+                      <hr>
+                      <button onclick="Siguiente_id017()" class="w3-button w3-khaki">
                         Aprobación de las garantías contractuales
-                      </p>
-                      <p  class="w3-serif"  style="font-size: 22px;">
+                      </button>
+            
+                      <button onclick="Siguiente_id018()" class="w3-button w3-khaki">
                         Excepción de Garantías
-                      </p>
-
-                    </div>           
+                      </button>
+                    </div>    
+               
+                    <br>
+                
                   </div>
                 </div>
               </div>
 
             <!-- 11. Perfeccionamiento y requisitos de ejecución del contrato -->
             <div id="id011_2" class="w3-modal">
-                    <div class="w3-modal-content ">
+                <div  id="modal-content" class="w3-modal-content">
                       <div class="w3-container">
                         <div class="w3-display-topleft">
-                          <button onclick="document.getElementById('id011_2').style.display='none'" class="w3-button w3-black">X</button>
+                          <button onclick="document.getElementById('id011_2').style.display='none'" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                         </div>
-                        <div class="w3-col w3-card" style="width:95%">
+                        <div class="w3-col resaltado_especial" style="width:95%">
                           <p  class="w3-serif"  style="font-size: 22px;">
                             Perfeccionamiento y requisitos de ejecución del contrato
                           </p>
@@ -599,20 +707,27 @@
                     
                           </div>     
                                 
-                          <button onclick="Anterior_id011_2()" class="w3-button btn_negrilla_sensible">  
-                            anterior
-                          </button>          
+                          <button onclick="Anterior_id011_2()" class="w3-button w3-button w3-blue ">  
+                            Anterior
+                          </button>    
+                          <br>
+                          <div id="zona_sensible1" class="negrilla_sensible">
+                            <p><i class="fa fa-thumbs-up"></i></p>
+                            <p>
+                              Concepto Visto
+                            </p>
+                          </div>       
                       </div>
                     </div>
             </div>
   <!-- 11. Perfeccionamiento y requisitos de ejecución del contrato -->
   <div id="id011" class="w3-modal">
-    <div class="w3-modal-content ">
+     <div  id="modal-content" class="w3-modal-content">
       <div class="w3-container">
         <div class="w3-display-topleft">
-          <button onclick="document.getElementById('id011').style.display='none'" class="w3-button w3-black">X</button>
+          <button onclick="document.getElementById('id011').style.display='none'" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
         </div>
-        <div class="w3-col w3-card" style="width:95%">
+        <div class="w3-col resaltado_especial" style="width:95%">
           <p  class="w3-serif"  style="font-size: 22px;">
             Perfeccionamiento y requisitos de ejecución del contrato      
           </p>
@@ -622,24 +737,30 @@
               Para las Unidades Ejecutoras diferentes a la FAC, la minuta del contrato debe llevar visto bueno del Gerente del Proyecto.
              
           </div>    
-          <button onclick="Siguiente_id011()" class="w3-button btn_negrilla_sensible">  
-            siguiente
+          <button onclick="Siguiente_id011()" class="w3-button w3-button w3-blue">  
+            Siguiente
           </button>           
       </div>
     </div>
 </div>
               <!-- 10. Recepción y evaluación de ofertas -->
               <div id="id010" class="w3-modal">
-                <div class="w3-modal-content ">
+                <div  id="modal-content" class="w3-modal-content">
                   <div class="w3-container">
                     <div class="w3-display-topleft">
-                      <button onclick="document.getElementById('id010').style.display='none'" class="w3-button w3-black">X</button>
+                      <button onclick="document.getElementById('id010').style.display='none'" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                     </div>
-                    <div class="w3-col w3-card" style="width:95%">
+                    <div class="w3-col resaltado_especial" style="width:95%">
                       <p  class="w3-serif"  style="font-size: 22px;">Recepción y evaluación de ofertas</p>
                       La evaluación de las ofertas se realizará ciñéndose exclusivamente a las reglas contenidas en la Solicitud de Oferta. 
                       Así las cosas, la Administración realizará la evaluación de la oferta en los términos establecidos en la Solicitud de Oferta, sin que sea posible que solicite requisitos adicionales o superiores a los establecidos. Sin embargo, en caso de requerirse alguna aclaración por parte de los Comités Evaluadores, se efectuará el requerimiento a través del Área Contractual en los términos y condiciones que se consideren pertinentes. 
                       
+                    </div>   
+                    <div id="zona_sensible1" class="negrilla_sensible">
+                      <p><i class="fa fa-thumbs-up"></i></p>
+                      <p>
+                        Concepto Visto
+                      </p>
                     </div>           
                   </div>
                 </div>
@@ -647,19 +768,25 @@
         
               <!-- 9. Recepción y evaluación de ofertas-->
               <div id="id09" class="w3-modal">
-                <div class="w3-modal-content ">
+               <div  id="modal-content" class="w3-modal-content">
                   <div class="w3-container">
                     <div class="w3-display-topleft">
-                      <button onclick="document.getElementById('id09').style.display='none'" class="w3-button w3-black">X</button>
+                      <button onclick="document.getElementById('id09').style.display='none'" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                     </div>
-                    <div class="w3-col w3-card" style="width:95%">
+                    <div class="w3-col  resaltado_especial" style="width:95%">
                       <p  class="w3-serif"  style="font-size: 22px;">
                         Solicitud de cotizaciones                 
                       </p>
                           La evaluación de las ofertas se realizará ciñéndose exclusivamente a las reglas contenidas en la Solicitud de Oferta. 
                           Así las cosas, la Administración realizará la evaluación de la oferta en los términos establecidos en la Solicitud de Oferta, sin que sea posible que solicite requisitos adicionales o superiores a los establecidos. Sin embargo, en caso de requerirse alguna aclaración por parte de los Comités Evaluadores, se efectuará el requerimiento a través del Área Contractual en los términos y condiciones que se consideren pertinentes. 
 
-                     </div>           
+                     </div>    
+                     <div id="zona_sensible1" class="negrilla_sensible">
+                      <p><i class="fa fa-thumbs-up"></i></p>
+                      <p>
+                        Concepto Visto
+                      </p>
+                    </div>        
                   </div>
                 </div>
               </div>
@@ -667,34 +794,46 @@
 
               <!-- 8. Solicitud de oferta -->
               <div id="id08" class="w3-modal">
-                <div class="w3-modal-content ">
+                <div  id="modal-content" class="w3-modal-content">
                   <div class="w3-container">
                     <div class="w3-display-topleft">
-                      <button onclick="document.getElementById('id08').style.display='none'" class="w3-button w3-black">X</button>
+                      <button onclick="document.getElementById('id08').style.display='none'" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                     </div>
-                    <div class="w3-col w3-card" style="width:95%">
+                    <div class="w3-col resaltado_especial" style="width:95%">
                       <p  class="w3-serif"  style="font-size: 22px;">Solicitud de oferta
                       </p>
                           Comunicación donde la Administración define los requisitos de participación y los criterios o factores de evaluación o calificación.
                           Los oferentes podrán efectuar preguntas con relación a la solicitud de oferta hasta máximo un (01) día hábil antes del cierre, las cuales deben ser dirigidas al Área Contractual de ACOFA y resueltas por escrito por parte del Comité Estructurador, dejando constancia de ello en el expediente contractual.                      
-                     </div>           
+                     </div>     
+                     <div id="zona_sensible1" class="negrilla_sensible">
+                      <p><i class="fa fa-thumbs-up"></i></p>
+                      <p>
+                        Concepto Visto
+                      </p>
+                    </div>        
                   </div>
                 </div>
               </div>
 
         
       <!-- 7. Negociaciones -->
-          <div id="id07" class="w3-modal">
-            <div class="w3-modal-content ">
+      <div id="id07" class="w3-modal">
+         <div  id="modal-content" class="w3-modal-content">
               <div class="w3-container">
                 <div class="w3-display-topleft">
-                  <button onclick="document.getElementById('id07').style.display='none'" class="w3-button w3-black">X</button>
+                  <button onclick="document.getElementById('id07').style.display='none'" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                 </div>
-                <div class="w3-col w3-card" style="width:95%">
+                <div class="w3-col resaltado_especial" style="width:95%">
                   <p  class="w3-serif"  style="font-size: 22px;">Negociaciones
                   </p>
                   Para los contratos cerrados se realizará negociación de las cotizaciones evaluadas como las más favorables, siendo un acto facultativo del Gerente de Proyecto, y no es vinculante, es decir no obliga a la Administración a contratar con la empresa que se ha negociado.
-                </div>           
+                </div>    
+                <div id="zona_sensible1" class="negrilla_sensible">
+                  <p><i class="fa fa-thumbs-up"></i></p>
+                  <p>
+                    Concepto Visto
+                  </p>
+                </div>         
               </div>
             </div>
           </div>
@@ -702,55 +841,75 @@
           
     <!-- 6. Solicitud de cotizaciones -->
     <div id="id06" class="w3-modal">
-      <div class="w3-modal-content ">
+       <div  id="modal-content" class="w3-modal-content">
         <div class="w3-container">
           <div class="w3-display-topleft">
-            <button onclick="document.getElementById('id06').style.display='none'" class="w3-button w3-black">X</button>
+            <button onclick="document.getElementById('id06').style.display='none'" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
           </div>
-          <div class="w3-col w3-card" style="width:95%">
+          <div class="w3-col resaltado_especial" style="width:95%">
             <p  class="w3-serif"  style="font-size: 22px;">Solicitud de cotizaciones
             </p>
             Para contratos cerrados, la solicitud de cotización se enviará a los proponentes que posean las capacidades para ofrecer los bienes y servicios que requiere la Entidad, de acuerdo con el objeto contractual, atendiendo el número mínimo de invitados señalado en el numeral anterior. 
             Para la adquisición de bienes y/o servicios que se requieran bajo la condición de AOG se requerirá enviar a cotizar mínimo a tres (3) proveedores. Exceptuando cuando se trate de los cargues de los contratos abiertos marco donde la cotización se efectuará a las empresas que tengan contratos abiertos marco.
             
-          </div>           
+          </div>   
+          <div id="zona_sensible1" class="negrilla_sensible">
+            <p><i class="fa fa-thumbs-up"></i></p>
+            <p>
+              Concepto Visto
+            </p>
+          </div>          
         </div>
       </div>
     </div>
           
           <!-- 5. Estudios de mercado -->
           <div id="id05" class="w3-modal">
-            <div class="w3-modal-content ">
+            <div  id="modal-content" class="w3-modal-content">
               <div class="w3-container">
                 <div class="w3-display-topleft">
-                  <button onclick="document.getElementById('id05').style.display='none'" class="w3-button w3-black">X</button>
+                  <button onclick="document.getElementById('id05').style.display='none'" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                 </div>
-                <div class="w3-col w3-card" style="width:95%">
+                <div class="w3-col resaltado_especial" style="width:95%">
                   <p  class="w3-serif"  style="font-size: 22px;">Estudios de mercado </p>
                       Para los contratos cerrados el estudio de mercado se adelantará de acuerdo a las capacidades habilitadas por cada proveedor.
                       La Administración no está obligada a realizar el estudio de mercado con todas las empresas habilitadas en el Área Contractual de la Agencia de Compras FAC, deberá realizarlo con un mínimo de tres (03) empresas, teniendo en cuenta las excepciones del caso establecidas en esta Directiva para proveedor o distribuidor exclusivo y casas fabricantes.
                       El Comité Estructurador, puede solicitar aclaraciones a los oferentes en los casos requeridos sin que ellas sean vinculantes.
                       La Administración estará en la obligación de solicitar aclaraciones a los proponentes cuyos estudios de mercado y/o cotizaciones sean menores o mayores en un 25%, al costo total estimado.
-                  </div>           
+                  </div> 
+                  <div id="zona_sensible1" class="negrilla_sensible">
+                    <p><i class="fa fa-thumbs-up"></i></p>
+                    <p>
+                      Concepto Visto
+                    </p>
+                  </div>            
               </div>
+              
             </div>
           </div>
     
         <!-- 4. Modal Causales de contratación -->
         <div id="id04_2" class="w3-modal">
-          <div class="w3-modal-content ">
+          <div  id="modal-contentSiguiente" class="w3-modal-content">
             <div class="w3-container">
               <div class="w3-display-topleft">
-                <button onclick="document.getElementById('id04_2').style.display='none'" class="w3-button w3-black">X</button>
+                <button onclick="document.getElementById('id04_2').style.display='none'"
+                 id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
               </div>
-              <div class="w3-col w3-card" style="width:95%">
+              <div class="w3-col resaltado_especial" style="width:95%">
                 <p  class="w3-serif"  style="font-size: 22px;">Causales de contratación</p>
                   Los procedimientos que rigen estas modalidades, causales y tipo de contratos, se encuentran establecidos en el Instructivo GA-JEAD-INS-018.
                   Ya seleccionado el tipo de contrato, la modalidad y causal de contratación se procederá a lanzar el estudio de mercado y/o cotización para aquellos procesos que se adelanten bajo el tipo de contratos cerrados. 
                   Para los procesos que se adelanten bajo la modalidad de contrato abierto y/o marco se realizará la selección de los proveedores de acuerdo al Ranking (contratos abiertos) y listado (resumen evaluación contratos cerrados) y serán escogidos con base a la calificación de mayor a menor. 
                   Esta evaluación se realizará basada en los parámetros contemplados en la Directiva Vigente que regula la ¨Medición de desempeño de proveedores que suministran bienes y servicios a las Unidades Ejecutoras del MDN a través de ACOFA¨.
                   Por último, para los contratos abierto marco y abierto con lista de precios, se deberá adelantar un estudio de mercado, sin embargo, en el evento que previamente se cuente con un estudio de mercado que contenga las necesidades previstas anteriormente, se podrá tomar como insumo mencionado estudio, siempre y cuando el proveedor ratifique las condiciones ofrecidas en lo cotizado anteriormente. 
-              </div>           
+              </div>    
+              <div id="zona_sensible1" class="negrilla_sensible">
+                <p><i class="fa fa-thumbs-up"></i></p>
+                <p>
+                  Concepto Visto
+                </p>
+              </div>         
             </div>
           </div>
         </div>
@@ -758,17 +917,17 @@
 
              <!-- 4. MODAL Causales de contratación -->
              <div id="id04" class="w3-modal">
-              <div class="w3-modal-content ">
+              <div  id="modal-contentSiguiente" class="w3-modal-content">
                 <div class="w3-container">
                   <div class="w3-display-topleft">
-                    <button onclick="document.getElementById('id04').style.display='none'" class="w3-button w3-black">X</button>
+                    <button onclick="document.getElementById('id04').style.display='none'" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
                   </div>
-                  <div class="w3-col w3-card" style="width:95%">
+                  <div class="w3-col" style="width:95%">
                     <p class="w3-serif"  style="font-size: 22px;">Causales de contratación</p>
                   <p>
                     Escogida la modalidad de selección y la causal de contratación, se definirá el tipo de contratos, que serán: 
                   </p>
-                  <div class="w3-col w3-card" style="width:45%">
+                  <div class="w3-col w3-card" style="width:43%">
                     <p class="w3-serif"  style="font-size: 22px;">Modalidad de selección: Abreviada</p>
                     <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
                       <tr>
@@ -792,7 +951,7 @@
                     </table>
 
                   </div>
-                  <div class="w3-col w3-card" style="width:45%">
+                  <div class="w3-col w3-card" style="width:43%">
                     <p class="w3-serif"  style="font-size: 22px;">Modalidad de selección: Mayor</p>
                     <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
                       <tr>
@@ -817,47 +976,57 @@
               
                   </div>
            
-                  <button onclick="Anterior_id04()" class="w3-button btn_negrilla_sensible">  
-                    anterior
-                  </button>
-                  <button onclick="Siguiente_id04()" class="w3-button btn_negrilla_sensible">  
-                    siguiente
-                  </button>
+                
 
-                  </div>           
+                  </div>     
+                  <button onclick="Anterior_id04()" class="w3-button w3-blue btn-id04">  
+                    Anterior
+                  </button>
+                  <button onclick="Siguiente_id04()" class="w3-button w3-blue btn-id04">  
+                    Siguiente
+                  </button>  
+                  <br>    
                 </div>
               </div>
             </div>
         <!-- 1. MODAL MODALIDAD DE SELECCIÓN -->
         <div id="id02" class="w3-modal">
-          <div class="w3-modal-content ">
+          <div  id="modal-content" class="w3-modal-content">
             <div class="w3-container">
               <div class="w3-display-topleft">
-                <button onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-black">X</button>
+                <button onclick="document.getElementById('id02').style.display='none'" 
+                id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
+                
               </div>
-              <div class="w3-col w3-card" style="width:95%">
+              <div class="w3-col resaltado_especial" style="width:95%">
                 <p  class="w3-serif"  style="font-size: 22px;">Modalidad de selección</p>
                 Para garantizar la eficiencia y la transparencia en la contratación realizada a través de la Dirección de la Agencia de Compras FAC, se aplicarán las siguientes modalidades: 
                 1) Proceso Abreviado. 
                 2) Proceso Mayor. 
                 Teniendo en cuenta que los procesos contractuales en ACOFA se someten bajo la jurisdicción del Estado de la Florida tanto la etapa precontractual y la ejecución, los mismos estarán sometidos a los principios de la función administrativa a que se refiere el Artículo 209 de la Constitución Política de Colombia de 1991.
                 La Unidad Ejecutora deberá justificar de manera previa a la apertura del proceso de selección los fundamentos que soportan la modalidad de selección que se pretende adelantar.
-              </div>           
+              </div>  
+              <div id="zona_sensible1" class="negrilla_sensible">
+                <p><i class="fa fa-thumbs-up"></i></p>
+                <p>
+                  Concepto Visto
+                </p>
+              </div>         
             </div>
           </div>
         </div>
         <!-- 2. Modal Causales de contratación -->
 
         <div id="id03" class="w3-modal">
-          <div class="w3-modal-content ">
+         <div  id="modal-content" class="w3-modal-content">
             <div class="w3-container">
               <div class="w3-display-topleft">
-                <button onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-black">X</button>
+                <button onclick="document.getElementById('id03').style.display='none'" id="btn-cerrar" class="w3-button w3-yellow w3-round-xxlarge">X</button>
               </div>
-              <p  class="w3-serif"  style="font-size: 22px;">Causales de contratación                </p>
+              <p style="font-size: 22px;">Causales de contratación                </p>
 
-              <div class="w3-col w3-card" style="width:45%">
-                <p  class="w3-serif"  style="font-size: 22px;">Proceso Abreviado.
+              <div class="w3-col w3-card" style="width:43%">
+                <p  class="w3-serif"  style="font-size: 17px;">Proceso Abreviado.
                   Serán causales del proceso abreviado las siguientes:
                 </p>
                 <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
@@ -882,8 +1051,8 @@
               </tr>
                 </table>
             </div>        
-              <div class="w3-col w3-card" style="width:45%">
-                <p  class="w3-serif"  style="font-size: 22px;">Proceso Mayor.
+              <div class="w3-col w3-card" style="width:43%">
+                <p  class="w3-serif"  style="font-size: 17px;">Proceso Mayor.
                   Serán causales del proceso mayor las siguientes
                 </p>
               <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
@@ -910,51 +1079,53 @@
                
               </div>    
 
-              <button onclick="myFunction()" class="w3-button btn_negrilla_sensible">  
+              <button onclick="myFunction()" class="w3-button w3-blue">  
                 Tipos de contratos
               </button>
+              <div class="instruccion_interna">Debe dar click sobre el botón.</div>
+
           
             </div>
           </div>
         </div>
 
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap30.png" height="">     
-        </div>
+     
         <div class="item_c">
           <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
           <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div id="zona_sensible1" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                conceptualización
-              </p>
-            </div>
+            <!-- <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div> -->
+    
             <div class="resaltado_especial">
-              <button onclick="document.getElementById('id02').style.display='block'" class="w3-button btn_negrilla_sensible">Modalidad de selección.
-              </button>
-              <button onclick="document.getElementById('id03').style.display='block'" class="w3-button btn_negrilla_sensible">  Causales de contratación.
-              </button>
-              <button onclick="document.getElementById('id05').style.display='block'" class="w3-button btn_negrilla_sensible">  Estudio de Mercado
-              </button>
-              <button onclick="document.getElementById('id06').style.display='block'" class="w3-button btn_negrilla_sensible">  Solicitud de cotizaciones
-              </button>
-         
-              <button onclick="document.getElementById('id07').style.display='block'" class="w3-button btn_negrilla_sensible"> Negociaciones
-              </button>
-              <button onclick="document.getElementById('id08').style.display='block'" class="w3-button btn_negrilla_sensible">   Solicitud de oferta
-              </button>
-              <button onclick="document.getElementById('id09').style.display='block'" class="w3-button btn_negrilla_sensible"> Solicitud de cotizaciones
-              </button>
-              <button onclick="document.getElementById('id010').style.display='block'" class="w3-button btn_negrilla_sensible"> Recepción y evaluación de ofertas
-              </button>
-              <button onclick="document.getElementById('id011').style.display='block'" class="w3-button btn_negrilla_sensible"> Perfeccionamiento y requisitos de ejecución del contrato.
-              </button>
+              <div class="w3-container">
+
+              <div class="w3-col" style="width:40%">
+                <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-lime">Modalidad de selección.
+                </button>
+                <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-lime">  Causales de contratación.
+                </button>
+                <button onclick="document.getElementById('id05').style.display='block'" class="w3-button w3-lime">  Estudio de Mercado
+                </button>
+                <button onclick="document.getElementById('id06').style.display='block'" class="w3-button w3-lime">  Solicitud de cotizaciones
+                </button>
            
-              <button onclick="document.getElementById('id012').style.display='block'" class="w3-button btn_negrilla_sensible"> Garantías contractuales.
-              </button>
+                <button onclick="document.getElementById('id07').style.display='block'" class="w3-button w3-lime"> Negociaciones
+                </button>
+              </div>
+              <div class="w3-col" style="width:40%">
+                <button onclick="document.getElementById('id08').style.display='block'" class="w3-button w3-lime">   Solicitud de oferta
+                </button>
+                <button onclick="document.getElementById('id09').style.display='block'" class="w3-button w3-lime"> Solicitud de cotizaciones
+                </button>
+                <button onclick="document.getElementById('id010').style.display='block'" class="w3-button w3-lime"> Recepción y evaluación de ofertas
+                </button>
+                <button onclick="document.getElementById('id011').style.display='block'" class="w3-button w3-lime"> Perfeccionamiento y requisitos
+                </button>
+             
+                <button onclick="document.getElementById('id012').style.display='block'" class="w3-button w3-lime"> Garantías contractuales.
+                </button>
+              </div>
+            </div>
+
          
 
             </div>
@@ -992,829 +1163,10 @@
                 </tr>
               </table>
             </div>
-            <div id="zona_sensible2" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
+          
           </div>
         </div>
       </div>
-
-
-
-      <div class="txt_interno c_1_3">
-        <h1>4</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap32.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              <table class="lista_vinetas">
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En la cláusula vigésima de un contrato se establece como requisito de ejecución la aprobación de la
-                    garantía única, cuando en los requisitos previos no se le exigió la constitución de póliza alguna al
-                    contratista, y por la cuantía del mismo se podía omitir este requisito. En las páginas 2 a 6 de un
-                    contrato se denomina como un contrato de mínima cuantía, cuando se trata de uno de menor cuantía,
-                    así mismo dentro del clausulado no se menciona la obligación de publicar el contrato.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    Un contrato presenta inconsistencias de registro de información, como son: la inclusión en el texto
-                    de un número de Certificado de Disponibilidad (187) diferente al número del realmente utilizado para
-                    el efecto (661),
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div id="zona_sensible3" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-
-
-
-      <div class="txt_interno c_1_7">
-        <h1>5</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap33.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              <table class="lista_vinetas">
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En un contrato, el certificado de inscripción, clasificación y calificación del contratista es una
-                    copia simple y data del 01/11/06:
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En varios contratos las facturas presentadas por los contratistas no tienen fecha de emisión ni de
-                    vencimiento.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    Existen carpetas de contratos que presentan debilidades de archivo como: falta de foliación,
-                    foliación sin terminar y documentos repetidos.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    Se observó que algunas de las carpetas que conforman los archivos de los contratos ejecutados en la
-                    vigencia 2014 presentan deficiencias en la aplicación de los procesos, procedimientos y normas
-                    archivísticas, toda vez que éstas no presentan índices, tablas de retención documental, falta de
-                    rótulos de identificación, foliación, documentación repetida y carpetas conformadas con más de 200
-                    folios.
-                  </td>
-                </tr>
-
-              </table>
-            </div>
-            <div id="zona_sensible4" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="txt_interno c_1_2">
-        <h1>6</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap34.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              La suscripción del documento modificatorio se realizó el 3 de diciembre, después de la fecha límite de
-              entrega, la cual estaba establecida para el 15 de noviembre, con lo cual el contrato modificatorio resultó
-              firmado con fecha posterior a la prevista como plazo de entrega.
-            </div>
-            <div id="zona_sensible5" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_2">
-        <h1>7</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap35.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              En un contrato se evidenció el incumplimiento de la cláusula pactada respecto al término de solicitud de
-              ampliación del plazo para la ejecución del contrato; la solicitud se efectuó 5 días calendario antes del
-              vencimiento de la entrega de los elementos y no 20 días antes como estaba pactado contractualmente, sin
-              que obre en el expediente justificación alguna sobre el particular; y la suscripción del documento
-              modificatorio el 7 de diciembre de 2009, después de la fecha límite de entrega, la cual estaba prevista
-              para el 29 de noviembre de 2009, con lo cual el contrato modificatorio resultó firmado con fecha posterior
-              a la prevista como plazo de entrega.
-            </div>
-            <div id="zona_sensible6" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_3">
-        <h1>8</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap36.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              <table class="lista_vinetas">
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En varios contratos no se reporta constancia de la notificación personal de la Resolución de
-                    adjudicación al oferente seleccionado, la notificación a los proponentes no seleccionados, ni se
-                    está utilizando el formato establecido en el Manual de Contratación para la notificación personal.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En la carpeta de uno de los contratos no se adjunta la Resolución motivada de la adjudicación.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En un contrato, los actos de notificación personal de la resolución de adjudicación no están
-                    suscritos por quienes debieron ser notificados.
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div id="zona_sensible7" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_7">
-        <h1>9</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap37.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial" style=" margin: -13px 5px;">
-              <div style="font-size: 13px; line-height: 17px">
-                Se evidenció falta de publicación en unas actuaciones contractuales y extemporaneidad en otras, por
-                ejemplo:
-              </div>
-              <table class="lista_vinetas" style="font-size: 13px; line-height: 17px; margin-top: -4px;">
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    Una adición a un contrato no fue registrada en el SECOP
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    Un contrato de 13/07/12 se publica en el SECOP el 4/10/12
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    El acto administrativo de justificación de un proceso contractual es de 06/08/12 y el contrato es de
-                    27/08/12 y se publican en el SECOP el 15/01/13
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    La modificación 2 a un contrato es del 30/10/12 y se publica en el SECOP una oferta de otro proceso
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    La aceptación de la oferta que equivale al contrato es de 30/08/12 y se publica en el SECOP en
-                    12/09/12.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    El acta de liquidación es de 15/11/12 y no se ha publicado en el SECOP.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    El acto administrativo de justificación de la contratación directa es de 10/12/12 y se publica el
-                    14/01/13
-                  </td>
-                </tr>
-
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    No se publica la invitación pública a participar
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    La publicación de un contrato se realizó 28 días después de la fecha de inicio, requisito
-                    indispensable de publicidad para todos los procedimientos y actos asociados a los procesos de
-                    contratación. Igual situación se dio en la constitución de la póliza de cumplimiento, presupuesto
-                    para el inicio de la ejecución contractual, contrariando lo establecido en el Decreto 2474 de 2008
-                    Art. 8º numeral 17, Art. 84 inciso 1º, evidenciándose debilidades de control y supervisión en los
-                    responsables de estos procesos.
-
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div id="zona_sensible8" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_3">
-        <h1>10</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap38.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              <table class="lista_vinetas">
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En un contrato no se evidencia la copia de la libreta militar del contratista, necesaria para la
-                    suscripción del contrato, de acuerdo a lo ordenado por el Decreto 2150 de 1995 en su artículo 111.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En un contrato, el monto de los aportes al sistema de seguridad social en salud y pensión cancelados
-                    por el contratista, no está acorde a lo establecido en el Decretos 1703 de 2002 y 510 de 2003.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En las carpetas contentivas de varios contratos no se evidenciaron las certificaciones de falta de
-                    personal o con el perfil requerido, para realizar las actividades requeridas.
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div id="zona_sensible9" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_4">
-        <h1>11</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap39.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              <table class="lista_vinetas">
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En un contrato, el pago de los derechos de publicación no se efectuó dentro del plazo establecido en
-                    el contrato.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En varios contratos la constitución de la póliza de cumplimiento no se realizó dentro del plazo
-                    establecido contractualmente.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En varios contratos la constitución de la póliza única de cumplimiento no se realizó dentro del
-                    plazo establecido contractualmente.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    En la legalización de un contrato no se evidencia requerimiento alguno al contratista por parte de
-                    la entidad, para corregir la vigencia de la póliza única de cumplimiento en el menor tiempo posible.
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div id="zona_sensible10" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_2">
-        <h1>12</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap40.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              En un contrato no se evidencia el registro presupuestal de los recursos de la vigencia 2010.
-            </div>
-            <div id="zona_sensible11" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_3">
-        <h1>13</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap41.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              Se realizó una gestión fiscal ineficiente e ineficaz, por concepto de pactar en la forma de pago de los
-              contratos el anticipo para obra sin obtener previamente la licencia de construcción, y pago anticipado
-              para desarrollar las labores de Interventoría. Lo anterior debido a una ineficiente planificación que
-              permitió entregar anticipo de obra, sin que a la fecha se cuente con la respectiva licencia de
-              construcción. Similar situación ocurrió con otro contrato al convenir un pago anticipado para la labor de
-              Interventoría, con recursos de la vigencia 2009. Lo delicado del tema del pago anticipado realizado a este
-              contrato, es que continuaron desembolsando los recursos de la vigencia 2010, sin ser coherentes las
-              labores de Interventoría.
-            </div>
-            <div id="zona_sensible12" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_6">
-        <h1>14</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap42.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              Dentro de las especificaciones técnicas del contrato, se establece que el contratista debe: seleccionar
-              cada una de las vacantes requeridas de acuerdo con las especificaciones técnicas para que la entidad
-              entreviste al profesional y dé el visto bueno del candidato, recopilar toda la documentación como
-              prerrequisito de admisión y aprobación por parte de la entidad, y garantizar la calidad de los servicios
-              objeto del contrato. No obstante, la entidad se encarga de la convocatoria docente hora cátedra,
-              recepciona las hojas de vida vía electrónica por parte de la sección de planeación del grupo de formación,
-              y el Comité de selección de docentes hace la selección y evaluación de las hojas de vida. Por lo anterior
-              se evidencia que el proceso de recepción, estudio de la documentación, selección y análisis de las hojas
-              de vida de los docentes contratados la está realizando la entidad, dejando a la empresa contratante sólo
-              la realización de los descuentos de Ley y el pago a los docentes. Debido a que no se tiene toda
-              información del porcentaje de los costos en que se incurre en el servicio de la contratación de los
-              docentes hora cátedra, se iniciará una indagación preliminar.
-            </div>
-            <div id="zona_sensible13" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_7">
-        <h1>15</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap43.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              <div style="font-size: 15px; line-height: 18px">
-                El anexo técnico de un contrato determina las necesidades de contratación de docentes de acuerdo con las
-                materias que se requieren dictar, debido a que los docentes de planta no son suficientes o no tienen el
-                perfil requerido. Una vez revisado el contrato se evidenciaron las siguientes inconsistencias:
-                <table class="lista_vinetas">
-                  <tr>
-                    <td class="vineta"></td>
-                    <td>
-                      De las materias que se lograron identificar en el 1er y 2do semestre existen cátedras que no
-                      coinciden con las del pensum académico de los diferentes programas.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="vineta"></td>
-                    <td>
-                      Se está incluyendo dentro del contrato de hora cátedra de docentes, pagos por actividades
-                      administrativas.
-
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="vineta"></td>
-                    <td>
-                      El docente identificado con cédula de ciudadanía xxx, no aparece dentro de los docentes hora
-                      cátedra de la relación suministrada por la entidad, ni en los reportes de SIEFA y SIGA.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="vineta"></td>
-                    <td>
-                      La relación de docentes hora cátedra que se suministró no coincide en su totalidad con los
-                      docentes que aparecen en los sistemas SIEFA y SIGA.
-                    </td>
-                  </tr>
-                </table>
-                Las diferencias que presenta el contrato permite inferir irregularidades en su celebración. Además, no
-                es posible determinar el cumplimiento del contrato, debido a que no existe certeza de los docentes
-                contratados, del número de horas ni de las materias dictadas.
-
-
-              </div>
-            </div>
-            <div id="zona_sensible14" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_2">
-        <h1>16</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap44.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              Una vez revisados los subcontratos derivados de un contrato, correspondientes al segundo semestre de 2012
-              y primer semestre de 2013, se evidenció que no fueron firmados por el representante legal.
-
-            </div>
-            <div id="zona_sensible15" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_2">
-        <h1>17</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap45.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              En el desarrollo del proceso auditor al proyecto de Adquisición de alojamiento para el personal militar a
-              nivel nacional, mediante oficio se solicitaron las escrituras correspondientes a la compra de 24 casas en
-              el municipio de Mosquera, Cundinamarca y la escritura mediante la cual se adquirieron cinco (5)
-              apartamentos en Bogotá y otros documentos relacionados con dichas compras. De la respuesta de la Entidad
-              se evidencia que esta no suscribe el contrato de compraventa.
-
-            </div>
-            <div id="zona_sensible16" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_2">
-        <h1>18</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap46.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              El 08-JUL/2014 se suscribió un contrato de obra para la adecuación del andén y el cerramiento de una vía.
-              De acuerdo con la documentación allegada al expediente contractual, se evidencia que dicho contrato fue
-              objeto de adiciones en cuantía y modificaciones en plazo y forma de pago. Así mismo se encontró acta de
-              fecha 28-ENE/2015, suscrita por el ordenador del gasto, supervisor y contratista, por medio de la cual se
-              suspende el contrato, por cuanto no se han obtenido licencias y permisos por parte del DAMA para remover
-              unos árboles que están impidiendo continuar y culminar el objeto contractual pactado.
-            </div>
-            <div id="zona_sensible17" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_5">
-        <h1>19</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap47.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              <div style="font-size: 15px; line-height: 18px">
-                En los pliegos de condiciones, en la oferta del contratista, en el contrato de obra pública, en las
-                actas de recibo parcial y en el ingreso de registros a SAP, no se especificó a qué bienes inmuebles se
-                les debería realizar el mantenimiento preventivo, correctivo, etc.; como tampoco se evidenciaron planes,
-                cronogramas ni procedimientos para realizar dichos mantenimientos durante la ejecución del contrato, de
-                igual forma no se indican los tipos o clases de reparaciones locativas, necesarias y urgentes, pues
-                conociendo y describiendo estas clasificaciones de reparaciones y/o mantenimientos se logra identificar
-                cada caso donde se invierten los recursos del contrato, todo lo cual debe estar sustentado en una
-                solicitud de reparación o mantenimiento por quienes administran o residen en el inmueble, así mismo
-                identificar el bien inmueble con el número, dirección, conjunto, sector o barrio, ciudad de ubicación
-                etc.; y detallar las actividades, material, cantidades y valores de obras de mantenimiento realizadas en
-                cada uno, pues no es suficiente mencionar de manera general si el bien es de administración mixta o de
-                propiedad única, omisión que no permite identificar dónde se realizó el mantenimiento que se está
-                pagando, ni determinar la inversión correspondiente a cada uno. De otra parte en los informes de
-                supervisión y en las actas de recibo a satisfacción se relacionan ítems diferentes a los relacionados en
-                el anexo técnico del contrato, lo cual tampoco es concordante con la necesidad plasmada en los estudios
-                previos, denotándose debilidades de control y supervisión especialmente en los pagos realizados al
-                contratista con respecto a lo realizado y recibido a satisfacción.
-              </div>
-            </div>
-            <div id="zona_sensible18" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="txt_interno c_1_6">
-        <h1>20</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap48.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              En la revisión de los contratos de bienes inmuebles entregados en arrendamiento a particulares se
-              observaron deficiencias relacionadas con la responsabilidad en el control y supervisión del proceso
-              contractual realizado por la entidad para la vigencia 2012, a saber:
-              <table class="lista_vinetas">
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    No se aporta acta de entrega y recibo del bien inmueble.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    No se aporta constancia de pago a la seguridad social integral del contratista ni del o los
-                    subcontratistas.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    No se determina supervisor para el contrato.
-                  </td>
-                </tr>
-                <tr>
-                  <td class="vineta"></td>
-                  <td>
-                    Los pagos de los cánones de arrendamiento se efectúan de manera irregular, y por tanto no coinciden
-                    con lo planteado en el contrato.
-                  </td>
-                </tr>
-              </table>
-            </div>
-            <div id="zona_sensible19" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_4">
-        <h1>21</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap49.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              Al analizar un convenio marco suscrito entre el Ministerio de Defensa Nacional – xxx y Ecopetrol S. A.
-              cuyo objeto es la seguridad de las Infraestructura de los oleoductos petroleros en Caño Limón Coveñas, y
-              Transandino en Nariño, se observó que ingresó a la Tesorería de la entidad lo correspondiente a un 39% y
-              su ejecución correspondió a un 84% y a Terceros lo correspondiente a un 61% y su ejecución se encuentra en
-              un 64,3%. Analizada la ejecución de los recursos ejecutados a través de terceros, se evidencia que no se
-              ejecutaron recursos asignados a la Agencia Logística. Igualmente se evidencia que no se efectuó una
-              adecuada planeación y gestión para la construcción de las edificaciones en otros terrenos teniendo que
-              esperar ocho (8) meses para que emitieran el Nuevo Plan de Ordenamiento Territorial y no se pudiera llevar
-              a cabo la ejecución de los recursos en otros proyectos.
-            </div>
-            <div id="zona_sensible20" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_2">
-        <h1>22</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap50.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              En un contrato se efectuó una adición al valor del contrato, el concepto técnico que justifica la misma no
-              fue relacionado en el expediente contractual, situación que limitó establecer su justificación.
-            </div>
-            <div id="zona_sensible21" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="txt_interno c_1_3">
-        <h1>23</h1>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/diap51.png" height="">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-              <div style="font-size: 15px; line-height: 18px">
-                Evaluado un contrato, cuyo objeto es el estudio y diseños y construcción para la modernización de
-                edificaciones; se evidenció en los estudios previos y las solicitudes de oferta, que el costo de la
-                comisión fiduciaria será cubierto por el contratista; de igual manera, en las condiciones exigidas a los
-                oferentes en el capítulo anticipo, se establece que el costo de la comisión será cubierto por el
-                contratista, más adelante el comité de adquisiciones establece que la comisión fiduciaria será a cargo
-                del mismo. En la carta de presentación del contratista manifiesta aceptar y conocer el contenido de la
-                oferta junto con sus anexos y formularios. Una vez suscrito el contrato, encontramos la cláusula octava
-                parágrafo primero del contrato que reza lo siguiente “Los recursos transferidos junto con sus
-                rendimientos, incrementarán el FONDO DE RESERVA que serán utilizados para el pago de la comisión
-                fiduciaria a favor de la fiducia, los costos bancarios, el gravamen al movimiento financiero y demás
-                costos, tasas y contribuciones que deban asumirse en la ejecución del presente contrato”. Lo anterior
-                contraviene lo establecido en los estudios previos, solicitudes de oferta, condiciones de oferta
-                requeridos y exigidas al contratista y lo establecido por el comité de adquisiciones, así como a las
-                condiciones que acepta el contratista para la adjudicación del contrato.
-              </div>
-            </div>
-            <div id="zona_sensible22" class="negrilla_sensible">
-              <p><i class="fad fa-lightbulb-on"></i></p>
-              <p>
-                PAGINA 3
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
 
 
 
@@ -2142,4 +1494,83 @@ function Anterior_id012_3_1(){
   document.getElementById('id012_3').style.display='block',
   document.getElementById('id012_3_1').style.display='none'
 }
+
+function Salir_id012_1(){
+  document.getElementById('id012').style.display='block',
+  document.getElementById('id012_1').style.display='none'
+}
+
+
+// garantia tecnica
+function Siguiente_id012_4(){
+  document.getElementById('id012_4').style.display='block',
+  document.getElementById('id012_1').style.display='none'
+}
+
+function Siguiente_id012_4_2(){
+  document.getElementById('id012_4_2').style.display='block',
+  document.getElementById('id012_4').style.display='none'
+}
+function Anterior_id012_4_2(){
+  document.getElementById('id012_4_2').style.display='none',
+  document.getElementById('id012_4').style.display='block'
+}
+
+function Salir_id012_4(){
+  document.getElementById('id012_4').style.display='none',
+  document.getElementById('id012_1').style.display='block'
+}
+
+function Salir_id012_4_2(){
+  document.getElementById('id012_4_2').style.display='none',
+  document.getElementById('id012_1').style.display='block'
+}
+// penalidad por demora
+function Siguiente_id015(){
+  document.getElementById('id012_1').style.display='none',
+  document.getElementById('id015').style.display='block'
+}
+function Salir_id015(){
+  document.getElementById('id012_1').style.display='block',
+  document.getElementById('id015').style.display='none'
+
+}
+
+// Cláusula por entrega superior a los 30 días 
+
+function Siguiente_id016(){
+  document.getElementById('id012_1').style.display='none',
+  document.getElementById('id016').style.display='block'
+}
+function Salir_id016(){
+  document.getElementById('id012_1').style.display='block',
+  document.getElementById('id016').style.display='none'
+
+}
+
+// Aprobación de las garantías contractuales
+function Siguiente_id017(){
+  document.getElementById('id017').style.display='block',
+  document.getElementById('id012').style.display='none'
+
+}
+
+function Salir_id017(){
+  document.getElementById('id017').style.display='none',
+  document.getElementById('id012').style.display='block'
+
+}
+// Aprobación de las garantías contractuales
+function Siguiente_id018(){
+  document.getElementById('id018').style.display='block',
+  document.getElementById('id012').style.display='none'
+
+}
+
+function Salir_id018(){
+  document.getElementById('id018').style.display='none',
+  document.getElementById('id012').style.display='block'
+
+}
+
 </script>

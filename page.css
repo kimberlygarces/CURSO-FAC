@@ -39,3 +39,57 @@ padding-left: 120PX;
 	margin: 2%;
 	padding: 2%;
 }
+
+#id01, #id02, #id03, #id04, #id04_2, #id05, #id06, #id07, #id08, #id09, 
+#id010, #id011, #id012, #id012_1, #id012_2, #id012_4, #id012_3_2 ,#id012_2_2, #id012_3, #id018, #id017, #id016, #id015{
+	background-color: rgb(255, 255, 255);
+}
+#modal-content{
+	background-color: rgb(255, 255, 255);
+	-webkit-box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
+	animation-name: zoomIn;
+    animation-duration: 2s;
+}
+#modal-contentSiguiente{
+	background-color: rgb(255, 255, 255);
+	-webkit-box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
+	animation-name: slideInLeft;
+    animation-duration: 2s;
+}
+
+
+#btn-cerrar{
+	font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+	font-weight: 900;
+	font-size: 20px;
+	color: seashell;
+}
+.w3-col{
+	margin: 2%;
+	margin-left: 5%;
+}
+.btn-id04{
+	margin: 2%;
+}
+
+.img_id01{
+	margin: 3%;
+}
+#btn-abrir{
+	margin: 2%;
+	-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+}
+.btn-abrir{
+	width: 100%;
+}
+.w3-lime{
+	width: 100%;
+	margin: 1%;
+}
