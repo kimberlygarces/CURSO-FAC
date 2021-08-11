@@ -1,700 +1,848 @@
  <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title></title>
+ <html>
 
-<link rel="stylesheet" href="../../index.css">
-<link rel="stylesheet" href="page2.css">
-<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
-<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
+ <head>
+ 	<meta charset="UTF-8">
+ 	<title></title>
 
-<script src="../../cjs/easeljs-0.8.2.min.js"></script>
-<script src="../../cjs/tweenjs-0.6.2.min.js"></script>
-<script src="../../cjs/preloadjs-0.6.2.min.js"></script>
-<script src="../../cjs/soundjs-0.6.2.min.js"></script>
-<script src="page.js"></script>
-<script src="../../principal.js"></script>
-<script src="../../cjs/jquery.min.js"></script>
-<script src="../../cjs/jquery.imagemapster.js"></script>
-<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
+ 	<link rel="stylesheet" href="../../index.css">
+ 	<link rel="stylesheet" href="page2.css">
+ 	<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
+ 	<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
+	 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+   
 
-<script>
-var canvas, stage, exportRoot;
+ 	<script src="../../cjs/easeljs-0.8.2.min.js"></script>
+ 	<script src="../../cjs/tweenjs-0.6.2.min.js"></script>
+ 	<script src="../../cjs/preloadjs-0.6.2.min.js"></script>
+ 	<script src="../../cjs/soundjs-0.6.2.min.js"></script>
+ 	<script src="page.js"></script>
+ 	<script src="../../principal.js"></script>
+ 	<script src="../../cjs/jquery.min.js"></script>
+ 	<script src="../../cjs/jquery.imagemapster.js"></script>
+ 	<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
 
-function init() {
+ 	<script>
+ 		var canvas, stage, exportRoot;
 
-	canvas = document.getElementById("canvas");
+ 		function init() {
 
-	var loader = new createjs.LoadQueue(false);
-	loader.installPlugin(createjs.Sound);
-	loader.addEventListener("fileload", handleFileLoad);
-	loader.addEventListener("complete", handleComplete);
-	loader.addEventListener("progress", handleProgress);
-	loader.loadManifest(lib.properties.manifest);	
-}
+ 			canvas = document.getElementById("canvas");
 
-function handleFileLoad(evt) {
-	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
-}
+ 			var loader = new createjs.LoadQueue(false);
+ 			loader.installPlugin(createjs.Sound);
+ 			loader.addEventListener("fileload", handleFileLoad);
+ 			loader.addEventListener("complete", handleComplete);
+ 			loader.addEventListener("progress", handleProgress);
+ 			loader.loadManifest(lib.properties.manifest);
+ 		}
 
-function playSound(id, loop) {
-	createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
-}
+ 		function handleFileLoad(evt) {
+ 			if (evt.item.type == "image") {
+ 				images[evt.item.id] = evt.result;
+ 			}
+ 		}
 
-ancho_linea = 0;
-alto_linea = 10;
-max_ancho = 450;
+ 		function playSound(id, loop) {
+ 			createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+ 		}
 
-function handleProgress(evt) {
-	stage = new createjs.Stage(canvas);
-	var bordePadding = 2;
-    var borde = new createjs.Shape;
-    borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding*2, alto_linea).endFill();
-    var linea_carga = new createjs.Shape();
-	linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding,0 + bordePadding, ancho_linea, alto_linea - bordePadding*2).endFill();
-	
-    progreso = Math.round(evt.loaded * max_ancho);
-	ancho_linea = progreso;
-	
-	contenedor = new createjs.Container();
-	contenedor.x = 1240/2 - max_ancho/2;
-	contenedor.y = 495*4/5 - alto_linea/2;
-	contenedor.addChild(borde, linea_carga);
-	
-	//stage.addChild(contenedor);
-	stage.update();
-}
+ 		ancho_linea = 0;
+ 		alto_linea = 10;
+ 		max_ancho = 450;
 
-function handleComplete(evt) {
-	var queue = evt.target;
-	
-	stage = new createjs.Stage(canvas);
-	createjs.Ticker.addEventListener("tick", stage);
+ 		function handleProgress(evt) {
+ 			stage = new createjs.Stage(canvas);
+ 			var bordePadding = 2;
+ 			var borde = new createjs.Shape;
+ 			borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding * 2, alto_linea)
+ 				.endFill();
+ 			var linea_carga = new createjs.Shape();
+ 			linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding, 0 + bordePadding, ancho_linea, alto_linea -
+ 				bordePadding * 2).endFill();
 
-	/////Variables
-	sin_personaje = false;
-	globo_personaje = "A conitnuación observaremos las definiciones correspondientes a La Dirección de la Agencia de Compras FAC, Haga clic en los botones para ampliar la información.";
-	pausas_audio = [[0,13119,16075,19992],[0,13491,16380,20394]];
-	
-	contenidos();	
-}
+ 			progreso = Math.round(evt.loaded * max_ancho);
+ 			ancho_linea = progreso;
 
-</script>
+ 			contenedor = new createjs.Container();
+ 			contenedor.x = 1240 / 2 - max_ancho / 2;
+ 			contenedor.y = 495 * 4 / 5 - alto_linea / 2;
+ 			contenedor.addChild(borde, linea_carga);
 
-</head>
+ 			//stage.addChild(contenedor);
+ 			stage.update();
+ 		}
 
-<body onload="init();">
-<canvas id="canvas" width="1165" height="550"></canvas>
-	<div id="instruccion_circulos" class="instruccion_circulos"> 
-	</div>
-	
-	<class class="c_principal c_1"></class><!--modificar clase c_1_1 según distribución de contenido;-->
-		
-		<class class="item_c" ></class><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-			<div id="menu">
-				<ul>
-			
-			<li id= "item"><a href="page2.1.html" style="position: absolute;top: 22px; left: 950px;">Pag 2</a></li>
-			<li id= "item"><a href="page2.html" style="position: absolute;top: 22px; left: 900px;">Pag 1</a></li>
-			
-				
-					  </ul>
-				</div>		  
-				
-				<button id="boton1" style="position: absolute;top: 80px; left: 82px; ">1</button>
-				<button id="boton2" style="position: absolute;top: 120px; left: 82px;">2</button>
-				<button id="boton3" style="position: absolute;top: 160px; left: 82px;">3</button>
-				<button id="boton4" style="position: absolute;top: 200px; left: 82px;">4</button>
-				<button id="boton5" style="position: absolute;top: 240px; left: 82px;">5</button>
-				<button id="boton6" style="position: absolute;top: 280px; left: 82px;">6</button>
-				<button id="boton7" style="position: absolute;top: 320px; left: 82px;">7</button>
-				<button id="boton8" style="position: absolute;top: 360px; left: 82px;">8</button>
-				<button id="boton9" style="position: absolute;top: 400px; left: 82px;">9</button>
-				<button id="boton10" style="position: absolute;top: 440px; left: 79px;">10</button>
-				<button id="boton11" style="position: absolute;top: 80px; left: 1000px;">11</button>
-				<button id="boton12" style="position: absolute;top: 120px; left: 1000px;">12</button>
-				<button id="boton13" style="position: absolute;top: 160px; left: 1000px;">13</button>
-				<button id="boton14" style="position: absolute;top: 200px; left: 1000px;">14</button>
-				<button id="boton15" style="position: absolute;top: 240px; left: 1000px;">15</button>
-				<button id="boton16" style="position: absolute;top: 280px; left: 1000px;">16</button>
-				<button id="boton17" style="position: absolute;top: 320px; left: 1000px;">17</button>
-				<button id="boton18" style="position: absolute;top: 360px; left: 1000px;">18</button>
-				<button id="boton19" style="position: absolute;top: 400px; left: 1000px;">19</button>
-				<button id="boton20" style="position: absolute;top: 440px; left: 1000px;">20</button>
-				<button id="boton21" style="position: absolute;top: 480px; left: 1000px;">21</button>
-		
-				
-				<p div class="container" id="variable1" style="position: absolute;top: 180px; left: 300px; right: 300px ;"><img class="img1" src="images/bombi.png"><b>Acuerdo:</b><br> A diferencia del "contrato", significa la negociación de las partes de hecho, tal como se encuentra en su idioma o inferido de otras circunstancias, incluido el curso de ejecución, el curso de negociación o el uso del comercio según lo dispuesto en la Sección 1-303 (UCC).</p> 
-				<p div class="container" id="variable2" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Aircraft On Ground (AOG)-Aeronave en Tierra:</b><br> Aircraft On Ground (AOG)-Aeronave en Tierra: El término AOG se utiliza en mantenimiento aeronáutico para indicar que una aeronave tiene un problema, que no le permite volar y por tanto permanecerá en tierra hasta tanto se corrija o verifique la condición de la aeronave. Se aplica a cualquier bien y/o servicio de aviación que se requiera de forma inmediata para garantizar la operación de una aeronave.</p>
-				<p div class="container" id="variable3" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Component Returned by Exchange (CORE): </b><br> Elemento que estando en estado “Pendiente por reparar” se da en parte de pago y en reemplazo de otro elemento.</p>
-				<p div class="container" id="variable4" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Conformidad:</b><br> Se define como conforme a un bien o servicio que cumple con los términos y condiciones del contrato; incluyendo las especificaciones técnicas, las condiciones de entrega y la documentación establecida en el contrato. Por lo tanto, se define como no conforme a un bien que no cumpla con lo anterior. También se utiliza el término “novedad” para referirse a la no conformidad.</p>
-				<p div class="container" id="variable5" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Costos Complementarios por Daños Ocultos:</b><br> Se refiere a los costos de reparación por daños que solo son detectables al momento de la inspección de un componente.</p>
-				<p div class="container" id="variable6" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Estudio Previo:</b><br> Análisis técnico, económico y jurídico que define la necesidad y las especificaciones técnicas para determinar la favorabilidad y conveniencia de iniciar el proceso contractual y suscribir un contrato.</p>
-				<p div class="container" id="variable7" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Fabricante Aprobado de Partes - PMA por sus siglas en inglés (Parts Manufacturer Approval):</b><br> Es la compañía que aun cuando no es un Fabricante Original de Partes de los bienes objeto de adquisición, produce partes de las mismas características a las originales bajo aprobación del organismo regulador de cada país.</p>
-				<p div class="container" id="variable8" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Fabricante Original de Partes (Casa Fabricante)-OEM por sus siglas en inglés (Original Equipment Manufacturer):</b><br> Companía que posee la patente de fabricación de los bienes objeto de adquisición.</p>
-				<p div class="container" id="variable9" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Garantías Contractuales:</b><br> Instrumento legal a través del cual se mitigan los riesgos causados por incumplimiento de los términos y condiciones del contrato, las cuales garantizan a un tercero (Beneficiario) el cumplimiento de las obligaciones contractuales.</p>
-				<p div class="container" id="variable10" style="position: absolute;top: 180px; left: 300px; right: 300px;"><b>Lead-Time:</b><br> Es el tiempo de entrega de un producto de acuerdo a las condiciones del mercado.</p>
-				<p div class="container" id="variable11" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>MRO:</b><br> Empresa especializada en servicios de Mantenimiento, Reparación y Overhaul de equipos aeronáuticos.</p>
-				<p div class="container" id="variable12" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Negociación:</b><br> Es la actividad a través de la cual, se acuerdan las condiciones técnicas, económicas y jurídicas del proceso de contratación.</p>
-				<p div class="container" id="variable13" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Oferta:</b><br> Es el documento formal presentado por el proponente que contiene las condiciones técnicas, económicas y jurídicas exigidas por la entidad para ser evaluadas por los Comités evaluadores. </p>
-				<p div class="container" id="variable14" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Perfeccionamiento del Contrato:</b><br> Los contratos celebrados por ACOFA se perfeccionan con la firma del mismo. Asimismo, con la expedición del Certificado de Registro Presupuestal (CRP), se cumplirá con el requisito para dar inicio a la ejecución y cumplimiento de las obligaciones contractuales.</p>
-				<p div class="container" id="variable15" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Posible Paralización de la Aeronave (PPA):</b><br> Pedidos que se deben realizar con el fin de prevenir una posible paralización de las aeronaves o para futuras inspecciones a realizar.</p>
-				<p div class="container" id="variable16" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Proveedor en el exterior:</b><br> Toda persona jurídica que se encuentre inscrita en el Área Contractual ACOFA, como comerciante, fabricante, distribuidor exclusivo de bienes y/o prestador de servicios fuera del territorio nacional.</p>
-				<p div class="container" id="variable17" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Proveedor o Distribuidor Exclusivo:</b><br> Toda persona jurídica que tiene un contrato de exclusividad para proveer bienes y/o servicios o en su defecto sea el único que los suministre.</p>
-				<p div class="container" id="variable18" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Resciliación:</b><br> La Resciliación o “rescission” por su término en inglés, es una forma de disolución del contrato que deja sin efecto jurídico los derechos y obligaciones adquiridos mediante el mismo. Esta se efectuará de acuerdo con el procedimiento señalado en la presente Directiva.</p>
-				<p div class="container" id="variable19" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Solicitud de Cotización:</b><br>Documento elaborado por el Comité Estructurador de acuerdo al Anexo D. La solicitud de cotización no es un documento vinculante, es decir, no obliga a ACOFA a realizar un proceso o a contratar con aquellas empresas que respondan a dicha solicitud de cotización.</p>
-				<p div class="container" id="variable20" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Solicitud de Oferta:</b><br> Documento formal suscrito por el Competente Contractual, por medio del cual se le solicita al oferente presentar su Oferta y se le informa las especificaciones técnicas, las condiciones contractuales, jurídicas y económicas para la contratación. La información técnica y las condiciones de las cotizaciones y de las ofertas podrán estar sometidas a condiciones de confidencialidad, ya sea que estén incluidas en dichos documentos o porque las leyes que controlan el mercado internacional de Defensa lo exigen.</p>
-				<p div class="container" id="variable21" style="position: absolute;top: 180px; left: 300px; right: 300px; "><b>Términos de Comercio Internacional (INCOTERMS):</b><br> Son criterios definidos sobre la distribución de los gastos y la transmisión de los riesgos entre la parte compradora y la parte vendedora en un contrato de compraventa internacional.</p>
-				
-				<script src="js/jquery-3.4.1.min.js"></script>
-				
-				<script>
-					$(document).ready(() => {
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-		
-		
-						$('#boton1').click (function(){
-						$('#variable1').show(); 
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-			
-						$('#boton2').click (function(){
-						$('#variable2').show(); 
-						$('#variable1').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-						
-						$('#boton3').click (function(){
-						$('#variable3').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton4').click (function(){
-						$('#variable4').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton5').click (function(){
-						$('#variable5').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-						
-						$('#boton6').click (function(){
-						$('#variable6').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton7').click (function(){
-						$('#variable7').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton8').click (function(){
-						$('#variable8').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton9').click (function(){
-						$('#variable9').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						
-						$('#boton10').click (function(){
-						$('#variable10').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						
-						
-						$('#boton11').click (function(){
-						$('#variable11').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton12').click (function(){
-						$('#variable12').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton13').click (function(){
-						$('#variable13').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton14').click (function(){
-						$('#variable14').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton15').click (function(){
-						$('#variable15').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton16').click (function(){
-						$('#variable16').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						
-						$('#boton17').click (function(){
-						$('#variable17').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton18').click (function(){
-						$('#variable18').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						
-						$('#boton19').click (function(){
-						$('#variable19').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable20').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton20').click (function(){
-						$('#variable20').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable21').hide();
-						});
-		
-						$('#boton21').click (function(){
-						$('#variable21').show(); 
-						$('#variable1').hide();
-						$('#variable2').hide();
-						$('#variable3').hide();
-						$('#variable4').hide();
-						$('#variable5').hide();
-						$('#variable6').hide();
-						$('#variable7').hide();
-						$('#variable8').hide();
-						$('#variable9').hide();
-						$('#variable10').hide();
-						$('#variable11').hide();
-						$('#variable12').hide();
-						$('#variable13').hide();
-						$('#variable14').hide();
-						$('#variable15').hide();
-						$('#variable16').hide();
-						$('#variable17').hide();
-						$('#variable18').hide();
-						$('#variable19').hide();
-						$('#variable20').hide();
-						});
-					});
-					
-				</script>
-			
-			
+ 		function handleComplete(evt) {
+ 			var queue = evt.target;
 
-		<div class="mas_personaje c_1">
-		<div class="item_c">
-			
-		</div>		
-	</div>
-	
-	
+ 			stage = new createjs.Stage(canvas);
+ 			createjs.Ticker.addEventListener("tick", stage);
 
-</body>
-</html>
+ 			/////Variables
+ 			sin_personaje = false;
+ 			globo_personaje =
+ 				"A conitnuación observaremos las definiciones correspondientes a La Dirección de la Agencia de Compras FAC, Haga clic en los botones para ampliar la información.";
+ 			pausas_audio = [
+ 				[0, 13119, 16075, 19992],
+ 				[0, 13491, 16380, 20394]
+ 			];
+
+ 			contenidos();
+ 		}
+ 	</script>
+
+ </head>
+
+ <body onload="init();">
+ 	<canvas id="canvas" width="1165" height="550"></canvas>
+ 	<div id="instruccion_circulos" class="instruccion_circulos">
+ 	</div>
+
+ 	<class class="c_principal c_1">
+ 		<class class="item_c"></class>
+ 		<!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+ 		<div id="menu">
+ 			<ul>
+ 				<li id="item"><a href="page2.1.html" style="position: absolute;top: 490px; left: 550px;">Pag 2</a></li>
+ 				<li id="item"><a href="page2.html" style="position: absolute;top:  490px; left: 500px;">Pag 1</a></li>
+
+
+ 			</ul>
+ 		</div>
+
+ 		<button id="boton1" class="w3-button w3-khaki btn-def" style="position: absolute;top: 80px; left: 82px; ">1</button>
+ 		<button id="boton2" class="w3-button w3-khaki btn-def" style="position: absolute;top: 125px; left: 82px;">2</button>
+ 		<button id="boton3" class="w3-button w3-khaki btn-def" style="position: absolute;top: 170px; left: 82px;">3</button>
+ 		<button id="boton4" class="w3-button w3-khaki btn-def" style="position: absolute;top: 215px; left: 82px;">4</button>
+ 		<button id="boton5" class="w3-button w3-khaki btn-def" style="position: absolute;top: 260px; left: 82px;">5</button>
+ 		<button id="boton6" class="w3-button w3-khaki btn-def" style="position: absolute;top: 305px; left: 82px;">6</button>
+ 		<button id="boton7" class="w3-button w3-khaki btn-def" style="position: absolute;top: 350px; left: 82px;">7</button>
+ 		<button id="boton8" class="w3-button w3-khaki btn-def" style="position: absolute;top: 395px; left: 82px;">8</button>
+ 		<button id="boton9" class="w3-button w3-khaki btn-def" style="position: absolute;top: 440px; left: 82px;">9</button>
+ 		<button id="boton10"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 485px; left: 82px;">10</button>
+ 		<button id="boton11"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 35px; left: 1000px;">11</button>
+ 		<button id="boton12"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 80px; left: 1000px;">12</button>
+ 		<button id="boton13"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 125px; left: 1000px;">13</button>
+ 		<button id="boton14"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 170px; left: 1000px;">14</button>
+ 		<button id="boton15"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 215px; left: 1000px;">15</button>
+ 		<button id="boton16"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 260px; left: 1000px;">16</button>
+ 		<button id="boton17"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 305px; left: 1000px;">17</button>
+ 		<button id="boton18"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 350px; left: 1000px;">18</button>
+ 		<button id="boton19"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 395px; left: 1000px;">19</button>
+ 		<button id="boton20"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 440px; left: 1000px;">20</button>
+ 		<button id="boton21"class="w3-button w3-khaki btn-def"  style="position: absolute;top: 485px; left: 1000px;">21</button>
+
+		 <div class="instruccion_interna" style="position: absolute;top: 48px; left: 35%;">Debe dar click sobre cada uno de los botones.</div>
+
+ 		<div class="resaltado_especial" id="variable1"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px ;">
+ 			<b>Acuerdo:</b><br> A diferencia del "contrato", significa la negociación de las partes de hecho, tal como
+ 			se encuentra
+ 			en su idioma o inferido de otras circunstancias, incluido el curso de ejecución, el curso de negociación o
+ 			el uso del
+ 			comercio según lo dispuesto en la Sección 1-303 (UCC).
+ 			<div id="zona_sensible1" class="negrilla_sensible">
+ 				<p><i class="fa fa-thumbs-up"></i></p>
+ 				<p>
+ 					Concepto Visto
+ 				</p>
+ 			</div>
+ 		</div>
+
+ 		<div class="resaltado_especial" id="variable2"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Aircraft On Ground (AOG)-Aeronave en Tierra:</b><br> Aircraft On Ground (AOG)-Aeronave en Tierra: El
+ 			término AOG se
+ 			utiliza en mantenimiento aeronáutico para indicar que una aeronave tiene un problema, que no le permite
+ 			volar y por
+ 			tanto permanecerá en tierra hasta tanto se corrija o verifique la condición de la aeronave. Se aplica a
+ 			cualquier
+ 			bien y/o servicio de aviación que se requiera de forma inmediata para garantizar la operación de una
+ 			aeronave.
+ 			<!-- <div id="zona_sensible2" class="negrilla_sensible">
+					<p><i class="fa fa-thumbs-up"></i></p>
+					<p>
+					  Concepto Visto
+					</p>
+				</div>  			 -->
+ 		</div>
+
+ 		<div class="resaltado_especial" id="variable3"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Component Returned by Exchange (CORE): </b><br>
+ 			Elemento que estando en estado “Pendiente por reparar” se da en parte de pago y en reemplazo de otro
+ 			elemento.
+ 		</div>
+ 		<div class="resaltado_especial" id="variable4"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Conformidad:</b><br> Se define como conforme a un bien o servicio que cumple con los términos y
+ 			condiciones del
+ 			contrato; incluyendo las especificaciones técnicas, las condiciones de entrega y la documentación
+ 			establecida en
+ 			el contrato. Por lo tanto, se define como no conforme a un bien que no cumpla con lo anterior. También se
+ 			utiliza el
+ 			término “novedad” para referirse a la no conformidad.</div>
+ 		<div class="resaltado_especial" id="variable5"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Costos Complementarios por Daños Ocultos:</b><br> Se refiere a los costos de reparación por daños que
+ 			solo son
+ 			detectables al momento de la inspección de un componente.</div>
+ 		<div class="resaltado_especial" id="variable6"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Estudio Previo:</b><br> Análisis técnico, económico y jurídico que define la necesidad y las
+ 			especificaciones
+ 			técnicas para determinar la favorabilidad y conveniencia de iniciar el proceso contractual y suscribir un
+ 			contrato.</div>
+ 		<div class="resaltado_especial" id="variable7"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Fabricante Aprobado de Partes - PMA por sus siglas en inglés (Parts Manufacturer Approval):</b><br> Es
+ 			la compañía
+ 			que aun cuando no es un Fabricante Original de Partes de los bienes objeto de adquisición, produce partes
+ 			de las mismas
+ 			características a las originales bajo aprobación del organismo regulador de cada país.</div>
+
+ 		<div class="resaltado_especial" id="variable8"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Fabricante Original de Partes (Casa Fabricante)-OEM por sus siglas en inglés (Original Equipment
+ 				Manufacturer):
+ 			</b><br> Companía que posee la patente de fabricación de los bienes objeto de adquisición.</div>
+ 		<div class="resaltado_especial" id="variable9"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Garantías Contractuales:</b><br> Instrumento legal a través del cual se mitigan los riesgos causados por
+ 			incumplimiento
+ 			de los términos y condiciones del contrato, las cuales garantizan a un tercero (Beneficiario) el
+ 			cumplimiento de las
+ 			obligaciones contractuales.</div>
+ 		<div class="resaltado_especial" id="variable10"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px;">
+ 			<b>Lead-Time:</b><br> Es el tiempo de entrega de un producto de acuerdo a las condiciones del mercado.
+ 		</div>
+ 		<div class="resaltado_especial" id="variable11"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>MRO:</b><br> Empresa especializada en servicios de Mantenimiento, Reparación y Overhaul de equipos
+ 			aeronáuticos.</div>
+ 		<div class="resaltado_especial" id="variable12"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Negociación:</b><br> Es la actividad a través de la cual, se acuerdan las condiciones técnicas,
+ 			económicas y
+ 			jurídicas del proceso de contratación.</div>
+ 		<div class="resaltado_especial" id="variable13"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Oferta:</b><br> Es el documento formal presentado por el proponente que contiene las condiciones
+ 			técnicas, económicas
+ 			y jurídicas exigidas por la entidad para ser evaluadas por los Comités evaluadores. </div>
+ 		<div class="resaltado_especial" id="variable14"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Perfeccionamiento del Contrato:</b><br> Los contratos celebrados por ACOFA se perfeccionan con la firma
+ 			del mismo.
+ 			Asimismo, con la expedición del Certificado de Registro Presupuestal (CRP), se cumplirá con el requisito
+ 			para dar inicio
+ 			a la ejecución y cumplimiento de las obligaciones contractuales.</div>
+ 		<div class="resaltado_especial" id="variable15"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Posible Paralización de la Aeronave (PPA):</b><br> Pedidos que se deben realizar con el fin de prevenir
+ 			una posible
+ 			paralización de las aeronaves o para futuras inspecciones a realizar.</div>
+ 		<div class="resaltado_especial" id="variable16"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Proveedor en el exterior:</b><br> Toda persona jurídica que se encuentre inscrita en el Área Contractual
+ 			ACOFA,
+ 			como comerciante, fabricante, distribuidor exclusivo de bienes y/o prestador de servicios fuera del
+ 			territorio nacional.</div>
+ 		<div class="resaltado_especial" id="variable17"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Proveedor o Distribuidor Exclusivo:</b><br> Toda persona jurídica que tiene un contrato de exclusividad
+ 			para proveer
+ 			bienes y/o servicios o en su defecto sea el único que los suministre.</div>
+ 		<div class="resaltado_especial" id="variable18"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Resciliación:</b><br> La Resciliación o “rescission” por su término en inglés, es una forma de
+ 			disolución del contrato
+ 			que deja sin efecto jurídico los derechos y obligaciones adquiridos mediante el mismo. Esta se efectuará de
+ 			acuerdo con el
+ 			procedimiento señalado en la presente Directiva.</div>
+ 		<div class="resaltado_especial" id="variable19"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Solicitud de Cotización:</b><br>Documento elaborado por el Comité Estructurador de acuerdo al Anexo D.
+ 			La solicitud
+ 			de cotización no es un documento vinculante, es decir, no obliga a ACOFA a realizar un proceso o a
+ 			contratar con aquellas
+ 			empresas que respondan a dicha solicitud de cotización.</div>
+ 		<div class="resaltado_especial" id="variable20"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Solicitud de Oferta:</b><br> Documento formal suscrito por el Competente Contractual, por medio del cual
+ 			se le solicita
+ 			al oferente presentar su Oferta y se le informa las especificaciones técnicas, las condiciones
+ 			contractuales, jurídicas y
+ 			económicas para la contratación. La información técnica y las condiciones de las cotizaciones y de las
+ 			ofertas podrán estar
+ 			sometidas a condiciones de confidencialidad, ya sea que estén incluidas en dichos documentos o porque las
+ 			leyes que controlan
+ 			el mercado internacional de Defensa lo exigen.</div>
+ 		<div class="resaltado_especial" id="variable21"
+ 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+ 			<b>Términos de Comercio Internacional (INCOTERMS):</b><br> Son criterios definidos sobre la distribución de
+ 			los gastos
+ 			y la transmisión de los riesgos entre la parte compradora y la parte vendedora en un contrato de
+ 			compraventa internacional.
+
+ 		</div>
+
+ 		<script src="js/jquery-3.4.1.min.js"></script>
+
+ 		<script>
+ 			$(document).ready(() => {
+ 				$('#variable1').hide();
+ 				$('#variable2').hide();
+ 				$('#variable3').hide();
+ 				$('#variable4').hide();
+ 				$('#variable5').hide();
+ 				$('#variable6').hide();
+ 				$('#variable7').hide();
+ 				$('#variable8').hide();
+ 				$('#variable9').hide();
+ 				$('#variable10').hide();
+ 				$('#variable11').hide();
+ 				$('#variable12').hide();
+ 				$('#variable13').hide();
+ 				$('#variable14').hide();
+ 				$('#variable15').hide();
+ 				$('#variable16').hide();
+ 				$('#variable17').hide();
+ 				$('#variable18').hide();
+ 				$('#variable19').hide();
+ 				$('#variable20').hide();
+ 				$('#variable21').hide();
+
+
+ 				$('#boton1').click(function () {
+ 					$('#variable1').show();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton2').click(function () {
+ 					$('#variable2').show();
+ 					$('#variable1').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton3').click(function () {
+ 					$('#variable3').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton4').click(function () {
+ 					$('#variable4').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton5').click(function () {
+ 					$('#variable5').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton6').click(function () {
+ 					$('#variable6').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton7').click(function () {
+ 					$('#variable7').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton8').click(function () {
+ 					$('#variable8').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton9').click(function () {
+ 					$('#variable9').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+
+ 				$('#boton10').click(function () {
+ 					$('#variable10').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+
+
+ 				$('#boton11').click(function () {
+ 					$('#variable11').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton12').click(function () {
+ 					$('#variable12').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton13').click(function () {
+ 					$('#variable13').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton14').click(function () {
+ 					$('#variable14').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton15').click(function () {
+ 					$('#variable15').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton16').click(function () {
+ 					$('#variable16').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+
+ 				$('#boton17').click(function () {
+ 					$('#variable17').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton18').click(function () {
+ 					$('#variable18').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+
+ 				$('#boton19').click(function () {
+ 					$('#variable19').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable20').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton20').click(function () {
+ 					$('#variable20').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable21').hide();
+ 				});
+
+ 				$('#boton21').click(function () {
+ 					$('#variable21').show();
+ 					$('#variable1').hide();
+ 					$('#variable2').hide();
+ 					$('#variable3').hide();
+ 					$('#variable4').hide();
+ 					$('#variable5').hide();
+ 					$('#variable6').hide();
+ 					$('#variable7').hide();
+ 					$('#variable8').hide();
+ 					$('#variable9').hide();
+ 					$('#variable10').hide();
+ 					$('#variable11').hide();
+ 					$('#variable12').hide();
+ 					$('#variable13').hide();
+ 					$('#variable14').hide();
+ 					$('#variable15').hide();
+ 					$('#variable16').hide();
+ 					$('#variable17').hide();
+ 					$('#variable18').hide();
+ 					$('#variable19').hide();
+ 					$('#variable20').hide();
+ 				});
+ 			});
+ 		</script>
+
+
+
+
+ 	</class>
+ 	<!--modificar clase c_1_1 según distribución de contenido;-->
+
+
+ 	<div class="mas_personaje c_1">
+ 		<div class="item_c">
+
+ 		</div>
+ 	</div>
+
+
+
+ </body>
+
+ </html>
