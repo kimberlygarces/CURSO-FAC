@@ -1,0 +1,52 @@
+
+
+button{
+    padding: 10px;    
+    display:inline-block;
+    align-content: center;
+    color:rgb(56, 52, 52);
+    text-transform:uppercase;
+    border-color:powderblue;
+    border-radius:1px.5em;
+    
+    }
+    
+    p.container{
+      
+      background: black;
+        padding: 7px 7px;
+      border: PowderBlue 8px double;
+      border-radius: 5px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: justify;
+        padding: 8px;
+    
+    }
+    
+    #menu ul{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    
+    }
+    
+    #menu #item {
+      float: left;
+        
+    
+    }
+    
+    #menu #item a{
+      background-color: rgba(0, 51, 102, 1);
+      color: rgba( 255, 255, 255, 1);
+      padding: 5px 15px;
+      display: block;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 13px;
+      text-decoration: none;
+      border-radius: 5px;
+    
+    }
+    img .img1{
+      float: right;
+  }
