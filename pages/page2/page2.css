@@ -11,17 +11,6 @@ button{
     
     }
     
-    /* p.container{
-      
-      background: black;
-        padding: 7px 7px;
-        border: PowderBlue 8px double;
-        border-radius: 5px;
-        font-family: Arial, Helvetica, sans-serif;
-        text-align: justify;
-        padding: 8px;
-    
-    } */
     
     #menu ul{
       list-style: none;
@@ -42,6 +31,8 @@ button{
       font-size: 13px;
       text-decoration: none;
       border-radius: 5px;
+      z-index: 3;
+
     
     }
     img .img1{
@@ -57,3 +48,71 @@ button{
 
   }
 
+#variable1, #variable3, #variable5, #variable7, #variable9, #variable11, #variable13, #variable15, #variable17, #variable19, #variable21 {
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  background: white;
+  -webkit-box-shadow: 10px 10px 87px 2px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 87px 2px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 87px 2px rgba(0,0,0,0.75);
+  border-radius: 5px;
+}
+
+#variable2, #variable4, #variable6, #variable8, #variable10, #variable12, #variable14, #variable16, #variable18, #variable20, #variable22 {
+  animation-name: jackInTheBox;
+  animation-duration: 1.5s;
+  background: white;
+  -webkit-box-shadow: 11px 13px 191px 23px rgba(0,0,0,0.75);
+  -moz-box-shadow: 11px 13px 191px 23px rgba(0,0,0,0.75);
+  box-shadow: 11px 13px 191px 23px rgba(0,0,0,0.75);
+border-radius: 5px;
+}
+
+.img1 {
+  width: 200PX;
+  height: 100px;
+  align-items: center;
+  animation-name: fadeIn;
+  animation-duration: 5s;
+  }
+
+.img2{
+  margin: auto;
+  display: block;
+  width: 550px;
+  height: 550px;
+  opacity: 0.4;
+  
+
+}
+
+.img3 {
+  width: 450PX;
+  height: 110px;
+  position:center;
+  
+}
+.img4 {
+  width: 100PX;
+  height:100px;
+}
+.img5{
+  width: 110PX;
+  height: 110px;
+  position: center;
+
+}
+.img6{
+  width: 70%;
+  height: 70%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+
+}
+.img7{
+  width: 90%;
+  height: 90%;
+  margin-left: 10%;
+  margin-bottom: 5%;
+
+}

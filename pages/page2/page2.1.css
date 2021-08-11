@@ -250,3 +250,54 @@ a{
     width: 100%;
     margin: 2%;
 }
+.img5{
+    
+    margin-bottom: 2%;
+    margin-left: 12%;
+    width: 10%;
+    height: 15%;
+  
+}
+
+.img6{
+    
+  margin-bottom: 1%;
+  margin-left: 40%;
+  width: 10%;
+  height: 15%;
+
+}
+.img7{
+    
+  margin-bottom: 1%;
+  margin-left: 30%;
+  width: 10%;
+  height: 15%;
+
+}
+.img8{
+    
+  margin-bottom: 1%;
+  margin-left: 40%;
+  width: 10%;
+  height: 15%;
+
+}
+
+.img9{
+    
+  margin-bottom: 1%;
+  margin-left: 70%;
+  width: 10%;
+  height: 15%;
+
+}
+
+
+.fondo{
+  position:center;
+  width: 300px;
+height: 300PX;
+margin-left: 35%;
+margin-top: 25%;
+}
