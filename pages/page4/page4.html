@@ -3,21 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
-
 <link rel="stylesheet" href="../../index.css">
+<link rel="stylesheet" href="page4.css">
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 <link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
 <link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
-
-<script src="../../cjs/easeljs-0.8.2.min.js"></script>
-<script src="../../cjs/tweenjs-0.6.2.min.js"></script>
-<script src="../../cjs/preloadjs-0.6.2.min.js"></script>
-<script src="../../cjs/soundjs-0.6.2.min.js"></script>
-<script src="page.js"></script>
-<script src="../../principal.js"></script>
-<script src="../../cjs/jquery.min.js"></script>
-<script src="../../cjs/jquery.imagemapster.js"></script>
-<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
-
+<script src="../../cjs/easeljs-0.8.2.min.js"></script> 
+<script src="../../cjs/tweenjs-0.6.2.min.js"></script> 
+<script src="../../cjs/preloadjs-0.6.2.min.js"></script> 
+<script src="../../cjs/soundjs-0.6.2.min.js"></script> 
+<script src="page.js"></script> 
+<script src="../../principal.js"></script> 
+<script src="../../cjs/jquery.min.js"></script> 
+<script src="../../cjs/jquery.imagemapster.js"></script> 
+<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script> 
 <script>
 var canvas, stage, exportRoot;
 
@@ -73,761 +74,85 @@ function handleComplete(evt) {
 
 	/////Variables
 	sin_personaje = false;
-	globo_personaje = "Estudiemos ahora los hallazgos que tienen <br>como principal responsable al supervisor.";
-	pausas_audio = [[0,7072],[655,7798]];
+	globo_personaje = "Continuemos analizando los hallazgos relacionados con el supervisor, pero ahora en la etapa postcontractual.";
+	pausas_audio = [[0,4398,7509],[687,4772,8247]];
 	
 	contenidos();	
 }
 
 </script>
-
 </head>
 
 <body onload="init();">
 <canvas id="canvas" width="1165" height="550"></canvas>
-	<div id="instruccion_circulos" class="instruccion_circulos"> 
-	</div>
-	
-	<div class="c_principal c_1_7"><!--modificar clase c_1_1 según distribución de contenido;-->
-  <h1></h1>
-  
-  <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-  
-  </div>
-  <div class="item_c" ><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-    
-    <div class="txt_interno c_1">
-      <h1>Inicio<br/>
-      </h1>
-      <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-          
-          <div class='instruccion_interna'><span class='indica_instclic'></span>Pulsa los números para conocer los hallazgos.</div>
+<div id="instruccion_circulos" class="instruccion_circulos"> </div>
+
+<!--INICIO CONTENIDO--> 
+
+<!-- Inicio contenido principal-->
+<div class="c_principal c_1_1"><!--modificar clase c_1_1 según distribución de contenido;-->
+
+    <div class="txt_c">
+      <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
+        <div class=" w3-col resaltado_especial" style="width:65%; margin: 5%; ">
+          <p class="w3-serif" style="font-size: 22px;">
+            Modificación del contrato
+
+          </p>
+          <hr>
+          <button onclick="Siguiente_id033_3()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
+            a) Se podrá modificar el contrato garantizando el cumplimiento de su fin, cuando:
+          </button>
+          <button onclick="Siguiente_id033_4()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
+            b) Condiciones para modificar un contrato
+
+          </button>
+          <button onclick="Siguiente_id033_5()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
+            c) Documentos requeridos para modificar un contrato
+          </button>
         </div>
+        <div class="img_id01">
+          <img src="images/diap59.png" height="250px" style="position: absolute; right: 2px; bottom: 5px;">
+        </div>
+
+      <!-- <div id="zona_sensible0" class="negrilla_sensible">
+        <p><i class="fad fa-lightbulb-on"></i></p>
+        <p> Lección aprendida </p>
       </div>
-    </div>
-    
-	  
-	  
-        <div class="txt_interno c_1_2">
-        <h1>1</h1>
-            <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap54.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-Se presentan debilidades en algunos documentos que se generan en la función de supervisión, como ausencia de firmas, confusión y/o falta de fechas.
-            </div>
-            <div id="zona_sensible0" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_7">
-        <h1>2</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap55.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial" style="margin: -15px 5px;">
-                <div style="margin: -15px 5px;">
-                 <table class="lista_vinetas" style="font-size: 12px; line-height: 16px">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En la revisión de los informes de supervisión se evidenció que estos no reportan el grado de avance del cumplimiento de los objetos contratados en términos cuantitativos y cualitativos, la oportunidad en los plazos establecidos y todas aquellas situaciones que inciden en la ejecución del contrato, toda vez que solamente se limitan al diligenciamiento de un formato prediseñado con anotaciones de carácter general.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-Se evidencia que la entidad tiene estandarizados formatos de informes de supervisión para las diferentes modalidades de contratación, sin embargo, una vez revisados los expedientes contractuales, de la muestra aplicada, se encontraron informes elaborados por los supervisores designados, en los que se evidencian debilidades en la información referente a: “Descripción de las actividades desarrolladas e informe de trabajos realizados por el contratista”, donde los responsables del proceso se limitan a escribir, “se recibe de acuerdo a las especificaciones técnicas del contrato”, sin que en ellos se introduzca una descripción detallada de las actividades adelantadas por el contratista en el periodo reportado, (reg. fotográficos, lista de chequeo, memorias de cálculo, libro diario de obra, datos estadísticos, tabla de cantidades). Fácilmente se observa que los informes entregados mes a mes describen lo mismo que el presentado en el mes inmediatamente anterior.
-		</td>
-	</tr>
-                   <tr>
-		<td class="vineta"></td>
-		<td>
-Algunos informes de supervisión no detallan los avances y estados de las actividades realizadas por el contratista, limitándose a describir de manera breve las obligaciones que se van cumpliendo por parte del contratista, como se evidencia en el siguiente caso: En el informe de supervisión, el supervisor solamente plasmó las siguientes anotaciones: "El contratista hace entrega de los bienes a adquirir en el Almacén, quedando pendiente de entregar la adición antes del 27 de Julio de 2018. Pendiente entrega de los bienes que se adicionaron al contrato" sin especificar cuáles bienes recibió y cuales quedaron pendientes de entrega.
-		</td>
-	</tr>
-                   <tr>
-		<td class="vineta"></td>
-		<td>
-En varios contratos, los informes de supervisión no establecen el avance del contrato ni el porcentaje de ejecución.
-		</td>
-	</tr>
-                   <tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato existen informes de supervisión repetidos.
-
-		</td>
-	</tr>
-                  
-</table>
-                </div>
-              
-            </div>
-            <div id="zona_sensible1" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_2">
-        <h1>3</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap56.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En varios contratos, las facturas presentadas por los contratistas no contienen los requisitos legales establecidos en el Estatuto Tributario.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-Durante la ejecución de un contrato, el contratista presentó una factura de venta sin discriminar el IVA respectivo.
-		</td>
-	</tr>
-</table>
-            </div>
-            <div id="zona_sensible2" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      
-      
-      <div class="txt_interno c_1_3">
-        <h1>4</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap57.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En los informes de supervisión de un contrato para los meses de septiembre, octubre, diciembre, enero y febrero aparece un mismo porcentaje de ejecución.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato hay novedades presentadas por el comandante en el mes de julio, pero en los informes de supervisión y recibido a satisfacción no se menciona nada al respecto.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato se observa que el oficial de servicio informa que se presenta novedad en la ejecución del contrato para los días 7 y 24 de diciembre, sin evidenciar gestión por parte del supervisor del contrato, de igual manera se denota un cambio en la composición del menú sin que se indique una aceptación expresa por parte de la entidad.
-		</td>
-	</tr>
-</table>            </div>
-            <div id="zona_sensible3" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      
-      
-      
-      
-      <div class="txt_interno c_1_3">
-        <h1>5</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap58.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En varios contratos, en el formulario de aprobación de la garantía única se menciona a Seguros del Estado, cuando la aseguradora que expide es Liberty Seguros; los informes tienen fecha de noviembre y diciembre de 2009, cuando el plazo del contrato era hasta septiembre; en el acta de liquidación se evidencia un error en el año de elaboración mencionando el año 2009.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En un contrato, el certificado de existencia y representación legal del contratista es una copia, así mismo el ECO no tiene fecha de suscripción.
-		</td>
-	</tr>
-</table>
-            </div>
-            <div id="zona_sensible4" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      
-      <div class="txt_interno c_1_4">
-        <h1>6</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap59.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-            <div style="font-size: 15px; line-height: 18px">
-Los informes de Interventoría (salvo los de abril, mayo y noviembre) no evidencian seguimiento y control al cumplimiento del objeto contractual, toda vez que no reportan mensualmente el número de elementos enviados a la CIAC para reparación, así como los recibidos en buenas condiciones, o los devueltos por garantía a fin de realizar un control efectivo sobre el proceso. Situación que se evidenció en los siguientes casos:
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-El número de elementos reportados para reparar durante la ejecución del contrato (según informes de abril y mayo) fueron 194 y de 111 recibidos (según informes de abril, mayo y noviembre), para un total de 305 elementos, frente a un total (según facturas) de 534 solicitudes de reparación de componentes, lo que origina una diferencia de 229 elementos sin incluir.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-En el informe de noviembre, al 20 de octubre, se habían recibido 121 elementos correspondientes a facturas del mes de agosto, septiembre y octubre, sin embargo, al verificar con las facturas fueron 129, con una diferencia de ocho (8) elementos menos con relación a los ingresados al almacén.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-En la carpeta contentiva del contrato aparece duplicidad de informe en   noviembre y diciembre, es decir en diciembre no se reportó informe de Interventoría, siendo éste uno de los requisitos para el pago correspondiente.
-		</td>
-	</tr>
-</table>
-            
-            </div>
-            </div>
-            <div id="zona_sensible5" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_3">
-        <h1>7</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap60.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-En un contrato para la prestación de servicios de capacitación e instrucción para personal de la fuerza pública, el contratista se comprometió a mantener como mínimo tres instructores de planta disponibles para la capacitación y asesoría extra clase y solo contrató dos; debido al incumplimiento del contratista se generó detrimento patrimonial. La Entidad manifiesta que los soportes allegados por el contratista no demostraron la disponibilidad del tercer instructor, por lo cual solicitan la devolución de este valor; acción que se realizó mediante consignación efectuada por el contratista. Por acción de la Contraloría General de la República, la entidad reintegró el valor determinado en el hallazgo. 
-            </div>
-            <div id="zona_sensible6" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_3">
-        <h1>8</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap61.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-En un Convenio de Cooperación se establece que “El Grupo de Supervisión estará a cargo de un (01) representante del Comando General de las Fuerzas Militares, un (01) representante de la Unidad Militar del área correspondiente y un (01) representante de la Empresa o la Asociada. De estas supervisiones se levantarán actas, las cuales, deberán ser enviadas al Ministerio de Defensa Nacional". Mediante oficio se solicitó a la entidad los informes de supervisión sobre la ejecución del convenio en cumplimiento de las disposiciones referidas en el acápite anterior, a lo cual la entidad allega documentación relacionada con informes correspondes al ejercicio de la función de supervisión de la subcontratación y actas de reuniones relacionadas con el plan de inversión, documentos que no reflejan el cumplimiento de las obligaciones del convenio marco en referencia.
-            </div>
-            <div id="zona_sensible7" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_7">
-        <h1>9</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap62.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial" style="margin: -15px 5px; ">
-                <div style="margin: 2px 5px; font-size: 12px; line-height: 15px;">
-                
-Se evidenciaron debilidades en el suministro de información por parte de las dependencias involucradas en la implementación de un Software de Gestión, adquirido a través de un contrato, de manera puntual en la verificación de las especificaciones de requerimientos que debían soportar los entregables, aunado al cumplimiento de capacitaciones técnicas y funcionales del contratista y el desarrollo de actividades a cargo de las áreas operativa y técnica, así mismo la ausencia de comunicación y coordinación de los responsables de cada una de las áreas, en el seguimiento a las obligaciones del contrato. Denotando con ello debilidades en la optimización de las características principales de calidad del software, como son la usabilidad y eficiencia; dado que el sistema requiere de información depurada y actualizada del personal militar. Lo anterior conllevó a que el Contratista y la Entidad realizaran acuerdos y compromisos posteriores a la finalización de Contrato que son objeto por parte de este Órgano de Control de Función de Advertencia, en los siguientes aspectos:
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-Garantía de la operatividad del Sistema, pactada por el Contratista por un tiempo de 12 meses, de los cuales ya han transcurrido 5 sin que se encuentre operando con el total de la información requerida.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-Depuración y actualización de la inf. relacionada con el Sistema de información SIATH, conforme al cronograma suministrado mediante el Acta de Visita de Auditoria con fecha 20/05/13.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-Programación de Capacitaciones Funcionales consignadas en documentos allegados con la respuesta de la Entidad fechada el 20 de mayo de 2013, suscrita por el contratista.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-Realización de la Capacitación Funcional programada para el 21 de mayo de 2013 a 50 usuarios finales, con fecha posterior a la finalización del contrato
-		</td>
-	</tr>
-</table>
-                    Con el cumplimiento de estas actividades objeto de Advertencia se previene un riesgo a generar daño fiscal, toda vez que se logra la puesta en funcionamiento en un 100% del aplicativo con el personal debidamente capacitado; con la cobertura de la garantía pactada con el contratista, conllevando a su vez a la generación de información confiable y oportuna para la toma de decisiones. 
-
-                    
-            
-            </div>
-            </div>
-            <div id="zona_sensible8" class="negrilla_sensible" >
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_3">
-        <h1>10</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap63.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-En un contrato de obra celebrado para realizar el mantenimiento y mejoramiento en las condiciones de la ficha técnica, para la barraca del personal de alumnos de la escuela de helicópteros de la fuerza pública, las casas fiscales de oficiales y las casas fiscales de suboficiales, se efectuó un pago por cantidades de obra que no se ejecutaron,  ítems que no funcionan y actividades que presentan mala calidad en su ejecución. Lo anterior, debido al incumplimiento del contratista; lo que generó detrimento patrimonial. La Entidad en su respuesta acepta las inconsistencias detectadas y acuerda con el contratista el arreglo de las mismas; lo cual generó el 100% de las reparaciones y en registros fotográficos de las mismas. 
-            </div>
-            <div id="zona_sensible9" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_2">
-        <h1>11</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap64.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-Algunos de los contratos de comodato celebrados con un municipio, que permitieron la llegada de automóviles y motocicletas se encuentran vencidos. Lo anterior, obedece a debilidades en el control interno y en la gestión en el área contractual y de apoyo logístico, generando posibles dificultades de tipo judicial. 
-            </div>
-            <div id="zona_sensible10" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_6">
-        <h1>12</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap65.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-                <div style="font-size: 13px; line-height: 18px">
-En el análisis de un contrato cuyo objeto es la adquisición de la Arquitectura en Ciberdefensa, se verificaron los elementos recibidos por parte de la entidad durante la ejecución contractual. En cuanto a la solución NAC que hace parte del anillo de la red interna, comprendía el sistema XYXYXYXY para 6000 usuarios y dos appliance IAP N550 NACI MFE Net Sec N-550, y estaba representado en dos entregas: la primera de hardware, software, soporte y garantía, la cual fue pagada en el año 2013 y la segunda por concepto de implementación, acompañamiento, capacitación y demás servicios profesionales, pendiente de pago. Durante el proceso de ejecución en el 2014, el contratista informó que la solución NAC ofrecida por XYXYXYXY terminó su vida útil el 15 de abril de 2014, por lo que para poder cumplir con los requerimientos técnicos del contrato se tenía que cambiar a una nueva solución NAC CounterACT de ForesScout. La Entidad aprobó los cambios por cumplir los requerimientos sin afectar el presupuesto contractual, por lo que se retiraron los 2 appliances físicos que hacían parte de la solución obsoleta y para la nueva se implementaron un nuevo servidor HP DL 360 P Gen8 y dos servidores virtuales. Sin embargo, al revisar el expediente contractual en cuanto a la nueva solución NAC, el nuevo fabricante Forescout (quien reemplazó a XYXYXYXY en este ítem) emite una orden de compra al contratista el 20 de junio de 2014 por el valor de los elementos hardware, software, soporte y garantía, que difiere del valor (ya pagado) por este concepto y que también difiere de lo informado por el contratista el 13 de agosto de 2014. Finalmente, por solicitud de la Entidad, NEXSYS hace claridad sobre los valores, los cuales son acordes a lo contratado. No obstante, la aclaración efectuada por la Entidad, durante la etapa de ejecución mediante oficio del 22 de agosto, presenta debilidades en la conformación de la totalidad de los documentos que deben reposar en los expedientes contractuales.
-            </div>
-            </div>
-            <div id="zona_sensible11" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_4">
-        <h1>13</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap66.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-En el aparte del formato de supervisión, correspondiente a “descripción detallada de actividades desarrolladas e informe de trabajos realizados por el contratista dentro del periodo analizado” únicamente se relacionan los funcionarios que no asistieron; sin embargo, llama la atención que no obstante ser este documento requisito para el pago, no se detallan fechas ni los beneficiarios del curso con los temas acordados en el contrato, ni se anexan las calificaciones, con el fin de establecer el cumplimiento de las condiciones generales estipuladas en la ficha técnica, como son: Cada módulo debe ser aprobado con una nota superior o igual a 3.5 y determinar el porcentaje de alumnos que se les reconoció la capacitación como Diplomado y cuantos únicamente se certificaron de acuerdo a la nota. Lo anterior genera riesgo de efectuar los pagos sin el cumplido de lo pactado en el contrato..
-            </div>
-            <div id="zona_sensible12" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_4">
-        <h1>14</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap67.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-                <div style="font-size: 15px; line-height: 18px">
-Realizado el análisis a un contrato interadministrativo desde el punto de vista de las tres fases contractuales, se observó que en la carpeta correspondiente solo reposan dos (2) actas de entrega donde se muestra el siguiente comportamiento del porcentaje de ejecución: mantenimiento del servicio del Avión PDM EQUIPO C-130 H xxx: con porcentajes del 35% en el mes de Mayo de 2013 y 43% mes de Julio de 2013. El hecho de no reposar las demás actas refrendadas por el Supervisor del contrato impidió verificar aspectos generales del contrato como avance financiero, porcentaje de pagos realizados, avance físico, tabla resumen del anexo técnico, trabajos ejecutados y en ejecución de acuerdo al cronograma de actividades, trabajos relevantes, archivo fotográfico, trabajos pendientes, pedidos pendientes, y consideraciones. Presentándose posible incumplimiento de lo estipulado en la “CLAUSULA DECIMA SEPTIMA. - SUPERVISION TECNICA, ADMINISTRATIVA Y FINANCIERA DEL CONTRATO”. De igual forma, no se evidenció en la carpeta del contrato su Acta de inicio ni el folio No. 1. Así mismo, la carpeta presenta errores en su foliación por lo siguiente: del folio 182 pasó al folio 183 y no se folió el acto administrativo Resolución No. 004 del 2 de septiembre de 2013, por la cual se modifica parcialmente la Resolución 003 del 21 de mayo de 2012, por medio de la cual se nombra un nuevo Supervisor del Contrato.
-            </div>
-            </div>
-            <div id="zona_sensible13" class="negrilla_sensible" >
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_3">
-        <h1>15</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap68.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-                <div style="font-size: 15px; line-height: 18px">
-No se evidenció el ingreso a inventarios SAP del tanque MOVIL en acero inoxidable de capacidad 400 galones para combustible AVGAS y demás especificaciones técnicas requeridas para su almacenamiento y transporte, en incumplimiento de lo pactado en la clausula octava del contrato “obligaciones particulares del contratista”, situación que afecta el interés público, debido a que no recibió los bienes accesorios a la obligación principal estipulados en el contrato interadministrativo, Y sí en cambio el supervisor del contrato emitió el recibo a satisfacción de bienes y servicios. Adicionalmente hay dudas con respecto al lugar o dependencia de asignación de este tanque, ya que por medio de oficio se le asigna al XYXYXYXY ubicado en Melgar Tolima, el cual a la fecha no ha sido entregado.
-            </div>
-            </div>
-            <div id="zona_sensible14" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_3">
-        <h1>16</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap69.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-            <div style="font-size: 15px; line-height: 18px">
-De un contrato de suministro se evidenció que tanto las facturas presentadas por el contratista para los respectivos pagos, como los documentos de ingreso a SAP son muy generales y no detallan los equipos y elementos con sus accesorios de los equipos de abastecimiento y desabastecimiento adquiridos, es así que en la factura solamente figuran como Vehículo Refueler 3000 Glns y vehículo Defuelling de 1500 Glns internacional con parte número y en los ingresos a SAP como carro tanque para combustible (1), situación que incide en la confiabilidad de los registros de inventarios al no reflejar la descripción real, completa y con sus accesorios separados, así como el valor de cada componente por separado. 
-            </div>
-            </div>
-            <div id="zona_sensible15" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_3">
-        <h1>17</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap70.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
- En el informe de supervisión del 5 de marzo de 2012, se presenta un 46% de porcentaje en tiempo, con una ejecución del 0%, con un 49% de pagos realizados desde diciembre de 2011.<br>
-
-
-Verificado el informe de supervisión del 5 de febrero de 2012, se presentan debilidades en el mismo, por cuanto se reportan los pagos sin detallar los bienes recibidos por la entidad y por qué valor, como quiera en este documento se reporta el porcentaje de ejecución del contrato en relación a los bienes o servicios recibidos por un 56%, sin ningún tipo de descripción. 
-
-
-            </div>
-            <div id="zona_sensible16" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-      <div class="txt_interno c_1_3">
-        <h1>18</h1>
-          <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <img src="images/diap71.png" height="">
-        </div>
-        <div class="item_c"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-        <div class="txt_c">
-            <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div>
-            <div class="resaltado_especial">
-Evaluados los informes que sirven de base para la liquidación de un contrato, cuyo objeto es el servicio de alimentación diaria para el personal de soldados que prestan su servicio militar obligatorio; se evidenció que el informe suscrito el 05 de diciembre de 2013, certifica el plazo y cumplimiento de la ejecución presupuestal del contrato con avance financiero al 100%, sin tener en cuenta el acta de liberación de recursos suscrita el 02 de diciembre de 2013; se evidenció que el contrato inicial en la clausula sexta numeral b, estima el suministro para 10 unidades y el informe solo se establecen 9 unidades.
-            </div>
-            <div id="zona_sensible17" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p>
-            Lección aprendida
-            </p>	
-            </div>
-        </div>
-        </div>	
-        </div>
-      
-     
-      
-      
-      </div>
-        </div>
-    
-      
-      
-      
-      
-	  
-	  
-	 
-
-	<div id="pop0" class="pop">
-Todos los documentos generados por el supervisor del contrato (actas, informes, entre otros) deben ser preparados de forma rigurosa, incluyendo toda la información pertinente y de forma clara.<br>
-
-Se sugiere realizar un estudio minucioso al manual de supervisión que permita ejercer un control técnico, administrativo, financiero, contable y jurídico sobre el cumplimiento del objeto del contrato para no incurrir en faltas disciplinarias, fiscales o penales.
-
-	</div>
-    <div id="pop1" class="pop">
-La elaboración de un informe de supervisión no se puede limitar al diligenciamiento de un formato, sino que debe garantizar el cumplimiento de la función de informar de manera clara y específica el estado de avance de la ejecución de un contrato.<br>
-
-De lo contrario, no es posible adelantar un adecuado seguimiento, control y monitoreo de forma soportada a la ejecución periódica del objeto pactado, el cumplimiento de las obligaciones y la justificación de contratos adicionales y adiciones, que deben ser reportadas por el supervisor y gerentes de proyectos.
-
-
-    </div>
-    <div id="pop2" class="pop">
-El supervisor debe verificar el cumplimiento de todos los requisitos legales aplicables, en este caso, debe verificar que las facturas que presente el contratista cumplan con lo establecido en el Estatuto Tributario.<br>
-
-De acuerdo con el artículo 617 del E. T. una factura debe:<br>
-<table class="lista_vinetas">
-	<tr>
-		<td class="vineta"></td>
-		<td>
-Estar denominada expresamente como factura de venta.
-		</td>
-	</tr>
-	<tr>
-		<td class="vineta"></td>
-		<td>
-Incluir apellidos y nombre o razón social y NIT del adquirente de los bienes o servicios, junto con la discriminación del IVA pagado.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-Llevar un número que corresponda a un sistema de numeración consecutiva de facturas de venta.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-Incluir el nombre o razón social y el NIT del impresor de la factura.
-		</td>
-	</tr>
-    <tr>
-		<td class="vineta"></td>
-		<td>
-Indicar la calidad de retenedor del impuesto sobre las ventas.
-		</td>
-	</tr>
-</table>
+    </div> -->
 </div>
-    <div id="pop3" class="pop">
-Estas situaciones evidencian deficiencias en el proceso de supervisión, afectando el seguimiento y control en el desarrollo de la gestión contractual, lo cual no permite a la entidad advertir con la debida oportunidad las debilidades e inconsistencias que se puedan presentar, así como implementar las acciones correctivas a que haya lugar.<br>
-
-Los informes de supervisión deben evidenciar el rol desempeñado por el supervisor para asegurar la adecuada ejecución del contrato. Por lo tanto, deben incluir, de forma precisa, toda la información que de cuenta del avance en la ejecución del contrato, las novedades que se han presentado y la gestión adelantada en cada caso.
-
-	</div>
-    <div id="pop4" class="pop">
-Es labor del supervisor verificar que se cuente con todos los documentos del contrato, que estos cumplan con las condiciones requeridas, y que toda la información contenida en ellos sea correcta.
-
-	</div>
-    <div id="pop5" class="pop">
-Los informes de supervisión deben incluir información puntual que permita medir el cumplimiento del objeto del contrato.<br>
-
-El supervisor debe asegurarse de que no se presenten inconsistencias en la información.
-
- 
-	</div>
-    <div id="pop6" class="pop">
-El supervisor debe verificar el cumplimiento de las especificaciones del contrato en términos de cantidad y calidad.
-
-	</div>
-    <div id="pop7" class="pop">
-De acuerdo con la Directiva No. 028 del 08 de febrero de 2012 emanada del Comando General de las Fuerzas Militares punto III literal b. numeral 2.h. “la Supervisión  debe realizarse sobre dos aspectos importantes 1. El resultado del objeto del convenio y Plan de Inversión. 2. Documentación y respectivos soportes” y Directiva 038 del 25 de agosto de 2011 emanada de la xxx punto 3, literal b.1 y 2 e), relacionadas con la supervisión de los convenios.”
-
-	</div>
-    <div id="pop8" class="pop">
-El supervisor debe verificar el cumplimiento de las especificaciones del contrato.
-
-	</div>
-    <div id="pop9" class="pop">
-El supervisor debe verificar el cumplimiento de las especificaciones del contrato en términos de cantidad y calidad.
-	</div>
-    <div id="pop10" class="pop">
-Es función del supervisor advertir de forma previa el vencimiento de los contratos de comodato para adelantar las gestiones requeridas y evitar conflictos legales.
-
-	</div>
-    <div id="pop11" class="pop">
-El supervisor debe adelantar las gestiones necesarias para que el objeto del contrato se desarrolle adecuadamente.<br>
-
-Además, debe mantener un adecuado control documental que le permita efectuar su labor de supervisión.
-
-
-	</div>
-    <div id="pop12" class="pop">
-Los informes de supervisión deben incluir información puntual detallada que permita medir el cumplimiento del objeto del contrato, incluyendo la descripción detallada de las actividades desarrolladas y el informe de trabajos realizados por el contratista dentro del periodo analizado.
-
-	</div>
-    <div id="pop13" class="pop">
-Debe garantizarse la supervisión del contrato durante toda la ejecución del mismo.<br>
-
-El supervisor debe asegurarse de contar con todos los documentos que soporten tanto la ejecución del contrato como la supervisión efectuada a dicha ejecución.
-
-
-	</div>
-    <div id="pop14" class="pop">
-El supervisor debe verificar el cumplimiento de las especificaciones del contrato en términos de cantidad y calidad.<br>
-
-Por ningún motivo el supervisor puede emitir recibo a satisfacción de bienes y/o servicios sin que se cumplan todas las especificaciones pactadas.<br>
-
-Es función del supervisor exigir la buena calidad y correcto funcionamiento de los bienes y servicios contratados y abstenerse de dar el respectivo cumplido a satisfacción si éstos no corresponden a las calidades, cantidades y especificaciones técnicas exigidas. En el caso de recibo de bienes se debe realizar en coordinación con el almacenista, el cual verifica y recibe los bienes que entrega el proveedor, los cuales deben ajustarse a lo estipulado en el contrato, para lo cual debe haber recibido con anterioridad la copia del contrato, para conocer las especificaciones técnicas del bien. 
-
-	</div>
-    <div id="pop15" class="pop">
-Este hallazgo denota debilidades de control en cada una de las áreas y cargos responsables de estos procesos y procedimientos, pues el hecho de relacionar de manera general los bienes en los documentos mencionados, impide realizar una trazabilidad, seguimiento y valoración o devaluación del bien, tal como lo indica entre otros procedimientos, la Cartilla del Sistema SIIF Nación en el Ministerio de Defensa Nacional, en su acápite de registro de información por perfil: Contratos: Registra la información básica de los contratos o actos legales a través de los cuales se afectan las apropiaciones presupuestales. Para tal fin, se debe detallar la adquisición de bienes y servicios a nivel del Código Único de Bienes y Servicios CUBS.
-
-	</div>
-    <div id="pop16" class="pop">
-Los informes de supervisión deben indicar clara y detalladamente el avance en la ejecución del contrato, indicando los pagos efectuados (con su respectivo concepto), los cuales deben ser coherentes con el nivel de ejecución.
-
-	</div>
-    <div id="pop17" class="pop">
-Este hallazgo indica que los informes de los contratos citados presentan deficiencias y puede ocasionar riesgo de mal uso de los recursos públicos, teniendo en cuenta lo establecido en el artículo 209 de la C.N. en concordancia con el 26 del Estatuto Contractual y demuestra debilidades en el sistema de control interno. <br>
-
-El supervisor del contrato debe elaborar los informes de supervisión con total claridad y coherencia, de acuerdo con los términos del contrato.
-
-
-	</div>
-    <div id="pop18" class="pop">
- Es importante detallar de manera clara las actividades a ejecutar en el contrato.<br>
-
-Además, necesario elaborar planes, cronogramas y procedimientos de mantenimiento periódicos que sirvan como mecanismos de control y seguimiento para evidenciar que lo requerido en los estudios previos y contratado efectivamente se haya realizado.
-
-	</div>
-    <div id="pop19" class="pop">
-Este hallazgo evidencia debilidades de control interno del área contractual, lo que puede generar deterioro de los bienes arrendados, demandas laborales por responsabilidad civil extracontractual y pérdida de recursos económicos, con lo que eventualmente podría verse afectado el flujo de caja de la entidad. <br>
-
-Las entidades públicas deben vigilar permanentemente la correcta ejecución del objeto contratado a través de un supervisor o un interventor, según corresponda.  Es obligación de los supervisores el seguimiento técnico administrativo, financiero contable y jurídico de los contratos.
-
-	</div>
-     <div id="pop20" class="pop">
-Este hallazgo denota debilidades de control interno en la planeación y ejecución, como de los informes de ejecución lo cual no permite realizar seguimiento adecuado de las obligaciones contractuales.
-
-	</div>
-     <div id="pop21" class="pop">
-Cuando se requiera efectuar una adición a un contrato es necesario incluir en la documentación del contrato el concepto técnico que presente la justificación de la adición.
-
-	</div>
-     <div id="pop22" class="pop">
-La entidad debe asegurarse de no incurrir en contradicciones como las indicadas para dar total claridad acerca de las condiciones del contrato.<br>
-
-Además, se debe tener en cuenta que los rendimientos de los anticipos son del dueño del capital o recurso, es decir del Estado. No se deben incluir disposiciones contrarias.
-
-	</div>
-     <div id="pop23" class="pop">
-El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
-
-	</div>
-     <div id="pop24" class="pop">
-El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
-
-	</div>
-     <div id="pop25" class="pop">
-El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
-
-	</div>
-     <div id="pop26" class="pop">
-El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
-
-	</div>
     
     
-	
-</div></div></body>
+<div id="pop0" class="pop">
+    El supervisor del contrato tiene la función de adelantar las gestiones necesarias para la oportuna liquidación del contrato, teniendo en cuenta el procedimiento y los plazos definidos en la Ley 80 de 1993, el Decreto 019 de 2012 y la Ley 1150 de 2007.
+
+
+</div>
+<div id="pop1" class="pop"> Escoger al contratista a través de licitación (salvo excepciones previstas en la Ley). </div>
+<div id="pop2" class="pop"> Permitir a los interesados conocer y controvertir los informes, conceptos y decisiones que se rindan o adopten. </div>
+<div id="pop3" class="pop"> Expedientes abiertos al público. </div>
+<div id="pop4" class="pop"> No incluir en los pliegos de condiciones exigencias de imposible cumplimiento. </div>
+<div id="pop5" class="pop"> Previamente al inicio de un proceso de selección, la entidad estatal debe asegurarse de contar con las partidas presupuestales necesarias y los estudios previos que permitan establecer el objeto a contratar. </div>
+<div id="pop6" class="pop"> Adelantar los trámites con austeridad en tiempo y de recursos. </div>
+<div id="pop7" class="pop"> Evitar dilaciones o retardos injustificados en la selección del contratista y en la ejecución del contrato. </div>
+<div id="pop8" class="pop"> Buscar la mejor relación costo/beneficio. </div>
+<div id="pop9" class="pop"> Los funcionarios de las entidades estatales podrán responder civil, penal, disciplinariamente cuando por sus actos y/o omisiones causen perjuicios a los proponentes y/o contratistas. </div>
+<div id="pop10" class="pop"> Velar por el cumplimiento de los fines de la contratación (vigilar la correcta ejecución del contrato). </div>
+<div id="pop11" class="pop"> Aplicar las sanciones a las que haya lugar (económicas y/o penales, según el caso) a los contratistas que actúen de mala fe en contra del interés público. </div>
+<div id="pop12" class="pop"> Para propender por la objetividad, bajo el principio de reciprocidad, en los procesos de selección pública los proponentes extranjeros deben ser tratados en igualdad de condiciones que los nacionales cuando exista un trato igual en el país de origen de dicho extranjero para proponentes colombianos (países con los que se tienen acuerdos, tratados o convenios). </div>
+<div id="pop13" class="pop"> Establecer en los pliegos de condiciones los requisitos objetivos necesarios para participar en el correspondiente proceso de selección. </div>
+<div id="pop14" class="pop"> Establecer de manera precisa, detallada y concreta los criterios de selección y su ponderación en el pliego de condiciones. </div>
+<div id="pop15" class="pop"> Realizar, previo a la adjudicación, la comparación objetiva de las propuestas presentadas, la consulta de precios o condiciones del mercado y los estudios y deducciones pertinentes. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop17" class="pop"> Si dicha igualdad o equivalencia se rompe por causas no imputables a quien resulte afectado, las partes deben adoptar en el menor tiempo posible las medidas necesarias para su restablecimiento. </div>
+<div id="pop18" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop19" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop20" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop21" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+<div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
+</body>
 </html>
