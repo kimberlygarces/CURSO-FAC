@@ -40,6 +40,12 @@ padding-left: 120PX;
 	padding: 2%;
 }
 
+#id033_1, #id033_pag1, #id033_pag2, #id033_pag3, #id033_pag4,#id033_pag5,#id033_pag7, #id033_pag8, #id033_2, #id033_3, #id033_4, #id033_4pag1, #id033_4pag2, #id033_4pag3, #id033_4pag4
+,#id033_5, #id033_5pag1, #id033_5pag2, #id033_5pag3 {
+	background-color: rgb(255, 255, 255);
+
+}
+
 #id01, #id02, #id03, #id04, #id04_2, #id05, #id06, #id07, #id08, #id09, 
 #id010, #id011, #id012, #id012_1, #id012_2, #id012_4, #id012_3_2 ,#id012_2_2, #id012_3, 
 #id018, #id017, #id016, #id015, #id011_2, #id012_2_3, #id012_3_1, #id012_3, #id012_3_1, #id012_4_2{
