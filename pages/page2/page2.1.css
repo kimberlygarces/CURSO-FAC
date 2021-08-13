@@ -81,7 +81,7 @@
     color: black;
     font-family: "klavika-regular";
     font-size: 18px;
-    text-align: justify;
+    text-align: center;
     padding: 50px;
     min-height: 200px;
     position: absolute;
@@ -106,7 +106,7 @@
     height: 80%;
     color: black;
     font-family: "klavika-regular";
-    font-size: 18px;
+    font-size: 16px;
     text-align: justify;
     padding: 50px;
     min-height: 200px;
@@ -133,7 +133,7 @@
     height: 80%;
     color: black;
     font-family: "klavika-regular";
-    font-size: 18px;
+    font-size: 15px;
     text-align: justify;
     padding: 50px;
     min-height: 200px;
@@ -211,9 +211,7 @@
     top: -15px;
 }
 
-a{
-    font-family: "klavika-regular";
-}
+
 
 #resaltado_especial{
 	background: #005688; /* For browsers that do not support gradients */
@@ -287,7 +285,7 @@ a{
 .img9{
     
   margin-bottom: 1%;
-  margin-left: 70%;
+  margin-left: 65%;
   width: 10%;
   height: 15%;
 
@@ -298,6 +296,19 @@ a{
   position:center;
   width: 300px;
 height: 300PX;
-margin-left: 35%;
+margin-left: 30%;
 margin-top: 25%;
+}
+
+.w3-col{
+  animation-name: zoomInDown;
+  animation-duration: 2s;
+
+}
+.delegado{
+  width: 53%;
+  height: 61%;
+padding: auto;
+position: relative;
+  
 }

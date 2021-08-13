@@ -2040,7 +2040,7 @@ div.negrilla_sensible p:first-child,div.negrilla_sensible2 p:first-child{
 	border-radius: 230px;
 	padding: 10px 25px;
 }
-.zona_sensible,.zona_sensible2{
+.zona_sensible,.zona_sensible2 .zona{
 	position: absolute;
 	width: 182px;
 	height: 125px;
