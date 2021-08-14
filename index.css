@@ -3619,36 +3619,26 @@ th{
 	max-width: 750px;
 }
 .resaltado_especial>div,.enunciado_selvar>div{
-	background: #005688; /* For browsers that do not support gradients */
-
-	border-style: solid;
- 	border: 2px solid #0877B5;
- 	
+	background: #005688; /* For browsers that do not support gradients */	
  	border-radius: 0px;
- 	
  	width:auto;
  	padding: 15px 35px; 
  	font-size: 16px;
  	line-height: 25px;
 	font-family: "klavika-regular";
-
-	
 	text-align: left;
 	height: auto;
-	
 	color:#0877B5;
-
 	background-color: transparent;
-
 	box-shadow: 0 0 0px rgba(0,0,0,0.3);
-
 	margin:15px 5px;
-
 	display: inline-block;
-	
-
+	border-radius: 15px 165px 29px 42px;
+-moz-border-radius: 15px 165px 29px 42px;
+-webkit-border-radius: 15px 165px 29px 42px;
  	
 }
+
 .resaltado_especial2>div{
 	background: #ffffff; /* For browsers that do not support gradients */
 
