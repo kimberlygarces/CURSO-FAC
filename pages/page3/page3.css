@@ -42,18 +42,29 @@ border: 1.5px  inset #666363;
     height: 15%;
      margin: 10px; 
       float: left;
+    }
+
+    .img3{
+        animation-name: slideInRight;
+        animation-duration: 2s;
+      }
        
-}
+
 .img4{
-    margin-left: 50%;
-    width: 45%;
- float: right;
+height: 35%;    
+    width: 35%;
+    animation-name: rotateInDownRight;
+        animation-duration: 3s;
+ 
 }
 .img5{
     position: relative;
     float:left;
     height: 40%;
     width: 20%;
+    
+    animation-name: swing;
+    animation-duration: 2s;
     
 }
 .img6{
@@ -62,12 +73,18 @@ border: 1.5px  inset #666363;
     height: 35%;
     width: 15%;
     
+    animation-name: swing;
+    animation-duration: 2s;
+    
 }
 .img7{
     
     float: center;
     width: 15%;
-    height: 25%;  
+    height: 25%; 
+    
+    animation-name: swing;
+    animation-duration: 2s; 
     
 }
 .img8{
@@ -76,4 +93,52 @@ border: 1.5px  inset #666363;
        width: 80%;
    height: 90%;
    float: right;
+   
+}
+.img9{
+    position:relative;
+    width: 35%;
+    height: 35%;
+    
+    animation-name: swing;
+    animation-duration: 2s;
+
+}
+.img10{
+    width: 30%;
+    height: 40%;
+    
+    animation-name: fadeInDown;
+    animation-duration: 2s;
+}
+.img11{
+    width: 25%;
+    height: 25;
+    animation-name: swing;
+    animation-duration: 2s;
+}
+.img12
+{
+    width: 40%;
+    height: 50%;
+    margin-bottom: 3%;
+}
+
+.img13{
+    width: 55%;
+    height: 55%;
+}
+.img14{
+    
+ 
+    position: relative;
+       width: 40%;
+   height: 60%;
+   
+}
+.img15{
+    width: 60%;
+    height: 60%;
+    position: relative;
+
 }
