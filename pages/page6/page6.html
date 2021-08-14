@@ -1,340 +1,820 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title></title>
-<link rel="stylesheet" href="../../index.css">
-<link rel="stylesheet" href="page5.css">
-<link rel="stylesheet" href="../../page.css">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="../../index.css">
+  <link rel="stylesheet" href="page6.css">
+  <link rel="stylesheet" href="../../page.css">
 
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
-<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
-<script src="../../cjs/easeljs-0.8.2.min.js"></script> 
-<script src="../../cjs/tweenjs-0.6.2.min.js"></script> 
-<script src="../../cjs/preloadjs-0.6.2.min.js"></script> 
-<script src="../../cjs/soundjs-0.6.2.min.js"></script> 
-<script src="page.js"></script> 
-<script src="../../principal.js"></script> 
-<script src="../../cjs/jquery.min.js"></script> 
-<script src="../../cjs/jquery.imagemapster.js"></script> 
-<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script> 
-<script>
-var canvas, stage, exportRoot;
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
+  <link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
+  <script src="../../cjs/easeljs-0.8.2.min.js"></script>
+  <script src="../../cjs/tweenjs-0.6.2.min.js"></script>
+  <script src="../../cjs/preloadjs-0.6.2.min.js"></script>
+  <script src="../../cjs/soundjs-0.6.2.min.js"></script>
+  <script src="page.js"></script>
+  <script src="../../principal.js"></script>
+  <script src="../../cjs/jquery.min.js"></script>
+  <script src="../../cjs/jquery.imagemapster.js"></script>
+  <script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script>
+    var canvas, stage, exportRoot;
 
-function init() {
+    function init() {
 
-	canvas = document.getElementById("canvas");
+      canvas = document.getElementById("canvas");
 
-	var loader = new createjs.LoadQueue(false);
-	loader.installPlugin(createjs.Sound);
-	loader.addEventListener("fileload", handleFileLoad);
-	loader.addEventListener("complete", handleComplete);
-	loader.addEventListener("progress", handleProgress);
-	loader.loadManifest(lib.properties.manifest);	
-}
+      var loader = new createjs.LoadQueue(false);
+      loader.installPlugin(createjs.Sound);
+      loader.addEventListener("fileload", handleFileLoad);
+      loader.addEventListener("complete", handleComplete);
+      loader.addEventListener("progress", handleProgress);
+      loader.loadManifest(lib.properties.manifest);
+    }
 
-function handleFileLoad(evt) {
-	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
-}
+    function handleFileLoad(evt) {
+      if (evt.item.type == "image") {
+        images[evt.item.id] = evt.result;
+      }
+    }
 
-function playSound(id, loop) {
-	createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
-}
+    function playSound(id, loop) {
+      createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+    }
 
-ancho_linea = 0;
-alto_linea = 10;
-max_ancho = 450;
+    ancho_linea = 0;
+    alto_linea = 10;
+    max_ancho = 450;
 
-function handleProgress(evt) {
-	stage = new createjs.Stage(canvas);
-	var bordePadding = 2;
-    var borde = new createjs.Shape;
-    borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding*2, alto_linea).endFill();
-    var linea_carga = new createjs.Shape();
-	linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding,0 + bordePadding, ancho_linea, alto_linea - bordePadding*2).endFill();
-	
-    progreso = Math.round(evt.loaded * max_ancho);
-	ancho_linea = progreso;
-	
-	contenedor = new createjs.Container();
-	contenedor.x = 1240/2 - max_ancho/2;
-	contenedor.y = 495*4/5 - alto_linea/2;
-	contenedor.addChild(borde, linea_carga);
-	
-	//stage.addChild(contenedor);
-	stage.update();
-}
+    function handleProgress(evt) {
+      stage = new createjs.Stage(canvas);
+      var bordePadding = 2;
+      var borde = new createjs.Shape;
+      borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding * 2, alto_linea)
+        .endFill();
+      var linea_carga = new createjs.Shape();
+      linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding, 0 + bordePadding, ancho_linea, alto_linea -
+        bordePadding * 2).endFill();
 
-function handleComplete(evt) {
-	var queue = evt.target;
-	
-	stage = new createjs.Stage(canvas);
-	createjs.Ticker.addEventListener("tick", stage);
+      progreso = Math.round(evt.loaded * max_ancho);
+      ancho_linea = progreso;
 
-	/////Variables
-	sin_personaje = false;
-	globo_personaje = "Estudiemos ahora la modificación de contrato, y todos los requerimientos necesarios para realizar este proceso";
-	pausas_audio = [[0,4398,7509],[687,4772,8247]];
-	
-	contenidos();	
-}
+      contenedor = new createjs.Container();
+      contenedor.x = 1240 / 2 - max_ancho / 2;
+      contenedor.y = 495 * 4 / 5 - alto_linea / 2;
+      contenedor.addChild(borde, linea_carga);
 
-</script>
+      //stage.addChild(contenedor);
+      stage.update();
+    }
+
+    function handleComplete(evt) {
+      var queue = evt.target;
+
+      stage = new createjs.Stage(canvas);
+      createjs.Ticker.addEventListener("tick", stage);
+
+      /////Variables
+      sin_personaje = false;
+      globo_personaje =
+        "Estudiemos ahora la modificación de contrato, y todos los requerimientos necesarios para realizar este proceso";
+      pausas_audio = [
+        [0, 4398, 7509],
+        [687, 4772, 8247]
+      ];
+
+      contenidos();
+    }
+  </script>
 </head>
 
 <body onload="init();">
-<canvas id="canvas" width="1165" height="550"></canvas>
-<div id="instruccion_circulos" class="instruccion_circulos"> </div>
+  <canvas id="canvas" width="1165" height="550"></canvas>
+  <div id="instruccion_circulos" class="instruccion_circulos"> </div>
 
-<!--INICIO CONTENIDO--> 
 
-<!-- Inicio contenido principal-->
+  <div class="c_principal c_1_1">
 
-<div class="c_principal c_1_1"><!--modificar clase c_1_1 según distribución de contenido;-->
+    <!-- Tipos de sanciones. -->
 
-	<!-- Cancelación de la Orden de Compra y/o del Contrato.              -->
+    <div id="id066_1pag1" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id066_1pag1()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              Tipos de sanciones.
+            </p>
+            <hr>
+            <button onclick="id066_1pag1_1()" class="w3-button w3-khaki" style="width: 100%; margin: 1%;">
+              a. Por el Incumplimiento del Ofrecimiento
+            </button>
+            <button onclick="id066_1pag2()" class="w3-button w3-khaki" style="width: 100%; margin: 1%;">
+              b. Por la No Presentación o Extensión de Garantías
+            </button>
+            <button onclick="id066_1pag1_3()" class="w3-button w3-khaki" style="width: 100%; margin: 1%;">
+              c. Por el Incumplimiento Contractual en el plazo de ejecución
+              <!-- ,con entregas posteriores al mismo o por cancelación de material atribuible al contratista.       -->
+            </button>
+            <button onclick="id066_1pag1_4()" class="w3-button w3-khaki" style="width: 100%; margin: 1%;">
+              d. Por el Incumplimiento Contractual en la entrega de los bienes y/o servicios
+            </button>
+            <div class="instruccion_interna">Debe dar click en cada uno de los botones</div>
 
-  <div id="id055_1pag1" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag1()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
+            <div id="zona_sensible0" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p> Lección aprendida </p>
+            </div>
+          </div>
         </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Cancelación de la Orden de Compra y/o del Contrato.             
-          </p>
-          <hr>
-		  La Administración podrá cancelar la orden de compra del producto o servicio de un contrato abierto o en un contrato cerrado cuando ocurra uno de los siguientes casos:
-		 <hr> 
-		  <button onclick="id055_1pag1_1()" class="w3-button w3-khaki" style="width: 160px; margin: 1%;">1</button>
-		  <button onclick="id055_1pag1_2()" class="w3-button w3-khaki" style="width: 160px; margin: 1%;">2</button>
-		  <button onclick="id055_1pag1_3()" class="w3-button w3-khaki" style="width: 160px; margin: 1%;">3</button>
-		  <button onclick="id055_1pag1_4()" class="w3-button w3-khaki" style="width: 160px; margin: 1%;">4</button>
-		  Nota: Adicional a la cancelación de la orden de compra y/o del contrato, se podrá dar inicio al proceso sancionatorio establecido en la presente Directiva.
-
-		</div>
       </div>
     </div>
-  </div>
-  <!-- Cancelación de la Orden de Compra y/o del Contrato.       1       -->
+    <!-- a. Por el Incumplimiento del Ofrecimiento -->
 
-  <div id="id055_1pag1_1" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag1_1()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
+    <div id="id066_1pag1_1" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id066_1pag1_1()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              a. Por el Incumplimiento del Ofrecimiento
+            </p>
+            <hr>
+            Esta sanción aplicará en los siguientes eventos:
+            <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  I. Por la no suscripción del contrato sin justa causa.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  II. Por el retiro de la oferta después de vencido el término fijado para presentación de la misma.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  III. Por la modificación de las condiciones en que fue presentada la oferta, las sanciones serán.
+                </td>
+              </tr>
+
+
+            </table>
+    
+
+          </div>
+          <button onclick="id066_1pag1_22()" class="w3-button w3-blue" style="margin: 2%;">
+            Siguiente
+          </button>
         </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Cancelación de la Orden de Compra y/o del Contrato.             
-          </p>
-          <hr>
-		  De común acuerdo entre las partes.	
+      </div>
+    </div>
+
+
+    <!-- a. Por el Incumplimiento del Ofrecimiento page 2 -->
+
+    <div id="id066_1pag1_22" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id066_1pag1_22()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              a. Por el Incumplimiento del Ofrecimiento
+            </p>
+            <hr>
+            Conforme a lo anterior, las sanciones serán:
+            <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  1. La no invitación a la compañía para participar en procesos contractuales de ACOFA por el término mínimo de un (01) año y la cancelación inmediata del Registro de Proveedores. 
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  2. En el evento que una compañía sea reincidente en el incumplimiento injustificado del ofrecimiento, la no invitación será por el término de dos (2) años y la cancelación inmediata del Registro de Proveedores.
+                </td>
+              </tr>
+              
+            </table>
+    
+
+          </div>
+          <button onclick="A_id066_1pag1_22()" class="w3-button w3-blue" style="margin: 2%;">
+            Anterior
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- b. Por la No Presentación o Extensión de Garantías -->
+
+
+    <div id="id066_1pag2" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id066_1pag2()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              b. Por la No Presentación o Extensión de Garantías
+            </p>
+            <hr>
+            Esta sanción aplicará en los siguientes eventos: 
+
+            <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  I. Cuando el contratista no presente las garantías solicitadas en los términos establecidos en el contrato. 
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  II. Cuando no extienda o prorrogue las garantías, en el evento de haberse realizado un modificatorio al contrato. 
+                </td>
+              </tr>
+              
+            </table>
+
+          </div>
+          <button onclick="id066_1pag2_1()" class="w3-button w3-blue" style="margin: 2%;">
+            Siguiente
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="id066_1pag2_1" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id066_1pag2_1()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              b. Por la No Presentación o Extensión de Garantías
+            </p>
+            <hr>
+            Conforme a lo anterior, las sanciones serán las enunciadas a continuación, las cuales se deberán aplicar conjuntamente:
+            <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  1. Cancelación del contrato. 
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  2. La no invitación a la compañía para participar en procesos contractuales de ACOFA por el término de un (01) año y la cancelación inmediata del Registro de Proveedores.
+
+                </td>
+              </tr>
+             
+
+            </table>
+            <!-- <div class="instruccion_interna">Debe dar click en cada uno de los botones</div> -->
+
+
+            <!-- <div id="zona_sensible1" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p> Lección aprendida </p>
+            </div> -->
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- c. Por el Incumplimiento Contractual en el plazo de ejecución, con entregas posteriores al mismo o por cancelación de material atribuible al contratista. -->
+
+    <div id="id066_1pag1_3" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id066_1pag1_3()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              c. Por el Incumplimiento Contractual en el plazo de ejecución, con entregas posteriores al mismo o por cancelación de material atribuible al contratista.
+            </p>
+            Esta sanción aplicará en los siguientes eventos: 
+            <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  I. Cuando vencido el plazo de ejecución o plazo de entrega establecido en el contrato, el contratista no haya entregado los bienes o servicios requeridos, y los entregue dentro del término establecido en la cláusula de penalidad por demora descrita en el contrato.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  II. Cuando la Administración requiera cancelar el material y/o servicio a solicitud del contratista. 
+
+                </td>
+              </tr>
+            </table>
+          </div>
+          <button onclick="id066_1pag1_33()" class="w3-button w3-blue" style="margin: 2%;">
+            Siguiente
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- c. Por el Incumplimiento Contractual en el plazo de ejecución, con entregas posteriores al mismo o por cancelación de material atribuible al contratista. -->
+
+    <div id="id066_1pag1_33" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id066_1pag1_33()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              c. Por el Incumplimiento Contractual en el plazo de ejecución, con entregas posteriores al mismo o por cancelación de material atribuible al contratista.
+            </p>
+            <hr>
+            Conforme a lo anterior, las sanciones serán las enunciadas a continuación, las cuales se deberán aplicar conjuntamente: 
+            <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  (1) Hacer efectiva la cláusula de penalidad por demora en las entregas a través de la cual el contratista deberá pagar al MINISTERIO DE DEFENSA NACIONAL-UNIDAD EJECUTORA CORRESPONDIENTE-DIRECCIÓN AGENCIA DE COMPRAS FAC, el 0,2% del valor del producto o servicio no entregado por cada día de retraso hasta que se cumpla la entrega o alcance el 6 %. 
+                  Para el caso del evento descrito en el numeral ii. Que se refiere a la cancelación de material y/o servicio a solicitud del contratista se considerará como material y/o servicio no entregado y se generará el cobro a favor de la Administración del 6%. 
+                  </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  (2) Afectación Calificación de Proveedores.
+                </td>
+              </tr>
+              
+            </table>
+    
+
+          </div>
+          <button onclick="A_id066_1pag1_33()" class="w3-button w3-blue" style="margin: 2%;">
+            Anterior
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- d. Por el Incumplimiento Contractual en la entrega de los bienes y/o servicios  -->
+
+    <div id="id066_1pag1_4" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id066_1pag1_4()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              d. Por el Incumplimiento Contractual en la entrega de los bienes y/o servicios 
+            </p>
+            Esta sanción aplicará en los siguientes eventos: 
+            <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  I. Cuando no se cumplen las obligaciones contractuales. 
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  II. Cuando no se cumplan las especificaciones técnicas. 
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  III. Cuando no se entreguen las cantidades establecidas en el contrato.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  IV. Cuando no se entregue la documentación exigida en el contrato. 
+                </td>
+              </tr>
+
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  V. Cuando no se cumpla el servicio posventa. 
+                </td>
+              </tr>
+              <td class="vineta"></td>
+              <td>
+                VI. Cuando no se cumpla la garantía técnica. 
+              </td>
+            </tr>
+            </table>
+          </div>
+          <button onclick="id066_1pag1_44()" class="w3-button w3-blue" style="margin: 2%;">
+            Siguiente
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- el Incumplimiento Contractual en el plazo de ejecución, con entregas posteriores al mismo o por cancelación de material atribuible al contratista. --> -->
+
+    <div id="id066_1pag1_44" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id066_1pag1_44()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+                d. Por el Incumplimiento Contractual en la entrega de los bienes y/o servicios 
+            </p>
+            <hr>
+            Conforme a lo anterior, las sanciones serán las enunciadas a continuación, las cuales se deberán aplicar conjuntamente:
+            <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  (1) La no invitación a la compañía para participar en procesos contractuales de ACOFA por el término de dos (02) años.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  (2) La ejecución de la garantía de cumplimiento, pago anticipado y/o póliza “Bond”, según corresponda.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  (3) La cancelación del Registro de Proveedores por dos (02) años. 
+                </td>
+              </tr>
+              
+            </table>
+    
+
+          </div>
+          <button onclick="A_id066_1pag1_44()" class="w3-button w3-blue" style="margin: 2%;">
+            Anterior
+          </button>
+        </div>
+      </div>
+    </div>
+
+    
+
+    <!-- Procedimiento sancionatorio. -->
+
+    <div id="id066_2" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id066_2()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              Procedimiento sancionatorio
+            </p>
+            <hr>
+            El procedimiento sancionatorio establecido en la Dirección Agencia de Compras de la FAC, tiene como objetivo establecer las etapas que se deberán surtir para adelantar el procedimiento administrativo sancionatorio para los contratos adelantados a través de la Dirección de la Agencia de Compras de la FAC, en caso de evidenciarse un posible incumplimiento de las obligaciones contractuales. Así mismo, busca garantizar el debido proceso antes de que sea aplicada una sanción a cualquier contratista y así disminuir riesgos de acciones legales en contra de la administración. En otras palabras, es la posibilidad que tienen las empresas que suscriben contratos a través de ACOFA que ante un posible incumplimiento contractual, estas puedan exponer y demostrar las diferentes circunstancias que llevaron a dicha situación.
+            Este procedimiento se realizará de acuerdo con lo estipulado en el instructivo GA-JEAD-INS-017 Instructivo Sancionatorio Agencia de Compras FAC y tiene como principal insumo la información que remita el supervisor del contrato que evidencie un posible incumplimiento contractual.
+            
+
+          </div>
+          <button onclick="id066_2pag1()" class="w3-button w3-blue" style="margin: 2%;">
+            Siguiente
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Procedimiento sancionatorio. page 2-->
+
+    <div id="id066_2pag1" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id066_2pag1()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              Procedimiento sancionatorio
+            </p>
+            <hr>
+            El instructivo (versión 03 del 25-FEB-2021) posee de manera general los siguientes pasos:
+
+            <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  1.	Elaborar y radicar Informe del Supervisor y solicitar el inicio del procedimiento sancionatorio contractual.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  2.	Revisar el informe de supervisión.
+                </td>
+              </tr>
+
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  3.	Remitir comunicación al contratista y garante.
+                </td>
+              </tr>
+
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  4.	Verificar descargos y realizar análisis de estos.
+                </td>
+              </tr>
+              
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  5.	Revisar respuesta del supervisor.
+                </td>
+              </tr>
+
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  6.	Remitir acto administrativo y tomar decisión de fondo.
+                </td>
+              </tr>
+              
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  7.	Notificar decisión al contratista.
+                </td>
+              </tr>
+
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  8.	Aplicar y registrar las medidas sancionatorias aplicables. 
+                </td>
+              </tr>
+              
+              
+            </table>
+            <div id="zona_sensible1" class="negrilla_sensible">
+              <p><i class="fad fa-lightbulb-on"></i></p>
+              <p> Lección aprendida </p>
+            </div>
+
+          </div>
+          <button onclick="A_id066_2pag1()" class="w3-button w3-blue" style="margin: 2%;">
+            Anterior
+          </button>
          
         </div>
       </div>
     </div>
-  </div>
-  <!-- Cancelación de la Orden de Compra y/o del Contrato.       2       -->
 
-  <div id="id055_1pag1_2" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag1_2()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Cancelación de la Orden de Compra y/o del Contrato.             
-          </p>
-          <hr>
-		  Cuando existan causas de fuerza mayor o caso fortuito debidamente sustentadas que imposibiliten la ejecución de la orden de compra o del contrato.
-        
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Cancelación de la Orden de Compra y/o del Contrato.       3       -->
+    <!-- Procedimientos específicos -->
 
-  <div id="id055_1pag1_3" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag1_3()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Cancelación de la Orden de Compra y/o del Contrato.             
-          </p>
-          <hr>
-		  Cuando el proveedor incumpla con todas o alguna de las obligaciones pactadas en el contrato, la Administración podrá cancelar unilateralmente de forma inmediata, la orden de compra o contrato y pagará solo por los productos o servicios que se hayan entregado.
-        
-        </div>
-      </div>
-    </div>
-  </div>
+       <div id="id066_3" class="w3-modal">
+        <div id="modal-contentSiguiente" class="w3-modal-content">
+          <div class="w3-container">
+            <div class="w3-display-topleft">
+              <button onclick="Salir_id066_3()" id="btn-cerrar"
+                class="w3-button w3-yellow w3-round-xxlarge">X</button>
+            </div>
+            <div class="w3-col resaltado_especial" style="width:95%">
+              <p class="w3-serif" style="font-size: 22px;">
+                Procedimientos específicos
+              </p>
+              <hr>
+              El instructivo (versión 03 del 25-FEB-2021) posee de manera general los siguientes pasos:
+              <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
 
-  <!-- Cancelación de la Orden de Compra y/o del Contrato.       4       -->
-
-  <div id="id055_1pag1_4" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag1_4()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Cancelación de la Orden de Compra y/o del Contrato.             
-          </p>
-          <hr>
-		  Cuando existan causas dCuando al contratista le sea cancelado su registro de proveedor como consecuencia de la aplicación del régimen sancionatorio establecido en la presente Directiva. 
-		  e fuerza mayor o caso fortuito debidamente sustentadas que imposibiliten la ejecución de la orden de compra o del contrato.
-          <div id="zona_sensible0" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p> Lección aprendida </p>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  1.	Elaborar y radicar Informe del Supervisor y solicitar el inicio del procedimiento sancionatorio contractual.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  2.	Revisar el informe de supervisión.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  3.	Remitir comunicación al contratista y garante.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  4.	Verificar descargos y realizar análisis de estos.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  5.	Revisar respuesta del supervisor.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  6.	Remitir acto administrativo y tomar decisión de fondo.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  7.	Notificar decisión al contratista.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  8.	Aplicar y registrar las medidas sancionatorias aplicables. 
+                </td>
+              </tr>
+            </table>
+            </div>
+            <button onclick="id066_3pag1()" class="w3-button w3-blue" style="margin: 2%;">
+              Siguiente
+            </button>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  <!-- Resciliación -->
+  
+  
+      <!--  Procedimientos específicos page 2-->
+  
+      <div id="id066_3pag1" class="w3-modal">
+        <div id="modal-contentSiguiente" class="w3-modal-content">
+          <div class="w3-container">
+            <div class="w3-display-topleft">
+              <button onclick="Salir_id066_3pag1()" id="btn-cerrar"
+                class="w3-button w3-yellow w3-round-xxlarge">X</button>
+            </div>
+            <div class="w3-col resaltado_especial" style="width:95%">
+              <p class="w3-serif" style="font-size: 22px;">
+                Procedimientos específicos
+              </p>
+              <hr>
+              La agencia de Compras de la FAC ha diseñado los procedimientos específicos para el cumplimiento de los pasos descritos en el presente modulo. Así las cosas, se cuenta con un instructivo donde se pueden consultar las siguientes actividades:
+              <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
 
-  <div id="id055_1pag2" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag2()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Resciliación
-		          </p>
-          <hr>
-		  Para que la resciliación sea posible, debe demostrarse la existencia de alguna de las siguientes causales: fraude, error de ambas partes, falsa representación, u otras causas que justifiquen la terminación del contrato, y conlleven a extinguir las obligaciones en dos sentidos hacia el futuro, quitándole fuerza, y hacia el pasado, deshaciendo sus efectos.
-		  La resciliación puede darse de común acuerdo entre las partes o solicitada a un juez con jurisdicción competente.  Cuando exista la falsa representación o fraude, debidamente demostrada se puede hacer de forma unilateral. 
-				   <hr> 
-		  <button onclick="id055_1pag2_1()" class="w3-button w3-khaki" style="width: 100%; margin: 1%;">
-			Para resciliar un contrato celebrado por ACOFA deberá tenerse en cuenta como mínimo lo siguiente:
-		</button>
-
-		</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="id055_1pag2_1" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag2_1()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Resciliación
-		          </p>
-          <hr>
-		  Para resciliar un contrato celebrado por ACOFA deberá tenerse en cuenta como mínimo lo siguiente:
-		  <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
-            <tr>
-              <td class="vineta"></td>
-              <td>
-				Que la parte que solicita la resciliación notifique por escrito a la otra parte demostrando y documentando las razones para la resciliación. 
-			</td>
-            </tr>
-            <tr>
-              <td class="vineta"></td>
-              <td>
-				La parte solicitante debe ofrecer o exigir, según sea el caso, a la otra parte la restitución de los beneficios obtenidos del contrato.
-			</td>
-            </tr>
-            <tr>
-              <td class="vineta"></td>
-              <td>
-				Que el Supervisor sustente frente al Comité de Adquisiciones la necesidad de iniciar un proceso de resciliación del contrato.
-			</td>
-            </tr>
-			<tr>
-				<td class="vineta"></td>
-				<td>
-					El Comité de Adquisiciones evaluará la sustentación de resciliación y recomendará al Competente Contractual sobre la conveniencia o no de iniciar el proceso de resciliación, según sea el caso.
-				</td>
-			  </tr>
-			  <tr>
-				<td class="vineta"></td>
-				<td>
-					De ser viable jurídicamente la resciliación, las partes que subscribieron el contrato procederán a firmar el acta de resciliación.
-				</td>
-			  </tr>
-			  <tr>
-				<td class="vineta"></td>
-				<td>
-					Se realizará el balance final del contrato de acuerdo al procedimiento establecido en la presente Directiva.
-				</td>
-			  </tr>
-        
-          </table>
-		  
-		  <div id="zona_sensible1" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
-            <p> Lección aprendida </p>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Proceso abreviado para contratos cerrados.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Proceso abreviado para contratos abiertos.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Proceso mayor para contratos cerrados.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Procedimiento mayor para contratos abiertos.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Procedimiento para modificar contratos celebrados a través de la modalidad de proceso abreviado o mayor, que obedezcan a realizar modificaciones, sin adicionar recursos.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Procedimiento para modificar contratos celebrados a través de la modalidad de proceso abreviado o mayor, que tenga como finalidad adicionar recursos.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Procedimiento para modificar el plazo de ejecución del servicio posventa cuando se encuentre vencido el plazo de ejecución del contrato.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Procedimiento para la liberación de pólizas pago anticipado mediante solicitud del proveedor.
+                </td>
+              </tr>
+            </table>
+              Todos estos procedimientos están contenidos en el INSTRUCTIVO PARA LA CONTRATACIÓN DE BIENES Y SERVICIOS EN EL EXTERIOR A TRAVÉS DE LA AGENCIA DE COMPRAS DE LA FAC el cual puede ser consultado y descargado fácilmente en el aplicativo SVE con el código GA-JEAD-INS-018
+              <div id="zona_sensible2" class="negrilla_sensible">
+                <p><i class="fad fa-lightbulb-on"></i></p>
+                <p> Lección aprendida </p>
+              </div>
+  
+            </div>
+            <button onclick="A_id066_3pag1()" class="w3-button w3-blue" style="margin: 2%;">
+              Anterior
+            </button>
+           
           </div>
-
-		</div>
+        </div>
       </div>
-    </div>
-  </div>
 
 
+
+
+
+    
     <div class="txt_c">
-        <div class=" w3-col resaltado_especial" style="width:65%; margin: 5%; ">
-          <p class="w3-serif" style="font-size: 22px;">
-			Régimen sancionatorio
+      <div class=" w3-col resaltado_especial" style="width:65%; margin: 5%; ">
+        <p class="w3-serif" style="font-size: 22px;">
+          Régimen sancionatorio
 
-          </p>
-          <hr>
-          <button onclick="id055_1pag1()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
-			Tipos de sanciones.
-		</button>
-          <button onclick="id055_1pag2()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
-			Procedimiento sancionatorio.
-          </button>
-		  <button onclick="id055_1pag2()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
-			Procedimientos específicos.
-		</button>
-     
-          <div class="instruccion_interna">Pasa dar click en cada uno de los botones</div>
+        </p>
+        <hr>
+        <button onclick="id066_1pag1()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
+          Tipos de sanciones.
+        </button>
+        <button onclick="id066_2()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
+          Procedimiento sancionatorio.
+        </button>
+        <button onclick="id066_3()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
+          Procedimientos específicos.
+        </button>
 
-        </div>
-        <div class="img_id01">
-          <img src="images/diap75c.png" height="250px" style="position: absolute; right: 2px; bottom: 5px;">
-        </div>
-        
+        <div class="instruccion_interna">Pasa dar click en cada uno de los botones</div>
+
+      </div>
+      <div class="img_id01">
+        <img src="images/diap75c.png" height="250px" style="position: absolute; right: 2px; bottom: 5px;">
+      </div>
 
 
-</div>
-    
-    
-<div id="pop0" class="pop">
-  Puede pasar al siguiente punto
-</div>
-<div id="pop1" class="pop"> 
-  Puede pasar al siguiente punto</div>
-<div id="pop2" class="pop">
-   Puede pasar al siguiente punto
-</div>
-<!-- <div id="pop3" class="pop"> Expedientes abiertos al público. </div>
+
+    </div>
+
+
+    <div id="pop0" class="pop">
+      Si como consecuencia del Incumplimiento de un contrato imputable al contratista se deriva un diferencial cambiario que afecte el pago del contrato, este será asumido por el contratista. Igual regla se aplicará para el pago de tributos aduaneros.
+      Nota: Aquellas empresas a las que les inicie procesos judiciales y/o cobros persuasivos, para lograr el pago de los dineros adeudados al Estado, por obligaciones contractuales se les cancelara el registro de proveedor.
+    </div>
+    <div id="pop1" class="pop">
+      Puede pasar al siguiente punto</div>
+    <div id="pop2" class="pop">
+      Fin de la lección
+    </div>
+    <!-- <div id="pop3" class="pop"> Expedientes abiertos al público. </div>
 <div id="pop4" class="pop"> No incluir en los pliegos de condiciones exigencias de imposible cumplimiento. </div>
 <div id="pop5" class="pop"> Previamente al inicio de un proceso de selección, la entidad estatal debe asegurarse de contar con las partidas presupuestales necesarias y los estudios previos que permitan establecer el objeto a contratar. </div>
 <div id="pop6" class="pop"> Adelantar los trámites con austeridad en tiempo y de recursos. </div>
@@ -359,68 +839,217 @@ function handleComplete(evt) {
 <div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
 <div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div> -->
 </body>
+
 </html>
 
 <script>
-  function id055_1pag1(){
-    document.getElementById('id055_1pag1').style.display = 'block'
-  }
-  function Salir_id055_1pag1(){
-    document.getElementById('id055_1pag1').style.display = 'none'
-  }
-  function id055_1pag1_1(){
-    document.getElementById('id055_1pag1_1').style.display = 'block'
-  }
-  function Salir_id055_1pag1_1(){
-    document.getElementById('id055_1pag1_1').style.display = 'none'
-	document.getElementById('id055_1pag1').style.display = 'block'
-
-  }
-  function id055_1pag1_2(){
-    document.getElementById('id055_1pag1_2').style.display = 'block'
-  }
-  function Salir_id055_1pag1_2(){
-    document.getElementById('id055_1pag1_2').style.display = 'none'
-	document.getElementById('id055_1pag1').style.display = 'block'
+  function id066_1pag1() {
+    document.getElementById('id066_1pag1').style.display = 'block'
   }
 
-  function id055_1pag1_3(){
-    document.getElementById('id055_1pag1_3').style.display = 'block'
-  }
-  function Salir_id055_1pag1_3(){
-    document.getElementById('id055_1pag1_3').style.display = 'none'
-	document.getElementById('id055_1pag1').style.display = 'block'
-  }
-  function id055_1pag1_4(){
-    document.getElementById('id055_1pag1_4').style.display = 'block'
-  }
-  function Salir_id055_1pag1_4(){
-    document.getElementById('id055_1pag1_4').style.display = 'none'
-	document.getElementById('id055_1pag1').style.display = 'block'
-  }
-
-  function id055_1pag2(){
-    document.getElementById('id055_1pag2').style.display = 'block'
-  }
-  function Salir_id055_1pag2(){
-    document.getElementById('id055_1pag2').style.display = 'none'
-  }
-
-  function id055_1pag2_1(){
-    document.getElementById('id055_1pag2_1').style.display = 'block'
-	document.getElementById('id055_1pag2').style.display = 'none'
-
-  }
-  function Salir_id055_1pag2_1(){
-    document.getElementById('id055_1pag2_1').style.display = 'none'
-	document.getElementById('id055_1pag2').style.display = 'block'
-
+  function Salir_id066_1pag1() {
+    document.getElementById('id066_1pag1').style.display = 'none'
   }
 
 
 
+  // a. Por el Incumplimiento del Ofrecimiento
+
+  function id066_1pag1_22(){
+    document.getElementById('id066_1pag1_22').style.display = 'block'
+    document.getElementById('id066_1pag1_1').style.display = 'none'
+
+  }
+
+  function Salir_id066_1pag1_22(){
+    document.getElementById('id066_1pag1_22').style.display = 'none'
+  }
+
+  function A_id066_1pag1_22(){
+    document.getElementById('id066_1pag1_22').style.display = 'none'
+    document.getElementById('id066_1pag1_1').style.display = 'block'
+
+  }
+
+  // c. Por el Incumplimiento Contractual en el plazo de ejecución, con entregas posteriores al mismo o por cancelación de material atribuible al contratista.
+
+  function id066_1pag1_33(){
+    document.getElementById('id066_1pag1_33').style.display = 'block'
+    document.getElementById('id066_1pag1_3').style.display = 'none'
+
+  }
+
+  function Salir_id066_1pag1_33(){
+    document.getElementById('id066_1pag1_33').style.display = 'none'
+  }
+
+  function A_id066_1pag1_33(){
+    document.getElementById('id066_1pag1_33').style.display = 'none'
+    document.getElementById('id066_1pag1_3').style.display = 'block'
+
+  }
+
+  // d. Por el Incumplimiento Contractual en la entrega de los bienes y/o servicios 
+
+  function id066_1pag1_44(){
+    document.getElementById('id066_1pag1_44').style.display = 'block'
+    document.getElementById('id066_1pag1_4').style.display = 'none'
+
+  }
+
+  function Salir_id066_1pag1_44(){
+    document.getElementById('id066_1pag1_44').style.display = 'none'
+  }
+
+  function A_id066_1pag1_44(){
+    document.getElementById('id066_1pag1_44').style.display = 'none'
+    document.getElementById('id066_1pag1_4').style.display = 'block'
+
+  }
+
+  // Procedimiento sancionatorio
+
+
+  function id066_2(){
+    document.getElementById('id066_2').style.display = 'block'
+  }
+
+
+  function Salir_id066_2(){
+    document.getElementById('id066_2').style.display = 'none'
+  }
+  function id066_2pag1(){
+    document.getElementById('id066_2').style.display = 'none'
+    document.getElementById('id066_2pag1').style.display = 'block'
+
+  }
+  function Salir_id066_2pag1(){
+    document.getElementById('id066_2pag1').style.display = 'none'
+
+  }
+
+  function A_id066_2pag1(){
+    document.getElementById('id066_2').style.display = 'block'
+
+    document.getElementById('id066_2pag1').style.display = 'none'
+  }
+
+  // Procedimientos específicos
+
+
+
+  function id066_3(){
+    document.getElementById('id066_3').style.display = 'block'
+  }
+
+  function Salir_id066_3(){
+    document.getElementById('id066_3').style.display = 'none'
+  }
+
+
+  function id066_3pag1(){
+    document.getElementById('id066_3').style.display = 'none'
+    document.getElementById('id066_3pag1').style.display = 'block'
+
+  }
+  function Salir_id066_3pag1(){
+    document.getElementById('id066_3pag1').style.display = 'none'
+
+  }
+
+  function A_id066_3pag1(){
+    document.getElementById('id066_3').style.display = 'block'
+
+    document.getElementById('id066_3pag1').style.display = 'none'
+  }
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  function A_id066_1pag1_22(){
+    document.getElementById('id066_1pag1_22').style.display = 'none'
+    document.getElementById('id066_1pag1_1').style.display = 'block'
+
+  }
+ 
+  function id066_1pag1_1() {
+    document.getElementById('id066_1pag1_1').style.display = 'block'
+  }
+
+  function Salir_id066_1pag1_1() {
+    document.getElementById('id066_1pag1_1').style.display = 'none'
+    document.getElementById('id066_1pag1').style.display = 'block'
+
+  }
+
+  function id066_1pag1_2() {
+    document.getElementById('id066_1pag1_2').style.display = 'block'
+  }
+
+  function Salir_id066_1pag1_2() {
+    document.getElementById('id066_1pag1_2').style.display = 'none'
+    document.getElementById('id066_1pag1').style.display = 'block'
+  }
+
+  function id066_1pag1_3() {
+    document.getElementById('id066_1pag1_3').style.display = 'block'
+  }
+
+  function Salir_id066_1pag1_3() {
+    document.getElementById('id066_1pag1_3').style.display = 'none'
+    document.getElementById('id066_1pag1').style.display = 'block'
+  }
+
+  function id066_1pag1_4() {
+    document.getElementById('id066_1pag1_4').style.display = 'block'
+  }
+
+  function Salir_id066_1pag1_4() {
+    document.getElementById('id066_1pag1_4').style.display = 'none'
+    document.getElementById('id066_1pag1').style.display = 'block'
+  }
+
+  function id066_1pag2() {
+    document.getElementById('id066_1pag2').style.display = 'block'
+  }
+
+  function Salir_id066_1pag2() {
+    document.getElementById('id066_1pag2').style.display = 'none'
+  }
+
+  function id066_1pag2_1() {
+    document.getElementById('id066_1pag2_1').style.display = 'block'
+    document.getElementById('id066_1pag2').style.display = 'none'
+
+  }
+
+  function Salir_id066_1pag2_1() {
+    document.getElementById('id066_1pag2_1').style.display = 'none'
+    document.getElementById('id066_1pag2').style.display = 'block'
+    document.getElementById('id066_1pag2').style.display = 'none'
+
+  }
 </script>
