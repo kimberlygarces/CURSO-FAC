@@ -44,8 +44,36 @@ border: 1.5px  inset #666363;
       float: left;
        
 }
-.img10{
-    position:relative;
-    width: 60%;
-    float: right;
+.img4{
+    margin-left: 50%;
+    width: 45%;
+ float: right;
+}
+.img5{
+    position: relative;
+    float:left;
+    height: 40%;
+    width: 20%;
+    
+}
+.img6{
+    position: relative;
+    float:right;
+    height: 35%;
+    width: 15%;
+    
+}
+.img7{
+    
+    float: center;
+    width: 15%;
+    height: 25%;  
+    
+}
+.img8{
+    opacity: 0.2;
+    position: absolute;
+       width: 80%;
+   height: 90%;
+   float: right;
 }
