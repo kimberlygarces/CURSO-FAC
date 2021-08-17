@@ -187,3 +187,42 @@ height: 35%;
 height: 50%;
 width: 50%;
 }
+.img21{
+    position: relative;
+    width: 15%;
+    height: 15%;
+    left:150px;
+    
+}
+.img22{
+    
+    width: 40%;
+    height: 40%;
+}
+.img23{
+    width: 65%;
+    height: 95%;
+    position: absolute;
+    opacity: 0.2;
+}
+.img24
+{
+    width: 65%;
+    height: 95%;
+    position: absolute;
+    opacity: 0.2;
+}
+.img26{
+  width: 60%;
+  height: 70%;
+}
+.img27{
+    opacity: 0.2;
+    position: absolute; 
+    width: 80%;
+    height: 105%;
+}
+.img28{
+    width: 50%;
+    height: 50%;
+}
