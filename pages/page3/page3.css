@@ -142,3 +142,48 @@ height: 35%;
     position: relative;
 
 }
+.img16{
+    margin-top:5%;
+}
+.danger, .aprobado, .expecion {
+
+        width: 10%;
+        height: 15%;
+         margin: 10px; 
+          float: right;
+
+    
+}
+.numero1, .numero2, .numero3, .numero4, .numero5{
+    width: 10%;
+    height: 15%;
+     margin: 10px; 
+      float: right;
+
+}
+
+.w3-col{
+    animation-name: fadeInUp;
+    animation-duration: 2s;
+}
+
+.img17{
+    width: 50%;
+    height: 50%;
+}
+.img18{
+    width: 40%;
+    height: 40%;
+}
+.img19{
+    opacity: 0.2;
+    position: absolute;
+    width: 45%;
+   height: 85%;
+   left: 250px;
+   
+}
+.img20{
+height: 50%;
+width: 50%;
+}
