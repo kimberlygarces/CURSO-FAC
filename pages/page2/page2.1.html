@@ -112,13 +112,13 @@
     </div>
         <div class="w3-col" id="resaltado_especial" style="width:55%; position: absolute; top: 90px; left: 20%;">
         <p>Definiciones de dependencias y delegaciones</p>
-        
+
         <div id="w3-col" class="w3-col" style="width:48%; margin: 1%;"> 
-            <id id="contenedor1" class="btn-subMenu w3-button w3-khaki">
+            <button id="contenedor1" class="btn-subMenu"ng-click="levelOU()">
                 <a href="javascript:abrir1()">Área Centro de Distribución</a>
                 <img src="images/truck.png" class="img5">
-                </id>
-                
+            </button>
+    
             
         
             <button id="contenedor2" class="btn-subMenu w3-button w3-khaki">
@@ -156,8 +156,15 @@
     <div><img src="images/gif1.gif" class="fondo"></div>
     
     <script>
+        var b1 = document.getElementById("contenedor1");
+        b1.onclick = function() {
+			b1.style.background = "#e7e7e7";  
+		}
+
+
         function abrir1() {
             document.getElementById("vent1").style.display = "block";
+           
         }
 
         function cerrar1() {
