@@ -261,3 +261,28 @@ animation-duration: 4s;
     animation-name: fadeIn;
     animation-duration: 4s;
 }
+.menu10{
+    width: 10%;
+    height: 15%;
+     margin: 10px; 
+      float: right;
+      }
+      
+.menu11{
+width: 10%;
+height: 15%;
+float: right;
+}
+.img30{
+    width: 25%;
+    height: 25%;
+}
+.img33{
+    width: 15%;
+    height: 15%;
+}
+.img37{
+    width: 40%;
+    height: 40%;
+    position: relative;
+}
