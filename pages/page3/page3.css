@@ -226,3 +226,38 @@ width: 50%;
     width: 50%;
     height: 50%;
 }
+
+.num1{
+    width: 25%;
+    height: 25%;
+    border-radius: 44px 44px 44px 44px;
+-moz-border-radius: 44px 44px 44px 44px;
+-webkit-border-radius: 44px 44px 44px 44px;
+
+
+}
+
+.boton1{
+    border-radius: 44px 44px 44px 44px;
+-moz-border-radius: 44px 44px 44px 44px;
+-webkit-border-radius: 44px 44px 44px 44px;
+border: 3px solid #000000;
+
+}
+.w3-lime{
+    border-radius: 44px 44px 25px 44px;
+-moz-border-radius: 44px 44px 25px 44px;
+-webkit-border-radius: 44px 44px 25px 44px;
+border: 10px solid #000000;
+animation-name: fadeIn;
+animation-duration: 4s;
+
+}
+.w3-khaki{
+    border-radius: 44px 44px 25px 44px;
+    -moz-border-radius: 44px 44px 25px 44px;
+    -webkit-border-radius: 44px 44px 25px 44px;
+    border: 10px solid #000000;
+    animation-name: fadeIn;
+    animation-duration: 4s;
+}

@@ -99,4 +99,8 @@ padding-left: 120PX;
 .w3-lime{
 	width: 100%;
 	margin: 1%;
+	border-radius: 44px 44px 25px 44px;
+-moz-border-radius: 44px 44px 25px 44px;
+-webkit-border-radius: 44px 44px 25px 44px;
+
 }
