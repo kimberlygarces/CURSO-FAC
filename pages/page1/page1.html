@@ -24,6 +24,8 @@ var canvas, stage, exportRoot;
 function init() {
 
 	canvas = document.getElementById("canvas");
+	var audio = document.getElementById('audio')
+
 
 	var loader = new createjs.LoadQueue(false);
 	loader.installPlugin(createjs.Sound);
@@ -31,6 +33,11 @@ function init() {
 	loader.addEventListener("complete", handleComplete);
 	loader.addEventListener("progress", handleProgress);
 	loader.loadManifest(lib.properties.manifest);	
+
+	setTimeout(function(){ audio.play(); }, 13000);
+
+
+
 }
 
 function handleFileLoad(evt) {
@@ -39,6 +46,7 @@ function handleFileLoad(evt) {
 
 function playSound(id, loop) {
 	createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+
 }
 
 ancho_linea = 0;
@@ -63,6 +71,7 @@ function handleProgress(evt) {
 	
 	//stage.addChild(contenedor);
 	stage.update();
+
 }
 
 function handleComplete(evt) {
@@ -97,9 +106,14 @@ function handleComplete(evt) {
 
 			<div class="w3-col resaltado_especial">
 				La Dirección de la Agencia de Compras FAC, realiza la contratación fuera del territorio nacional con la autorización que le confiere el Artículo 13 de la Ley 80 de 1993 y el Artículo 2.2.1.2.4.3.1 del Decreto 1082 de 2015 y Decreto 2400 de 1956 según los cuales los, contratos celebrados en el exterior se podrán regir por las reglas del país en donde se hayan suscrito. ";
+				<div id="zona_sensible0" class="negrilla_sensible">
+					<p><i class="fad fa-lightbulb-on"></i></p>
+					<p> Concepto Aprendido </p>
+				  </div>
+				  <div class="instruccion_interna">Debe pasar el mause por el texto resaltado</div>
 
 			</div>
-			<div class="instruccion_interna" style="position: absolute;top: 378px; left: 25%;">Debe dar click sobre boton 2 para continuar.</div>
+			<!-- <div class="instruccion_interna" style="position: absolute;top: 378px; left: 25%;">Debe dar click sobre boton 2 para continuar.</div> -->
 
 
 
@@ -109,8 +123,8 @@ function handleComplete(evt) {
 			<div class="txt_c" style="margin-top: 0px;">
 			
 				<img src="images/contrato.png" height="350" >
-
-
+			
+			
 			<div style="margin-top: 0px">
 		
 			</div>
@@ -118,8 +132,34 @@ function handleComplete(evt) {
 			
 		</div>
 	</div>	
-		
+	<audio id="audio">
+		<source src="sounds/concepto.mp3" type="audio/mpeg">
+	</audio>
+
+	
+	<div id="pop0" class="pop">
+		<div>
+	
+			Puede Continuar en el modulo 2
+	
+		</div>
 
 	
 </body>
 </html>
+
+<!-- <script>
+	setTimeout(function(){ alert("Hello"); }, 3000);
+
+</script> -->
+
+<!-- <script>
+var audio = document.getElementById('audio')
+
+		 setInterval(
+			function(){
+					 audio.play();
+			},30000);
+
+
+</script> -->
