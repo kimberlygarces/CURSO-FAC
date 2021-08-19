@@ -9,9 +9,9 @@ z-index:inherit;
 
 .resaltado_especial{
 font-family: "klavika-regular";
-    border-radius: 117px 0px 117px 0px;
--moz-border-radius: 117px 0px 117px 0px;
--webkit-border-radius: 117px 0px 117px 0px;
+border-radius: 37px 71px 0px 103px;
+-moz-border-radius: 37px 71px 0px 103px;
+-webkit-border-radius: 37px 71px 0px 103px;
 border: 3px solid #0877B5;
 -webkit-box-shadow: -4px 0px 29px 26px rgba(0,0,0,0.16);
 -moz-box-shadow: -4px 0px 29px 26px rgba(0,0,0,0.16);
@@ -90,8 +90,8 @@ height: 35%;
 .img8{
     opacity: 0.2;
     position: absolute;
-       width: 80%;
-   height: 90%;
+       width: 45%;
+   height: 95%;
    float: right;
    
 }
