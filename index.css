@@ -489,7 +489,9 @@ body{
 	border-radius: var(--borderradius-contenido);
 	visibility: hidden;
 	z-index: 0;
-	border:0px solid blue;
+	border:0px solid 
+	
+	;
 
 
 }

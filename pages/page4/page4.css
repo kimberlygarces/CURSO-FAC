@@ -5,3 +5,49 @@
     background-color: rgb(255, 255, 255);
 
 }
+.img1, .img2, .img3{
+    float: right;
+}
+.w3-lime{
+    border-radius: 44px 44px 25px 44px;
+-moz-border-radius: 44px 44px 25px 44px;
+-webkit-border-radius: 44px 44px 25px 44px;
+border: 10px solid #000000;
+animation-name: zoomIn;
+animation-duration: 5s;
+
+}
+.resaltado_especial{
+    animation-name: zoomIn;
+animation-duration: 4s;
+}
+.img6{
+    width: 250px;
+    height: 250px;
+    margin-left: 220px;
+    
+}
+.img7{
+    position:absolute;
+    width: 450px;
+    height: 450px;
+    margin-left: 220px;
+    opacity: 0.2;
+}
+.boton1{
+ background-color: #0E1B3D;
+ color: white;
+ animation-name: zoomIn;
+ animation-duration: 4s;
+ border-radius: 17px 17px 17px 17px;
+-moz-border-radius: 17px 17px 17px 17px;
+-webkit-border-radius: 17px 17px 17px 17px;
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.59);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.59);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.59);
+}
+.img8{
+        width: 350px;
+        height: 250px;
+        margin-left: 220px;
+}

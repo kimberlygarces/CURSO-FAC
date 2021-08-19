@@ -31,9 +31,21 @@
 
 .w3-modal-content {
 padding-left: 120PX;
+border-radius: 6px 89px 0px 48px;
+    -moz-border-radius: 6px 89px 0px 48px;
+    -webkit-border-radius: 6px 89px 0px 48px;
+	animation-name: zoomIn;
+	animation-duration: 2s;
+
 }
 .w3-modal-content{
 	padding-left: 15%;
+	border-radius: 6px 89px 0px 48px;
+    -moz-border-radius: 6px 89px 0px 48px;
+    -webkit-border-radius: 6px 89px 0px 48px;
+	animation-name: zoomIn;
+	animation-duration: 2s;
+
 }
 .w3-card{
 	margin: 2%;
