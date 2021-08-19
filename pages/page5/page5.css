@@ -4,3 +4,55 @@
     background-color: rgb(255, 255, 255);
 
 }
+.boton1{
+    border-radius: 44px 44px 44px 44px;
+-moz-border-radius: 44px 44px 44px 44px;
+-webkit-border-radius: 44px 44px 44px 44px;
+border: 3px solid #000000;
+}
+.num1{
+    width: 25%;
+    height: 25%;
+    border-radius: 44px 44px 44px 44px;
+-moz-border-radius: 44px 44px 44px 44px;
+-webkit-border-radius: 44px 44px 44px 44px;
+
+}
+.menu1{
+    width: 10%;
+    height: 15%;
+    float:left;
+    padding: 10px;
+
+}
+.img1{
+    width: 250px;
+    height: 250px;
+    margin-left: 220px;
+    
+}
+.img2{
+    position:relative;
+    width: 150px;
+    height: 150px;
+    margin-left: 200px;
+    
+}
+.w3-khaki{
+    border-radius: 44px 44px 25px 44px;
+-moz-border-radius: 44px 44px 25px 44px;
+-webkit-border-radius: 44px 44px 25px 44px;
+border: 10px solid #000000;
+animation-name: zoomIn;
+animation-duration: 5s;
+background-color: #0E1B3D;
+
+
+}
+.img7{
+    position:absolute;
+    width: 450px;
+    height: 140px;
+    margin-left: 100px;
+    opacity: 0.2;
+    }
