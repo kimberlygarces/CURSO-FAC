@@ -1285,37 +1285,39 @@
           <div class="txt_c">
             <!-- <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div> -->
 
+
             <div class="resaltado_especial">
               <div class="w3-container">
                 <p class="w3-serif" style="font-size: 22px;">
                   Etapa Precontractual
                 </p>
                 <hr>
+
                 <div class="w3-col" style="width:40%">
-                  <button onclick="document.getElementById('id02').style.display='block'"class="w3-button w3-lime">
+                  <button id="boton01" ng-click="levelOU()" onclick="boton01()" class="btn-def">
                     Modalidad de selección 
                     <img src="images/menu1.png" class="menu1">
                   </button>
-                  <button onclick="document.getElementById('id03').style.display='block'" class="w3-button w3-lime">
+                  <button id="boton2" ng-click="levelOU()"  onclick="boton2()" class="btn-def">
                     Causales de contratación
                     <img src="images/menu2.png" class="menu1">
                   </button>
-                  <button onclick="document.getElementById('id05').style.display='block'" class="w3-button w3-lime">
+                  <button id="boton3" ng-click="levelOU()"  onclick="boton3()" class="btn-def">
                     Estudio de Mercado
                     <img src="images/menu3.png" class="menu1">
                   </button>
-                  <button onclick="document.getElementById('id06').style.display='block'" class="w3-button w3-lime">
+                  <button id="boton4" ng-click="levelOU()"  onclick="boton4()" class="btn-def">
                     Solicitud de cotizaciones
                     <img src="images/menu4.png" class="menu1">
                   </button>
 
-                  <button onclick="document.getElementById('id07').style.display='block'" class="w3-button w3-lime">
+                  <button id="boton5" ng-click="levelOU()"  onclick="boton5()" class="btn-def">
                     Negociaciones
                     <img src="images/menu5.png" class="menu1">
                   </button>
                 </div>
-                <div class="w3-col" style="width:40%">
-                  <button onclick="document.getElementById('id08').style.display='block'" class="w3-button w3-lime">
+                <div  class="w3-col" style="width:40%">
+                  <button  id="boton6" ng-click="levelOU()" onclick="boton6()" class="btn-def">
                     Solicitud de oferta
                     <img src="images/menu6.png" class="menu1">
                   </button>
@@ -1323,15 +1325,15 @@
                     Solicitud de cotizaciones
                     <img src="images/menu7.png" class="menu1">
                   </button> -->
-                  <button onclick="document.getElementById('id010').style.display='block'" class="w3-button w3-lime">
+                  <button id="boton7" ng-click="levelOU()"  onclick="boton5()" class="btn-def">
                     Recepción y evaluación de ofertas
                     <img src="images/menu8.png" class="menu1">
                   </button>
-                  <button onclick="document.getElementById('id011').style.display='block'" class="w3-button w3-lime">
+                  <button id="boton8" ng-click="levelOU()"  onclick="boton6()" class="btn-def">
                     Perfeccionamiento y requisitos
                     <img src="images/menu9.png" class="menu1">
                   </button>
-                  <button onclick="document.getElementById('id012').style.display='block'" class="w3-button w3-lime">
+                  <button id="boton9" ng-click="levelOU()"  onclick="boton7()" class="btn-def">
                     Garantías contractuales
                     <img src="images/menu10.png" class="menu1">
                   </button>
@@ -2129,6 +2131,69 @@
 </html>
 
 <script>
+
+  	
+        var b1 = document.getElementById('boton01');
+				var b2 = document.getElementById("boton2");
+				var b3 = document.getElementById("boton3");
+				var b4 = document.getElementById("boton4");
+				var b5 = document.getElementById("boton5");
+				var b6 = document.getElementById("boton6");
+				var b7 = document.getElementById("boton7");
+				var b8 = document.getElementById("boton8");
+				var b9 = document.getElementById("boton9");
+
+        function boton01(){
+          document.getElementById('boton01').style.background = "#e7e7e7"; 
+          document.getElementById('id02').style.display='block'
+        }
+        
+        function boton2(){
+          document.getElementById('boton2').style.background = "#e7e7e7"; 
+          document.getElementById('id03').style.display='block'
+        }
+        
+        function boton3(){
+          document.getElementById('boton3').style.background = "#e7e7e7"; 
+          document.getElementById('id05').style.display='block'
+        }
+        
+        function boton4(){
+          document.getElementById('boton4').style.background = "#e7e7e7"; 
+          document.getElementById('id06').style.display='block'
+        }
+        
+        function boton5(){
+          document.getElementById('boton5').style.background = "#e7e7e7"; 
+          document.getElementById('id07').style.display='block'
+        }
+        
+        function boton6(){
+          document.getElementById('boton6').style.background = "#e7e7e7"; 
+          document.getElementById('id08').style.display='block'
+        }
+        
+        function boton7(){
+          document.getElementById('boton7').style.background = "#e7e7e7"; 
+          document.getElementById('id010').style.display='block'
+        }
+        
+        function boton8(){
+          document.getElementById('boton8').style.background = 'white'; 
+          document.getElementById('id011').style.display='block'
+        }
+        
+        function boton9(){
+          document.getElementById('boton9').style.background = 'white'; 
+          document.getElementById('id012').style.display='block'
+        }
+        
+    
+
+      
+
+
+
   function myFunction() {
     document.getElementById('id03').style.display = 'none',
       document.getElementById('id04').style.display = 'block'
