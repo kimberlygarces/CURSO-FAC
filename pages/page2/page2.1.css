@@ -263,13 +263,25 @@
 .btn-subMenu{
     width: 100%;
     margin: 2%;
+
 }
+.imgContenedor{
+    
+  margin-bottom: 2%;
+  margin-left: 12%;
+  width: 10%;
+  height: auto;
+  text-align: right;
+
+
+}
+
 .img5{
     
     margin-bottom: 2%;
     margin-left: 12%;
     width: 10%;
-    height: 15%;
+    height: auto;
   
 }
 
@@ -278,7 +290,7 @@
   margin-bottom: 1%;
   margin-left: 40%;
   width: 10%;
-  height: 15%;
+  height: auto;
 
 }
 .img7{
@@ -286,7 +298,7 @@
   margin-bottom: 1%;
   margin-left: 30%;
   width: 10%;
-  height: 15%;
+  height: auto;
 
 }
 .img8{
@@ -294,7 +306,7 @@
   margin-bottom: 1%;
   margin-left: 40%;
   width: 10%;
-  height: 15%;
+  height: auto;
 
 }
 
@@ -303,7 +315,7 @@
   margin-bottom: 1%;
   margin-left: 65%;
   width: 10%;
-  height: 15%;
+  height: auto;
 
 }
 
@@ -365,4 +377,30 @@ margin-top: 25%;
   margin-bottom: 3%;
   margin-left: 25%;
 
+}
+
+.btn-def{
+  width: 280px;
+  height: 39px;
+  text-align: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: 3%;
+
+}
+#contenedor1:hover, #contenedor2:hover, #contenedor3:hover, #contenedor4:hover, #contenedor5:hover, #contenedor6:hover,#boton7:hover, #boton8:hover, #boton9:hover, #boton10:hover,
+#boton11:hover, #boton12:hover, #boton13:hover, #boton14:hover, #boton15:hover, #boton16:hover,#boton17:hover, #boton18:hover, #boton19:hover,#boton20:hover, #boton21:hover
+{
+  background-color: #eccd41;
+}
+
+#contenedor1, #contenedor2, #contenedor3, #contenedor4, #contenedor5, #contenedor6, #contenedor7, #contenedor8, #boton9, #boton10,
+#boton11, #boton12, #boton13, #boton14, #boton15, #boton16, #boton17, #boton18, #boton19, #boton20, #boton21{
+  background-color: #f8e48c;
+  border-style: none;
+  -webkit-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+  z-index: 1;
+  margin: 2%;
 }

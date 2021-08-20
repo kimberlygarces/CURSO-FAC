@@ -116,36 +116,36 @@
         <div id="w3-col" class="w3-col" style="width:48%; margin: 1%;"> 
             <!-- <button id="contenedor1" class="btn-subMenu  btn-subMenu"ng-click="levelOU()"> -->
 
-            <button id="contenedor1" class="btn-subMenu w3-button w3-khaki" ng-click="levelOU()">
+            <button id="contenedor1" class="btn-def" ng-click="levelOU()">
                 <a href="javascript:abrir1()">Área Centro de Distribución</a>
-                <img src="images/truck.png" class="img5">
+                <img src="images/truck.png" class="imgContenedor">
             </button>
     
             
         
-            <button id="contenedor2" class="btn-subMenu w3-button w3-khaki">
+            <button id="contenedor2" class="btn-def">
                 <a href="javascript:abrir2()">(AETEC) y (ACON)</a>
                 <img src="images/plane.png" class="img6">
             </button>
         
-            <button id="contenedor3" class="btn-subMenu w3-button w3-khaki" >
+            <button id="contenedor3" class="btn-def" >
                 <a href="javascript:abrir3()">Delegado Contractual</a>
                 <img src="images/user.png" class="img7">
             </button>
         </div>
         <div class="w3-col" style="width:48%; margin: 1%;"> 
             
-        <button id="contenedor4" class="btn-subMenu w3-button w3-khaki">
+        <button id="contenedor4" class="btn-def">
             <a href="javascript:abrir4()">Unidades Ejecutoras</a>
             <img src="images/pendrive.png" class="img7">
         </button>
     
-        <button id="contenedor5" class="btn-subMenu w3-button w3-khaki">
+        <button id="contenedor5" class="btn-def">
             <a href="javascript:abrir5()">Servicio Posventa</a>
             <img src="images/sale.png" class="img8">
         </button>
     
-        <button id="contenedor6" class="btn-subMenu w3-button w3-khaki">
+        <button id="contenedor6" class="btn-def">
             <a href="javascript:abrir6()">OFFSET</a>
             <img src="images/off.png" class="img9">
         </button>
@@ -159,14 +159,20 @@
     
     <script>
         var b1 = document.getElementById("contenedor1");
-        b1.onclick = function() {
-			b1.style.background = "#e7e7e7";  
-		}
+        var b2 = document.getElementById("contenedor2");
+        var b3 = document.getElementById("contenedor3");
+        var b4 = document.getElementById("contenedor4");
+        var b5 = document.getElementById("contenedor5");
+        var b6 = document.getElementById("contenedor6");
+
+
+      
 
 
         function abrir1() {
             document.getElementById("vent1").style.display = "block";
-           
+            b1.style.background = "#e7e7e7";  
+
         }
 
         function cerrar1() {
@@ -176,6 +182,8 @@
 
         function abrir2() {
             document.getElementById("vent2").style.display = "block";
+            b2.style.background = "#e7e7e7";  
+
         }
 
         function cerrar2() {
@@ -185,15 +193,20 @@
 
         function abrir3() {
             document.getElementById("vent3").style.display = "block";
+            b3.style.background = "#e7e7e7";  
+
         }
 
         function cerrar3() {
             document.getElementById("vent3").style.display = "none";
 
+
         }
 
         function abrir4() {
             document.getElementById("vent4").style.display = "block";
+            b4.style.background = "#e7e7e7";  
+
         }
 
         function cerrar4() {
@@ -203,6 +216,8 @@
 
         function abrir5() {
             document.getElementById("vent5").style.display = "block";
+            b5.style.background = "#e7e7e7";  
+
         }
 
         function cerrar5() {
@@ -212,6 +227,8 @@
 
         function abrir6() {
             document.getElementById("vent6").style.display = "block";
+            b6.style.background = "#e7e7e7";  
+
         }
 
         function cerrar6() {
