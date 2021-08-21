@@ -104,6 +104,9 @@
   <canvas id="canvas" width="1165" height="550"></canvas>
   <div id="instruccion_circulos" class="instruccion_circulos">
   </div>
+  <audio id="audio">
+    <source src="sounds/star.mp3" type="audio/mpeg">
+  </audio>
   
 
   <div class="c_principal c_1_7">
@@ -177,9 +180,11 @@
           <img src="images/img2.png" height="">
 
           <div id="btn-abrir">
-            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-blue btn-abrir">
+            <button onclick="id01()" class="w3-button w3-blue btn-abrir">
               <i class="fa fa-book" aria-hidden="true"></i> Tipos de Contrato</button>
           </div>
+
+         
 
         </div>
         <div class="item_c">
@@ -2140,6 +2145,11 @@
 </html>
 
 <script>
+            function id01(){
+              document.getElementById('id01').style.display='block'
+              audio.play()
+
+            }
 
   	
         var b1 = document.getElementById('boton01');
@@ -2152,49 +2162,71 @@
 				var b8 = document.getElementById("boton8");
 				var b9 = document.getElementById("boton9");
 
+        var audio = document.getElementById('audio')
+
+
         function boton01(){
           document.getElementById('boton01').style.background = "#e7e7e7"; 
           document.getElementById('id02').style.display='block'
+          audio.play()
+
+          
         }
         
         function boton2(){
           document.getElementById('boton2').style.background = "#e7e7e7"; 
           document.getElementById('id03').style.display='block'
+          audio.play()
+
         }
         
         function boton3(){
           document.getElementById('boton3').style.background = "#e7e7e7"; 
           document.getElementById('id05').style.display='block'
+          audio.play()
+
         }
         
         function boton4(){
           document.getElementById('boton4').style.background = "#e7e7e7"; 
           document.getElementById('id06').style.display='block'
+          audio.play()
+
         }
         
         function boton5(){
           document.getElementById('boton5').style.background = "#e7e7e7"; 
           document.getElementById('id07').style.display='block'
+          audio.play()
+
         }
         
         function boton6(){
           document.getElementById('boton6').style.background = "#e7e7e7"; 
           document.getElementById('id08').style.display='block'
+          audio.play()
+
         }
         
         function boton7(){
           document.getElementById('boton7').style.background = "#e7e7e7"; 
           document.getElementById('id010').style.display='block'
+          audio.play()
+
         }
         
         function boton8(){
           document.getElementById('boton8').style.background = "#e7e7e7"; 
           document.getElementById('id011').style.display='block'
+          audio.play()
+
         }
         
         function boton9(){
           document.getElementById('boton9').style.background ="#e7e7e7"; 
           document.getElementById('id012').style.display='block'
+          audio.play()
+
         }
         
     
