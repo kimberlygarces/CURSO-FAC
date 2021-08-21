@@ -111,10 +111,10 @@ function handleComplete(evt) {
           <hr>
 		  La Administración podrá cancelar la orden de compra del producto o servicio de un contrato abierto o en un contrato cerrado cuando ocurra uno de los siguientes casos:
 		 <hr> 
-		  <button onclick="id055_1pag1_1()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso1.png" class="num1"></button>
-		  <button onclick="id055_1pag1_2()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso2.png" class="num1"></button>
-		  <button onclick="id055_1pag1_3()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso3.png" class="num1"></button>
-		  <button onclick="id055_1pag1_4()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso4.png" class="num1"></button>
+		  <button id="boton-paso1" onclick="id055_1pag1_1()" class="btn5_1_1" style="width: 160px; margin: 1%;"><img src="images/paso1.png" class="num1"></button>
+		  <button id="boton-paso2" onclick="id055_1pag1_2()" class="btn5_1_2" style="width: 160px; margin: 1%;"><img src="images/paso2.png" class="num1"></button>
+		  <button id="boton-paso3" onclick="id055_1pag1_3()" class="btn5_1_3" style="width: 160px; margin: 1%;"><img src="images/paso3.png" class="num1"></button>
+		  <button id="boton-paso4" onclick="id055_1pag1_4()" class="btn5_1_4" style="width: 160px; margin: 1%;"><img src="images/paso4.png" class="num1"></button>
 		  Nota: Adicional a la cancelación de la orden de compra y/o del contrato, se podrá dar inicio al proceso sancionatorio establecido en la presente Directiva.
 
 		</div>
@@ -227,7 +227,7 @@ function handleComplete(evt) {
 		  Para que la resciliación sea posible, debe demostrarse la existencia de alguna de las siguientes causales: fraude, error de ambas partes, falsa representación, u otras causas que justifiquen la terminación del contrato, y conlleven a extinguir las obligaciones en dos sentidos hacia el futuro, quitándole fuerza, y hacia el pasado, deshaciendo sus efectos.
 		  La resciliación puede darse de común acuerdo entre las partes o solicitada a un juez con jurisdicción competente.  Cuando exista la falsa representación o fraude, debidamente demostrada se puede hacer de forma unilateral. 
 				   <hr> 
-		  <button onclick="id055_1pag2_1()" class="w3-button w3-khaki" style="width: 100%; margin: 1%;">
+		  <button id="boton-acofa" onclick="id055_1pag2_1()" class="btn-acofa" style="width: 100%; margin: 1%;">
 			Para resciliar un contrato celebrado por ACOFA deberá tenerse en cuenta como mínimo lo siguiente:
 		</button>
 
@@ -308,14 +308,14 @@ function handleComplete(evt) {
 
           </p>
           <hr>
-          <button onclick="id055_1pag1()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
+          <button id="boton5_1" onclick="id055_1pag1()" class="btn5_1" style="width: 100%; margin: 1%;">
             <img src="images/cancelar.png" class="resili">
                 
 
             Cancelación de la Orden de Compra y/o del Contrato. 
             
 		</button>
-          <button onclick="id055_1pag2()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
+          <button id="boton5_2" onclick="id055_1pag2()" class="btn5_2" style="width: 100%; margin: 1%;">
             <img src="images/recili.png" class="resili">  
             Resciliación
       
@@ -371,12 +371,14 @@ function handleComplete(evt) {
 <script>
   function id055_1pag1(){
     document.getElementById('id055_1pag1').style.display = 'block'
+    document.getElementById('boton5_1').style.background ="#e7e7e7"; 
   }
   function Salir_id055_1pag1(){
     document.getElementById('id055_1pag1').style.display = 'none'
   }
   function id055_1pag1_1(){
     document.getElementById('id055_1pag1_1').style.display = 'block'
+    document.getElementById('boton-paso1').style.background ="#e7e7e7"; 
   }
   function Salir_id055_1pag1_1(){
     document.getElementById('id055_1pag1_1').style.display = 'none'
@@ -385,6 +387,7 @@ function handleComplete(evt) {
   }
   function id055_1pag1_2(){
     document.getElementById('id055_1pag1_2').style.display = 'block'
+    document.getElementById('boton-paso2').style.background ="#e7e7e7"; 
   }
   function Salir_id055_1pag1_2(){
     document.getElementById('id055_1pag1_2').style.display = 'none'
@@ -393,6 +396,7 @@ function handleComplete(evt) {
 
   function id055_1pag1_3(){
     document.getElementById('id055_1pag1_3').style.display = 'block'
+    document.getElementById('boton-paso3').style.background ="#e7e7e7"; 
   }
   function Salir_id055_1pag1_3(){
     document.getElementById('id055_1pag1_3').style.display = 'none'
@@ -400,6 +404,7 @@ function handleComplete(evt) {
   }
   function id055_1pag1_4(){
     document.getElementById('id055_1pag1_4').style.display = 'block'
+    document.getElementById('boton-paso4').style.background ="#e7e7e7"; 
   }
   function Salir_id055_1pag1_4(){
     document.getElementById('id055_1pag1_4').style.display = 'none'
@@ -408,6 +413,7 @@ function handleComplete(evt) {
 
   function id055_1pag2(){
     document.getElementById('id055_1pag2').style.display = 'block'
+    document.getElementById('boton5_2').style.background ="#e7e7e7"; 
   }
   function Salir_id055_1pag2(){
     document.getElementById('id055_1pag2').style.display = 'none'
@@ -416,6 +422,7 @@ function handleComplete(evt) {
   function id055_1pag2_1(){
     document.getElementById('id055_1pag2_1').style.display = 'block'
 	document.getElementById('id055_1pag2').style.display = 'none'
+  document.getElementById('boton-acofa').style.background ="#e7e7e7"; 
 
   }
   function Salir_id055_1pag2_1(){
