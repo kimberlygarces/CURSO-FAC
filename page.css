@@ -93,6 +93,14 @@ border-radius: 6px 89px 0px 48px;
 }
 .btn-id04{
 	margin: 2%;
+	border-radius: 24px 24px 24px 24px;
+-moz-border-radius: 24px 24px 24px 24px;
+-webkit-border-radius: 24px 24px 24px 24px;
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+animation-name: fadeIn;
+animation-duration: 2s;
 }
 
 .img_id01{

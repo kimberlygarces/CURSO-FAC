@@ -6,7 +6,7 @@
 
 }
 .img1, .img2, .img3{
-    float: right;
+    float: left;
 }
 .w3-lime{
     border-radius: 44px 44px 25px 44px;
@@ -33,21 +33,33 @@ animation-duration: 4s;
     height: auto;
     margin-left: 220px;
     opacity: 0.2;
-}
-.boton1{
- background-color: #0E1B3D;
- color: white;
- animation-name: zoomIn;
- animation-duration: 4s;
- border-radius: 17px 17px 17px 17px;
--moz-border-radius: 17px 17px 17px 17px;
--webkit-border-radius: 17px 17px 17px 17px;
--webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.59);
--moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.59);
-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.59);
+
 }
 .img8{
         width: 350px;
         height: 250px;
         margin-left: 220px;
+}
+
+#boton4_1:hover, #boton4_2:hover, #boton4_3:hover {
+    background-color: #eccd41;
+}
+
+#boton4_1, #boton4_2, #boton4_3{
+    background-color: #f8e48c;
+    border-style: none;
+    -webkit-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+    z-index: 1;
+    margin: 2%;
+}
+
+.btn4_1, .btn4_2, .btn4_3{
+    width: 390px;
+    height: 45px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 3%;
 }
