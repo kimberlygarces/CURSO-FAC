@@ -121,7 +121,7 @@
                 <a href="javascript:abrir1()">Área Centro de Distribución</a>
                 <img src="images/truck.png" class="imgContenedor">
                 <audio id="audio">
-                    <source src="sounds2/def1.mp3" type="audio/mpeg">
+                    <source src="sounds/star.mp3" type="audio/mpeg">
                 </audio>
             </button>
     
@@ -130,17 +130,17 @@
             <button id="contenedor2" class="btn-def">
                 <a href="javascript:abrir2()">(AETEC) y (ACON)</a>
                 <img src="images/plane.png" class="img6">
-                <audio id="audio2">
+                <!-- <audio id="audio2">
                     <source src="sounds2/def2.mp3" type="audio/mpeg">
-                </audio>
+                </audio> -->
             </button>
         
             <button id="contenedor3" class="btn-def" >
                 <a href="javascript:abrir3()">Delegado Contractual</a>
                 <img src="images/user.png" class="img7">
-                <audio id="audio3">
+                <!-- <audio id="audio3">
                     <source src="sounds2/def3.mp3" type="audio/mpeg">
-                </audio>
+                </audio> -->
             </button>
         </div>
         <div class="w3-col" style="width:48%; margin: 1%;"> 
@@ -148,25 +148,25 @@
         <button id="contenedor4" class="btn-def">
             <a href="javascript:abrir4()">Unidades Ejecutoras</a>
             <img src="images/pendrive.png" class="img7">
-            <audio id="audio4">
+            <!-- <audio id="audio4">
                 <source src="sounds2/def4.mp3" type="audio/mpeg">
-            </audio>
+            </audio> -->
         </button>
     
         <button id="contenedor5" class="btn-def">
             <a href="javascript:abrir5()">Servicio Posventa</a>
             <img src="images/sale.png" class="img8">
-            <audio id="audio5">
+            <!-- <audio id="audio5">
                 <source src="sounds2/def5.mp3" type="audio/mpeg">
-            </audio>
+            </audio> -->
         </button>
     
         <button id="contenedor6" class="btn-def">
             <a href="javascript:abrir6()">OFFSET</a>
             <img src="images/off.png" class="img9">
-            <audio id="audio6">
+            <!-- <audio id="audio6">
                 <source src="sounds2/def6.mp3" type="audio/mpeg">
-            </audio>
+            </audio> -->
         </button>
         
         </div>
@@ -178,11 +178,11 @@
     
     <script>
             var audio = document.getElementById('audio')
- 			var audio2 = document.getElementById('audio2')
- 			var audio3 = document.getElementById('audio3')
- 			var audio4 = document.getElementById('audio4')
- 			var audio5 = document.getElementById('audio5')
- 			var audio6 = document.getElementById('audio6')
+ 			// var audio2 = document.getElementById('audio2')
+ 			// var audio3 = document.getElementById('audio3')
+ 			// var audio4 = document.getElementById('audio4')
+ 			// var audio5 = document.getElementById('audio5')
+ 			// var audio6 = document.getElementById('audio6')
  
 
         var b1 = document.getElementById("contenedor1");
@@ -211,25 +211,25 @@
         function abrir2() {
             document.getElementById("vent2").style.display = "block";
             b2.style.background = "#e7e7e7";  
-            audio2.play();
+            audio.play();
         }
 
         function cerrar2() {
             document.getElementById("vent2").style.display = "none";
-            audio2.load();
+            audio.load();
 
         }
 
         function abrir3() {
             document.getElementById("vent3").style.display = "block";
             b3.style.background = "#e7e7e7";  
-            audio3.play();
+            audio.play();
 
         }
 
         function cerrar3() {
             document.getElementById("vent3").style.display = "none";
-            audio3.load();
+            audio.load();
 
 
         }
@@ -237,43 +237,42 @@
         function abrir4() {
             document.getElementById("vent4").style.display = "block";
             b4.style.background = "#e7e7e7";  
-            audio4.play()
+            audio.play();
 
         }
 
         function cerrar4() {
             document.getElementById("vent4").style.display = "none";
-            audio4.load()
+            audio.load()
 
         }
 
         function abrir5() {
             document.getElementById("vent5").style.display = "block";
             b5.style.background = "#e7e7e7";  
-            audio5.play()
+            audio.play();
 
         }
 
         function cerrar5() {
             document.getElementById("vent5").style.display = "none";
-            audio5.load()
+            audio.load()
 
         }
 
         function abrir6() {
             document.getElementById("vent6").style.display = "block";
             b6.style.background = "#e7e7e7";  
-            audio6.play()
+            audio.play();
         }
 
         function cerrar6() {
             document.getElementById("vent6").style.display = "none";
-            audio6.load()
+            audio.load()
 
         }
     </script>
-    <div class="mas_personaje c_1"></div>
-    <div class="item_c"></div>
+ 
 
 </body>
 
