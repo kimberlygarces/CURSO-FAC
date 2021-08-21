@@ -88,7 +88,8 @@
 
       /////Variables
       sin_personaje = false;
-      globo_personaje = "Analicemos las diferentes etapas contractuales, cada una de ellas sera definida detalladante a continuación.  Empezaremos con la etapa de planeación";
+      globo_personaje =
+        "Analicemos las diferentes etapas contractuales, cada una de ellas sera definida detalladante a continuación.  Empezaremos con la etapa de planeación";
       pausas_audio = [
         [0, 5205, 11377],
         [819, 5620, 12128]
@@ -104,7 +105,10 @@
   <canvas id="canvas" width="1165" height="550"></canvas>
   <div id="instruccion_circulos" class="instruccion_circulos">
   </div>
-  
+  <audio id="audio">
+    <source src="sounds/star.mp3" type="audio/mpeg">
+  </audio>
+
 
   <div class="c_principal c_1_7">
     <!--modificar clase c_1_1 según distribución de contenido;-->
@@ -126,13 +130,13 @@
 
             <div class='instruccion_interna'><span class='indica_instclic'></span>Pulsa los números para conocer los
               hallazgos.</div>
-              
+
           </div>
-          
+
         </div>
-        
+
       </div>
-      
+
       <div class="txt_interno c_1_2">
         <h1>1</h1>
         <div id="id01" class="w3-modal">
@@ -161,7 +165,7 @@
 
               </div>
               <div class="img3">
-                <img src="images/img3.png"  height="300px">
+                <img src="images/img3.png" height="300px">
 
               </div>
 
@@ -177,9 +181,11 @@
           <img src="images/img2.png" height="">
 
           <div id="btn-abrir">
-            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-blue btn-abrir">
+            <button onclick="id01()" class="w3-button w3-blue btn-abrir">
               <i class="fa fa-book" aria-hidden="true"></i> Tipos de Contrato</button>
           </div>
+
+
 
         </div>
         <div class="item_c">
@@ -225,41 +231,41 @@
                 El Director de ACOFA podrá exceptuar de la obligación de proveer una garantía de cumplimiento y/o pago
                 anticipado según lo expuesto por el Gerente de proyecto y/o solicitado por la empresa proveedora en los
                 siguientes casos:
-                <img src="images/img28.png" class="img28>"
-                <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
-                  <tr>
-                    <td class="vineta"></td>
-                    <td>
-                      a. Cuando la compañía contratista es fabricante, proveedor y/o distribuidor exclusivo del material
-                      o servicio objeto del contrato.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="vineta"></td>
-                    <td>
-                      b. En los contratos de capacitación, entrenamiento.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="vineta"></td>
-                    <td>
-                      c. Cuando se trate de contratos cuyo valor sea inferior a USD$50.000,00 dólares.
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="vineta"></td>
-                    <td>
-                      d. Cuando el plazo de ejecución sea igual o inferior a 30 días calendario, contados a partir de la
-                      firma del contrato.
-                    </td>
-                  </tr>
+                <img src="images/img28.png" class="img28>" <table class="lista_vinetas"
+                  style="font-size: 15px; line-height: 17px">
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    a. Cuando la compañía contratista es fabricante, proveedor y/o distribuidor exclusivo del material
+                    o servicio objeto del contrato.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    b. En los contratos de capacitación, entrenamiento.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    c. Cuando se trate de contratos cuyo valor sea inferior a USD$50.000,00 dólares.
+                  </td>
+                </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    d. Cuando el plazo de ejecución sea igual o inferior a 30 días calendario, contados a partir de la
+                    firma del contrato.
+                  </td>
+                </tr>
 
-                  <tr>
-                    <td class="vineta"></td>
-                    <td>
-                      e. En los contratos celebrados por ACOFA con cargo a su presupuesto básico.
-                    </td>
-                  </tr>
+                <tr>
+                  <td class="vineta"></td>
+                  <td>
+                    e. En los contratos celebrados por ACOFA con cargo a su presupuesto básico.
+                  </td>
+                </tr>
 
                 </table>
               </div>
@@ -271,7 +277,7 @@
               </p>
             </div> -->
           </div>
-          
+
         </div>
 
 
@@ -357,7 +363,7 @@
                 NOTA: Los porcentajes deben ser determinados por la Administración en cabeza del Gerente del Proyecto en
                 la etapa de estructuración del proceso, los cuales deben ser aprobados por el Director de la Agencia sin
                 sobrepasar el 6% del material y/o servicio no entregado.
-<img src="images/img25.png" class="img25">
+                <img src="images/img25.png" class="img25">
               </div>
             </div>
           </div>
@@ -413,7 +419,8 @@
                 <hr>
                 Las compañías contratistas deberán cumplir con la póliza “Bond”· mediante el certificado expedido por el
                 ente asegurador, así:
-                <b><br>Póliza Bond:<br></b> El Bond deberá tener una vigencia igual al término de la garantía técnica y (60) días más.
+                <b><br>Póliza Bond:<br></b> El Bond deberá tener una vigencia igual al término de la garantía técnica y
+                (60) días más.
                 De igual forma el contratista debe constituirla en el tiempo establecido en el contrato. Su porcentaje
                 será por un monto mínimo del 10% y máximo del 20% del contrato o de la orden de compra del elemento o
                 servicio.
@@ -470,10 +477,10 @@
                 <p class="w3-serif" style="font-size: 22px;">
                   <img src="images/img21.png" class="img21">
                   Garantía de pago anticipado
-                  
+
                 </p>
                 <hr>
-                
+
                 <p>
                   Las compañías contratistas deberán cumplir con la garantía contractual de pago anticipado mediante uno
                   de los siguientes documentos:
@@ -698,21 +705,24 @@
                   Ejecutoras por el incumplimiento de los términos y condiciones del contrato, así:
                 </p>
                 <div class="w3-col" style="width:43%; margin: 2%;">
-                  <button id="boton2_9_1_1" onclick="Siguiente_id012_2()" class="btn-def2_9_1_1" style="margin: 2%; width: 100%">
+                  <button id="boton2_9_1_1" onclick="Siguiente_id012_2()" class="btn-def2_9_1_1"
+                    style="margin: 2%; width: 100%">
                     <p class="w3-serif" style="font-size: 15px;">
                       Garantía de cumplimiento
                       <img src="images/1.png" class="numero1">
                     </p>
                   </button>
 
-                  <button id="boton2_9_1_2" onclick="Siguiente_id012_5()" class="btn-def2_9_1_2" style="margin: 2%; width: 100%">
+                  <button id="boton2_9_1_2" onclick="Siguiente_id012_5()" class="btn-def2_9_1_2"
+                    style="margin: 2%; width: 100%">
                     <p class="w3-serif" style="font-size: 15px;">
                       Garantía de pago anticipado
                       <img src="images/2.png" class="numero2">
                     </p>
                   </button>
 
-                  <button id="boton2_9_1_3" onclick="Siguiente_id012_4()" class="btn-def2_9_1_3" style="margin: 2%; width: 100%">
+                  <button id="boton2_9_1_3" onclick="Siguiente_id012_4()" class="btn-def2_9_1_3"
+                    style="margin: 2%; width: 100%">
                     <p class="w3-serif" style="font-size: 15px;">
                       Garantía técnica
                       <img src="images/3.png" class="numero3">
@@ -723,14 +733,16 @@
                 <div class="w3-col" style="width:43%; margin: 2%;">
 
 
-                  <button id="boton2_9_1_4" onclick="Siguiente_id015()" class="btn-def2_9_1_4" style="margin: 2%; width: 100%">
+                  <button id="boton2_9_1_4" onclick="Siguiente_id015()" class="btn-def2_9_1_4"
+                    style="margin: 2%; width: 100%">
                     <p class="w3-serif" style="font-size: 15px;">
                       Penalidad por demora
                       <img src="images/4.png" class="numero4">
                     </p>
                   </button>
 
-                  <button id="boton2_9_1_5" onclick="Siguiente_id016()" class="btn-def2_9_1_5" style="margin: 2%; width: 100%;">
+                  <button id="boton2_9_1_5" onclick="Siguiente_id016()" class="btn-def2_9_1_5"
+                    style="margin: 2%; width: 100%;">
                     <p class="w3-serif" style="font-size: 15px;">
                       Cláusula por entrega superior a los 30 días
                       <img src="images/5.png" class="numero5">
@@ -793,18 +805,21 @@
                   </table>
                 </div>
                 <div class="w3-col" style="width:40%">
-                  <button id="boton2_9_1" onclick="Siguiente_id012_1()" class="btn-def2_9_1" style="width: 100%; margin: 2%;">
+                  <button id="boton2_9_1" onclick="Siguiente_id012_1()" class="btn-def2_9_1"
+                    style="width: 100%; margin: 2%;">
                     Riesgo de incumplimiento contractual
                     <img src="images/danger.png" class="menu11">
                   </button>
 
 
-                  <button id="boton2_9_2" onclick="Siguiente_id017()" class="btn-def2_9_2" style="width: 100%; margin: 2%;">
+                  <button id="boton2_9_2" onclick="Siguiente_id017()" class="btn-def2_9_2"
+                    style="width: 100%; margin: 2%;">
                     Aprobación de las garantías contractuales
                     <img src="images/aprobado.png" class="menu11">
                   </button>
 
-                  <button id="boton2_9_3" onclick="Siguiente_id018()" class="btn-def2_9_3" style="width: 100%; margin: 2%;">
+                  <button id="boton2_9_3" onclick="Siguiente_id018()" class="btn-def2_9_3"
+                    style="width: 100%; margin: 2%;">
                     Excepción de Garantías
                     <img src="images/excepcion.png" class="menu11">
                   </button>
@@ -839,7 +854,7 @@
                 Para las Unidades Ejecutoras diferentes a la FAC, la minuta del contrato debe llevar visto bueno del
                 Gerente del Proyecto.
 
-          
+
 
               </div>
 
@@ -850,7 +865,7 @@
               <div id="zona_sensible8" class="negrilla_sensible">
                 <img src="images/menu9.png" class="menu1">
                 <p> Concepto Aprendido </p>
-              </div> 
+              </div>
             </div>
           </div>
         </div>
@@ -873,7 +888,7 @@
                 firme el contrato o no haga entrega de las pólizas dentro del tiempo establecido, se podrá adjudicar el
                 contrato a la segunda mejor opción según el resultado de la evaluación de las cotizaciones presentadas
                 por los proveedores.
-               
+
               </div>
               <button onclick="Siguiente_id011()" class="w3-button w3-button w3-blue" style="margin: 2%;">
                 Siguiente
@@ -891,9 +906,9 @@
               </div>
               <div class="w3-col resaltado_especial" style="width:95%">
                 <p class="w3-serif" style="font-size: 22px; text-align: center;">Recepción y evaluación de ofertas</p>
-                
+
                 <hr>
-                
+
                 La evaluación de las ofertas se realizará ciñéndose exclusivamente a las reglas contenidas en la
                 Solicitud de Oferta.
                 Así las cosas, la Administración realizará la evaluación de la oferta en los términos establecidos en la
@@ -906,7 +921,7 @@
                 <img src="images/menu8.png" class="menu1">
                 <p> Concepto Aprendido </p>
               </div>
-             
+
             </div>
           </div>
         </div>
@@ -934,11 +949,8 @@
                 consideren pertinentes.
 
               </div>
-              <!-- <div id="zona_sensible7" class="negrilla_sensible">
-                <p><i class="fad fa-lightbulb-on"></i></p>
-                <p> Concepto Aprendido </p>
-              </div> -->
-              
+           
+
             </div>
           </div>
         </div>
@@ -1015,7 +1027,7 @@
                 Para contratos cerrados, la solicitud de cotización se enviará a los proponentes que posean las
                 capacidades para ofrecer los bienes y servicios que requiere la Entidad, de acuerdo con el objeto
                 contractual, atendiendo el número mínimo de invitados señalado en el numeral anterior.
-                            </div>
+              </div>
               <div id="zona_sensible4" class="negrilla_sensible">
                 <img src="images/menu4.png" class="menu1">
                 <p> Concepto Aprendido </p>
@@ -1035,7 +1047,7 @@
                   class="w3-button w3-yellow w3-round-xxlarge">X</button>
               </div>
               <div class="w3-col resaltado_especial" style="width:95%">
-                
+
                 <p class="w3-serif" style="font-size: 22px; text-align: center;">Estudios de mercado </p>
                 <hr>
                 <img src="images/img9.png" class="img9" style="width: 120px; height: auto;">
@@ -1045,7 +1057,7 @@
                 en el Área Contractual de la Agencia de Compras FAC, deberá realizarlo con un mínimo de tres (03)
                 empresas, teniendo en cuenta las excepciones del caso establecidas en esta Directiva para proveedor o
                 distribuidor exclusivo y casas fabricantes.
-              
+
               </div>
               <div id="zona_sensible3" class="negrilla_sensible">
                 <img src="images/menu3.png" class="menu1">
@@ -1078,7 +1090,7 @@
                 Para los procesos que se adelanten bajo la modalidad de contrato abierto y/o marco se realizará la
                 selección de los proveedores de acuerdo al Ranking (contratos abiertos) y listado (resumen evaluación
                 contratos cerrados) y serán escogidos con base a la calificación de mayor a menor.
-              
+
               </div>
               <div id="zona_sensible2" class="negrilla_sensible">
                 <img src="images/menu2.png" class="menu1">
@@ -1105,7 +1117,7 @@
                   Escogida la modalidad de selección y la causal de contratación, se definirá el tipo de contratos, que
                   serán:
                 </p>
-                
+
                 <hr>
                 <div class="w3-col w3-card" style="width:43%">
                   <p class="w3-serif" style="font-size: 22px;">Modalidad de selección: Abreviada</p>
@@ -1153,10 +1165,10 @@
                       </td>
                     </tr>
                   </table>
-                  
+
                 </div>
 
-                
+
 
               </div>
               <button onclick="Anterior_id04()" class="w3-button w3-blue btn-id04">
@@ -1181,15 +1193,15 @@
               <div class="w3-col resaltado_especial" style="width:95%">
                 <p class="w3-serif" style="font-size: 22px; text-align: center;"><b>Modalidad de selección</b></p>
                 <hr>
-                <img src="images/diap44.png" style="width: 120px; height: auto;" class="img4"> 
+                <img src="images/diap44.png" style="width: 120px; height: auto;" class="img4">
                 Para garantizar la eficiencia y la transparencia en la contratación realizada a través de la Dirección
                 de la Agencia de Compras FAC, se aplicarán las siguientes modalidades:
                 <br>1) Proceso Abreviado.
                 <br>2) Proceso Mayor.<br>
-                
+
               </div>
               <div id="zona_sensible1" class="negrilla_sensible">
-                  <img src="images/menu1.png" class="menu1">                
+                <img src="images/menu1.png" class="menu1">
                 <p> Concepto Aprendido </p>
               </div>
               <div class="instruccion_interna">Debe pasar el mouse por el texto resaltado.</div>
@@ -1213,7 +1225,7 @@
                 <img src="images/img5.png" class="img5">
                 <p class="w3-serif" style="font-size: 17px;">Proceso Abreviado.
                   Serán causales del proceso abreviado las siguientes:
-                  
+
                 </p>
                 <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
                   <tr>
@@ -1294,29 +1306,29 @@
 
                 <div class="w3-col" style="width:40%">
                   <button id="boton01" ng-click="levelOU()" onclick="boton01()" class="btn-def">
-                    Modalidad de selección 
+                    Modalidad de selección
                     <img src="images/menu1.png" class="menu1">
                   </button>
-                  <button id="boton2" ng-click="levelOU()"  onclick="boton2()" class="btn-def">
+                  <button id="boton2" ng-click="levelOU()" onclick="boton2()" class="btn-def">
                     Causales de contratación
                     <img src="images/menu2.png" class="menu1">
                   </button>
-                  <button id="boton3" ng-click="levelOU()"  onclick="boton3()" class="btn-def">
+                  <button id="boton3" ng-click="levelOU()" onclick="boton3()" class="btn-def">
                     Estudio de Mercado
                     <img src="images/menu3.png" class="menu1">
                   </button>
-                  <button id="boton4" ng-click="levelOU()"  onclick="boton4()" class="btn-def">
+                  <button id="boton4" ng-click="levelOU()" onclick="boton4()" class="btn-def">
                     Solicitud de cotizaciones
                     <img src="images/menu4.png" class="menu1">
                   </button>
 
-                  <button id="boton5" ng-click="levelOU()"  onclick="boton5()" class="btn-def">
+                  <button id="boton5" ng-click="levelOU()" onclick="boton5()" class="btn-def">
                     Negociaciones
                     <img src="images/menu5.png" class="menu1">
                   </button>
                 </div>
-                <div  class="w3-col" style="width:40%">
-                  <button  id="boton6" ng-click="levelOU()" onclick="boton6()" class="btn-def">
+                <div class="w3-col" style="width:40%">
+                  <button id="boton6" ng-click="levelOU()" onclick="boton6()" class="btn-def">
                     Solicitud de oferta
                     <img src="images/menu6.png" class="menu1">
                   </button>
@@ -1324,15 +1336,15 @@
                     Solicitud de cotizaciones
                     <img src="images/menu7.png" class="menu1">
                   </button> -->
-                  <button id="boton7" ng-click="levelOU()"  onclick="boton7()" class="btn-def">
+                  <button id="boton7" ng-click="levelOU()" onclick="boton7()" class="btn-def">
                     Recepción y evaluación de ofertas
                     <img src="images/menu8.png" class="menu1">
                   </button>
-                  <button id="boton8" ng-click="levelOU()"  onclick="boton8()" class="btn-def">
+                  <button id="boton8" ng-click="levelOU()" onclick="boton8()" class="btn-def">
                     Perfeccionamiento y requisitos
                     <img src="images/menu9.png" class="menu1">
                   </button>
-                  <button id="boton9" ng-click="levelOU()"  onclick="boton9()" class="btn-def">
+                  <button id="boton9" ng-click="levelOU()" onclick="boton9()" class="btn-def">
                     Garantías contractuales
                     <img src="images/menu10.png" class="menu1">
                   </button>
@@ -1368,16 +1380,23 @@
                   Entrega, recibo e inspección de bienes y/o servicios:
                 </p>
                 <br>
-                <button id="paso1" onclick="id033_pag1()"  style="width: 160px; margin: 1%;" class="btn-paso1"><img src="images/paso1.png" class="num1"></button>
-                <button id="paso2" onclick="id033_pag2()"  style="width: 160px; margin: 1%;" class="btn-paso2"><img src="images/paso2.png" class="num1"></button>
-                <button id="paso3" onclick="id033_pag3()"  style="width: 160px; margin: 1%;" class="btn-paso3"><img src="images/paso3.png" class="num1"></button>
-                <button id="paso4" onclick="id033_pag4()"  style="width: 160px; margin: 1%;" class="btn-paso4"><img src="images/paso4.png" class="num1"></button>
-                <button id="paso5" onclick="id033_pag5()"  style="width: 160px; margin: 1%;" class="btn-paso5"><img src="images/paso5.png" class="num1"></button>
+                <button id="paso1" onclick="id033_pag1()" style="width: 160px; margin: 1%;" class="btn-paso1"><img
+                    src="images/paso1.png" class="num1"></button>
+                <button id="paso2" onclick="id033_pag2()" style="width: 160px; margin: 1%;" class="btn-paso2"><img
+                    src="images/paso2.png" class="num1"></button>
+                <button id="paso3" onclick="id033_pag3()" style="width: 160px; margin: 1%;" class="btn-paso3"><img
+                    src="images/paso3.png" class="num1"></button>
+                <button id="paso4" onclick="id033_pag4()" style="width: 160px; margin: 1%;" class="btn-paso4"><img
+                    src="images/paso4.png" class="num1"></button>
+                <button id="paso5" onclick="id033_pag5()" style="width: 160px; margin: 1%;" class="btn-paso5"><img
+                    src="images/paso5.png" class="num1"></button>
                 <!-- <button onclick="id033_pag6()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso6.png" class="num1"></button> -->
-                <button id="paso7" onclick="id033_pag7()"  style="width: 160px; margin: 1%;" class="btn-paso7"><img src="images/paso6.png" class="num1"></button>
-                <button id="paso8" onclick="id033_pag8()"  style="width: 160px; margin: 1%;" class="btn-paso8"><img src="images/paso7.png" class="num1"></button>
+                <button id="paso7" onclick="id033_pag7()" style="width: 160px; margin: 1%;" class="btn-paso7"><img
+                    src="images/paso6.png" class="num1"></button>
+                <button id="paso8" onclick="id033_pag8()" style="width: 160px; margin: 1%;" class="btn-paso8"><img
+                    src="images/paso7.png" class="num1"></button>
                 <div class="instruccion_interna">Debe dar click sobre los botones</div>
-
+           
               </div>
             </div>
           </div>
@@ -1453,7 +1472,7 @@
                 Para los casos donde se adquieran servicios de inspección y/o reparación de
                 bienes aeronáuticos, la entrada se realizará por parte del Depósito Aduanero
                 Privado FAC.
-                
+
 
               </div>
             </div>
@@ -1568,17 +1587,17 @@
               </div>
               <div class="w3-col resaltado_especial" style="width:95%">
                 <p class="w3-serif" style="font-size: 22px;">
-                  
+
                   Recibo y aceptación de bienes y servicios en la ejecución del contrato
                 </p>
                 <hr>
-                <img src="images/img37.png" clas ="img37">
+                <img src="images/img37.png" clas="img37">
                 Para la recepción de bienes y servicios, ACED o su equivalente en las Unidades Ejecutoras
                 efectuará el recibo de los mismos de acuerdo a lo estipulado en el Mensaje Técnico 920
                 vigente - PROCEDIMIENTO PARA EL ENVÍO, RECIBO Y TIEMPOS DE ALMACENAMIENTO DE PRODUCTOS
                 AERONÁUTICOS UTILIZADOS POR LA FUERZA AÉREA COLOMBIANA o el que haga sus veces en las
                 Unidades Ejecutoras.
-                
+
               </div>
             </div>
           </div>
@@ -1599,68 +1618,88 @@
                 </p>
                 <hr>
                 <img src="images/img38.png" class="img30">
-                El desaduanamiento debe ser realizado por el Depósito Aduanero Privado de la FAC (Área Centro de Distribución) o su equivalente en otras Unidades Ejecutoras de acuerdo a la reglamentación aduanera vigente.
-                Nota: No es responsabilidad del Depósito Aduanero Privado de la FAC (Área Centro de Distribución) o su equivalente en otras Unidades Ejecutoras, detectar daños no perceptibles mediante inspección visual al momento del recibo.  A pesar del recibo en el Depósito Aduanero Privado de la FAC (Área Centro de Distribución) o su equivalente  en otras Unidades Ejecutores después de la inspección inicial, las Unidades Ejecutoras se reservan el derecho a rechazar un bien o servicio recibido si en la inspección técnica realizada por la UMA o usuario final que lo requirió, se establece que este bien o servicio no está conforme con las especificaciones técnicas establecidas en la orden de compra o en el contrato, inclusive si este bien o servicio ha sido pagado.
-                
+                El desaduanamiento debe ser realizado por el Depósito Aduanero Privado de la FAC (Área Centro de
+                Distribución) o su equivalente en otras Unidades Ejecutoras de acuerdo a la reglamentación aduanera
+                vigente.
+                Nota: No es responsabilidad del Depósito Aduanero Privado de la FAC (Área Centro de Distribución) o su
+                equivalente en otras Unidades Ejecutoras, detectar daños no perceptibles mediante inspección visual al
+                momento del recibo. A pesar del recibo en el Depósito Aduanero Privado de la FAC (Área Centro de
+                Distribución) o su equivalente en otras Unidades Ejecutores después de la inspección inicial, las
+                Unidades Ejecutoras se reservan el derecho a rechazar un bien o servicio recibido si en la inspección
+                técnica realizada por la UMA o usuario final que lo requirió, se establece que este bien o servicio no
+                está conforme con las especificaciones técnicas establecidas en la orden de compra o en el contrato,
+                inclusive si este bien o servicio ha sido pagado.
+
               </div>
             </div>
           </div>
         </div>
 
-           <!-- Trazabilidad-->
+        <!-- Trazabilidad-->
 
-           <div id="id033_3" class="w3-modal">
-            <div id="modal-contentSiguiente" class="w3-modal-content">
-              <div class="w3-container">
-                <div class="w3-display-topleft">
-                  <button onclick="document.getElementById('id033_3').style.display='none'" id="btn-cerrar"
-                    class="w3-button w3-yellow w3-round-xxlarge">X</button>
-                </div>
-                <div class="w3-col resaltado_especial" style="width:95%">
-                  <p class="w3-serif" style="font-size: 22px;">
-                    Trazabilidad
-                  </p>
-                  <hr>
-                  
-                  La Fuerza Aérea Colombiana y Unidades Ejecutoras, exigirán los requisitos de trazabilidad de los bienes y/o servicios aeronáuticos que adquiere para el soporte y mantenimiento de su flota de aeronaves. Al momento de la entrega y como condición para su aceptación, los productos aeronáuticos deben estar acompañados, por los documentos de trazabilidad (mensaje técnico 920 o su equivalente en las Unidades Ejecutoras) incorporados en el contrato y que apliquen para tal fin. 
-                  Para los demás bienes y/o servicios diferentes a los aeronáuticos aplicaran aquellos documentos relacionados en el anexo técnico del contrato y/o documentos que formen parte integral del mismo.
-                  <div class="img39"><img src="images/img39.png" classs="img39"></div>
-                </div>
+        <div id="id033_3" class="w3-modal">
+          <div id="modal-contentSiguiente" class="w3-modal-content">
+            <div class="w3-container">
+              <div class="w3-display-topleft">
+                <button onclick="document.getElementById('id033_3').style.display='none'" id="btn-cerrar"
+                  class="w3-button w3-yellow w3-round-xxlarge">X</button>
+              </div>
+              <div class="w3-col resaltado_especial" style="width:95%">
+                <p class="w3-serif" style="font-size: 22px;">
+                  Trazabilidad
+                </p>
+                <hr>
+
+                La Fuerza Aérea Colombiana y Unidades Ejecutoras, exigirán los requisitos de trazabilidad de los bienes
+                y/o servicios aeronáuticos que adquiere para el soporte y mantenimiento de su flota de aeronaves. Al
+                momento de la entrega y como condición para su aceptación, los productos aeronáuticos deben estar
+                acompañados, por los documentos de trazabilidad (mensaje técnico 920 o su equivalente en las Unidades
+                Ejecutoras) incorporados en el contrato y que apliquen para tal fin.
+                Para los demás bienes y/o servicios diferentes a los aeronáuticos aplicaran aquellos documentos
+                relacionados en el anexo técnico del contrato y/o documentos que formen parte integral del mismo.
+                <div class="img39"><img src="images/img39.png" classs="img39"></div>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- pagos -->
-          <div id="id033_4" class="w3-modal">
-            <div id="modal-contentSiguiente" class="w3-modal-content">
-              <div class="w3-container">
-                <div class="w3-display-topleft">
-                  <button onclick="document.getElementById('id033_4').style.display='none'" id="btn-cerrar"
-                    class="w3-button w3-yellow w3-round-xxlarge">X</button>
-                </div>
-                <div class="w3-col resaltado_especial" style="width:95%">
-                  <p class="w3-serif" style="font-size: 22px;">
-                    Pagos
-                  </p>
-                  <hr>
-                  <p style="font-size: 22px; margin: 2%;">
-                    Los pagos se realizarán previo cumplimiento a las políticas y disposiciones de orden financiero vigentes para el pago de obligaciones contractuales y reglamentarias de la Agencia de Compras y bajo los siguientes lineamientos:
-                  </p>
-                  <br>
-                  <button id="boton1_1" onclick="id033_4pag1()" class="btn-paso1_1" style="width: 160px; margin: 1%;"><img src="images/paso1.png" class="num1"></button>
-                  <button id="boton1_2" onclick="id033_4pag2()" class="btn-paso1_2" style="width: 160px; margin: 1%;"><img src="images/paso2.png" class="num1"></button>
-                  <button id="boton1_3" onclick="id033_4pag3()" class="btn-paso1_3" style="width: 160px; margin: 1%;"><img src="images/paso3.png" class="num1"></button>
-                  <button id="boton1_4" onclick="id033_4pag4()" class="btn-paso1_4" style="width: 160px; margin: 1%;"><img src="images/paso4.png" class="num1"></button>
-                  <div class="instruccion_interna">Debe dar click cada uno de los botones</div>
-                  
-  
-                </div>
-                
+        <!-- pagos -->
+        <div id="id033_4" class="w3-modal">
+          <div id="modal-contentSiguiente" class="w3-modal-content">
+            <div class="w3-container">
+              <div class="w3-display-topleft">
+                <button onclick="document.getElementById('id033_4').style.display='none'" id="btn-cerrar"
+                  class="w3-button w3-yellow w3-round-xxlarge">X</button>
               </div>
+              <div class="w3-col resaltado_especial" style="width:95%">
+                <p class="w3-serif" style="font-size: 22px;">
+                  Pagos
+                </p>
+                <hr>
+                <p style="font-size: 22px; margin: 2%;">
+                  Los pagos se realizarán previo cumplimiento a las políticas y disposiciones de orden financiero
+                  vigentes para el pago de obligaciones contractuales y reglamentarias de la Agencia de Compras y bajo
+                  los siguientes lineamientos:
+                </p>
+                <br>
+                <button id="boton1_1" onclick="id033_4pag1()" class="btn-paso1_1" style="width: 160px; margin: 1%;"><img
+                    src="images/paso1.png" class="num1"></button>
+                <button id="boton1_2" onclick="id033_4pag2()" class="btn-paso1_2" style="width: 160px; margin: 1%;"><img
+                    src="images/paso2.png" class="num1"></button>
+                <button id="boton1_3" onclick="id033_4pag3()" class="btn-paso1_3" style="width: 160px; margin: 1%;"><img
+                    src="images/paso3.png" class="num1"></button>
+                <button id="boton1_4" onclick="id033_4pag4()" class="btn-paso1_4" style="width: 160px; margin: 1%;"><img
+                    src="images/paso4.png" class="num1"></button>
+                <div class="instruccion_interna">Debe dar click cada uno de los botones</div>
+
+
+              </div>
+
             </div>
           </div>
+        </div>
 
-          <!-- pagos  page 1-->
+        <!-- pagos  page 1-->
 
         <div id="id033_4pag1" class="w3-modal">
           <div id="modal-contentSiguiente" class="w3-modal-content">
@@ -1674,15 +1713,15 @@
                   Pagos
                 </p>
                 <hr>
-                
-                La obligación de pago está causada por el recibo a conformidad de bienes y servicios de 
-                acuerdo a los términos, condiciones y normatividad establecida en el contrato. 
+
+                La obligación de pago está causada por el recibo a conformidad de bienes y servicios de
+                acuerdo a los términos, condiciones y normatividad establecida en el contrato.
                 <img src="images/pago1.png" class="pago1">
               </div>
             </div>
           </div>
         </div>
-          <!-- pagos  page 2-->
+        <!-- pagos  page 2-->
 
         <div id="id033_4pag2" class="w3-modal">
           <div id="modal-contentSiguiente" class="w3-modal-content">
@@ -1697,8 +1736,8 @@
                 </p>
                 <hr>
                 <img src="images/pago2.png" class="pago1">
-                Se podrán pactar pagos anticipados hasta por un 50% del valor del contrato cuando 
-                el proveedor lo solicite y/o cuando a criterio de la Administración sea indispensable 
+                Se podrán pactar pagos anticipados hasta por un 50% del valor del contrato cuando
+                el proveedor lo solicite y/o cuando a criterio de la Administración sea indispensable
                 para la ejecución del contrato, previa autorización del Subdirector Financiero ACOFA.
 
 
@@ -1706,7 +1745,7 @@
             </div>
           </div>
         </div>
-          <!-- pagos  page 3-->
+        <!-- pagos  page 3-->
 
         <div id="id033_4pag3" class="w3-modal">
           <div id="modal-contentSiguiente" class="w3-modal-content">
@@ -1721,10 +1760,10 @@
                   Pagos
                 </p>
                 <hr>
-                Se podrán pactar pagos anticipados hasta por el 100% del valor del bien o servicio 
+                Se podrán pactar pagos anticipados hasta por el 100% del valor del bien o servicio
                 a adquirir para los contratos cuyo objeto sean suscripciones, publicaciones,
                 capacitación o entrenamiento o cuando el pago anticipado corresponda a una
-                práctica comercial prevalente en el mercado, previa autorización del Subdirector 
+                práctica comercial prevalente en el mercado, previa autorización del Subdirector
                 Financiero ACOFA
 
 
@@ -1732,7 +1771,7 @@
             </div>
           </div>
         </div>
-          <!-- pagos  page 4-->
+        <!-- pagos  page 4-->
 
         <div id="id033_4pag4" class="w3-modal">
           <div id="modal-contentSiguiente" class="w3-modal-content">
@@ -1746,8 +1785,8 @@
                   Pagos
                 </p>
                 <hr>
-                Para los pagos correspondientes a otras Unidades Ejecutoras la responsabilidad de su 
-                trámite y cumplimiento será del Ordenador del Gasto y del Supervisor de cada uno de los 
+                Para los pagos correspondientes a otras Unidades Ejecutoras la responsabilidad de su
+                trámite y cumplimiento será del Ordenador del Gasto y del Supervisor de cada uno de los
                 procesos contractuales.
                 <img src="images/pago4.png" class="pago1">
 
@@ -1757,12 +1796,52 @@
           </div>
         </div>
 
-           <!--                     Balance Final del Contrato-->
-           <div id="id033_5" class="w3-modal">
+        <!--                     Balance Final del Contrato-->
+        <div id="id033_5" class="w3-modal">
+          <div id="modal-contentSiguiente" class="w3-modal-content">
+            <div class="w3-container">
+              <div class="w3-display-topleft">
+                <button onclick="document.getElementById('id033_5').style.display='none'" id="btn-cerrar"
+                  class="w3-button w3-yellow w3-round-xxlarge">X</button>
+              </div>
+              <div class="w3-col resaltado_especial" style="width:95%">
+                <p class="w3-serif" style="font-size: 22px;">
+                  Balance Final del Contrato
+                </p>
+                <hr>
+                <p style="font-size: 22px; margin: 2%;">
+                  En los contratos celebrados a través de ACOFA el Supervisor del Contrato deberá solicitar la
+                  elaboración del
+                  balance final a la Subdirección Administrativa de ACOFA, para lo cual se tendrán en cuenta los
+                  siguientes
+                  aspectos:
+                </p>
+                <br>
+                <button id="btn3_5_1" onclick="id033_5pag1()" class="boton1" style="width: 220px; margin: 1%;"><img
+                    src="images/paso1.png" class="num1"></button>
+                <button id="btn3_5_2" onclick="id033_5pag2()" class="boton1" style="width: 220px; margin: 1%;"><img
+                    src="images/paso2.png" class="num1"></button>
+                <button id="btn3_5_3" onclick="id033_5pag3()" class="boton1" style="width: 220px; margin: 1%;"><img
+                    src="images/paso3.png" class="num1"></button>
+
+                <div class="instruccion_interna">Debe dar click cada uno de los botones</div>
+
+                <!-- <div id="zona_sensible9" class="negrilla_sensible">
+                  <img src="images/menu9.png" class="menu1">
+                  <p> Concepto Aprendido </p>
+                </div>  -->
+              </div>
+
+            </div>
+          </div>
+
+          <!--                     Balance Final del Contrato page 1  -->
+
+          <div id="id033_5pag1" class="w3-modal">
             <div id="modal-contentSiguiente" class="w3-modal-content">
               <div class="w3-container">
                 <div class="w3-display-topleft">
-                  <button onclick="document.getElementById('id033_5').style.display='none'" id="btn-cerrar"
+                  <button onclick="Salir_id033_pag5()" id="btn-cerrar"
                     class="w3-button w3-yellow w3-round-xxlarge">X</button>
                 </div>
                 <div class="w3-col resaltado_especial" style="width:95%">
@@ -1770,366 +1849,344 @@
                     Balance Final del Contrato
                   </p>
                   <hr>
-                  <p style="font-size: 22px; margin: 2%;">
-                    En los contratos celebrados a través de ACOFA el Supervisor del Contrato deberá solicitar la elaboración del
-                     balance final a la Subdirección Administrativa de ACOFA, para lo cual se tendrán en cuenta los siguientes
-                      aspectos:
-                  </p>
-                  <br>
-                  <button id="btn3_5_1" onclick="id033_5pag1()" class="boton1" style="width: 220px; margin: 1%;"><img src="images/paso1.png" class="num1"></button>
-                  <button id="btn3_5_2" onclick="id033_5pag2()" class="boton1" style="width: 220px; margin: 1%;"><img src="images/paso2.png" class="num1"></button>
-                  <button id="btn3_5_3" onclick="id033_5pag3()" class="boton1" style="width: 220px; margin: 1%;"><img src="images/paso3.png" class="num1"></button>
-
-                  <div class="instruccion_interna">Debe dar click cada uno de los botones</div>
-  
-                </div>
-                <div id="zona_sensible9" class="negrilla_sensible">
-                  <!-- <p><i class="fa fa-thumbs-up"></i></p> -->
-                  
-                    Concepto Visto
-                  
-              </div>
-            </div>
-          </div>
-
-           <!--                     Balance Final del Contrato page 1  -->
-          
-        <div id="id033_5pag1" class="w3-modal">
-          <div id="modal-contentSiguiente" class="w3-modal-content">
-            <div class="w3-container">
-              <div class="w3-display-topleft">
-                <button onclick="Salir_id033_pag5()" id="btn-cerrar"
-                  class="w3-button w3-yellow w3-round-xxlarge">X</button>
-              </div>
-              <div class="w3-col resaltado_especial" style="width:95%">
-                <p class="w3-serif" style="font-size: 22px;">
-                  Balance Final del Contrato
-                </p>
-                <hr>
-                <img src="images/mesa1.png" class="pago1">
-                El Subdirector Administrativo de ACOFA elaborará el balance final del 
-                contrato cuando éste llegue a su término y con el último informe de supervisión.
-                 Este será revisado, avalado y firmado por el Supervisor del Contrato y el Delegado Contractual. 
-                 Para los contratos de las demás Unidades Ejecutoras del MDN, el balance final será firmado por 
-                 el Supervisor del Contrato, el Ordenador del Gasto de la Unidad Ejecutora y el Director de la
+                  <img src="images/mesa1.png" class="pago1">
+                  El Subdirector Administrativo de ACOFA elaborará el balance final del
+                  contrato cuando éste llegue a su término y con el último informe de supervisión.
+                  Este será revisado, avalado y firmado por el Supervisor del Contrato y el Delegado Contractual.
+                  Para los contratos de las demás Unidades Ejecutoras del MDN, el balance final será firmado por
+                  el Supervisor del Contrato, el Ordenador del Gasto de la Unidad Ejecutora y el Director de la
                   Agencia de Compras FAC.
 
 
+                </div>
               </div>
             </div>
           </div>
-        </div>
-           <!--                     Balance Final del Contrato page 2-->
+          <!--                     Balance Final del Contrato page 2-->
 
-        <div id="id033_5pag2" class="w3-modal">
-          <div id="modal-contentSiguiente" class="w3-modal-content">
-            <div class="w3-container">
-              <div class="w3-display-topleft">
-                <button onclick="Salir_id033_pag5()" id="btn-cerrar"
-                  class="w3-button w3-yellow w3-round-xxlarge">X</button>
-              </div>
-              <div class="w3-col resaltado_especial" style="width:95%">
-                <p class="w3-serif" style="font-size: 22px;">
-                  
-                  Balance Final del Contrato
+          <div id="id033_5pag2" class="w3-modal">
+            <div id="modal-contentSiguiente" class="w3-modal-content">
+              <div class="w3-container">
+                <div class="w3-display-topleft">
+                  <button onclick="Salir_id033_pag5()" id="btn-cerrar"
+                    class="w3-button w3-yellow w3-round-xxlarge">X</button>
+                </div>
+                <div class="w3-col resaltado_especial" style="width:95%">
+                  <p class="w3-serif" style="font-size: 22px;">
 
-                </p>
-                <hr>
+                    Balance Final del Contrato
 
-                Dentro del balance final del contrato se deberán incluir además de todos los aspectos 
-                relacionados con el cumplimiento de las obligaciones contractuales, el estado de los 
-                servicios posventa (cuando aplique), las garantías técnicas y sus fechas de cumplimiento. 
-
-                <img src="images/mesa2.png" class="pago1">
-              </div>
-            </div>
-          </div>
-        </div>
-           <!--                     Balance Final del Contrato page 3-->
-
-        <div id="id033_5pag3" class="w3-modal">
-          <div id="modal-contentSiguiente" class="w3-modal-content">
-            <div class="w3-container">
-              <div class="w3-display-topleft">
-                <button onclick="Salir_id033_pag5()" id="btn-cerrar"
-                  class="w3-button w3-yellow w3-round-xxlarge">X</button>
-              </div>
-              <div class="w3-col resaltado_especial" style="width:95%">
-                <p class="w3-serif" style="font-size: 22px;">
-                  Balance Final del Contrato
-                </p>
-                <hr>
-                <img src="images/mesa3.png" class="pago1">
-                El balance final se debe realizar a más tardar a los dos (02) meses siguientes de 
-                haberse ejecutado el contrato o de haber terminado las obligaciones con relación 
-                al servicio posventa, según sea el caso, so pena de las acciones disciplinarias a 
-                que haya lugar. Deberán consignarse todas las coordinaciones y acuerdos realizados 
-                con el proveedor para el cumplimiento del posventa. 
-                
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <img src="images/img29.gif">
-        </div>
-        <div class="item_c">
-          <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <!-- <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div> -->
-            <div class="resaltado_especial">
-              <p class="w3-serif" style="font-size: 22px; text-align: center;">
-                Etapa contractual
-              </p>
-              <hr>
-              <div class="w3-col" style="width:70%">
-                <button id="boton3_1" onclick="Siguiente_id033_1()" class="btn-def3_1">
-                  <p style="font-size: 16px;">
-                    <img src="images/contrato.png" class="menu11">
-                    Recibo y aceptación de bienes y <br>servicios en la ejecución del contrato
-                    
                   </p>
-                  
-                </button>
-                
-                <button id="boton3_2" onclick="Siguiente_id033_2()" class="btn-def3_2">
-                  Desaduanamiento
-                  <img src="images/dese.png" class="menu11">
-                </button>
+                  <hr>
 
-               
-                <button id="boton3_3" onclick="Siguiente_id033_3()" class="btn-def3_3">
-                  Trazabilidad
-                  <img src="images/traza.png" class="menu11">
-                </button>
-                <button id="boton3_4" onclick="Siguiente_id033_4()" class="btn-def3_4">
-                  Pagos
-                  <img src="images/pagos.png" class="menu11">
-                </button>
-                <button id="boton3_5" onclick="Siguiente_id033_5()" class="btn-def3_5">
-                  Balance Final del Contrato
-                  <img src="images/balance.png" class="menu11">
-                </button>
+                  Dentro del balance final del contrato se deberán incluir además de todos los aspectos
+                  relacionados con el cumplimiento de las obligaciones contractuales, el estado de los
+                  servicios posventa (cuando aplique), las garantías técnicas y sus fechas de cumplimiento.
+
+                  <img src="images/mesa2.png" class="pago1">
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--                     Balance Final del Contrato page 3-->
+
+          <div id="id033_5pag3" class="w3-modal">
+            <div id="modal-contentSiguiente" class="w3-modal-content">
+              <div class="w3-container">
+                <div class="w3-display-topleft">
+                  <button onclick="Salir_id033_pag5()" id="btn-cerrar"
+                    class="w3-button w3-yellow w3-round-xxlarge">X</button>
+                </div>
+                <div class="w3-col resaltado_especial" style="width:95%">
+                  <p class="w3-serif" style="font-size: 22px;">
+                    Balance Final del Contrato
+                  </p>
+                  <hr>
+                  <img src="images/mesa3.png" class="pago1">
+                  El balance final se debe realizar a más tardar a los dos (02) meses siguientes de
+                  haberse ejecutado el contrato o de haber terminado las obligaciones con relación
+                  al servicio posventa, según sea el caso, so pena de las acciones disciplinarias a
+                  que haya lugar. Deberán consignarse todas las coordinaciones y acuerdos realizados
+                  con el proveedor para el cumplimiento del posventa.
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="item_c">
+            <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+            <img src="images/img29.gif">
+          </div>
+          <div class="item_c">
+            <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+            <div class="txt_c">
+              <!-- <div class="instruccion_interna">Pasa el mouse sobre los textos resaltados.</div> -->
+              <div class="resaltado_especial">
+                <p class="w3-serif" style="font-size: 22px; text-align: center;">
+                  Etapa contractual
+                </p>
+                <hr>
+                <div class="w3-col" style="width:70%">
+                  <button id="boton3_1" onclick="Siguiente_id033_1()" class="btn-def3_1">
+                    <p style="font-size: 16px;">
+                      <img src="images/contrato.png" class="menu11">
+                      Recibo y aceptación de bienes y <br>servicios en la ejecución del contrato
+
+                    </p>
+
+                  </button>
+
+                  <button id="boton3_2" onclick="Siguiente_id033_2()" class="btn-def3_2">
+                    Desaduanamiento
+                    <img src="images/dese.png" class="menu11">
+                  </button>
+
+
+                  <button id="boton3_3" onclick="Siguiente_id033_3()" class="btn-def3_3">
+                    Trazabilidad
+                    <img src="images/traza.png" class="menu11">
+                  </button>
+                  <button id="boton3_4" onclick="Siguiente_id033_4()" class="btn-def3_4">
+                    Pagos
+                    <img src="images/pagos.png" class="menu11">
+                  </button>
+                  <button id="boton3_5" onclick="Siguiente_id033_5()" class="btn-def3_5">
+                    Balance Final del Contrato
+                    <img src="images/balance.png" class="menu11">
+                  </button>
+
+                </div>
 
               </div>
 
             </div>
-
           </div>
         </div>
+
+
+
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <div id="pop0" class="pop">
+      <div>
+        <h4>Contrato Abierto Macro:</h4>
+        Conocido en los Estados Unidos como Blanket Purchase Agreement y Blanket Service Agreement, el contrato abierto
+        tiene una vigencia específica y un valor determinado que permite simplificar el proceso de adquisición de bienes
+        y
+        servicios cuya adquisición es recurrente.
+        <h4>Contrato Abierto Con Lista de Precios:</h4>
+        Posee las mismas características del contrato abierto marco, sin embargo, contiene una lista de precios y
+        tiempos
+        de entrega negociados desde la etapa precontractual.
+
+
       </div>
 
+    </div>
+    <div id="pop1" class="pop">
+      Teniendo en cuenta que los procesos contractuales en ACOFA se someten bajo la jurisdicción del Estado de
+      la Florida tanto la etapa precontractual y la ejecución, los mismos estarán sometidos a los principios
+      de la función administrativa a que se refiere el Artículo 209 de la Constitución Política de Colombia de
+      1991.
+      La Unidad Ejecutora deberá justificar de manera previa a la apertura del proceso de selección los
+      fundamentos que soportan la modalidad de selección que se pretende adelantar. </div>
+    <div id="pop2" class="pop">
+      Esta evaluación se realizará basada en los parámetros contemplados en la Directiva Vigente que regula la
+      ¨Medición de desempeño de proveedores que suministran bienes y servicios a las Unidades Ejecutoras del
+      MDN a través de ACOFA¨.
+      Por último, para los contratos abierto marco y abierto con lista de precios, se deberá adelantar un
+      estudio de mercado, sin embargo, en el evento que previamente se cuente con un estudio de mercado que
+      contenga las necesidades previstas anteriormente, se podrá tomar como insumo mencionado estudio, siempre
+      y cuando el proveedor ratifique las condiciones ofrecidas en lo cotizado anteriormente.
+    </div>
+    <div id="pop3" class="pop">
+      El Comité Estructurador, puede solicitar aclaraciones a los oferentes en los casos requeridos sin que
+      ellas sean vinculantes.
+      La Administración estará en la obligación de solicitar aclaraciones a los proponentes cuyos estudios de
+      mercado y/o cotizaciones sean menores o mayores en un 25%, al costo total estimado.
+    </div>
+    <div id="pop4" class="pop">
+      Para la adquisición de bienes y/o servicios que se requieran bajo la condición de AOG se requerirá
+      enviar a cotizar mínimo a tres (3) proveedores. Exceptuando cuando se trate de los cargues de los
+      contratos abiertos marco donde la cotización se efectuará a las empresas que tengan contratos abiertos
+      marco.
+
+    </div>
+    <div id="pop5" class="pop">
+      Puede pasar al siguiente concepto
+    </div>
+
+
+    <div id="pop6" class="pop">
+      Puede pasar al siguiente concepto
 
 
     </div>
-  </div>
+    <div id="pop7" class="pop">
+      Sin embargo, en caso de requerirse alguna aclaración por parte de los Comités Evaluadores,
+      se efectuará el requerimiento a través del Área Contractual en los términos y condiciones que se
+      consideren pertinentes.
+    </div>
+    <div id="pop8" class="pop">
+      La Subdirección Financiera de ACOFA o quien haga sus veces en las demás Unidades Ejecutaras expedirán el
+      Registro presupuestal una vez reciba la minuta firmada por el contratista. Se entenderá perfeccionado el
+      contrato cuando la minuta se encuentra firmada por ambas partes.
+      Los requisitos de ejecución iniciaran una vez se expida el Registro Presupuestal (CRP).
+      Ahora bien, respecto a la entrega de las pólizas, se deberán entregar dentro de los diez (10) días
+      hábiles a la firma de la minuta, so pena de dar por terminado el contrato y proceder aplicar el régimen
+      sancionatorio.
+      La Subdirección Administrativa SUBAD deberá revisar las pólizas contractuales y aprobarlas previo
+      cumplimiento de los requisitos exigidos, de lo contrario devolverá las pólizas al contratista para su
+      corrección.
+    </div>
+    <div id="pop9" class="pop">
+      <h3>Puede pasar al siguiente concepto</h3>
 
-
-
-
-
-
-
-
-
-  <div id="pop0" class="pop">
-    <div>
-      <h4>Contrato Abierto Macro:</h4>
-      Conocido en los Estados Unidos como Blanket Purchase Agreement y Blanket Service Agreement, el contrato abierto
-      tiene una vigencia específica y un valor determinado que permite simplificar el proceso de adquisición de bienes y
-      servicios cuya adquisición es recurrente.
-      <h4>Contrato Abierto Con Lista de Precios:</h4>
-      Posee las mismas características del contrato abierto marco, sin embargo, contiene una lista de precios y tiempos
-      de entrega negociados desde la etapa precontractual.
+    </div>
+    <div id="pop10" class="pop">
+      <h3>Puede pasar al siguiente concepto</h3>
 
 
     </div>
+    <div id="pop11" class="pop">
+      <h3>Puede pasar al siguiente concepto</h3>
 
-  </div>
-  <div id="pop1" class="pop">
-    Teniendo en cuenta que los procesos contractuales en ACOFA se someten bajo la jurisdicción del Estado de
-    la Florida tanto la etapa precontractual y la ejecución, los mismos estarán sometidos a los principios
-    de la función administrativa a que se refiere el Artículo 209 de la Constitución Política de Colombia de
-    1991.
-    La Unidad Ejecutora deberá justificar de manera previa a la apertura del proceso de selección los
-    fundamentos que soportan la modalidad de selección que se pretende adelantar.  </div>
-  <div id="pop2" class="pop">
-    Esta evaluación se realizará basada en los parámetros contemplados en la Directiva Vigente que regula la
-    ¨Medición de desempeño de proveedores que suministran bienes y servicios a las Unidades Ejecutoras del
-    MDN a través de ACOFA¨.
-    Por último, para los contratos abierto marco y abierto con lista de precios, se deberá adelantar un
-    estudio de mercado, sin embargo, en el evento que previamente se cuente con un estudio de mercado que
-    contenga las necesidades previstas anteriormente, se podrá tomar como insumo mencionado estudio, siempre
-    y cuando el proveedor ratifique las condiciones ofrecidas en lo cotizado anteriormente.
-  </div>
-  <div id="pop3" class="pop">
-    El Comité Estructurador, puede solicitar aclaraciones a los oferentes en los casos requeridos sin que
-    ellas sean vinculantes.
-    La Administración estará en la obligación de solicitar aclaraciones a los proponentes cuyos estudios de
-    mercado y/o cotizaciones sean menores o mayores en un 25%, al costo total estimado.
-  </div>
-  <div id="pop4" class="pop">
-    Para la adquisición de bienes y/o servicios que se requieran bajo la condición de AOG se requerirá
-    enviar a cotizar mínimo a tres (3) proveedores. Exceptuando cuando se trate de los cargues de los
-    contratos abiertos marco donde la cotización se efectuará a las empresas que tengan contratos abiertos
-    marco.
+    </div>
+    <div id="pop12" class="pop">
+      Una adecuada gestión de los recursos públicos implica adoptar medidas para evitar el pago de bienes o servicios
+      que
+      no sean entregados a satisfacción por el contratista.<br>
 
-  </div>
-  <div id="pop5" class="pop">
-    Puede pasar al siguiente concepto
-  </div>
+      Por esta razón, únicamente deben incluirse anticipos o pagos anticipados en los casos estrictamente necesarios.
+      Además, en términos generales, los pagos deben estar supeditados al cumplimiento de las obligaciones del
+      contratista.
+
+    </div>
+    <div id="pop13" class="pop">
+      La ejecución de un contrato debe realizarse fielmente según lo establecido en la minuta, teniendo en cuenta las
+      obligaciones establecidas para cada una de las partes.<br>
+
+      En ningún caso la entidad debería ejecutar actividades que, de acuerdo con el contrato, corresponden al
+      contratista.
 
 
-  <div id="pop6" class="pop">
-    Puede pasar al siguiente concepto
+    </div>
+    <div id="pop14" class="pop">
+      Es necesario implementar labores de control interno y supervisión del contrato para garantizar que la ejecución
+      del
+      contrato sea acorde con lo establecido en el mismo.<br>
+
+      El anexo técnico debe ser claro y coherente con las necesidades reales. De lo contrario, puede generar
+      contratación
+      de personal sin el lleno de requisitos legales y pagos que no corresponden a lo realmente necesitado.
 
 
-  </div>
-  <div id="pop7" class="pop">
-    Sin embargo, en caso de requerirse alguna aclaración por parte de los Comités Evaluadores,
-    se efectuará el requerimiento a través del Área Contractual en los términos y condiciones que se
-    consideren pertinentes.
-  </div>
-  <div id="pop8" class="pop">
-    La Subdirección Financiera de ACOFA o quien haga sus veces en las demás Unidades Ejecutaras expedirán el
-    Registro presupuestal una vez reciba la minuta firmada por el contratista. Se entenderá perfeccionado el
-    contrato cuando la minuta se encuentra firmada por ambas partes.
-    Los requisitos de ejecución iniciaran una vez se expida el Registro Presupuestal (CRP).
-    Ahora bien, respecto a la entrega de las pólizas, se deberán entregar dentro de los diez (10) días
-    hábiles a la firma de la minuta, so pena de dar por terminado el contrato y proceder aplicar el régimen
-    sancionatorio.
-    La Subdirección Administrativa SUBAD deberá revisar las pólizas contractuales y aprobarlas previo
-    cumplimiento de los requisitos exigidos, de lo contrario devolverá las pólizas al contratista para su
-    corrección.
-  </div>
-  <div id="pop9" class="pop">
-    <h3>Puede pasar al siguiente concepto</h3>
+    </div>
+    <div id="pop15" class="pop">
+      De conformidad con lo dispuesto por el Código Civil, para que un contrato de lugar al nacimiento de obligaciones,
+      debe ser suscrito por el representante legal de la persona natural o jurídica que habrá de obligarse.<br>
 
-  </div>
-  <div id="pop10" class="pop">
-    <h3>Puede pasar al siguiente concepto</h3>
+      Si un contrato está firmado por quien no tiene la facultad legal para ello, como una autorización o un poder,
+      presentará nulidad.
 
+    </div>
+    <div id="pop16" class="pop">
+      Para el caso que nos ocupa se considera que tal situación refleja incumplimiento con lo establecido en el artículo
+      40 de la Ley 80, que reza: “Del Contenido del Contrato Estatal. Las estipulaciones de los contratos serán las que
+      de
+      acuerdo con las normas civiles, comerciales y las previstas en esta Ley, correspondan a su esencia y naturaleza”,
+      Ahora bien, dada la tipología del contrato en mención y de conformidad con el artículo 1880 del Código Civil, en
+      los
+      contratos de compraventa las obligaciones del vendedor, se reducen a dos: (i) la entrega o tradición de la cosa
+      vendida, y (ii) el saneamiento de la cosa vendida, según la cual “el vendedor debe entregar la cosas al comprador
+      en
+      estado tal que sirva para el uso que está normalmente destinada, de suerte que su utilización o disfrute no se
+      vean
+      menguados a consecuencia de los vicios que los afecten.” Situación que no permite evidenciar las obligaciones y
+      cláusulas contenidas en el modo de adquirir un bien inmueble por tradición, lo cual denota debilidades en el
+      sistema
+      de control interno y limita determinar el cumplimiento de los principios de legalidad, economía, efectividad,
+      eficiencia y eficacia.
 
-  </div>
-  <div id="pop11" class="pop">
-    <h3>Puede pasar al siguiente concepto</h3>
+    </div>
+    <div id="pop17" class="pop">
+      Cuando el objeto de la contratación incluya la realización de una obra, la entidad contratante deberá contar con
+      los
+      estudios y diseños que permitan establecer la viabilidad del proyecto y su impacto social, económico y ambiental.
+      Esta condición será aplicable incluso para los contratos que incluyan dentro del objeto el diseño.
 
-  </div>
-  <div id="pop12" class="pop">
-    Una adecuada gestión de los recursos públicos implica adoptar medidas para evitar el pago de bienes o servicios que
-    no sean entregados a satisfacción por el contratista.<br>
+    </div>
+    <div id="pop18" class="pop">
+      Es importante detallar de manera clara las actividades a ejecutar en el contrato.<br>
 
-    Por esta razón, únicamente deben incluirse anticipos o pagos anticipados en los casos estrictamente necesarios.
-    Además, en términos generales, los pagos deben estar supeditados al cumplimiento de las obligaciones del
-    contratista.
-
-  </div>
-  <div id="pop13" class="pop">
-    La ejecución de un contrato debe realizarse fielmente según lo establecido en la minuta, teniendo en cuenta las
-    obligaciones establecidas para cada una de las partes.<br>
-
-    En ningún caso la entidad debería ejecutar actividades que, de acuerdo con el contrato, corresponden al contratista.
+      Además, necesario elaborar planes, cronogramas y procedimientos de mantenimiento periódicos que sirvan como
+      mecanismos de control y seguimiento para evidenciar que lo requerido en los estudios previos y contratado
+      efectivamente se haya realizado.
 
 
-  </div>
-  <div id="pop14" class="pop">
-    Es necesario implementar labores de control interno y supervisión del contrato para garantizar que la ejecución del
-    contrato sea acorde con lo establecido en el mismo.<br>
+    </div>
+    <div id="pop19" class="pop">
+      Este hallazgo evidencia debilidades de control interno del área contractual, lo que puede generar deterioro de los
+      bienes arrendados, demandas laborales por responsabilidad civil extracontractual y pérdida de recursos económicos,
+      con lo que eventualmente podría verse afectado el flujo de caja de la entidad. <br>
 
-    El anexo técnico debe ser claro y coherente con las necesidades reales. De lo contrario, puede generar contratación
-    de personal sin el lleno de requisitos legales y pagos que no corresponden a lo realmente necesitado.
-
-
-  </div>
-  <div id="pop15" class="pop">
-    De conformidad con lo dispuesto por el Código Civil, para que un contrato de lugar al nacimiento de obligaciones,
-    debe ser suscrito por el representante legal de la persona natural o jurídica que habrá de obligarse.<br>
-
-    Si un contrato está firmado por quien no tiene la facultad legal para ello, como una autorización o un poder,
-    presentará nulidad.
-
-  </div>
-  <div id="pop16" class="pop">
-    Para el caso que nos ocupa se considera que tal situación refleja incumplimiento con lo establecido en el artículo
-    40 de la Ley 80, que reza: “Del Contenido del Contrato Estatal. Las estipulaciones de los contratos serán las que de
-    acuerdo con las normas civiles, comerciales y las previstas en esta Ley, correspondan a su esencia y naturaleza”,
-    Ahora bien, dada la tipología del contrato en mención y de conformidad con el artículo 1880 del Código Civil, en los
-    contratos de compraventa las obligaciones del vendedor, se reducen a dos: (i) la entrega o tradición de la cosa
-    vendida, y (ii) el saneamiento de la cosa vendida, según la cual “el vendedor debe entregar la cosas al comprador en
-    estado tal que sirva para el uso que está normalmente destinada, de suerte que su utilización o disfrute no se vean
-    menguados a consecuencia de los vicios que los afecten.” Situación que no permite evidenciar las obligaciones y
-    cláusulas contenidas en el modo de adquirir un bien inmueble por tradición, lo cual denota debilidades en el sistema
-    de control interno y limita determinar el cumplimiento de los principios de legalidad, economía, efectividad,
-    eficiencia y eficacia.
-
-  </div>
-  <div id="pop17" class="pop">
-    Cuando el objeto de la contratación incluya la realización de una obra, la entidad contratante deberá contar con los
-    estudios y diseños que permitan establecer la viabilidad del proyecto y su impacto social, económico y ambiental.
-    Esta condición será aplicable incluso para los contratos que incluyan dentro del objeto el diseño.
-
-  </div>
-  <div id="pop18" class="pop">
-    Es importante detallar de manera clara las actividades a ejecutar en el contrato.<br>
-
-    Además, necesario elaborar planes, cronogramas y procedimientos de mantenimiento periódicos que sirvan como
-    mecanismos de control y seguimiento para evidenciar que lo requerido en los estudios previos y contratado
-    efectivamente se haya realizado.
+      Las entidades públicas deben vigilar permanentemente la correcta ejecución del objeto contratado a través de un
+      supervisor o un interventor, según corresponda. Es obligación de los supervisores el seguimiento técnico
+      administrativo, financiero contable y jurídico de los contratos.
 
 
-  </div>
-  <div id="pop19" class="pop">
-    Este hallazgo evidencia debilidades de control interno del área contractual, lo que puede generar deterioro de los
-    bienes arrendados, demandas laborales por responsabilidad civil extracontractual y pérdida de recursos económicos,
-    con lo que eventualmente podría verse afectado el flujo de caja de la entidad. <br>
+    </div>
+    <div id="pop20" class="pop">
+      Este hallazgo denota debilidades de control interno en la planeación y ejecución, como de los informes de
+      ejecución
+      lo cual no permite realizar seguimiento adecuado de las obligaciones contractuales.
 
-    Las entidades públicas deben vigilar permanentemente la correcta ejecución del objeto contratado a través de un
-    supervisor o un interventor, según corresponda. Es obligación de los supervisores el seguimiento técnico
-    administrativo, financiero contable y jurídico de los contratos.
+    </div>
+    <div id="pop21" class="pop">
+      Cuando se requiera efectuar una adición a un contrato es necesario incluir en la documentación del contrato el
+      concepto técnico que presente la justificación de la adición.
 
+    </div>
+    <div id="pop22" class="pop">
+      La entidad debe asegurarse de no incurrir en contradicciones como las indicadas para dar total claridad acerca de
+      las condiciones del contrato.<br>
 
-  </div>
-  <div id="pop20" class="pop">
-    Este hallazgo denota debilidades de control interno en la planeación y ejecución, como de los informes de ejecución
-    lo cual no permite realizar seguimiento adecuado de las obligaciones contractuales.
-
-  </div>
-  <div id="pop21" class="pop">
-    Cuando se requiera efectuar una adición a un contrato es necesario incluir en la documentación del contrato el
-    concepto técnico que presente la justificación de la adición.
-
-  </div>
-  <div id="pop22" class="pop">
-    La entidad debe asegurarse de no incurrir en contradicciones como las indicadas para dar total claridad acerca de
-    las condiciones del contrato.<br>
-
-    Además, se debe tener en cuenta que los rendimientos de los anticipos son del dueño del capital o recurso, es decir
-    del Estado. No se deben incluir disposiciones contrarias.
+      Además, se debe tener en cuenta que los rendimientos de los anticipos son del dueño del capital o recurso, es
+      decir
+      del Estado. No se deben incluir disposiciones contrarias.
 
 
-  </div>
-  <div id="pop23" class="pop">
-    El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
+    </div>
+    <div id="pop23" class="pop">
+      El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
 
-  </div>
-  <div id="pop24" class="pop">
-    El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
+    </div>
+    <div id="pop24" class="pop">
+      El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
 
-  </div>
-  <div id="pop25" class="pop">
-    El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
+    </div>
+    <div id="pop25" class="pop">
+      El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
 
-  </div>
-  <div id="pop26" class="pop">
-    El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
+    </div>
+    <div id="pop26" class="pop">
+      El contrato debe definir clara y detalladamente el Objeto Contractual y el valor Contrato.
 
-  </div>
+    </div>
 
 
 
@@ -2140,66 +2197,93 @@
 </html>
 
 <script>
+  function id01() {
+    document.getElementById('id01').style.display = 'block'
+    audio.play()
 
-  	
-        var b1 = document.getElementById('boton01');
-				var b2 = document.getElementById("boton2");
-				var b3 = document.getElementById("boton3");
-				var b4 = document.getElementById("boton4");
-				var b5 = document.getElementById("boton5");
-				var b6 = document.getElementById("boton6");
-				var b7 = document.getElementById("boton7");
-				var b8 = document.getElementById("boton8");
-				var b9 = document.getElementById("boton9");
+  }
 
-        function boton01(){
-          document.getElementById('boton01').style.background = "#e7e7e7"; 
-          document.getElementById('id02').style.display='block'
-        }
-        
-        function boton2(){
-          document.getElementById('boton2').style.background = "#e7e7e7"; 
-          document.getElementById('id03').style.display='block'
-        }
-        
-        function boton3(){
-          document.getElementById('boton3').style.background = "#e7e7e7"; 
-          document.getElementById('id05').style.display='block'
-        }
-        
-        function boton4(){
-          document.getElementById('boton4').style.background = "#e7e7e7"; 
-          document.getElementById('id06').style.display='block'
-        }
-        
-        function boton5(){
-          document.getElementById('boton5').style.background = "#e7e7e7"; 
-          document.getElementById('id07').style.display='block'
-        }
-        
-        function boton6(){
-          document.getElementById('boton6').style.background = "#e7e7e7"; 
-          document.getElementById('id08').style.display='block'
-        }
-        
-        function boton7(){
-          document.getElementById('boton7').style.background = "#e7e7e7"; 
-          document.getElementById('id010').style.display='block'
-        }
-        
-        function boton8(){
-          document.getElementById('boton8').style.background = "#e7e7e7"; 
-          document.getElementById('id011').style.display='block'
-        }
-        
-        function boton9(){
-          document.getElementById('boton9').style.background ="#e7e7e7"; 
-          document.getElementById('id012').style.display='block'
-        }
-        
-    
 
-      
+  var b1 = document.getElementById('boton01');
+  var b2 = document.getElementById("boton2");
+  var b3 = document.getElementById("boton3");
+  var b4 = document.getElementById("boton4");
+  var b5 = document.getElementById("boton5");
+  var b6 = document.getElementById("boton6");
+  var b7 = document.getElementById("boton7");
+  var b8 = document.getElementById("boton8");
+  var b9 = document.getElementById("boton9");
+
+  var audio = document.getElementById('audio')
+
+
+  function boton01() {
+    document.getElementById('boton01').style.background = "#e7e7e7";
+    document.getElementById('id02').style.display = 'block'
+    audio.play()
+
+
+  }
+
+  function boton2() {
+    document.getElementById('boton2').style.background = "#e7e7e7";
+    document.getElementById('id03').style.display = 'block'
+    audio.play()
+
+  }
+
+  function boton3() {
+    document.getElementById('boton3').style.background = "#e7e7e7";
+    document.getElementById('id05').style.display = 'block'
+    audio.play()
+
+  }
+
+  function boton4() {
+    document.getElementById('boton4').style.background = "#e7e7e7";
+    document.getElementById('id06').style.display = 'block'
+    audio.play()
+
+  }
+
+  function boton5() {
+    document.getElementById('boton5').style.background = "#e7e7e7";
+    document.getElementById('id07').style.display = 'block'
+    audio.play()
+
+  }
+
+  function boton6() {
+    document.getElementById('boton6').style.background = "#e7e7e7";
+    document.getElementById('id08').style.display = 'block'
+    audio.play()
+
+  }
+
+  function boton7() {
+    document.getElementById('boton7').style.background = "#e7e7e7";
+    document.getElementById('id010').style.display = 'block'
+    audio.play()
+
+  }
+
+  function boton8() {
+    document.getElementById('boton8').style.background = "#e7e7e7";
+    document.getElementById('id011').style.display = 'block'
+    audio.play()
+
+  }
+
+  function boton9() {
+    document.getElementById('boton9').style.background = "#e7e7e7";
+    document.getElementById('id012').style.display = 'block'
+    audio.play()
+
+  }
+
+
+
+
 
 
 
@@ -2242,13 +2326,13 @@
   function Siguiente_id012_1() {
     document.getElementById('id012').style.display = 'none',
       document.getElementById('id012_1').style.display = 'block'
-      document.getElementById('boton2_9_1').style.background ="#e7e7e7"; 
+    document.getElementById('boton2_9_1').style.background = "#e7e7e7";
   }
 
   function Siguiente_id012_2() {
     document.getElementById('id012_1').style.display = 'none',
       document.getElementById('id012_2').style.display = 'block'
-      document.getElementById('boton2_9_1_1').style.background ="#e7e7e7"; 
+    document.getElementById('boton2_9_1_1').style.background = "#e7e7e7";
   }
 
   function Siguiente_id012_2_2() {
@@ -2288,7 +2372,7 @@
   function Siguiente_id012_5() {
     document.getElementById('id012_1').style.display = 'none',
       document.getElementById('id012_3').style.display = 'block'
-      document.getElementById('boton2_9_1_2').style.background ="#e7e7e7"; 
+    document.getElementById('boton2_9_1_2').style.background = "#e7e7e7";
   }
 
   function Siguiente_id012_3() {
@@ -2321,7 +2405,7 @@
   function Siguiente_id012_4() {
     document.getElementById('id012_4').style.display = 'block',
       document.getElementById('id012_1').style.display = 'none'
-      document.getElementById('boton2_9_1_3').style.background ="#e7e7e7"; 
+    document.getElementById('boton2_9_1_3').style.background = "#e7e7e7";
   }
 
   function Siguiente_id012_4_2() {
@@ -2347,7 +2431,7 @@
   function Siguiente_id015() {
     document.getElementById('id012_1').style.display = 'none',
       document.getElementById('id015').style.display = 'block'
-      document.getElementById('boton2_9_1_4').style.background ="#e7e7e7"; 
+    document.getElementById('boton2_9_1_4').style.background = "#e7e7e7";
   }
 
   function Salir_id015() {
@@ -2366,7 +2450,7 @@
   function Salir_id016() {
     document.getElementById('id012_1').style.display = 'block',
       document.getElementById('id016').style.display = 'none'
-      document.getElementById('boton2_9_1_5').style.background ="#e7e7e7"; 
+    document.getElementById('boton2_9_1_5').style.background = "#e7e7e7";
 
   }
 
@@ -2374,7 +2458,7 @@
   function Siguiente_id017() {
     document.getElementById('id017').style.display = 'block',
       document.getElementById('id012').style.display = 'none'
-      document.getElementById('boton2_9_2').style.background ="#e7e7e7"; 
+    document.getElementById('boton2_9_2').style.background = "#e7e7e7";
 
   }
 
@@ -2387,7 +2471,7 @@
   function Siguiente_id018() {
     document.getElementById('id018').style.display = 'block',
       document.getElementById('id012').style.display = 'none'
-      document.getElementById('boton2_9_3').style.background ="#e7e7e7"; 
+    document.getElementById('boton2_9_3').style.background = "#e7e7e7";
 
   }
 
@@ -2403,14 +2487,16 @@
 
   function Siguiente_id033_1() {
     document.getElementById('id033_1').style.display = 'block'
-    document.getElementById('boton3_1').style.background ="#e7e7e7"; 
-    
+    document.getElementById('boton3_1').style.background = "#e7e7e7";
+    audio.play()
+
+
   }
 
   function id033_pag1() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag1').style.display = 'block'
-    document.getElementById('paso1').style.background ="#e7e7e7"; 
+    document.getElementById('paso1').style.background = "#e7e7e7";
 
   }
 
@@ -2418,28 +2504,28 @@
   function id033_pag2() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag2').style.display = 'block'
-    document.getElementById('paso2').style.background ="#e7e7e7"; 
+    document.getElementById('paso2').style.background = "#e7e7e7";
 
   }
 
   function id033_pag3() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag3').style.display = 'block'
-    document.getElementById('paso3').style.background ="#e7e7e7"; 
+    document.getElementById('paso3').style.background = "#e7e7e7";
 
   }
 
   function id033_pag4() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag4').style.display = 'block'
-    document.getElementById('paso4').style.background ="#e7e7e7"; 
+    document.getElementById('paso4').style.background = "#e7e7e7";
 
   }
 
   function id033_pag5() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag5').style.display = 'block'
-    document.getElementById('paso5').style.background ="#e7e7e7"; 
+    document.getElementById('paso5').style.background = "#e7e7e7";
 
   }
 
@@ -2452,14 +2538,14 @@
   function id033_pag7() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag7').style.display = 'block'
-    document.getElementById('paso7').style.background ="#e7e7e7"; 
+    document.getElementById('paso7').style.background = "#e7e7e7";
 
   }
 
   function id033_pag8() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag8').style.display = 'block'
-    document.getElementById('paso8').style.background ="#e7e7e7"; 
+    document.getElementById('paso8').style.background = "#e7e7e7";
   }
 
   function Salir_id033_pag1() {
@@ -2478,28 +2564,34 @@
   // Desaduanamiento
 
 
-  function Siguiente_id033_2(){
+  function Siguiente_id033_2() {
     document.getElementById('id033_2').style.display = 'block'
-    document.getElementById('boton3_2').style.background ="#e7e7e7"; 
+    document.getElementById('boton3_2').style.background = "#e7e7e7";
+    audio.play()
+
 
   }
   // Trazabilidad
 
-  function Siguiente_id033_3(){
+  function Siguiente_id033_3() {
     document.getElementById('id033_3').style.display = 'block'
-    document.getElementById('boton3_3').style.background ="#e7e7e7"; 
+    document.getElementById('boton3_3').style.background = "#e7e7e7";
+    audio.play()
+
   }
 
   // pagos
-  function Siguiente_id033_4(){
+  function Siguiente_id033_4() {
     document.getElementById('id033_4').style.display = 'block'
-    document.getElementById('boton3_4').style.background ="#e7e7e7"; 
+    document.getElementById('boton3_4').style.background = "#e7e7e7";
+    audio.play()
+
   }
 
   function id033_4pag1() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_4pag1').style.display = 'block'
-    document.getElementById('boton1_1').style.background ="#e7e7e7"; 
+    document.getElementById('boton1_1').style.background = "#e7e7e7";
 
   }
 
@@ -2507,24 +2599,24 @@
   function id033_4pag2() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_4pag2').style.display = 'block'
-    document.getElementById('boton1_2').style.background ="#e7e7e7"; 
+    document.getElementById('boton1_2').style.background = "#e7e7e7";
 
   }
 
   function id033_4pag3() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_4pag3').style.display = 'block'
-    document.getElementById('boton1_3').style.background ="#e7e7e7"; 
+    document.getElementById('boton1_3').style.background = "#e7e7e7";
 
   }
 
   function id033_4pag4() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_4pag4').style.display = 'block'
-    document.getElementById('boton1_4').style.background ="#e7e7e7"; 
+    document.getElementById('boton1_4').style.background = "#e7e7e7";
 
   }
-  
+
   function Salir_id033_pag4() {
     document.getElementById('id033_4').style.display = 'block'
     document.getElementById('id033_4pag1').style.display = 'none'
@@ -2536,16 +2628,18 @@
 
   // Balance Final del Contrato
 
-  function Siguiente_id033_5(){
+  function Siguiente_id033_5() {
     document.getElementById('id033_5').style.display = 'block'
-    document.getElementById('boton3_5').style.background ="#e7e7e7"; 
+    document.getElementById('boton3_5').style.background = "#e7e7e7";
+    audio.play()
+
   }
 
-  
+
   function id033_5pag1() {
     // document.getElementById('id033_5').style.display = 'none'
     document.getElementById('id033_5pag1').style.display = 'block'
-    document.getElementById('btn3_5_1').style.background ="#e7e7e7"; 
+    document.getElementById('btn3_5_1').style.background = "#e7e7e7";
 
 
   }
@@ -2554,7 +2648,7 @@
   function id033_5pag2() {
     // document.getElementById('id033_5').style.display = 'none'
     document.getElementById('id033_5pag2').style.display = 'block'
-    document.getElementById('btn3_5_2').style.background ="#e7e7e7"; 
+    document.getElementById('btn3_5_2').style.background = "#e7e7e7";
 
 
   }
@@ -2562,10 +2656,11 @@
   function id033_5pag3() {
     // document.getElementById('id033_5').style.display = 'none'
     document.getElementById('id033_5pag3').style.display = 'block'
-    document.getElementById('btn3_5_3').style.background ="#e7e7e7"; 
+    document.getElementById('btn3_5_3').style.background = "#e7e7e7";
 
 
   }
+
   function Salir_id033_pag5() {
     document.getElementById('id033_5').style.display = 'block'
     document.getElementById('id033_5pag1').style.display = 'none'
@@ -2574,9 +2669,4 @@
     document.getElementById('id033_5pag4').style.display = 'none'
 
   }
-
-
-
-
-
 </script>

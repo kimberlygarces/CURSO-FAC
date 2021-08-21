@@ -96,7 +96,7 @@ function handleComplete(evt) {
 
 <!--INICIO CONTENIDO--> 
 <audio id="audio1">
-  <source src="sounds/def1.mp3" type="audio/mpeg">
+  <source src="sounds/star.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Inicio contenido principal-->
@@ -521,9 +521,12 @@ function handleComplete(evt) {
   function id044_1pag2(){
     document.getElementById('id044_1pag2').style.display = 'block'
     document.getElementById('boton4_2').style.background ="#e7e7e7"; 
+    audio1.play()
   }
   function Salir_id044_1pag2(){
     document.getElementById('id044_1pag2').style.display = 'none'
+    audio1.load();
+
   }
 
   function id044_1pag2_2(){
@@ -578,11 +581,15 @@ function handleComplete(evt) {
   function id044_1pag3(){
     document.getElementById('id044_1pag3').style.display = 'block'
     document.getElementById('boton4_3').style.background ="#e7e7e7"; 
+    audio1.play();
+
 
   }
 
   function Salir_id044_1pag3(){
     document.getElementById('id044_1pag3').style.display = 'none'
+    audio1.load();
+
 
   }
   function id044_1pag3_1(){
