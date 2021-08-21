@@ -196,7 +196,7 @@ function handleComplete(evt) {
           </table>
 
         </div>
-        <button onclick="id044_1pag2_2()" class="boton1" style="margin: 2%;">
+        <button onclick="id044_1pag2_2()" class="w3-button w3-blue btn-id04" style="margin: 2%;">
           Siguiente
         </button>
       </div>
@@ -248,10 +248,10 @@ function handleComplete(evt) {
           </table>
 
         </div>
-        <button onclick="A_id044_1pag2_2()" class="boton1" style="margin: 2%;">
+        <button onclick="A_id044_1pag2_2()" class="w3-button w3-blue btn-id04" style="margin: 2%;">
           Anterior
         </button>
-        <button onclick="id044_1pag2_3()" class="boton1" style="margin: 2%;">
+        <button onclick="id044_1pag2_3()" class="w3-button w3-blue btn-id04" style="margin: 2%;">
           Siguiente
         </button>
        
@@ -297,10 +297,10 @@ function handleComplete(evt) {
           </table>
 
         </div>
-        <button onclick="A_id044_1pag2_3()" class="boton1" style="margin: 2%;">
+        <button onclick="A_id044_1pag2_3()" class="w3-button w3-blue btn-id04" style="margin: 2%;">
           Anterior
         </button>
-        <button onclick="id044_1pag2_4()" class="boton1" style="margin: 2%;">
+        <button onclick="id044_1pag2_4()" class="w3-button w3-blue btn-id04" style="margin: 2%;">
           Siguiente
         </button>
        
@@ -349,7 +349,7 @@ function handleComplete(evt) {
         </div> -->
 
       </div>
-      <button onclick="A_id044_1pag2_4()" class="boton1"  style="margin: 2%;">
+      <button onclick="A_id044_1pag2_4()" class="w3-button w3-blue btn-id04"  style="margin: 2%;">
         Anterior
       </button> 
     </div>
@@ -392,7 +392,7 @@ function handleComplete(evt) {
           </table>
 
         </div>
-        <button onclick="id044_1pag3_1()" class="boton1" style="margin: 2%;">
+        <button onclick="id044_1pag3_1()" class="w3-button w3-blue btn-id04" style="margin: 2%;">
           Siguiente
         </button>
        
@@ -426,7 +426,7 @@ function handleComplete(evt) {
           </div>
         </div>
 
-        <button onclick="A_id044_1pag3_1()" class="boton1" style="margin: 2%;">
+        <button onclick="A_id044_1pag3_1()" class="w3-button w3-blue btn-id04" style="margin: 2%;">
           Anterior
         </button>
        
@@ -441,18 +441,18 @@ function handleComplete(evt) {
 
           </p>
           <hr>
-          <button onclick="id044_1pag1()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
+          <button id="boton4_1" onclick="id044_1pag1()" class="btn4_1" style="width: 100%; margin: 1%;">
             <img src="images/mod.png" class ="img1">
             Se podrá modificar el contrato garantizando el cumplimiento de su fin
        
           </button>
-          <button onclick="id044_1pag2()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
+          <button id="boton4_2" onclick="id044_1pag2()" class="btn4_2" style="width: 100%; margin: 1%;">
             <img src="images/cond.png" class ="img2">
             Condiciones para modificar un contrato
             
 
           </button>
-          <button onclick="id044_1pag3()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
+          <button id="boton4_3" onclick="id044_1pag3()" class="btn4_3" style="width: 100%; margin: 1%;">
             <img src="images/doc.png" class ="img3">
             Documentos requeridos para modificar un contrato
             
@@ -509,6 +509,7 @@ function handleComplete(evt) {
 
   function id044_1pag1(){
     document.getElementById('id044_1pag1').style.display = 'block';
+    document.getElementById('boton4_1').style.background ="#e7e7e7"; 
     audio1.play();
 
     
@@ -519,6 +520,7 @@ function handleComplete(evt) {
   }
   function id044_1pag2(){
     document.getElementById('id044_1pag2').style.display = 'block'
+    document.getElementById('boton4_2').style.background ="#e7e7e7"; 
   }
   function Salir_id044_1pag2(){
     document.getElementById('id044_1pag2').style.display = 'none'
@@ -575,6 +577,7 @@ function handleComplete(evt) {
 
   function id044_1pag3(){
     document.getElementById('id044_1pag3').style.display = 'block'
+    document.getElementById('boton4_3').style.background ="#e7e7e7"; 
 
   }
 
