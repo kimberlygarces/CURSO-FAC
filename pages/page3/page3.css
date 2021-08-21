@@ -319,12 +319,12 @@ height: 25%;
 #boton3_1:hover, #boton3_2:hover, #boton3_3:hover, #boton3_4:hover, #boton3_5:hover, #boton2_9_2:hover, #boton2_9_1:hover,
  #boton2_9_3:hover, #boton2_9_1_1:hover, #boton2_9_1_2:hover, #boton2_9_1_3:hover, #boton2_9_1_4:hover, #boton2_9_1_5:hover,
  #paso1:hover, #paso2:hover, #paso3:hover, #paso4:hover, #paso5:hover, #paso7:hover, #paso8:hover, #boton1_1:hover, #boton1_2:hover,
- #boton1_3:hover, #boton1_4:hover, #boton1_1_1:hover, #boton1_1_2:hover, #boton1_1_3:hover{
+ #boton1_3:hover, #boton1_4:hover, #boton1_1_1:hover, #boton1_1_2:hover, #boton1_1_3:hover, #btn3_5_1:hover, #btn3_5_2:hover,#btn3_5_3:hover{
     background-color: #eccd41;
 }
 #boton3_1, #boton3_2, #boton3_3, #boton3_4, #boton3_5, #boton2_9_1, #boton2_9_2, #boton2_9_3, #boton2_9_1_1, #boton2_9_1_2,
 #boton2_9_1_3, #boton2_9_1_4, #boton2_9_1_5, #paso1,  #paso2,  #paso3,  #paso4,  #paso5, #paso7, #paso8, #boton1_1, #boton1_2,
-#boton1_3, #boton1_4, #boton1_1_1, #boton1_1_2, #boton1_1_3 {
+#boton1_3, #boton1_4, #boton1_1_1, #boton1_1_2, #boton1_1_3, #btn3_5_1, #btn3_5_2, #btn3_5_3 {
     background-color: #f8e48c;
     border-style: none;
     -webkit-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
