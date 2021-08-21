@@ -12,7 +12,7 @@ border: 3px solid #000000;
 }
 .num1{
     width: 25%;
-    height: 25%;
+    height: auto;
     border-radius: 44px 44px 44px 44px;
 -moz-border-radius: 44px 44px 44px 44px;
 -webkit-border-radius: 44px 44px 44px 44px;
@@ -57,7 +57,7 @@ background-color: #0E1B3D;
     opacity: 0.2;
     }
     .resili{
-        float:right;
+        float:left;
 
     }
     .img9{
@@ -65,9 +65,32 @@ width: 25%;
 height: 65%;
 float: right;
     }
-    .img10{
+    .img10{ 
         width: 25%;
         height: 65%;
         float: right;
         
     }
+    #boton5_1:hover, #boton5_2:hover, #boton-paso1:hover, #boton-paso2:hover, #boton-paso3:hover, #boton-paso4:hover,
+     #boton-acofa:hover{
+
+        background-color: #eccd41;
+    }
+    #boton5_1, #boton5_2, #boton-paso1, #boton-paso2, #boton-paso3, #boton-paso4, #boton-acofa{
+        background-color: #f8e48c;
+        border-style: none;
+        -webkit-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+        z-index: 1;
+        margin: 2%;
+    }
+    .btn5_1, .btn5_2, .btn5_1_1, .btn5_1_2, .btn5_1_3, .btn5_1_4, .btn-acofa{
+        width: 390px;
+    height: 45px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 3%;
+}
+    
