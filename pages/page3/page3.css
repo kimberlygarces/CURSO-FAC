@@ -220,7 +220,7 @@ width: 20%;
 
 .num1{
     width: 25%;
-    height: 25%;
+    height: auto;
     border-radius: 44px 44px 44px 44px;
 -moz-border-radius: 44px 44px 44px 44px;
 -webkit-border-radius: 44px 44px 44px 44px;
@@ -317,11 +317,14 @@ width: 25%;
 height: 25%;
 }
 #boton3_1:hover, #boton3_2:hover, #boton3_3:hover, #boton3_4:hover, #boton3_5:hover, #boton2_9_2:hover, #boton2_9_1:hover,
- #boton2_9_3:hover, #boton2_9_1_1:hover, #boton2_9_1_2:hover, #boton2_9_1_3:hover, #boton2_9_1_4:hover, #boton2_9_1_5:hover {
+ #boton2_9_3:hover, #boton2_9_1_1:hover, #boton2_9_1_2:hover, #boton2_9_1_3:hover, #boton2_9_1_4:hover, #boton2_9_1_5:hover,
+ #paso1:hover, #paso2:hover, #paso3:hover, #paso4:hover, #paso5:hover, #paso7:hover, #paso8:hover, #boton1_1:hover, #boton1_2:hover,
+ #boton1_3:hover, #boton1_4:hover, #boton1_1_1:hover, #boton1_1_2:hover, #boton1_1_3:hover{
     background-color: #eccd41;
 }
 #boton3_1, #boton3_2, #boton3_3, #boton3_4, #boton3_5, #boton2_9_1, #boton2_9_2, #boton2_9_3, #boton2_9_1_1, #boton2_9_1_2,
-#boton2_9_1_3, #boton2_9_1_4, #boton2_9_1_5 {
+#boton2_9_1_3, #boton2_9_1_4, #boton2_9_1_5, #paso1,  #paso2,  #paso3,  #paso4,  #paso5, #paso7, #paso8, #boton1_1, #boton1_2,
+#boton1_3, #boton1_4, #boton1_1_1, #boton1_1_2, #boton1_1_3 {
     background-color: #f8e48c;
     border-style: none;
     -webkit-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
@@ -351,6 +354,24 @@ height: 25%;
 .btn-def2_9_1_1, .btn-def2_9_1_2, .btn-def2_9_1_3, .btn-def2_9_1_4, .btn-def2_9_1_5{
     width: 420px;
     height: 40px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 3%;
+}
+.btn-paso1, .btn-paso2, .btn-paso3, .btn-paso4, .btn-paso5, .btn-paso7, .btn-paso8, .btn-paso1_1, .btn-paso1_2, .btn-paso1_3,
+.btn-paso1_4  {
+    width: 420px;
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 3%;
+}
+
+.btn-paso1_1_1, .btn-paso1_1_2, .btn-paso1_1_3{
+    width: 420px;
+    height: 80px;
     text-align: center;
     justify-content: center;
     border-radius: 10px;

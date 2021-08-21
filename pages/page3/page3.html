@@ -1368,14 +1368,14 @@
                   Entrega, recibo e inspección de bienes y/o servicios:
                 </p>
                 <br>
-                <button onclick="id033_pag1()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso1.png" class="num1"></button>
-                <button onclick="id033_pag2()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso2.png" class="num1"></button>
-                <button onclick="id033_pag3()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso3.png" class="num1"></button>
-                <button onclick="id033_pag4()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso4.png" class="num1"></button>
-                <button onclick="id033_pag5()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso5.png" class="num1"></button>
+                <button id="paso1" onclick="id033_pag1()"  style="width: 160px; margin: 1%;" class="btn-paso1"><img src="images/paso1.png" class="num1"></button>
+                <button id="paso2" onclick="id033_pag2()"  style="width: 160px; margin: 1%;" class="btn-paso2"><img src="images/paso2.png" class="num1"></button>
+                <button id="paso3" onclick="id033_pag3()"  style="width: 160px; margin: 1%;" class="btn-paso3"><img src="images/paso3.png" class="num1"></button>
+                <button id="paso4" onclick="id033_pag4()"  style="width: 160px; margin: 1%;" class="btn-paso4"><img src="images/paso4.png" class="num1"></button>
+                <button id="paso5" onclick="id033_pag5()"  style="width: 160px; margin: 1%;" class="btn-paso5"><img src="images/paso5.png" class="num1"></button>
                 <!-- <button onclick="id033_pag6()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso6.png" class="num1"></button> -->
-                <button onclick="id033_pag7()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso6.png" class="num1"></button>
-                <button onclick="id033_pag8()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso7.png" class="num1"></button>
+                <button id="paso7" onclick="id033_pag7()"  style="width: 160px; margin: 1%;" class="btn-paso7"><img src="images/paso6.png" class="num1"></button>
+                <button id="paso8" onclick="id033_pag8()"  style="width: 160px; margin: 1%;" class="btn-paso8"><img src="images/paso7.png" class="num1"></button>
                 <div class="instruccion_interna">Debe dar click sobre los botones</div>
 
               </div>
@@ -1646,10 +1646,10 @@
                     Los pagos se realizarán previo cumplimiento a las políticas y disposiciones de orden financiero vigentes para el pago de obligaciones contractuales y reglamentarias de la Agencia de Compras y bajo los siguientes lineamientos:
                   </p>
                   <br>
-                  <button onclick="id033_4pag1()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso1.png" class="num1"></button>
-                  <button onclick="id033_4pag2()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso2.png" class="num1"></button>
-                  <button onclick="id033_4pag3()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso3.png" class="num1"></button>
-                  <button onclick="id033_4pag4()" class="boton1" style="width: 160px; margin: 1%;"><img src="images/paso4.png" class="num1"></button>
+                  <button id="boton1_1" onclick="id033_4pag1()" class="btn-paso1_1" style="width: 160px; margin: 1%;"><img src="images/paso1.png" class="num1"></button>
+                  <button id="boton1_2" onclick="id033_4pag2()" class="btn-paso1_2" style="width: 160px; margin: 1%;"><img src="images/paso2.png" class="num1"></button>
+                  <button id="boton1_3" onclick="id033_4pag3()" class="btn-paso1_3" style="width: 160px; margin: 1%;"><img src="images/paso3.png" class="num1"></button>
+                  <button id="boton1_4" onclick="id033_4pag4()" class="btn-paso1_4" style="width: 160px; margin: 1%;"><img src="images/paso4.png" class="num1"></button>
                   <div class="instruccion_interna">Debe dar click cada uno de los botones</div>
                   
   
@@ -2409,6 +2409,7 @@
   function id033_pag1() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag1').style.display = 'block'
+    document.getElementById('paso1').style.background ="#e7e7e7"; 
 
   }
 
@@ -2416,24 +2417,28 @@
   function id033_pag2() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag2').style.display = 'block'
+    document.getElementById('paso2').style.background ="#e7e7e7"; 
 
   }
 
   function id033_pag3() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag3').style.display = 'block'
+    document.getElementById('paso3').style.background ="#e7e7e7"; 
 
   }
 
   function id033_pag4() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag4').style.display = 'block'
+    document.getElementById('paso4').style.background ="#e7e7e7"; 
 
   }
 
   function id033_pag5() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag5').style.display = 'block'
+    document.getElementById('paso5').style.background ="#e7e7e7"; 
 
   }
 
@@ -2446,12 +2451,14 @@
   function id033_pag7() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag7').style.display = 'block'
+    document.getElementById('paso7').style.background ="#e7e7e7"; 
 
   }
 
   function id033_pag8() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_pag8').style.display = 'block'
+    document.getElementById('paso8').style.background ="#e7e7e7"; 
   }
 
   function Salir_id033_pag1() {
@@ -2491,6 +2498,7 @@
   function id033_4pag1() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_4pag1').style.display = 'block'
+    document.getElementById('boton1_1').style.background ="#e7e7e7"; 
 
   }
 
@@ -2498,18 +2506,21 @@
   function id033_4pag2() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_4pag2').style.display = 'block'
+    document.getElementById('boton1_2').style.background ="#e7e7e7"; 
 
   }
 
   function id033_4pag3() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_4pag3').style.display = 'block'
+    document.getElementById('boton1_3').style.background ="#e7e7e7"; 
 
   }
 
   function id033_4pag4() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_4pag4').style.display = 'block'
+    document.getElementById('boton1_4').style.background ="#e7e7e7"; 
 
   }
   
