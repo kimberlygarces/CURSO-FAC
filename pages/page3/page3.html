@@ -264,12 +264,12 @@
                 </table>
               </div>
             </div>
-            <div id="zona_sensible0" class="negrilla_sensible">
+            <!-- <div id="zona_sensible0" class="negrilla_sensible">
               <p><i class="fa fa-thumbs-up"></i></p>
               <p>
                 Concepto Visto
               </p>
-            </div>
+            </div> -->
           </div>
           
         </div>
@@ -1445,9 +1445,10 @@
               </div>
               <div class="w3-col resaltado_especial" style="width:95%">
                 <p class="w3-serif" style="font-size: 22px;">
-                  <img src="images/img32.png" class="img30">
                   Recibo y aceptación de bienes y servicios en la ejecución del contrato
                 </p>
+                <img src="images/img32.png" class="img30">
+
                 <hr>
                 Para los casos donde se adquieran servicios de inspección y/o reparación de
                 bienes aeronáuticos, la entrada se realizará por parte del Depósito Aduanero
@@ -1775,9 +1776,9 @@
                       aspectos:
                   </p>
                   <br>
-                  <button onclick="id033_5pag1()" class="boton1" style="width: 220px; margin: 1%;"><img src="images/paso1.png" class="num1"></button>
-                  <button onclick="id033_5pag2()" class="boton1" style="width: 220px; margin: 1%;"><img src="images/paso2.png" class="num1"></button>
-                  <button onclick="id033_5pag3()" class="boton1" style="width: 220px; margin: 1%;"><img src="images/paso3.png" class="num1"></button>
+                  <button id="btn3_5_1" onclick="id033_5pag1()" class="boton1" style="width: 220px; margin: 1%;"><img src="images/paso1.png" class="num1"></button>
+                  <button id="btn3_5_2" onclick="id033_5pag2()" class="boton1" style="width: 220px; margin: 1%;"><img src="images/paso2.png" class="num1"></button>
+                  <button id="btn3_5_3" onclick="id033_5pag3()" class="boton1" style="width: 220px; margin: 1%;"><img src="images/paso3.png" class="num1"></button>
 
                   <div class="instruccion_interna">Debe dar click cada uno de los botones</div>
   
@@ -2542,21 +2543,27 @@
 
   
   function id033_5pag1() {
-    document.getElementById('id033_5').style.display = 'none'
+    // document.getElementById('id033_5').style.display = 'none'
     document.getElementById('id033_5pag1').style.display = 'block'
+    document.getElementById('btn3_5_1').style.background ="#e7e7e7"; 
+
 
   }
 
 
   function id033_5pag2() {
-    document.getElementById('id033_5').style.display = 'none'
+    // document.getElementById('id033_5').style.display = 'none'
     document.getElementById('id033_5pag2').style.display = 'block'
+    document.getElementById('btn3_5_2').style.background ="#e7e7e7"; 
+
 
   }
 
   function id033_5pag3() {
-    document.getElementById('id033_5').style.display = 'none'
+    // document.getElementById('id033_5').style.display = 'none'
     document.getElementById('id033_5pag3').style.display = 'block'
+    document.getElementById('btn3_5_3').style.background ="#e7e7e7"; 
+
 
   }
   function Salir_id033_pag5() {
