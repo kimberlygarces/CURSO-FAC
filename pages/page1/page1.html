@@ -24,7 +24,7 @@ var canvas, stage, exportRoot;
 function init() {
 
 	canvas = document.getElementById("canvas");
-	var audio = document.getElementById('audio')
+	// var audio = document.getElementById('audio')
 
 
 	var loader = new createjs.LoadQueue(false);
@@ -34,7 +34,7 @@ function init() {
 	loader.addEventListener("progress", handleProgress);
 	loader.loadManifest(lib.properties.manifest);	
 
-	setTimeout(function(){ audio.play(); }, 14300);
+	// setTimeout(function(){ audio.play(); }, 14300);
 
 
 
@@ -132,9 +132,9 @@ function handleComplete(evt) {
 			
 		</div>
 	</div>	
-	<audio id="audio">
+	<!-- <audio id="audio">
 		<source src="sounds/concepto.mp3" type="audio/mpeg">
-	</audio>
+	</audio> -->
 
 	
 	<div id="pop0" class="pop">

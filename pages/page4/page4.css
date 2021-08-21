@@ -22,15 +22,15 @@ animation-duration: 5s;
 animation-duration: 4s;
 }
 .img6{
-    width: 250px;
-    height: 250px;
+    width: 150px;
+    height: auto;
     margin-left: 220px;
-    
+
 }
 .img7{
     position:absolute;
-    width: 450px;
-    height: 450px;
+    width: 150px;
+    height: auto;
     margin-left: 220px;
     opacity: 0.2;
 }

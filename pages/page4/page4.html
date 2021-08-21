@@ -27,13 +27,18 @@ var canvas, stage, exportRoot;
 function init() {
 
 	canvas = document.getElementById("canvas");
-
+  // var audio = document.getElementById('audio')
+	// setTimeout(function(){ audio.play(); }, 3300);
 	var loader = new createjs.LoadQueue(false);
 	loader.installPlugin(createjs.Sound);
 	loader.addEventListener("fileload", handleFileLoad);
 	loader.addEventListener("complete", handleComplete);
 	loader.addEventListener("progress", handleProgress);
 	loader.loadManifest(lib.properties.manifest);	
+
+
+
+
 }
 
 function handleFileLoad(evt) {
@@ -90,6 +95,9 @@ function handleComplete(evt) {
 <div id="instruccion_circulos" class="instruccion_circulos"> </div>
 
 <!--INICIO CONTENIDO--> 
+<audio id="audio1">
+  <source src="sounds/def1.mp3" type="audio/mpeg">
+</audio>
 
 <!-- Inicio contenido principal-->
 <!-- a) Se podrá modificar el contrato garantizando el cumplimiento de su fin, cuando: -->
@@ -105,10 +113,12 @@ function handleComplete(evt) {
         <div class="w3-col resaltado_especial" style="width:95%">
           <p class="w3-serif" style="font-size: 22px;">
             Se podrá modificar el contrato garantizando el cumplimiento de su fin, cuando:
-            
+           
           </p>
           <hr>
-          <img src="images/contrato1.png" class="img6">
+            <img src="images/contrato1.png" class="img6" width="150px">
+
+
           <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
             <tr>
               <td class="vineta"></td>
@@ -130,10 +140,11 @@ function handleComplete(evt) {
             </tr>
         
           </table>
-          <div id="zona_sensible0" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
+          
+          <!-- <div id="zona_sensible0" class="negrilla_sensible">
+            <img src="images/mod.png" class ="img1">
             <p> Concepto Visto </p>
-          </div>
+          </div> -->
 
         </div>
         
@@ -332,10 +343,10 @@ function handleComplete(evt) {
           </tr>
 
         </table>
-        <div id="zona_sensible1" class="negrilla_sensible">
+        <!-- <div id="zona_sensible1" class="negrilla_sensible">
           <p><i class="fad fa-lightbulb-on"></i></p>
           <p> Concepto Visto </p>
-        </div>
+        </div> -->
 
       </div>
       <button onclick="A_id044_1pag2_4()" class="boton1"  style="margin: 2%;">
@@ -402,15 +413,15 @@ function handleComplete(evt) {
             c) Documentos requeridos para modificar un contrato
           </p> -->
           <p class="w3-serif" style="font-size: 22px;">
-            <img src="images/requerido2.png" class="img7">
+            <img src="images/requerido2.png" class="img7" >
             Modificación orden de compra o pedido en los contratos abiertos
           </p>
           <hr>
           La orden de compra se regirá por los términos del contrato, de conformidad con el Anexo P y el procedimiento establecido para los contratos abiertos en la presente Directiva.
           Se podrá modificar la orden de compra  en los siguientes casos: para identificación del material (números de parte, número de serie), cantidades, condición técnica (solamente en el caso del cambio de la condición a inspección o devolución de elementos los cuales la Administración haya enviado en condición BER sin que esta falta se pueda trasladar al contratista, en ningún caso se debe desmejorar la condición), la fecha de entrega del elemento (lo anterior aplicara únicamente para los casos en que la selección no haya sido basada en el plazo de la oferta o entrega del elemento).   
           En los demás casos se deberá realizar el procedimiento del numeral 4.3.6. MODIFICACIÓN DEL CONTRATO.
-          <div id="zona_sensible2" class="negrilla_sensible">
-            <p><i class="fad fa-lightbulb-on"></i></p>
+          <div id="zona_sensible0" class="negrilla_sensible">
+            <img src="images/doc.png" class ="img3">
             <p> Concepto Visto </p>
           </div>
         </div>
@@ -433,7 +444,7 @@ function handleComplete(evt) {
           <button onclick="id044_1pag1()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
             <img src="images/mod.png" class ="img1">
             Se podrá modificar el contrato garantizando el cumplimiento de su fin
-            
+       
           </button>
           <button onclick="id044_1pag2()" class="w3-button w3-lime" style="width: 100%; margin: 1%;">
             <img src="images/cond.png" class ="img2">
@@ -494,11 +505,17 @@ function handleComplete(evt) {
 </html>
 
 <script>
+   	var audio1 = document.getElementById('audio1')
+
   function id044_1pag1(){
-    document.getElementById('id044_1pag1').style.display = 'block'
+    document.getElementById('id044_1pag1').style.display = 'block';
+    audio1.play();
+
+    
   }
   function Salir_id044_1pag1(){
     document.getElementById('id044_1pag1').style.display = 'none'
+    audio1.load();
   }
   function id044_1pag2(){
     document.getElementById('id044_1pag2').style.display = 'block'

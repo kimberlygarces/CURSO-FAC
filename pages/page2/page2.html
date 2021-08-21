@@ -1,1746 +1,1248 @@
- <!DOCTYPE html>
- <html>
-
- <head>
- 	<meta charset="UTF-8">
- 	<title></title>
-
- 	<link rel="stylesheet" href="../../index.css">
- 	<link rel="stylesheet" href="page2.css">
-
- 	<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
- 	<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
- 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
- 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-
-
- 	<script src="../../cjs/easeljs-0.8.2.min.js"></script>
- 	<script src="../../cjs/tweenjs-0.6.2.min.js"></script>
- 	<script src="../../cjs/preloadjs-0.6.2.min.js"></script>
- 	<script src="../../cjs/soundjs-0.6.2.min.js"></script>
- 	<script src="page.js"></script>
- 	<script src="../../principal.js"></script>
- 	<script src="../../cjs/jquery.min.js"></script>
- 	<script src="../../cjs/jquery.imagemapster.js"></script>
- 	<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
-
- 	<script>
- 		var canvas, stage, exportRoot;
-
- 		function init() {
-
- 			canvas = document.getElementById("canvas");
-
- 			var loader = new createjs.LoadQueue(false);
- 			loader.installPlugin(createjs.Sound);
- 			loader.addEventListener("fileload", handleFileLoad);
- 			loader.addEventListener("complete", handleComplete);
- 			loader.addEventListener("progress", handleProgress);
- 			loader.loadManifest(lib.properties.manifest);
- 		}
-
- 		function handleFileLoad(evt) {
- 			if (evt.item.type == "image") {
- 				images[evt.item.id] = evt.result;
- 			}
- 		}
-
- 		function playSound(id, loop) {
- 			createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
- 		}
-
- 		ancho_linea = 0;
- 		alto_linea = 10;
- 		max_ancho = 450;
-
- 		function handleProgress(evt) {
- 			stage = new createjs.Stage(canvas);
- 			var bordePadding = 2;
- 			var borde = new createjs.Shape;
- 			borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding * 2, alto_linea)
- 				.endFill();
- 			var linea_carga = new createjs.Shape();
- 			linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding, 0 + bordePadding, ancho_linea, alto_linea -
- 				bordePadding * 2).endFill();
-
- 			progreso = Math.round(evt.loaded * max_ancho);
- 			ancho_linea = progreso;
-
- 			contenedor = new createjs.Container();
- 			contenedor.x = 1240 / 2 - max_ancho / 2;
- 			contenedor.y = 495 * 4 / 5 - alto_linea / 2;
- 			contenedor.addChild(borde, linea_carga);
-
- 			//stage.addChild(contenedor);
- 			stage.update();
- 		}
-
- 		function handleComplete(evt) {
- 			var queue = evt.target;
-
- 			stage = new createjs.Stage(canvas);
- 			createjs.Ticker.addEventListener("tick", stage);
-
- 			/////Variables
- 			sin_personaje = false;
- 			globo_personaje =
- 				"A continuación aprenderemos definiciones de conceptos básicos del proceso de contratación a través de ACOFA.";
- 			pausas_audio = [
- 				[0, 13119, 16075, 19992],
- 				[0, 13491, 16380, 20394]
- 			];
-
- 			contenidos();
- 		}
- 	</script>
-
- </head>
-
- <body onload="init();">
- 	<canvas id="canvas" width="1165" height="550"></canvas>
- 	<div id="instruccion_circulos" class="instruccion_circulos">
- 	</div>
-
- 	<class class="c_principal c_1">
- 		<class class="item_c"></class>
- 		<!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
- 		<div id="menu">
-
- 			<ul>
- 				<li id="item"><a href="page2.1.html" style="position: absolute;top: 490px; left: 550px;">Pag 2</a></li>
- 				<li id="item"><a href="page2.html" style="position: absolute;top:  490px; left: 500px;">Pag 1</a></li>
- 			</ul>
- 		</div>
- 		<img id="img2" src="images/def.png" class="img2">
- 		<div class="btn-def" style="position: absolute;top: 80px; left: 82px; ">
- 			<audio id="audio">
- 				<source src="sounds/acuerdo.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton1" class="btn-def">1</button>
- 		</div>
-
- 		<div class="btn-def" style="position: absolute;top: 125px; left: 82px;"">
-			<audio id=" audio2">
- 			<source src="sounds/AOG.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton2" class="btn-def" ng-click="levelOU()">2</button>
- 		</div>
-
- 		<div class="btn-def" style="position: absolute;top: 170px; left: 82px;"">
-			<audio id=" audio3">
- 			<source src="sounds/CORE.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton3" class="btn-def" ng-click="levelOU()">3</button>
- 		</div>
-
-
- 		<div class="btn-def" style="position: absolute;top: 215px; left: 82px;"">
-			<audio id=" audio4">
- 			<source src="sounds/Conformidad.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton4" class="btn-def" ng-click="levelOU()">4</button>
- 		</div>
-
- 		<div class="btn-def" style="position: absolute;top: 260px; left: 82px;"">
-			<audio id=" audio5">
- 			<source src="sounds/Costos_complementarios.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton5" class="btn-def" ng-click="levelOU()">5</button>
- 		</div>
-
- 		<div class="btn-def" style="position: absolute;top: 305px; left: 82px;"">
-			<audio id=" audio6">
- 			<source src="sounds/Estudio_previo.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton6" class="btn-def" ng-click="levelOU()">6</button>
- 		</div>
-
- 		<div class="btn-def" style="position: absolute;top: 350px; left: 82px;"">
-			<audio id=" audio7">
- 			<source src="sounds/Fabricante_aprobado.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton7" class="btn-def" ng-click="levelOU()">7</button>
- 		</div>
-
- 		<div class="btn-def" style="position: absolute;top: 395px; left: 82px;"">
-			<audio id=" audio8">
- 			<source src="sounds/Fabricante.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton8" class="btn-def" ng-click="levelOU()">8</button>
- 		</div>
-
- 		<div class="btn-def" style="position: absolute;top: 440px; left: 82px;"">
-			<audio id=" audio9">
- 			<source src="sounds/Garantías_Contractuales.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton9" class="btn-def" ng-click="levelOU()">9</button>
- 		</div>
-
-
- 		<div class="btn-def" style="position: absolute;top: 485px; left: 82px;">
- 			<audio id="audio10">
- 				<source src="sounds/Lead_time.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton10" class="btn-def" ng-click="levelOU()">10</button>
- 		</div>
-
-
- 		<div class="btn-def" style="position:absolute; top: 35px; left: 1000px;">
- 			<audio id="audio11">
- 				<source src="sounds/MRO.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton11" class="btn-def" ng-click="levelOU()">11</button>
- 		</div>
-
- 		<div class="btn-def" style="position:absolute; top: 80px; left: 1000px;">
- 			<audio id="audio12">
- 				<source src="sounds/Negociación.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton12" class="btn-def" ng-click="levelOU()">12</button>
- 		</div>
-
- 		<div class="btn-def" style="position:absolute; top: 125px; left: 1000px;">
- 			<audio id="audio13">
- 				<source src="sounds/Oferta.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton13" class="btn-def" ng-click="levelOU()">13</button>
- 		</div>
-
- 		<div class="btn-def" style="position:absolute; top: 170px; left: 1000px;">
- 			<audio id="audio14">
- 				<source src="sounds/Contrato.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton14" class="btn-def" ng-click="levelOU()">14</button>
- 		</div>
-
- 		<div class="btn-def" style="position:absolute; top: 215px; left: 1000px;">
- 			<audio id="audio15">
- 				<source src="sounds/paralización.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton15" class="btn-def" ng-click="levelOU()">15</button>
- 		</div>
-
- 		<div class="btn-def" style="position:absolute; top: 260px; left: 1000px;">
- 			<audio id="audio16">
- 				<source src="sounds/proveedor_exterior.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton16" class="btn-def" ng-click="levelOU()">16</button>
- 		</div>
-
- 		<div class="btn-def" style="position:absolute; top: 305px; left: 1000px;">
- 			<audio id="audio17">
- 				<source src="sounds/distribuidos.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton17" class="btn-def" ng-click="levelOU()">17</button>
- 		</div>
-
- 		<div class="btn-def" style="position:absolute; top: 350px; left: 1000px;">
- 			<audio id="audio18">
- 				<source src="sounds/Resciliación.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton18" class="btn-def" ng-click="levelOU()">18</button>
- 		</div>
-
- 		<div class="btn-def" style="position:absolute; top: 395px; left: 1000px;">
- 			<audio id="audio19">
- 				<source src="sounds/Solicitud.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton19" class="btn-def" ng-click="levelOU()">19</button>
- 		</div>
-
- 		<div class="btn-def" style="position:absolute; top: 440px; left: 1000px;">
- 			<audio id="audio20">
- 				<source src="sounds/Solicitud_oferta.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton20" class="btn-def" ng-click="levelOU()">20</button>
- 		</div>
-
- 		<div class="btn-def" style="position:absolute; top: 485px; left: 1000px;">
- 			<audio id="audio21">
- 				<source src="sounds/Terminos_comercio.mp3" type="audio/mpeg">
- 			</audio>
- 			<button id="boton21" class="btn-def" ng-click="levelOU()">21</button>
- 		</div>
-
-
-
-
- 		<div class="instruccion_interna" style="position: absolute;top: 48px; left: 35%;">Debe dar click sobre cada uno
- 			de los botones.</div>
-
- 		<div class="resaltado_especial" id="variable1"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px ;">
- 			<b>Acuerdo:</b><br> A diferencia del "contrato", significa la negociación de las partes de hecho, tal como
- 			se encuentra
- 			en su idioma o inferido de otras circunstancias, incluido el curso de ejecución, el curso de negociación o
- 			el uso del
- 			comercio según lo dispuesto en la Sección 1-303 (UCC).
- 			<div id="zona_sensible1" class="negrilla_sensible">
-
- 				<p>
- 					<img id="img1" src="images/acuerdo.png" class="img1">
- 				</p>
- 			</div>
- 		</div>
-
- 		<div class="resaltado_especial" id="variable2"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<img id="img3 " src="images/avion2-02.png" class="img3">
- 			<b>Aeronave Aircraft On Ground Aeronave(AOG)-Aeronave en Tierra:</b><br> Aircraft On Ground (AOG)-Aeronave
- 			en Tierra: El
- 			término AOG se
- 			utiliza en mantenimiento aeronáutico para indicar que una aeronave tiene un problema, que no le permite
- 			volar y por
- 			tanto permanecerá en tierra hasta tanto se corrija o verifique la condición de la aeronave. Se aplica a
- 			cualquier
- 			bien y/o servicio de aviación que se requiera de forma inmediata para garantizar la operación de una
- 			aeronave.
-
- 		</div>
-
- 		<div class="resaltado_especial" id="variable3"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<img id="img4 " src="images/reparar.png" class="img4">
- 			<b>Component Returned by Exchange (CORE): </b><br>
- 			Elemento que estando en estado “Pendiente por reparar” se da en parte de pago y en reemplazo de otro
- 			elemento.
- 		</div>
- 		<div class="resaltado_especial" id="variable4"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<b>Conformidad:</b><br> Se define como conforme a un bien o servicio que cumple con los términos y
- 			condiciones del
- 			contrato; incluyendo las especificaciones técnicas, las condiciones de entrega y la documentación
- 			establecida en
- 			el contrato. Por lo tanto, se define como no conforme a un bien que no cumpla con lo anterior. También se
- 			utiliza el
- 			término “novedad” para referirse a la no conformidad.
- 		</div>
-
- 		<div class="resaltado_especial" id="variable5"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
-
- 			<b>Costos Complementarios por Daños Ocultos:</b>
- 			<img id="img5 " src="images/diap63.png" class="img5">
- 			<br> Se refiere a los costos de reparación por daños que
- 			solo son
- 			detectables al momento de la inspección de un componente.
-
- 		</div>
- 		<div class="resaltado_especial" id="variable6"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
-
- 			<b>Estudio Previo:</b><img id="img6 " src="images/engranaje.png" class="img6">
- 			<br> Análisis técnico, económico y jurídico que define la necesidad y las
- 			especificaciones
- 			técnicas para determinar la favorabilidad y conveniencia de iniciar el proceso contractual y suscribir un
- 			contrato.</div>
-
- 		<div class="resaltado_especial" id="variable7"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
-
- 			<b>Fabricante Aprobado de Partes - PMA por sus siglas en inglés (Parts Manufacturer Approval):</b>
- 			<br>
- 			Es la compañía que aun cuando no es un Fabricante Original de Partes de los bienes objeto de adquisición,
- 			produce partes
- 			de las mismas características a las originales bajo aprobación del organismo regulador de cada país.<p>
- 				<img id="img7" src="images/fabrica.png" class="img7">
- 			</p>
- 		</div>
-
-
- 		<div class="resaltado_especial" id="variable8"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<img id="img8" src="images/fabrica2.png" class="img8">
- 			<b>Fabricante Original de Partes (Casa Fabricante)-OEM por sus siglas en inglés (Original Equipment
- 				Manufacturer):
- 			</b><br> Companía que posee la patente de fabricación de los bienes objeto de adquisición.</div>
- 		<div class="resaltado_especial" id="variable9"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<img id="img9" src="images/garantia.png" class="img9">
- 			<b>Garantías Contractuales:</b><br> Instrumento legal a través del cual se mitigan los riesgos causados por
- 			incumplimiento
- 			de los términos y condiciones del contrato, las cuales garantizan a un tercero (Beneficiario) el
- 			cumplimiento de las
- 			obligaciones contractuales.</div>
- 		<div class="resaltado_especial" id="variable10"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px;">
-
- 			<b>Lead-Time:</b><img id="img10" src="images/tiempo-02.png" class="img10">
- 			<br> Es el tiempo de entrega de un producto de acuerdo a las condiciones del mercado.
- 		</div>
- 		<div class="resaltado_especial" id="variable11"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<b>MRO:</b><br> Empresa especializada en servicios <br>de Mantenimiento, Reparación y Overhaul <br>de
- 			equipos
- 			aeronáuticos.<img id="img11" src="images/academia.png" class="img11">
- 		</div>
-
- 		<div class="resaltado_especial" id="variable12"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<b>Negociación:</b><br> Es la actividad a través de la cual, se acuerdan las condiciones técnicas,
- 			económicas y jurídicas del proceso de contratación.
- 			<p><img id="img12" src="images/negocio.png" class="img12"></p>
- 		</div>
- 		<div class="resaltado_especial" id="variable13"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<b>Oferta:<br></b>Es el documento formal presentado por el <br>proponente que contiene las condiciones
- 			técnicas, <br>económicas y jurídicas exigidas por la entidad para <br>ser evaluadas por los Comités
- 			evaluadores.
- 			<img id="img13" src="images/oferta.png" class="img13"></div>
- 		<div class="resaltado_especial" id="variable14"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<b>Perfeccionamiento del Contrato:</b>
- 			<img id="img14" src="images/ACOFA.png" class="img14">
- 			<br> Los contratos celebrados por ACOFA se perfeccionan con la firma
- 			del mismo.
- 			Asimismo, con la expedición del Certificado de Registro Presupuestal (CRP), se cumplirá con el requisito
- 			para dar inicio
- 			a la ejecución y cumplimiento de las obligaciones contractuales.</div>
- 		<div class="resaltado_especial" id="variable15"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<b>Posible Paralización de la Aeronave (PPA):</b><br> Pedidos que se deben realizar con el fin de prevenir
- 			una posible
- 			paralización de las aeronaves o para futuras inspecciones a realizar.<p>
- 				<img id="img15" src="images/aero.png" class="img15">
- 			</p>
- 		</div>
- 		<div class="resaltado_especial" id="variable16"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<img id="img16" src="images/justicia.png" class="img16">
- 			<b>Proveedor en el exterior:</b><br> Toda persona jurídica que se encuentre inscrita en el Área Contractual
- 			ACOFA,
- 			como comerciante, fabricante, distribuidor exclusivo de bienes y/o prestador de servicios fuera del
- 			territorio nacional.</div>
- 		<div class="resaltado_especial" id="variable17"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<img id="img17" src="images/exclu.png" class="img17">
- 			<b>Proveedor o Distribuidor Exclusivo:</b><br> Toda persona jurídica que tiene un contrato de exclusividad
- 			para proveer
- 			bienes y/o servicios o en su defecto sea el único que los suministre.</div>
- 		<div class="resaltado_especial" id="variable18"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<b>Resciliación:</b><br> La Resciliación o “rescission” por su término en inglés, es una forma de
- 			disolución del contrato
- 			que deja sin efecto jurídico los derechos y obligaciones adquiridos mediante el mismo. Esta se efectuará de
- 			acuerdo con el
- 			procedimiento señalado en la presente Directiva.
- 			<p>
- 				<img id="img18" src="images/directiva.png" class="img18">
- 			</p>
- 		</div>
- 		<div class="resaltado_especial" id="variable19"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<img id="img19" src="images/cotiza.png" class="img19">
- 			<b>Solicitud de Cotización:</b><br>Documento elaborado por el Comité Estructurador de acuerdo al Anexo D.
- 			La solicitud
- 			de cotización no es un documento vinculante, es decir, no obliga a ACOFA a realizar un proceso o a
- 			contratar con aquellas
- 			empresas que respondan a dicha solicitud de cotización.</div>
- 		<div class="resaltado_especial" id="variable20"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<b>Solicitud de Oferta:</b><br> Documento formal suscrito por el Competente Contractual, por medio del cual
- 			se le solicita
- 			al oferente presentar su Oferta y se le informa las especificaciones técnicas, las condiciones
- 			contractuales, jurídicas y
- 			económicas para la contratación. La información técnica y las condiciones de las cotizaciones y de las
- 			ofertas podrán estar
- 			sometidas a condiciones de confidencialidad, ya sea que estén incluidas en dichos documentos o porque las
- 			leyes que controlan
- 			el mercado internacional de Defensa lo exigen.</div>
- 		<div class="resaltado_especial" id="variable21"
- 			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
- 			<b>Términos de Comercio Internacional (INCOTERMS):</b><br> Son criterios definidos sobre la distribución de
- 			los gastos
- 			y la transmisión de los riesgos entre la parte compradora y la parte vendedora en un contrato de
- 			compraventa internacional.
- 			<hr>
- 			<div id="zona_sensible0" class="w3-display-topmiddle w3-padding w3-hide-small">
- 				<!-- <p><i class="fad fa-lightbulb-on"></i></p> -->
- 				Conceptos Aprendidos
- 			</div>
- 			<div class="instruccion_interna">Debe pasar el mause por el texto resaltado</div>
-
-
- 		</div>
-
-
-
-
-
-
- 		<div id="pop0" class="pop">
-
- 			Pasar a la Pagina 2
-
- 		</div>
-
- 		<script src="js/jquery-3.4.1.min.js"></script>
-
- 		<script>
- 			var audio = document.getElementById('audio')
- 			var audio2 = document.getElementById('audio2')
- 			var audio3 = document.getElementById('audio3')
- 			var audio4 = document.getElementById('audio4')
- 			var audio5 = document.getElementById('audio5')
- 			var audio6 = document.getElementById('audio6')
- 			var audio7 = document.getElementById('audio7')
- 			var audio8 = document.getElementById('audio8')
- 			var audio9 = document.getElementById('audio9')
- 			var audio10 = document.getElementById('audio10')
- 			var audio11 = document.getElementById('audio11')
- 			var audio12 = document.getElementById('audio12')
- 			var audio13 = document.getElementById('audio13')
- 			var audio14 = document.getElementById('audio14')
- 			var audio15 = document.getElementById('audio15')
- 			var audio16 = document.getElementById('audio16')
- 			var audio17 = document.getElementById('audio17')
- 			var audio18 = document.getElementById('audio18')
- 			var audio19 = document.getElementById('audio19')
- 			var audio20 = document.getElementById('audio20')
- 			var audio21 = document.getElementById('audio21')
-
-
- 			var audiocount = 0;
- 			var audio2count = 0;
- 			var audio3count = 0;
- 			var audio4count = 0;
- 			var audio5count = 0;
- 			var audio6count = 0;
- 			var audio7count = 0;
- 			var audio8count = 0;
- 			var audio9count = 0;
- 			var audio10count = 0;
- 			var audio11count = 0;
- 			var audio12count = 0;
- 			var audio13count = 0;
- 			var audio14count = 0;
- 			var audio15count = 0;
- 			var audio16count = 0;
- 			var audio17count = 0;
- 			var audio18count = 0;
- 			var audio19count = 0;
- 			var audio20count = 0;
- 			var audio21count = 0;
-
-
-
- 			//  function playPause(){
- 			// 	 if(count == 0){
- 			// 		 count = 1;
- 			// 		 audio.play();
- 			// 		 boton1.innerHTML = "Pausa &#9208"
- 			// 	 }else{
- 			// 		 count = 0;
- 			// 		 audio.pause();
- 			// 		 boton1.innerHTML = "Play &#9658"
-
- 			// 	 }
- 			//  }
- 			//  setInterval(
- 			// function(){
- 			// 		 audio.play();
- 			// 		 playPauseBTN.innerHTML = "Pausa &#9208"
- 			// },3000);
- 			// playPauseBTN.innerHTML = "Play &#9658"
-
-
-
-
- 			var b1 = document.getElementById("boton1");
- 			var b2 = document.getElementById("boton2");
- 			var b3 = document.getElementById("boton3");
- 			var b4 = document.getElementById("boton4");
- 			var b5 = document.getElementById("boton5");
- 			var b6 = document.getElementById("boton6");
- 			var b7 = document.getElementById("boton7");
- 			var b8 = document.getElementById("boton8");
- 			var b9 = document.getElementById("boton9");
- 			var b10 = document.getElementById("boton10");
- 			var b11 = document.getElementById("boton11");
- 			var b12 = document.getElementById("boton12");
- 			var b13 = document.getElementById("boton13");
- 			var b14 = document.getElementById("boton14");
- 			var b15 = document.getElementById("boton15");
- 			var b16 = document.getElementById("boton16");
- 			var b17 = document.getElementById("boton17");
- 			var b18 = document.getElementById("boton18");
- 			var b19 = document.getElementById("boton19");
- 			var b20 = document.getElementById("boton20");
- 			var b21 = document.getElementById("boton21");
-
- 			b1.onclick = function () {
- 				b1.style.background = "#e7e7e7";
- 				if (audiocount == 0) {
- 					audiocount = 1;
- 					audio.play();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio10.load();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
-
-
- 					//  b1.innerHTML = "Pausa &#9208"
- 				} else {
- 					audiocount = 0;
- 					audio.load();
- 					//  b1.innerHTML = "Play &#9658"
- 				}
-
-
- 			}
-
- 			b2.onclick = function () {
- 				b2.style.background = "#e7e7e7";
- 				if (audio2count == 0) {
- 					audio2count = 1;
- 					audio.load();
- 					audio2.play();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio10.load();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
-
- 				} else {
- 					audio2count = 0;
- 					audio2.load();
- 				}
- 			}
-
- 			b3.onclick = function () {
- 				b3.style.background = "#e7e7e7";
- 				if (audio3count == 0) {
- 					audio3count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.play();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio10.load();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio3count = 0;
- 					audio3.load();
- 				}
-
- 			}
-
- 			b4.onclick = function () {
- 				b4.style.background = "#e7e7e7";
- 				if (audio4count == 0) {
- 					audio4count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.play();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio10.load();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
-
- 				} else {
- 					audio4count = 0;
- 					audio4.load();
- 				}
- 			}
-
- 			b5.onclick = function () {
- 				b5.style.background = "#e7e7e7";
- 				if (audio5count == 0) {
- 					audio5count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.play();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio10.load();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio5count = 0;
- 					audio5.load();
- 				}
- 			}
-
- 			b6.onclick = function () {
- 				b6.style.background = "#e7e7e7";
- 				if (audio6count == 0) {
- 					audio6count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.play();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio10.load();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio6count = 0;
- 					audio6.load();
- 				}
- 			}
-
- 			b7.onclick = function () {
- 				b7.style.background = "#e7e7e7";
- 				if (audio4count == 0) {
- 					audio7count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.play();
- 					audio8.load();
- 					audio9.load();
- 					audio10.load();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio7count = 0;
- 					audio7.load();
- 				}
- 			}
-
- 			b8.onclick = function () {
- 				b8.style.background = "#e7e7e7";
- 				if (audio8count == 0) {
- 					audio8count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.play();
- 					audio9.load();
- 					audio10.load();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio8count = 0;
- 					audio8.load();
- 				}
- 			}
-
- 			b9.onclick = function () {
- 				b9.style.background = "#e7e7e7";
- 				if (audio9count == 0) {
- 					audio9count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.play();
- 					audio10.load();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio9count = 0;
- 					audio9.load();
- 				}
- 			}
-
- 			b10.onclick = function () {
- 				b10.style.background = "#e7e7e7";
- 				if (audio10count == 0) {
- 					audio10count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio10.play();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio10count = 0;
- 					audio10.load();
- 				}
- 			}
-
-
- 			b11.onclick = function () {
- 				b11.style.background = "#e7e7e7";
- 				if (audio11count == 0) {
- 					audio11count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio11.play();
- 					audio10.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio11count = 0;
- 					audio11.load();
- 				}
- 			}
- 			b12.onclick = function () {
- 				b12.style.background = "#e7e7e7";
- 				if (audio12count == 0) {
- 					audio12count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio12.play();
- 					audio11.load();
- 					audio10.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio12count = 0;
- 					audio12.load();
- 				}
- 			}
- 			b13.onclick = function () {
- 				b13.style.background = "#e7e7e7";
- 				if (audio13count == 0) {
- 					audio13count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio13.play();
- 					audio11.load();
- 					audio12.load();
- 					audio10.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio13count = 0;
- 					audio13.load();
- 				}
- 			}
- 			b14.onclick = function () {
- 				b14.style.background = "#e7e7e7";
- 				if (audio14count == 0) {
- 					audio14count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio14.play();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio10.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio14count = 0;
- 					audio14.load();
- 				}
- 			}
- 			b15.onclick = function () {
- 				b15.style.background = "#e7e7e7";
- 				if (audio15count == 0) {
- 					audio15count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio15.play();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio10.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio15count = 0;
- 					audio15.load();
- 				}
- 			}
- 			b16.onclick = function () {
- 				b16.style.background = "#e7e7e7";
- 				if (audio16count == 0) {
- 					audio16count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio16.play();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio10.load();
- 					audio17.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
-
- 				} else {
- 					audio16count = 0;
- 					audio16.load();
- 				}
- 			}
- 			b17.onclick = function () {
- 				b17.style.background = "#e7e7e7";
- 				if (audio17count == 0) {
- 					audio17count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio17.play();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio10.load();
- 					audio18.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio17count = 0;
- 					audio10.load();
- 				}
- 			}
- 			b18.onclick = function () {
- 				b18.style.background = "#e7e7e7";
- 				if (audio18count == 0) {
- 					audio4count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio18.play();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio10.load();
- 					audio19.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio18count = 0;
- 					audio18.load();
- 				}
- 			}
- 			b19.onclick = function () {
- 				b19.style.background = "#e7e7e7";
- 				if (audio19count == 0) {
- 					audio19count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio19.play();
- 					audio11.load();
- 					audio12.load();
- 					audio13.load();
- 					audio14.load();
- 					audio15.load();
- 					audio16.load();
- 					audio17.load();
- 					audio18.load();
- 					audio10.load();
- 					audio20.load();
- 					audio21.load();
- 				} else {
- 					audio19count = 0;
- 					audio19.load();
- 				}
- 			}
- 			b20.onclick = function () {
- 				b20.style.background = "#e7e7e7";
- 				if (audio20count == 0) {
- 					audio20count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio20.play();
- 				} else {
- 					audio20count = 0;
- 					audio20.load();
- 				}
- 			}
- 			b21.onclick = function () {
- 				b21.style.background = "#e7e7e7";
- 				if (audio21count == 0) {
- 					audio21count = 1;
- 					audio.load();
- 					audio2.load();
- 					audio3.load();
- 					audio4.load();
- 					audio5.load();
- 					audio6.load();
- 					audio7.load();
- 					audio8.load();
- 					audio9.load();
- 					audio21.play();
- 				} else {
- 					audio21count = 0;
- 					audio21.load();
- 				}
- 			}
-
- 			$(document).ready(() => {
- 				$('#variable1').hide();
- 				$('#variable2').hide();
- 				$('#variable3').hide();
- 				$('#variable4').hide();
- 				$('#variable5').hide();
- 				$('#variable6').hide();
- 				$('#variable7').hide();
- 				$('#variable8').hide();
- 				$('#variable9').hide();
- 				$('#variable10').hide();
- 				$('#variable11').hide();
- 				$('#variable12').hide();
- 				$('#variable13').hide();
- 				$('#variable14').hide();
- 				$('#variable15').hide();
- 				$('#variable16').hide();
- 				$('#variable17').hide();
- 				$('#variable18').hide();
- 				$('#variable19').hide();
- 				$('#variable20').hide();
- 				$('#variable21').hide();
-
-
- 				$('#boton1').click(function () {
- 					$('#variable1').show();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton2').click(function () {
- 					$('#variable2').show();
- 					$('#variable1').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton3').click(function () {
- 					$('#variable3').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton4').click(function () {
- 					$('#variable4').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton5').click(function () {
- 					$('#variable5').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton6').click(function () {
- 					$('#variable6').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton7').click(function () {
- 					$('#variable7').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton8').click(function () {
- 					$('#variable8').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton9').click(function () {
- 					$('#variable9').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
-
- 				$('#boton10').click(function () {
- 					$('#variable10').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
-
-
- 				$('#boton11').click(function () {
- 					$('#variable11').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton12').click(function () {
- 					$('#variable12').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton13').click(function () {
- 					$('#variable13').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton14').click(function () {
- 					$('#variable14').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton15').click(function () {
- 					$('#variable15').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton16').click(function () {
- 					$('#variable16').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
-
- 				$('#boton17').click(function () {
- 					$('#variable17').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton18').click(function () {
- 					$('#variable18').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
-
- 				$('#boton19').click(function () {
- 					$('#variable19').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable20').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton20').click(function () {
- 					$('#variable20').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable21').hide();
- 				});
-
- 				$('#boton21').click(function () {
- 					$('#variable21').show();
- 					$('#variable1').hide();
- 					$('#variable2').hide();
- 					$('#variable3').hide();
- 					$('#variable4').hide();
- 					$('#variable5').hide();
- 					$('#variable6').hide();
- 					$('#variable7').hide();
- 					$('#variable8').hide();
- 					$('#variable9').hide();
- 					$('#variable10').hide();
- 					$('#variable11').hide();
- 					$('#variable12').hide();
- 					$('#variable13').hide();
- 					$('#variable14').hide();
- 					$('#variable15').hide();
- 					$('#variable16').hide();
- 					$('#variable17').hide();
- 					$('#variable18').hide();
- 					$('#variable19').hide();
- 					$('#variable20').hide();
- 				});
- 			});
- 		</script>
-
-
-
-
- 	</class>
-
-
-
-
- </body>
-
- </html>
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<link rel="stylesheet" href="../../index.css">
+	<link rel="stylesheet" href="page2.css">
+
+	<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
+	<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+
+	<script src="../../cjs/easeljs-0.8.2.min.js"></script>
+	<script src="../../cjs/tweenjs-0.6.2.min.js"></script>
+	<script src="../../cjs/preloadjs-0.6.2.min.js"></script>
+	<script src="../../cjs/soundjs-0.6.2.min.js"></script>
+	<script src="page.js"></script>
+	<script src="../../principal.js"></script>
+	<script src="../../cjs/jquery.min.js"></script>
+	<script src="../../cjs/jquery.imagemapster.js"></script>
+	<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
+
+	<script>
+		var canvas, stage, exportRoot;
+
+		function init() {
+
+			canvas = document.getElementById("canvas");
+
+			var loader = new createjs.LoadQueue(false);
+			loader.installPlugin(createjs.Sound);
+			loader.addEventListener("fileload", handleFileLoad);
+			loader.addEventListener("complete", handleComplete);
+			loader.addEventListener("progress", handleProgress);
+			loader.loadManifest(lib.properties.manifest);
+		}
+
+		function handleFileLoad(evt) {
+			if (evt.item.type == "image") {
+				images[evt.item.id] = evt.result;
+			}
+		}
+
+		function playSound(id, loop) {
+			createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+		}
+
+		ancho_linea = 0;
+		alto_linea = 10;
+		max_ancho = 450;
+
+		function handleProgress(evt) {
+			stage = new createjs.Stage(canvas);
+			var bordePadding = 2;
+			var borde = new createjs.Shape;
+			borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding * 2, alto_linea)
+				.endFill();
+			var linea_carga = new createjs.Shape();
+			linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding, 0 + bordePadding, ancho_linea, alto_linea -
+				bordePadding * 2).endFill();
+
+			progreso = Math.round(evt.loaded * max_ancho);
+			ancho_linea = progreso;
+
+			contenedor = new createjs.Container();
+			contenedor.x = 1240 / 2 - max_ancho / 2;
+			contenedor.y = 495 * 4 / 5 - alto_linea / 2;
+			contenedor.addChild(borde, linea_carga);
+
+			//stage.addChild(contenedor);
+			stage.update();
+		}
+
+		function handleComplete(evt) {
+			var queue = evt.target;
+
+			stage = new createjs.Stage(canvas);
+			createjs.Ticker.addEventListener("tick", stage);
+
+			/////Variables
+			sin_personaje = false;
+			globo_personaje =
+				"A continuación aprenderemos definiciones de conceptos básicos del proceso de contratación a través de ACOFA.";
+			pausas_audio = [
+				[0, 13119, 16075, 19992],
+				[0, 13491, 16380, 20394]
+			];
+
+			contenidos();
+		}
+	</script>
+
+</head>
+
+<body onload="init();">
+	<canvas id="canvas" width="1165" height="550"></canvas>
+	<div id="instruccion_circulos" class="instruccion_circulos">
+	</div>
+
+	<class class="c_principal c_1">
+		<class class="item_c"></class>
+		<!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+		<div id="menu">
+
+			<ul>
+				<li id="item"><a href="page2.1.html" style="position: absolute;top: 490px; left: 550px;">Pag 2</a></li>
+				<li id="item"><a href="page2.html" style="position: absolute;top:  490px; left: 500px;">Pag 1</a></li>
+			</ul>
+		</div>
+		<img id="img2" src="images/def.png" class="img2">
+		<div class="btn-def" style="position: absolute;top: 80px; left: 82px; ">
+			<audio id="audio">
+				<source src="sounds/star.mp3" type="audio/mpeg">
+			</audio>
+			<button id="boton1" class="btn-def">1</button>
+		</div>
+
+		<div class="btn-def" style="position: absolute;top: 125px; left: 82px;"">
+		   <!-- <audio id=" audio2">
+			<source src="sounds/AOG.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton2" class="btn-def" ng-click="levelOU()">2</button>
+		</div>
+
+		<div class="btn-def" style="position: absolute;top: 170px; left: 82px;"">
+		   <!-- <audio id=" audio3">
+			<source src="sounds/CORE.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton3" class="btn-def" ng-click="levelOU()">3</button>
+		</div>
+
+
+		<div class="btn-def" style="position: absolute;top: 215px; left: 82px;"">
+		   <!-- <audio id=" audio4">
+			<source src="sounds/Conformidad.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton4" class="btn-def" ng-click="levelOU()">4</button>
+		</div>
+
+		<div class="btn-def" style="position: absolute;top: 260px; left: 82px;"">
+		   <!-- <audio id=" audio5">
+			<source src="sounds/Costos_complementarios.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton5" class="btn-def" ng-click="levelOU()">5</button>
+		</div>
+
+		<div class="btn-def" style="position: absolute;top: 305px; left: 82px;"">
+		   <!-- <audio id=" audio6">
+			<source src="sounds/Estudio_previo.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton6" class="btn-def" ng-click="levelOU()">6</button>
+		</div>
+
+		<div class="btn-def" style="position: absolute;top: 350px; left: 82px;"">
+		   <!-- <audio id=" audio7">
+			<source src="sounds/Fabricante_aprobado.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton7" class="btn-def" ng-click="levelOU()">7</button>
+		</div>
+
+		<div class="btn-def" style="position: absolute;top: 395px; left: 82px;"">
+		   <!-- <audio id=" audio8">
+			<source src="sounds/Fabricante.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton8" class="btn-def" ng-click="levelOU()">8</button>
+		</div>
+
+		<div class="btn-def" style="position: absolute;top: 440px; left: 82px;"">
+		   <!-- <audio id=" audio9">
+			<source src="sounds/Garantías_Contractuales.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton9" class="btn-def" ng-click="levelOU()">9</button>
+		</div>
+
+
+		<div class="btn-def" style="position: absolute;top: 485px; left: 82px;">
+			<!-- <audio id="audio10">
+				<source src="sounds/Lead_time.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton10" class="btn-def" ng-click="levelOU()">10</button>
+		</div>
+
+
+		<div class="btn-def" style="position:absolute; top: 35px; left: 1000px;">
+			<!-- <audio id="audio11">
+				<source src="sounds/MRO.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton11" class="btn-def" ng-click="levelOU()">11</button>
+		</div>
+
+		<div class="btn-def" style="position:absolute; top: 80px; left: 1000px;">
+			<!-- <audio id="audio12">
+				<source src="sounds/Negociación.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton12" class="btn-def" ng-click="levelOU()">12</button>
+		</div>
+
+		<div class="btn-def" style="position:absolute; top: 125px; left: 1000px;">
+			<!-- <audio id="audio13">
+				<source src="sounds/Oferta.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton13" class="btn-def" ng-click="levelOU()">13</button>
+		</div>
+
+		<div class="btn-def" style="position:absolute; top: 170px; left: 1000px;">
+			<!-- <audio id="audio14">
+				<source src="sounds/Contrato.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton14" class="btn-def" ng-click="levelOU()">14</button>
+		</div>
+
+		<div class="btn-def" style="position:absolute; top: 215px; left: 1000px;">
+			<!-- <audio id="audio15">
+				<source src="sounds/paralización.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton15" class="btn-def" ng-click="levelOU()">15</button>
+		</div>
+
+		<div class="btn-def" style="position:absolute; top: 260px; left: 1000px;">
+			<!-- <audio id="audio16">
+				<source src="sounds/proveedor_exterior.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton16" class="btn-def" ng-click="levelOU()">16</button>
+		</div>
+
+		<div class="btn-def" style="position:absolute; top: 305px; left: 1000px;">
+			<!-- <audio id="audio17">
+				<source src="sounds/distribuidos.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton17" class="btn-def" ng-click="levelOU()">17</button>
+		</div>
+
+		<div class="btn-def" style="position:absolute; top: 350px; left: 1000px;">
+			<!-- <audio id="audio18">
+				<source src="sounds/Resciliación.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton18" class="btn-def" ng-click="levelOU()">18</button>
+		</div>
+
+		<div class="btn-def" style="position:absolute; top: 395px; left: 1000px;">
+			<!-- <audio id="audio19">
+				<source src="sounds/Solicitud.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton19" class="btn-def" ng-click="levelOU()">19</button>
+		</div>
+
+		<div class="btn-def" style="position:absolute; top: 440px; left: 1000px;">
+			<!-- <audio id="audio20">
+				<source src="sounds/Solicitud_oferta.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton20" class="btn-def" ng-click="levelOU()">20</button>
+		</div>
+
+		<div class="btn-def" style="position:absolute; top: 485px; left: 1000px;">
+			<!-- <audio id="audio21">
+				<source src="sounds/Terminos_comercio.mp3" type="audio/mpeg">
+			</audio> -->
+			<button id="boton21" class="btn-def" ng-click="levelOU()">21</button>
+		</div>
+
+
+
+
+		<div class="instruccion_interna" style="position: absolute;top: 48px; left: 35%;">Debe dar click sobre cada uno
+			de los botones.</div>
+
+		<div class="resaltado_especial" id="variable1"
+			style="position: absolute;top: 100px; left: 300px; right: 300px ;">
+			<b>Acuerdo:</b><br> A diferencia del "contrato", significa la negociación de las partes de hecho, tal como
+			se encuentra
+			en su idioma o inferido de otras circunstancias, incluido el curso de ejecución, el curso de negociación o
+			el uso del
+			comercio según lo dispuesto en la Sección 1-303 (UCC).
+			<div id="zona_sensible1" class="negrilla_sensible">
+
+				<p>
+					<img id="img1" src="images/acuerdo.png" class="img1">
+				</p>
+			</div>
+		</div>
+
+		<div class="resaltado_especial" id="variable2"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<img id="img3 " src="images/avion2-02.png" class="img3">
+			<b>Aeronave Aircraft On Ground Aeronave(AOG)-Aeronave en Tierra:</b><br> Aircraft On Ground (AOG)-Aeronave
+			en Tierra: El
+			término AOG se
+			utiliza en mantenimiento aeronáutico para indicar que una aeronave tiene un problema, que no le permite
+			volar y por
+			tanto permanecerá en tierra hasta tanto se corrija o verifique la condición de la aeronave. Se aplica a
+			cualquier
+			bien y/o servicio de aviación que se requiera de forma inmediata para garantizar la operación de una
+			aeronave.
+
+		</div>
+
+		<div class="resaltado_especial" id="variable3"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<img id="img4 " src="images/reparar.png" class="img4">
+			<b>Component Returned by Exchange (CORE): </b><br>
+			Elemento que estando en estado “Pendiente por reparar” se da en parte de pago y en reemplazo de otro
+			elemento.
+		</div>
+		<div class="resaltado_especial" id="variable4"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<b>Conformidad:</b><br> Se define como conforme a un bien o servicio que cumple con los términos y
+			condiciones del
+			contrato; incluyendo las especificaciones técnicas, las condiciones de entrega y la documentación
+			establecida en
+			el contrato. Por lo tanto, se define como no conforme a un bien que no cumpla con lo anterior. También se
+			utiliza el
+			término “novedad” para referirse a la no conformidad.
+		</div>
+
+		<div class="resaltado_especial" id="variable5"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+
+			<b>Costos Complementarios por Daños Ocultos:</b>
+			<img id="img5 " src="images/diap63.png" class="img5">
+			<br> Se refiere a los costos de reparación por daños que
+			solo son
+			detectables al momento de la inspección de un componente.
+
+		</div>
+		<div class="resaltado_especial" id="variable6"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+
+			<b>Estudio Previo:</b><img id="img6 " src="images/engranaje.png" class="img6">
+			<br> Análisis técnico, económico y jurídico que define la necesidad y las
+			especificaciones
+			técnicas para determinar la favorabilidad y conveniencia de iniciar el proceso contractual y suscribir un
+			contrato.</div>
+
+		<div class="resaltado_especial" id="variable7"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+
+			<b>Fabricante Aprobado de Partes - PMA por sus siglas en inglés (Parts Manufacturer Approval):</b>
+			<br>
+			Es la compañía que aun cuando no es un Fabricante Original de Partes de los bienes objeto de adquisición,
+			produce partes
+			de las mismas características a las originales bajo aprobación del organismo regulador de cada país.<p>
+				<img id="img7" src="images/fabrica.png" class="img7">
+			</p>
+		</div>
+
+
+		<div class="resaltado_especial" id="variable8"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<img id="img8" src="images/fabrica2.png" class="img8">
+			<b>Fabricante Original de Partes (Casa Fabricante)-OEM por sus siglas en inglés (Original Equipment
+				Manufacturer):
+			</b><br> Companía que posee la patente de fabricación de los bienes objeto de adquisición.</div>
+		<div class="resaltado_especial" id="variable9"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<img id="img9" src="images/garantia.png" class="img9">
+			<b>Garantías Contractuales:</b><br> Instrumento legal a través del cual se mitigan los riesgos causados por
+			incumplimiento
+			de los términos y condiciones del contrato, las cuales garantizan a un tercero (Beneficiario) el
+			cumplimiento de las
+			obligaciones contractuales.</div>
+		<div class="resaltado_especial" id="variable10"
+			style="position: absolute;top: 100px; left: 300px; right: 300px;">
+
+			<b>Lead-Time:</b><img id="img10" src="images/tiempo-02.png" class="img10">
+			<br> Es el tiempo de entrega de un producto de acuerdo a las condiciones del mercado.
+		</div>
+		<div class="resaltado_especial" id="variable11"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<b>MRO:</b><br> Empresa especializada en servicios <br>de Mantenimiento, Reparación y Overhaul <br>de
+			equipos
+			aeronáuticos.<img id="img11" src="images/academia.png" class="img11">
+		</div>
+
+		<div class="resaltado_especial" id="variable12"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<b>Negociación:</b><br> Es la actividad a través de la cual, se acuerdan las condiciones técnicas,
+			económicas y jurídicas del proceso de contratación.
+			<p><img id="img12" src="images/negocio.png" class="img12"></p>
+		</div>
+		<div class="resaltado_especial" id="variable13"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<b>Oferta:<br></b>Es el documento formal presentado por el <br>proponente que contiene las condiciones
+			técnicas, <br>económicas y jurídicas exigidas por la entidad para <br>ser evaluadas por los Comités
+			evaluadores.
+			<img id="img13" src="images/oferta.png" class="img13"></div>
+		<div class="resaltado_especial" id="variable14"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<b>Perfeccionamiento del Contrato:</b>
+			<img id="img14" src="images/ACOFA.png" class="img14">
+			<br> Los contratos celebrados por ACOFA se perfeccionan con la firma
+			del mismo.
+			Asimismo, con la expedición del Certificado de Registro Presupuestal (CRP), se cumplirá con el requisito
+			para dar inicio
+			a la ejecución y cumplimiento de las obligaciones contractuales.</div>
+		<div class="resaltado_especial" id="variable15"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<b>Posible Paralización de la Aeronave (PPA):</b><br> Pedidos que se deben realizar con el fin de prevenir
+			una posible
+			paralización de las aeronaves o para futuras inspecciones a realizar.<p>
+				<img id="img15" src="images/aero.png" class="img15">
+			</p>
+		</div>
+		<div class="resaltado_especial" id="variable16"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<img id="img16" src="images/justicia.png" class="img16">
+			<b>Proveedor en el exterior:</b><br> Toda persona jurídica que se encuentre inscrita en el Área Contractual
+			ACOFA,
+			como comerciante, fabricante, distribuidor exclusivo de bienes y/o prestador de servicios fuera del
+			territorio nacional.</div>
+		<div class="resaltado_especial" id="variable17"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<img id="img17" src="images/exclu.png" class="img17">
+			<b>Proveedor o Distribuidor Exclusivo:</b><br> Toda persona jurídica que tiene un contrato de exclusividad
+			para proveer
+			bienes y/o servicios o en su defecto sea el único que los suministre.</div>
+		<div class="resaltado_especial" id="variable18"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<b>Resciliación:</b><br> La Resciliación o “rescission” por su término en inglés, es una forma de
+			disolución del contrato
+			que deja sin efecto jurídico los derechos y obligaciones adquiridos mediante el mismo. Esta se efectuará de
+			acuerdo con el
+			procedimiento señalado en la presente Directiva.
+			<p>
+				<img id="img18" src="images/directiva.png" class="img18">
+			</p>
+		</div>
+		<div class="resaltado_especial" id="variable19"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<img id="img19" src="images/cotiza.png" class="img19">
+			<b>Solicitud de Cotización:</b><br>Documento elaborado por el Comité Estructurador de acuerdo al Anexo D.
+			La solicitud
+			de cotización no es un documento vinculante, es decir, no obliga a ACOFA a realizar un proceso o a
+			contratar con aquellas
+			empresas que respondan a dicha solicitud de cotización.</div>
+		<div class="resaltado_especial" id="variable20"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<b>Solicitud de Oferta:</b><br> Documento formal suscrito por el Competente Contractual, por medio del cual
+			se le solicita
+			al oferente presentar su Oferta y se le informa las especificaciones técnicas, las condiciones
+			contractuales, jurídicas y
+			económicas para la contratación. La información técnica y las condiciones de las cotizaciones y de las
+			ofertas podrán estar
+			sometidas a condiciones de confidencialidad, ya sea que estén incluidas en dichos documentos o porque las
+			leyes que controlan
+			el mercado internacional de Defensa lo exigen.</div>
+		<div class="resaltado_especial" id="variable21"
+			style="position: absolute;top: 100px; left: 300px; right: 300px; ">
+			<b>Términos de Comercio Internacional (INCOTERMS):</b><br> Son criterios definidos sobre la distribución de
+			los gastos
+			y la transmisión de los riesgos entre la parte compradora y la parte vendedora en un contrato de
+			compraventa internacional.
+			<hr>
+			<div id="zona_sensible0" class="w3-display-topmiddle w3-padding w3-hide-small">
+				<!-- <p><i class="fad fa-lightbulb-on"></i></p> -->
+				Conceptos Aprendidos
+			</div>
+			<div class="instruccion_interna">Debe pasar el mause por el texto resaltado</div>
+
+
+		</div>
+
+
+
+
+
+
+		<div id="pop0" class="pop">
+
+			Pasar a la Pagina 2
+
+		</div>
+
+		<script src="js/jquery-3.4.1.min.js"></script>
+
+		<script>
+			var audio = document.getElementById('audio')
+			// var audio2 = document.getElementById('audio2')
+			// var audio3 = document.getElementById('audio3')
+			// var audio4 = document.getElementById('audio4')
+			// var audio5 = document.getElementById('audio5')
+			// var audio6 = document.getElementById('audio6')
+			// var audio7 = document.getElementById('audio7')
+			// var audio8 = document.getElementById('audio8')
+			// var audio9 = document.getElementById('audio9')
+			// var audio10 = document.getElementById('audio10')
+			// var audio11 = document.getElementById('audio11')
+			// var audio12 = document.getElementById('audio12')
+			// var audio13 = document.getElementById('audio13')
+			// var audio14 = document.getElementById('audio14')
+			// var audio15 = document.getElementById('audio15')
+			// var audio16 = document.getElementById('audio16')
+			// var audio17 = document.getElementById('audio17')
+			// var audio18 = document.getElementById('audio18')
+			// var audio19 = document.getElementById('audio19')
+			// var audio20 = document.getElementById('audio20')
+			// var audio21 = document.getElementById('audio21')
+
+
+			var audiocount = 0;
+			// var audio2count = 0;
+			// var audio3count = 0;
+			// var audio4count = 0;
+			// var audio5count = 0;
+			// var audio6count = 0;
+			// var audio7count = 0;
+			// var audio8count = 0;
+			// var audio9count = 0;
+			// var audio10count = 0;
+			// var audio11count = 0;
+			// var audio12count = 0;
+			// var audio13count = 0;
+			// var audio14count = 0;
+			// var audio15count = 0;
+			// var audio16count = 0;
+			// var audio17count = 0;
+			// var audio18count = 0;
+			// var audio19count = 0;
+			// var audio20count = 0;
+			// var audio21count = 0;
+
+
+
+			//  function playPause(){
+			// 	 if(count == 0){
+			// 		 count = 1;
+			// 		 audio.play();
+			// 		 boton1.innerHTML = "Pausa &#9208"
+			// 	 }else{
+			// 		 count = 0;
+			// 		 audio.pause();
+			// 		 boton1.innerHTML = "Play &#9658"
+
+			// 	 }
+			//  }
+			//  setInterval(
+			// function(){
+			// 		 audio.play();
+			// 		 playPauseBTN.innerHTML = "Pausa &#9208"
+			// },3000);
+			// playPauseBTN.innerHTML = "Play &#9658"
+
+
+
+
+			var b1 = document.getElementById("boton1");
+			var b2 = document.getElementById("boton2");
+			var b3 = document.getElementById("boton3");
+			var b4 = document.getElementById("boton4");
+			var b5 = document.getElementById("boton5");
+			var b6 = document.getElementById("boton6");
+			var b7 = document.getElementById("boton7");
+			var b8 = document.getElementById("boton8");
+			var b9 = document.getElementById("boton9");
+			var b10 = document.getElementById("boton10");
+			var b11 = document.getElementById("boton11");
+			var b12 = document.getElementById("boton12");
+			var b13 = document.getElementById("boton13");
+			var b14 = document.getElementById("boton14");
+			var b15 = document.getElementById("boton15");
+			var b16 = document.getElementById("boton16");
+			var b17 = document.getElementById("boton17");
+			var b18 = document.getElementById("boton18");
+			var b19 = document.getElementById("boton19");
+			var b20 = document.getElementById("boton20");
+			var b21 = document.getElementById("boton21");
+
+			b1.onclick = function () {
+				b1.style.background = "#e7e7e7";
+				audio.play()
+			}
+
+			b2.onclick = function () {
+				b2.style.background = "#e7e7e7";
+				audio.play()
+
+			}
+
+			b3.onclick = function () {
+				b3.style.background = "#e7e7e7";
+				
+				audio.play()
+
+			}
+
+			b4.onclick = function () {
+				b4.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+
+			b5.onclick = function () {
+				b5.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+
+			b6.onclick = function () {
+				b6.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+
+			b7.onclick = function () {
+				b7.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+
+			b8.onclick = function () {
+				b8.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+
+			b9.onclick = function () {
+				b9.style.background = "#e7e7e7";
+				audio.play()
+
+			}
+
+			b10.onclick = function () {
+				b10.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+
+
+			b11.onclick = function () {
+				b11.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+			b12.onclick = function () {
+				b12.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+			b13.onclick = function () {
+				b13.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+			b14.onclick = function () {
+				b14.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+			b15.onclick = function () {
+				b15.style.background = "#e7e7e7";
+				audio.play()
+
+			}
+			b16.onclick = function () {
+				b16.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+			b17.onclick = function () {
+				b17.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+			b18.onclick = function () {
+				b18.style.background = "#e7e7e7";
+				audio.play()
+
+			}
+			b19.onclick = function () {
+				b19.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+			b20.onclick = function () {
+				b20.style.background = "#e7e7e7";
+				audio.play()
+
+				
+			}
+			b21.onclick = function () {
+				b21.style.background = "#e7e7e7";
+				audio.play()
+
+			
+			}
+
+			$(document).ready(() => {
+				$('#variable1').hide();
+				$('#variable2').hide();
+				$('#variable3').hide();
+				$('#variable4').hide();
+				$('#variable5').hide();
+				$('#variable6').hide();
+				$('#variable7').hide();
+				$('#variable8').hide();
+				$('#variable9').hide();
+				$('#variable10').hide();
+				$('#variable11').hide();
+				$('#variable12').hide();
+				$('#variable13').hide();
+				$('#variable14').hide();
+				$('#variable15').hide();
+				$('#variable16').hide();
+				$('#variable17').hide();
+				$('#variable18').hide();
+				$('#variable19').hide();
+				$('#variable20').hide();
+				$('#variable21').hide();
+
+
+				$('#boton1').click(function () {
+					$('#variable1').show();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton2').click(function () {
+					$('#variable2').show();
+					$('#variable1').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton3').click(function () {
+					$('#variable3').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton4').click(function () {
+					$('#variable4').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton5').click(function () {
+					$('#variable5').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton6').click(function () {
+					$('#variable6').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton7').click(function () {
+					$('#variable7').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton8').click(function () {
+					$('#variable8').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton9').click(function () {
+					$('#variable9').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+
+				$('#boton10').click(function () {
+					$('#variable10').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+
+
+				$('#boton11').click(function () {
+					$('#variable11').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton12').click(function () {
+					$('#variable12').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton13').click(function () {
+					$('#variable13').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton14').click(function () {
+					$('#variable14').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton15').click(function () {
+					$('#variable15').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton16').click(function () {
+					$('#variable16').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+
+				$('#boton17').click(function () {
+					$('#variable17').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton18').click(function () {
+					$('#variable18').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+
+				$('#boton19').click(function () {
+					$('#variable19').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable20').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton20').click(function () {
+					$('#variable20').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable21').hide();
+				});
+
+				$('#boton21').click(function () {
+					$('#variable21').show();
+					$('#variable1').hide();
+					$('#variable2').hide();
+					$('#variable3').hide();
+					$('#variable4').hide();
+					$('#variable5').hide();
+					$('#variable6').hide();
+					$('#variable7').hide();
+					$('#variable8').hide();
+					$('#variable9').hide();
+					$('#variable10').hide();
+					$('#variable11').hide();
+					$('#variable12').hide();
+					$('#variable13').hide();
+					$('#variable14').hide();
+					$('#variable15').hide();
+					$('#variable16').hide();
+					$('#variable17').hide();
+					$('#variable18').hide();
+					$('#variable19').hide();
+					$('#variable20').hide();
+				});
+			});
+		</script>
+
+
+
+
+	</class>
+
+
+
+
+</body>
+
+</html>
