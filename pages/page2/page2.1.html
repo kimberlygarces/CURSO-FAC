@@ -29,7 +29,6 @@
 
 <body>
 
-    <audio id="intro" src="sounds/titulo.mp3" autoplay></audio>
 
     <div id="menu">
         <ul>
@@ -173,14 +172,25 @@
         </button>
         
         </div>
-        
+        <audio id="intro">
+            <source src="sounds/titulo.mp3" type="audio/mpeg">
+        </audio>
     
 
     </div>
     <div><img src="images/gif1.gif" class="fondo"></div>
     
     <script>
+        	var intro = document.getElementById('intro')
+
+        setTimeout(function(){ intro.play(); }, 3000);
+
+
+
             var audio = document.getElementById('audio')
+
+
+
  			// var audio2 = document.getElementById('audio2')
  			// var audio3 = document.getElementById('audio3')
  			// var audio4 = document.getElementById('audio4')
