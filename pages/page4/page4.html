@@ -95,8 +95,20 @@ function handleComplete(evt) {
 <div id="instruccion_circulos" class="instruccion_circulos"> </div>
 
 <!--INICIO CONTENIDO--> 
-<audio id="audio1">
+<audio id="audio">
   <source src="sounds/star.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="titlea">
+  <source src="sounds/title_a.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="titleb">
+  <source src="sounds/title_b.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="titlec">
+  <source src="sounds/title_c.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Inicio contenido principal-->
@@ -521,26 +533,29 @@ function handleComplete(evt) {
 
 <script>
    	var audio1 = document.getElementById('audio1')
+   	var titlea = document.getElementById('titlea')
+   	var titleb = document.getElementById('titleb')
+   	var titlec = document.getElementById('titlec')
 
   function id044_1pag1(){
     document.getElementById('id044_1pag1').style.display = 'block';
     document.getElementById('boton4_1').style.background ="#e7e7e7"; 
-    audio1.play();
+    titlea.play();
 
     
   }
   function Salir_id044_1pag1(){
     document.getElementById('id044_1pag1').style.display = 'none'
-    audio1.load();
+    titlea.load();
   }
   function id044_1pag2(){
     document.getElementById('id044_1pag2').style.display = 'block'
     document.getElementById('boton4_2').style.background ="#e7e7e7"; 
-    audio1.play()
+    titleb.play()
   }
   function Salir_id044_1pag2(){
     document.getElementById('id044_1pag2').style.display = 'none'
-    audio1.load();
+    titleb.load();
 
   }
 
@@ -596,14 +611,14 @@ function handleComplete(evt) {
   function id044_1pag3(){
     document.getElementById('id044_1pag3').style.display = 'block'
     document.getElementById('boton4_3').style.background ="#e7e7e7"; 
-    audio1.play();
+    titlec.play();
 
 
   }
 
   function Salir_id044_1pag3(){
     document.getElementById('id044_1pag3').style.display = 'none'
-    audio1.load();
+    titlec.load();
 
 
   }
