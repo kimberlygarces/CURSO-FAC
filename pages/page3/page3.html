@@ -155,6 +155,10 @@
     <source src="sounds/title9_3.mp3" type="audio/mpeg">
   </audio>
 
+  <audio id="title">
+    <source src="sounds/title.mp3" type="audio/mpeg">
+  </audio>
+
 
 <!-- audio page 3 - 2 - 9 -- subtitulos correspondientes al boton 9 opcion 3 -1 -->
         <audio id="title9_1_1">
@@ -265,6 +269,14 @@
             <button onclick="id01()" class="w3-button w3-blue btn-abrir">
               <i class="fa fa-book" aria-hidden="true"></i> Tipos de Contrato</button>
           </div>
+         <br>
+         <div class="playOne">
+          <button onclick="audioItens1()" id="audioItensOne" ng-click="levelOU()"  class="btn-play">
+            <img src="images/play.png">
+          </button>
+         </div>
+      
+      
 
 
 
@@ -2291,6 +2303,9 @@
   var b8 = document.getElementById("boton8");
   var b9 = document.getElementById("boton9");
 
+  var title = document.getElementById('title')
+
+
   var audio = document.getElementById('audio')
   var tipos_contrato = document.getElementById('tipos_contrato')
   var title1 = document.getElementById('title1')
@@ -2805,4 +2820,16 @@ audio.play()
     document.getElementById('id033_5pag4').style.display = 'none'
 
   }
+
+
+    var audioItensOne = document.getElementById("audioItensOne");
+
+
+
+			 function audioItens1(){
+			
+					 title.play();
+           document.getElementById('audioItensOne').style.background = "#e7e7e7";
+	
+			 }
 </script>
