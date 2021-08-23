@@ -7,7 +7,7 @@
 
 }
 .sancion{
-    float: right;
+    float: left;
 }
 .w3-khaki{
     border-radius: 44px 44px 25px 44px;
@@ -20,15 +20,43 @@
 }
 .letras{
     float: left;
-    width: 4%;
-    height: 9%;
+    width: auto;
+    height: 80%;
 }
 .sanciones{
-    width: 30%;
-    height: 30%;
-    float: left;
+    width: 21%;
+    height: auto;
+    margin:auto;
+    border-radius: 79px 79px 79px 79px;
+    -moz-border-radius: 79px 79px 79px 79px;
+    -webkit-border-radius: 79px 79px 79px 79px;
+    border: 0px solid #000000;
     animation-name: jackInTheBox;
     animation-duration: 2s;
+}
+.sanciones1{
+    width: 20%;
+    height: auto;
+    margin-left: 215px;
+    border-radius: 79px 79px 79px 79px;
+    -moz-border-radius: 79px 79px 79px 79px;
+    -webkit-border-radius: 79px 79px 79px 79px;
+    border: 0px solid #000000;
+    animation-name: jackInTheBox;
+    animation-duration: 2s;
+
+}
+.sanciones2{
+    width: 20%;
+    height: auto;
+    float: right;
+    border-radius: 79px 79px 79px 79px;
+    -moz-border-radius: 79px 79px 79px 79px;
+    -webkit-border-radius: 79px 79px 79px 79px;
+    border: 0px solid #000000;
+    animation-name: jackInTheBox;
+    animation-duration: 2s;
+
 }
 .plazo{
     float: right;
@@ -61,10 +89,40 @@
     height: 350px;
 }
 .plazo6{
-    float: left;
+    float: right;
     width: 18%;
-    height: 18%;
+    height: auto;
     animation-name: zoomInRight;
     animation-duration: 2s;
-    margin-left: 160px;
+    
+}
+#sancion6_1:hover, #sancion6_2:hover, #sancion6_3:hover,
+#boton-tipo1:hover, #boton-tipo2:hover, #boton-tipo3:hover, #boton-tipo4:hover {
+    background-color: #eccd41;
+}
+#sancion6_1, #sancion6_2, #sancion6_3, #boton-tipo1, #boton-tipo2, #boton-tipo3, #boton-tipo4{
+    background-color: #f8e48c;
+        border-style: none;
+        -webkit-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+        -moz-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+        box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+        z-index: 1;
+        margin: 2%;
+}
+
+.btn6_1, .btn6_2, .btn6_3{
+    width: 390px;
+    height: 45px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 3%;
+}
+.btn-tipo1, .btn-tipo2, .btn-tipo3, .btn-tipo4{
+    width: 390px;
+    height: 40px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 3%;
 }

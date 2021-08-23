@@ -29,16 +29,16 @@ animation-duration: 4s;
 }
 .img7{
     position:absolute;
-    width: 150px;
+    width: 210px;
     height: auto;
-    margin-left: 220px;
+    margin-left: 180px;
     opacity: 0.2;
 
 }
 .img8{
-        width: 350px;
-        height: 250px;
-        margin-left: 220px;
+        width: 150px;
+        height: auto;
+        margin-left: 280px;
 }
 
 #boton4_1:hover, #boton4_2:hover, #boton4_3:hover {
