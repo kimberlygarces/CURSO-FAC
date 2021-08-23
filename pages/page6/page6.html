@@ -100,6 +100,36 @@
 
   <div class="c_principal c_1_1">
 
+    
+    <audio id="title1">
+      <source src="sounds/title1.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="title1_a">
+      <source src="sounds/title1_a.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="title1_b">
+      <source src="sounds/title1_b.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="title1_c">
+      <source src="sounds/title1_c.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="title1_d">
+      <source src="sounds/title1_d.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="title2">
+      <source src="sounds/title2.mp3" type="audio/mpeg">
+    </audio>
+
+    <audio id="title3">
+      <source src="sounds/title3.mp3" type="audio/mpeg">
+    </audio>
+
+
     <!-- Tipos de sanciones. -->
 
     <div id="id066_1pag1" class="w3-modal">
@@ -883,9 +913,23 @@
 </html>
 
 <script>
+
+var title1 = document.getElementById('title1')
+var title1_a = document.getElementById('title1_a')
+var title1_b = document.getElementById('title1_b')
+var title1_c = document.getElementById('title1_c')
+var title1_d = document.getElementById('title1_d')
+
+
+var title2 = document.getElementById('title2')
+var title3 = document.getElementById('title3')
+
+
+
   function id066_1pag1() {
     document.getElementById('id066_1pag1').style.display = 'block'
     document.getElementById('sancion6_1').style.background ="#e7e7e7"; 
+    title1.play()
   }
 
   function Salir_id066_1pag1() {
@@ -954,6 +998,7 @@
   function id066_2(){
     document.getElementById('id066_2').style.display = 'block'
     document.getElementById('sancion6_2').style.background ="#e7e7e7"; 
+    title2.play()
   }
 
 
@@ -983,6 +1028,7 @@
   function id066_3(){
     document.getElementById('id066_3').style.display = 'block'
     document.getElementById('sancion6_3').style.background ="#e7e7e7"; 
+    title3.play()
   }
 
   function Salir_id066_3(){
@@ -1041,11 +1087,13 @@
   function id066_1pag1_1() {
     document.getElementById('id066_1pag1_1').style.display = 'block'
     document.getElementById('boton-tipo1').style.background ="#e7e7e7"; 
+    title1_a.play()
   }
 
   function Salir_id066_1pag1_1() {
     document.getElementById('id066_1pag1_1').style.display = 'none'
     document.getElementById('id066_1pag1').style.display = 'block'
+    title1_a.load()
 
   }
 
@@ -1060,31 +1108,37 @@
 
   function id066_1pag1_3() {
     document.getElementById('id066_1pag1_3').style.display = 'block'
+    title1_c.play()
   }
 
   function Salir_id066_1pag1_3() {
     document.getElementById('id066_1pag1_3').style.display = 'none'
     document.getElementById('id066_1pag1').style.display = 'block'
     document.getElementById('boton-tipo3').style.background ="#e7e7e7"; 
+    title1_c.load()
   }
 
   function id066_1pag1_4() {
     document.getElementById('id066_1pag1_4').style.display = 'block'
     document.getElementById('boton-tipo4').style.background ="#e7e7e7"; 
+    title1_d.play()
   }
 
   function Salir_id066_1pag1_4() {
     document.getElementById('id066_1pag1_4').style.display = 'none'
     document.getElementById('id066_1pag1').style.display = 'block'
+    title1_d.load()
   }
 
   function id066_1pag2() {
     document.getElementById('id066_1pag2').style.display = 'block'
     document.getElementById('boton-tipo2').style.background ="#e7e7e7"; 
+    title1_b.play()
   }
 
   function Salir_id066_1pag2() {
     document.getElementById('id066_1pag2').style.display = 'none'
+    title1_b.play()
   }
 
   function id066_1pag2_1() {
