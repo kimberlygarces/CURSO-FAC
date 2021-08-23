@@ -105,12 +105,15 @@
   <canvas id="canvas" width="1165" height="550"></canvas>
   <div id="instruccion_circulos" class="instruccion_circulos">
   </div>
+
   <audio id="audio">
     <source src="sounds/star.mp3" type="audio/mpeg">
   </audio>
   <audio id="tipos_contrato">
     <source src="sounds/Tipos_contrato.mp3" type="audio/mpeg">
   </audio>
+
+  <!-- audios pagina 3 - 2 titulos generales -->
   <audio id="title1">
     <source src="sounds/title1.mp3" type="audio/mpeg">
   </audio>
@@ -138,6 +141,54 @@
   </audio>
   <audio id="title9">
     <source src="sounds/title9.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- audios pagina 3 - 2 subtitulos riesgo de incumplimiento contractual -->
+
+  <audio id="title9_1">
+    <source src="sounds/title9_1.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="title9_2">
+    <source src="sounds/title9_2.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="title9_3">
+    <source src="sounds/title9_3.mp3" type="audio/mpeg">
+  </audio>
+
+
+<!-- audio page 3 - 2 - 9 -- subtitulos correspondientes al boton 9 opcion 3 -1 -->
+        <audio id="title9_1_1">
+          <source src="sounds/title9_1_1.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="title9_1_2">
+          <source src="sounds/title9_1_2.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="title9_1_3">
+          <source src="sounds/title9_1_3.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="title9_1_4">
+          <source src="sounds/title9_1_4.mp3" type="audio/mpeg">
+        </audio>
+        <audio id="title9_1_5">
+          <source src="sounds/title9_1_5.mp3" type="audio/mpeg">
+        </audio>
+
+<!-- audios page 3 - 3 : los audios pertenecen al  -->
+
+  <audio id="title1_3">
+    <source src="sounds/title1_3.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="title2_3">
+    <source src="sounds/title2_3.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="title3_3">
+    <source src="sounds/title3_3.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="title4_3">
+    <source src="sounds/title4_3.mp3" type="audio/mpeg">
+  </audio>
+  <audio id="title5_3">
+    <source src="sounds/title5_3.mp3" type="audio/mpeg">
   </audio>
 
   <div class="c_principal c_1_7">
@@ -2252,6 +2303,26 @@
   var title8 = document.getElementById('title8')
   var title9 = document.getElementById('title9')
 
+  var title1_3 = document.getElementById('title1_3')
+  var title2_3 = document.getElementById('title2_3')
+  var title3_3 = document.getElementById('title3_3')
+  var title4_3 = document.getElementById('title4_3')
+  var title5_3 = document.getElementById('title5_3')
+
+
+
+  var title9_1 = document.getElementById('title9_1')
+  var title9_2 = document.getElementById('title9_2')
+  var title9_3 = document.getElementById('title9_3')
+
+
+  
+  var title9_1_1 = document.getElementById('title9_1_1')
+  var title9_1_2 = document.getElementById('title9_1_2')
+  var title9_1_3 = document.getElementById('title9_1_3')  
+  var title9_1_4 = document.getElementById('title9_1_4')
+  var title9_1_5 = document.getElementById('title9_1_5')
+
 
   function id01() {
     document.getElementById('id01').style.display = 'block'
@@ -2365,14 +2436,16 @@
 
   function Siguiente_id012_1() {
     document.getElementById('id012').style.display = 'none',
-      document.getElementById('id012_1').style.display = 'block'
+    document.getElementById('id012_1').style.display = 'block'
     document.getElementById('boton2_9_1').style.background = "#e7e7e7";
+    title9_1.play()
   }
 
   function Siguiente_id012_2() {
     document.getElementById('id012_1').style.display = 'none',
       document.getElementById('id012_2').style.display = 'block'
     document.getElementById('boton2_9_1_1').style.background = "#e7e7e7";
+    title9_1_1.play()
   }
 
   function Siguiente_id012_2_2() {
@@ -2413,6 +2486,7 @@
     document.getElementById('id012_1').style.display = 'none',
       document.getElementById('id012_3').style.display = 'block'
     document.getElementById('boton2_9_1_2').style.background = "#e7e7e7";
+    title9_1_2.play()
   }
 
   function Siguiente_id012_3() {
@@ -2446,6 +2520,7 @@
     document.getElementById('id012_4').style.display = 'block',
       document.getElementById('id012_1').style.display = 'none'
     document.getElementById('boton2_9_1_3').style.background = "#e7e7e7";
+    title9_1_3.play()
   }
 
   function Siguiente_id012_4_2() {
@@ -2472,6 +2547,7 @@
     document.getElementById('id012_1').style.display = 'none',
       document.getElementById('id015').style.display = 'block'
     document.getElementById('boton2_9_1_4').style.background = "#e7e7e7";
+    title9_1_4.play()
   }
 
   function Salir_id015() {
@@ -2484,7 +2560,8 @@
 
   function Siguiente_id016() {
     document.getElementById('id012_1').style.display = 'none',
-      document.getElementById('id016').style.display = 'block'
+    document.getElementById('id016').style.display = 'block'
+    title9_1_5.play()
   }
 
   function Salir_id016() {
@@ -2499,6 +2576,7 @@
     document.getElementById('id017').style.display = 'block',
       document.getElementById('id012').style.display = 'none'
     document.getElementById('boton2_9_2').style.background = "#e7e7e7";
+    title9_2.play()
 
   }
 
@@ -2512,6 +2590,7 @@
     document.getElementById('id018').style.display = 'block',
       document.getElementById('id012').style.display = 'none'
     document.getElementById('boton2_9_3').style.background = "#e7e7e7";
+    title9_3.play()
 
   }
 
@@ -2528,7 +2607,7 @@
   function Siguiente_id033_1() {
     document.getElementById('id033_1').style.display = 'block'
     document.getElementById('boton3_1').style.background = "#e7e7e7";
-    audio.play()
+    title1_3.play()
 
 
   }
@@ -2607,7 +2686,7 @@
   function Siguiente_id033_2() {
     document.getElementById('id033_2').style.display = 'block'
     document.getElementById('boton3_2').style.background = "#e7e7e7";
-    audio.play()
+    title2_3.play()
 
 
   }
@@ -2616,7 +2695,7 @@
   function Siguiente_id033_3() {
     document.getElementById('id033_3').style.display = 'block'
     document.getElementById('boton3_3').style.background = "#e7e7e7";
-    audio.play()
+    title3_3.play()
 
   }
 
@@ -2624,7 +2703,7 @@
   function Siguiente_id033_4() {
     document.getElementById('id033_4').style.display = 'block'
     document.getElementById('boton3_4').style.background = "#e7e7e7";
-    audio.play()
+    title4_3.play()
 
   }
 
@@ -2671,7 +2750,7 @@
   function Siguiente_id033_5() {
     document.getElementById('id033_5').style.display = 'block'
     document.getElementById('boton3_5').style.background = "#e7e7e7";
-    audio.play()
+    title5_3.play()
 
   }
 
