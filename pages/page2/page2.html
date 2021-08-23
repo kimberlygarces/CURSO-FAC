@@ -107,7 +107,7 @@
 		<div id="menu">
 
 			<ul>
-				<li id="item"><a href="page2.1.html" style="position: absolute;top: 490px; left: 550px;">Pag 2</a></li>
+				<li id="item"><a href="page2.1.html" onclick="audioPage2()"  style="position: absolute;top: 490px; left: 550px;">Pag 2</a></li>
 				<li id="item"><a href="page2.html" style="position: absolute;top:  490px; left: 500px;">Pag 1</a></li>
 			</ul>
 		</div>
@@ -567,6 +567,11 @@
 			var b19 = document.getElementById("boton19");
 			var b20 = document.getElementById("boton20");
 			var b21 = document.getElementById("boton21");
+
+
+			function audioPage2(){
+				audio.play()
+			}
 
 			b1.onclick = function () {
 				b1.style.background = "#e7e7e7";
