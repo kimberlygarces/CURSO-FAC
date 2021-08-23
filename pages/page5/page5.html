@@ -1,351 +1,417 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title></title>
-<link rel="stylesheet" href="../../index.css">
-<link rel="stylesheet" href="page5.css">
-<link rel="stylesheet" href="../../page.css">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="../../index.css">
+  <link rel="stylesheet" href="page5.css">
+  <link rel="stylesheet" href="../../page.css">
 
 
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
-<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
-<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
-<script src="../../cjs/easeljs-0.8.2.min.js"></script> 
-<script src="../../cjs/tweenjs-0.6.2.min.js"></script> 
-<script src="../../cjs/preloadjs-0.6.2.min.js"></script> 
-<script src="../../cjs/soundjs-0.6.2.min.js"></script> 
-<script src="page.js"></script> 
-<script src="../../principal.js"></script> 
-<script src="../../cjs/jquery.min.js"></script> 
-<script src="../../cjs/jquery.imagemapster.js"></script> 
-<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script> 
-<script>
-var canvas, stage, exportRoot;
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+  <link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
+  <link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
+  <script src="../../cjs/easeljs-0.8.2.min.js"></script>
+  <script src="../../cjs/tweenjs-0.6.2.min.js"></script>
+  <script src="../../cjs/preloadjs-0.6.2.min.js"></script>
+  <script src="../../cjs/soundjs-0.6.2.min.js"></script>
+  <script src="page.js"></script>
+  <script src="../../principal.js"></script>
+  <script src="../../cjs/jquery.min.js"></script>
+  <script src="../../cjs/jquery.imagemapster.js"></script>
+  <script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
+  <script>
+    var canvas, stage, exportRoot;
 
-function init() {
+    function init() {
 
-	canvas = document.getElementById("canvas");
+      canvas = document.getElementById("canvas");
 
-	var loader = new createjs.LoadQueue(false);
-	loader.installPlugin(createjs.Sound);
-	loader.addEventListener("fileload", handleFileLoad);
-	loader.addEventListener("complete", handleComplete);
-	loader.addEventListener("progress", handleProgress);
-	loader.loadManifest(lib.properties.manifest);	
-}
+      var loader = new createjs.LoadQueue(false);
+      loader.installPlugin(createjs.Sound);
+      loader.addEventListener("fileload", handleFileLoad);
+      loader.addEventListener("complete", handleComplete);
+      loader.addEventListener("progress", handleProgress);
+      loader.loadManifest(lib.properties.manifest);
+    }
 
-function handleFileLoad(evt) {
-	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
-}
+    function handleFileLoad(evt) {
+      if (evt.item.type == "image") {
+        images[evt.item.id] = evt.result;
+      }
+    }
 
-function playSound(id, loop) {
-	createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
-}
+    function playSound(id, loop) {
+      createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+    }
 
-ancho_linea = 0;
-alto_linea = 10;
-max_ancho = 450;
+    ancho_linea = 0;
+    alto_linea = 10;
+    max_ancho = 450;
 
-function handleProgress(evt) {
-	stage = new createjs.Stage(canvas);
-	var bordePadding = 2;
-    var borde = new createjs.Shape;
-    borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding*2, alto_linea).endFill();
-    var linea_carga = new createjs.Shape();
-	linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding,0 + bordePadding, ancho_linea, alto_linea - bordePadding*2).endFill();
-	
-    progreso = Math.round(evt.loaded * max_ancho);
-	ancho_linea = progreso;
-	
-	contenedor = new createjs.Container();
-	contenedor.x = 1240/2 - max_ancho/2;
-	contenedor.y = 495*4/5 - alto_linea/2;
-	contenedor.addChild(borde, linea_carga);
-	
-	//stage.addChild(contenedor);
-	stage.update();
-}
+    function handleProgress(evt) {
+      stage = new createjs.Stage(canvas);
+      var bordePadding = 2;
+      var borde = new createjs.Shape;
+      borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding * 2, alto_linea)
+        .endFill();
+      var linea_carga = new createjs.Shape();
+      linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding, 0 + bordePadding, ancho_linea, alto_linea -
+        bordePadding * 2).endFill();
 
-function handleComplete(evt) {
-	var queue = evt.target;
-	
-	stage = new createjs.Stage(canvas);
-	createjs.Ticker.addEventListener("tick", stage);
+      progreso = Math.round(evt.loaded * max_ancho);
+      ancho_linea = progreso;
 
-	/////Variables
-	sin_personaje = false;
-	globo_personaje = "Ahora revisaremos en qué casos se podrá realizar  la cancelación y resciliación en el proceso de la contratación";
-	pausas_audio = [[0,4398,7509],[687,4772,8247]];
-	
-	contenidos();	
-}
+      contenedor = new createjs.Container();
+      contenedor.x = 1240 / 2 - max_ancho / 2;
+      contenedor.y = 495 * 4 / 5 - alto_linea / 2;
+      contenedor.addChild(borde, linea_carga);
 
-</script>
+      //stage.addChild(contenedor);
+      stage.update();
+    }
+
+    function handleComplete(evt) {
+      var queue = evt.target;
+
+      stage = new createjs.Stage(canvas);
+      createjs.Ticker.addEventListener("tick", stage);
+
+      /////Variables
+      sin_personaje = false;
+      globo_personaje =
+        "Ahora revisaremos en qué casos se podrá realizar  la cancelación y resciliación en el proceso de la contratación";
+      pausas_audio = [
+        [0, 4398, 7509],
+        [687, 4772, 8247]
+      ];
+
+      contenidos();
+    }
+  </script>
 </head>
 
 <body onload="init();">
-<canvas id="canvas" width="1165" height="550"></canvas>
-<div id="instruccion_circulos" class="instruccion_circulos"> </div>
+  <canvas id="canvas" width="1165" height="550"></canvas>
+  <div id="instruccion_circulos" class="instruccion_circulos"> </div>
 
-<!--INICIO CONTENIDO--> 
-<audio id="audio1">
-  <source src="sounds/star.mp3" type="audio/mpeg">
-</audio>
-<!-- Inicio contenido principal-->
+  <!--INICIO CONTENIDO-->
+  <audio id="audio1">
+    <source src="sounds/star.mp3" type="audio/mpeg">
+  </audio>
 
-<div class="c_principal c_1_1"><!--modificar clase c_1_1 según distribución de contenido;-->
 
-	<!-- Cancelación de la Orden de Compra y/o del Contrato.              -->
+  <audio id="title1">
+    <source src="sounds/title1.mp3" type="audio/mpeg">
+  </audio>
 
-  <div id="id055_1pag1" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag1()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Cancelación de la Orden de Compra y/o del Contrato.             
-          </p>
-          <hr>
-		  La Administración podrá cancelar la orden de compra del producto o servicio de un contrato abierto o en un contrato cerrado cuando ocurra uno de los siguientes casos:
-		 <hr> 
-		  <button id="boton-paso1" onclick="id055_1pag1_1()" class="btn5_1_1" style="width: 160px; margin: 1%;"><img src="images/paso1.png" class="num1"></button>
-		  <button id="boton-paso2" onclick="id055_1pag1_2()" class="btn5_1_2" style="width: 160px; margin: 1%;"><img src="images/paso2.png" class="num1"></button>
-		  <button id="boton-paso3" onclick="id055_1pag1_3()" class="btn5_1_3" style="width: 160px; margin: 1%;"><img src="images/paso3.png" class="num1"></button>
-		  <button id="boton-paso4" onclick="id055_1pag1_4()" class="btn5_1_4" style="width: 160px; margin: 1%;"><img src="images/paso4.png" class="num1"></button>
-		  Nota: Adicional a la cancelación de la orden de compra y/o del contrato, se podrá dar inicio al proceso sancionatorio establecido en la presente Directiva.
+  <audio id="title2">
+    <source src="sounds/title2.mp3" type="audio/mpeg">
+  </audio>
 
-		</div>
-      </div>
-    </div>
-  </div>
-  <!-- Cancelación de la Orden de Compra y/o del Contrato.       1       -->
+  <audio id="title2_1">
+    <source src="sounds/title2_1.mp3" type="audio/mpeg">
+  </audio>
+  <!-- ///////////////////// -->
+  <audio id="title1_1">
+    <source src="sounds/title1_1.mp3" type="audio/mpeg">
+  </audio>
 
-  <div id="id055_1pag1_1" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag1_1()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-            <img src="images/img2.png" class="img9"><br>
-			Cancelación de la Orden de Compra y/o del Contrato.             
-          </p>
-          <hr>
-          De común acuerdo entre las partes.	  
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Cancelación de la Orden de Compra y/o del Contrato.       2       -->
+  <audio id="title1_2">
+    <source src="sounds/title1_2.mp3" type="audio/mpeg">
+  </audio>
 
-  <div id="id055_1pag1_2" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag1_2()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Cancelación de la Orden de Compra y/o del Contrato.             
-          </p>
-          <img src="images/img3.png" class="img10">
-          <hr>
-          		  Cuando existan causas de fuerza mayor o caso fortuito debidamente sustentadas que imposibiliten la ejecución de la orden de compra o del contrato.
-      
-        </div>
-      </div>
-    </div>
-  </div>
+  <audio id="title1_3">
+    <source src="sounds/title1_3.mp3" type="audio/mpeg">
+  </audio>
 
-  <!-- Cancelación de la Orden de Compra y/o del Contrato.       3       -->
+  <audio id="title1_4">
+    <source src="sounds/title1_4.mp3" type="audio/mpeg">
+  </audio>
 
-  <div id="id055_1pag1_3" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag1_3()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Cancelación de la Orden de Compra y/o del Contrato.             
-          </p>
-          <hr>
-		  Cuando el proveedor incumpla con todas o alguna de las obligaciones pactadas en el contrato, la Administración podrá cancelar unilateralmente de forma inmediata, la orden de compra o contrato y pagará solo por los productos o servicios que se hayan entregado.
-      <img src="images/img4.png" class="img1">
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- Cancelación de la Orden de Compra y/o del Contrato.       4       -->
 
-  <div id="id055_1pag1_4" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag1_4()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Cancelación de la Orden de Compra y/o del Contrato.             
-          </p>
-          <hr>
-		  Cuando existan causas dCuando al contratista le sea cancelado su registro de proveedor como consecuencia de la aplicación del régimen sancionatorio establecido en la presente Directiva. 
-		  e fuerza mayor o caso fortuito debidamente sustentadas que imposibiliten la ejecución de la orden de compra o del contrato.
-      <img src="images/img5.png" class="img1">
-          <div id="zona_sensible0" class="negrilla_sensible">
-            <!-- <p><i class="fad fa-lightbulb-on"></i></p> -->
-            Concepto visto 
+
+
+
+  <!-- Inicio contenido principal-->
+
+  <div class="c_principal c_1_1">
+    <!--modificar clase c_1_1 según distribución de contenido;-->
+
+    <!-- Cancelación de la Orden de Compra y/o del Contrato.              -->
+
+    <div id="id055_1pag1" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id055_1pag1()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              Cancelación de la Orden de Compra y/o del Contrato.
+            </p>
+            <hr>
+            La Administración podrá cancelar la orden de compra del producto o servicio de un contrato abierto o en un
+            contrato cerrado cuando ocurra uno de los siguientes casos:
+            <hr>
+            <button id="boton-paso1" onclick="id055_1pag1_1()" class="btn5_1_1" style="width: 160px; margin: 1%;"><img
+                src="images/paso1.png" class="num1"></button>
+            <button id="boton-paso2" onclick="id055_1pag1_2()" class="btn5_1_2" style="width: 160px; margin: 1%;"><img
+                src="images/paso2.png" class="num1"></button>
+            <button id="boton-paso3" onclick="id055_1pag1_3()" class="btn5_1_3" style="width: 160px; margin: 1%;"><img
+                src="images/paso3.png" class="num1"></button>
+            <button id="boton-paso4" onclick="id055_1pag1_4()" class="btn5_1_4" style="width: 160px; margin: 1%;"><img
+                src="images/paso4.png" class="num1"></button>
+            Nota: Adicional a la cancelación de la orden de compra y/o del contrato, se podrá dar inicio al proceso
+            sancionatorio establecido en la presente Directiva.
+
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Resciliación -->
+    <!-- Cancelación de la Orden de Compra y/o del Contrato.       1       -->
 
-  <div id="id055_1pag2" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag2()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Resciliación
-		          </p>
-          <hr>
-          <img src="images/img7.png" class="img7">
-		  Para que la resciliación sea posible, debe demostrarse la existencia de alguna de las siguientes causales: fraude, error de ambas partes, falsa representación, u otras causas que justifiquen la terminación del contrato, y conlleven a extinguir las obligaciones en dos sentidos hacia el futuro, quitándole fuerza, y hacia el pasado, deshaciendo sus efectos.
-		  La resciliación puede darse de común acuerdo entre las partes o solicitada a un juez con jurisdicción competente.  Cuando exista la falsa representación o fraude, debidamente demostrada se puede hacer de forma unilateral. 
-				   <hr> 
-		  <button id="boton-acofa" onclick="id055_1pag2_1()" class="btn-acofa" style="width: 100%; margin: 1%;">
-			Para resciliar un contrato celebrado por ACOFA deberá tenerse en cuenta como mínimo lo siguiente:
-		</button>
-    <div class="instruccion_interna">Debe dar clic sobre el botón.</div>
-
-
-		</div>
-      </div>
-    </div>
-  </div>
-
-  <div id="id055_1pag2_1" class="w3-modal">
-    <div id="modal-contentSiguiente" class="w3-modal-content">
-      <div class="w3-container">
-        <div class="w3-display-topleft">
-          <button onclick="Salir_id055_1pag2_1()" id="btn-cerrar"
-            class="w3-button w3-yellow w3-round-xxlarge">X</button>
-        </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
-          <p class="w3-serif" style="font-size: 22px;">
-			Resciliación
-		          </p>
-          <hr>
-		  Para resciliar un contrato celebrado por ACOFA deberá tenerse en cuenta como mínimo lo siguiente:
-      <img src="images/img6.png" class="img1">
-		  <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
-            <tr>
-              <td class="vineta"></td>
-              <td>
-				Que la parte que solicita la resciliación notifique por escrito a la otra parte demostrando y documentando las razones para la resciliación. 
-			</td>
-            </tr>
-            <tr>
-              <td class="vineta"></td>
-              <td>
-				La parte solicitante debe ofrecer o exigir, según sea el caso, a la otra parte la restitución de los beneficios obtenidos del contrato.
-			</td>
-            </tr>
-            <tr>
-              <td class="vineta"></td>
-              <td>
-				Que el Supervisor sustente frente al Comité de Adquisiciones la necesidad de iniciar un proceso de resciliación del contrato.
-			</td>
-            </tr>
-			<tr>
-				<td class="vineta"></td>
-				<td>
-					El Comité de Adquisiciones evaluará la sustentación de resciliación y recomendará al Competente Contractual sobre la conveniencia o no de iniciar el proceso de resciliación, según sea el caso.
-				</td>
-			  </tr>
-			  <tr>
-				<td class="vineta"></td>
-				<td>
-					De ser viable jurídicamente la resciliación, las partes que subscribieron el contrato procederán a firmar el acta de resciliación.
-				</td>
-			  </tr>
-			  <tr>
-				<td class="vineta"></td>
-				<td>
-					Se realizará el balance final del contrato de acuerdo al procedimiento establecido en la presente Directiva.
-				</td>
-			  </tr>
-        
-          </table>
-		  
-		  <div id="zona_sensible1" class="negrilla_sensible">
-            <!-- <p><i class="fad fa-lightbulb-on"></i></p> -->
-            Concepto Visto
+    <div id="id055_1pag1_1" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id055_1pag1_1()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
           </div>
-
-		</div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              <img src="images/img2.png" class="img9"><br>
+              Cancelación de la Orden de Compra y/o del Contrato.
+            </p>
+            <hr>
+            De común acuerdo entre las partes.
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+    <!-- Cancelación de la Orden de Compra y/o del Contrato.       2       -->
+
+    <div id="id055_1pag1_2" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id055_1pag1_2()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              Cancelación de la Orden de Compra y/o del Contrato.
+            </p>
+            <img src="images/img3.png" class="img10">
+            <hr>
+            Cuando existan causas de fuerza mayor o caso fortuito debidamente sustentadas que imposibiliten la ejecución
+            de la orden de compra o del contrato.
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cancelación de la Orden de Compra y/o del Contrato.       3       -->
+
+    <div id="id055_1pag1_3" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id055_1pag1_3()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              Cancelación de la Orden de Compra y/o del Contrato.
+            </p>
+            <hr>
+            Cuando el proveedor incumpla con todas o alguna de las obligaciones pactadas en el contrato, la
+            Administración podrá cancelar unilateralmente de forma inmediata, la orden de compra o contrato y pagará
+            solo por los productos o servicios que se hayan entregado.
+            <img src="images/img4.png" class="img1">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cancelación de la Orden de Compra y/o del Contrato.       4       -->
+
+    <div id="id055_1pag1_4" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id055_1pag1_4()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              Cancelación de la Orden de Compra y/o del Contrato.
+            </p>
+            <hr>
+            Cuando existan causas dCuando al contratista le sea cancelado su registro de proveedor como consecuencia de
+            la aplicación del régimen sancionatorio establecido en la presente Directiva.
+            e fuerza mayor o caso fortuito debidamente sustentadas que imposibiliten la ejecución de la orden de compra
+            o del contrato.
+            <img src="images/img5.png" class="img1">
+            <div id="zona_sensible0" class="negrilla_sensible">
+              <!-- <p><i class="fad fa-lightbulb-on"></i></p> -->
+              Concepto visto
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Resciliación -->
+
+    <div id="id055_1pag2" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id055_1pag2()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px;">
+              Resciliación
+            </p>
+            <hr>
+            <img src="images/img7.png" class="img7">
+            Para que la resciliación sea posible, debe demostrarse la existencia de alguna de las siguientes causales:
+            fraude, error de ambas partes, falsa representación, u otras causas que justifiquen la terminación del
+            contrato, y conlleven a extinguir las obligaciones en dos sentidos hacia el futuro, quitándole fuerza, y
+            hacia el pasado, deshaciendo sus efectos.
+            La resciliación puede darse de común acuerdo entre las partes o solicitada a un juez con jurisdicción
+            competente. Cuando exista la falsa representación o fraude, debidamente demostrada se puede hacer de forma
+            unilateral.
+            <hr>
+            <button id="boton-acofa" onclick="id055_1pag2_1()" class="btn-acofa" style="width: 100%; margin: 1%;">
+              Para resciliar un contrato celebrado por ACOFA deberá tenerse en cuenta como mínimo lo siguiente:
+            </button>
+            <div class="instruccion_interna">Debe dar clic sobre el botón.</div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="id055_1pag2_1" class="w3-modal">
+      <div id="modal-contentSiguiente" class="w3-modal-content">
+        <div class="w3-container">
+          <div class="w3-display-topleft">
+            <button onclick="Salir_id055_1pag2_1()" id="btn-cerrar"
+              class="w3-button w3-yellow w3-round-xxlarge">X</button>
+          </div>
+          <div class="w3-col resaltado_especial" style="width:95%">
+            <p class="w3-serif" style="font-size: 22px; text-align: center;">
+              Resciliación
+            </p>
+            <hr>
+            Para resciliar un contrato celebrado por ACOFA deberá tenerse en cuenta como mínimo lo siguiente:
+            <img src="images/img6.png" class="img1" style="width: 150px;">
+            <table class="lista_vinetas" style="font-size: 15px; line-height: 17px">
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Que la parte que solicita la resciliación notifique por escrito a la otra parte demostrando y
+                  documentando las razones para la resciliación.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  La parte solicitante debe ofrecer o exigir, según sea el caso, a la otra parte la restitución de los
+                  beneficios obtenidos del contrato.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Que el Supervisor sustente frente al Comité de Adquisiciones la necesidad de iniciar un proceso de
+                  resciliación del contrato.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  El Comité de Adquisiciones evaluará la sustentación de resciliación y recomendará al Competente
+                  Contractual sobre la conveniencia o no de iniciar el proceso de resciliación, según sea el caso.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  De ser viable jurídicamente la resciliación, las partes que subscribieron el contrato procederán a
+                  firmar el acta de resciliación.
+                </td>
+              </tr>
+              <tr>
+                <td class="vineta"></td>
+                <td>
+                  Se realizará el balance final del contrato de acuerdo al procedimiento establecido en la presente
+                  Directiva.
+                </td>
+              </tr>
+
+            </table>
+
+            <div id="zona_sensible1" class="negrilla_sensible">
+              <!-- <p><i class="fad fa-lightbulb-on"></i></p> -->
+              Concepto Visto
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <div class="txt_c">
-        <div class=" w3-col resaltado_especial" style="width:65%; margin: 5%; ">
-          <p class="w3-serif" style="font-size: 22px;">
-			Cancelación y resciliación:
+      <div class=" w3-col resaltado_especial" style="width:65%; margin: 5%; ">
+        <p class="w3-serif" style="font-size: 22px;">
+          Cancelación y resciliación:
 
-          </p>
-          <hr>
-          <button id="boton5_1" onclick="id055_1pag1()" class="btn5_1" style="width: 100%; margin: 1%;">
-            <img src="images/cancelar.png" class="resili">
-                
-
-            Cancelación de la Orden de Compra y/o del Contrato. 
-            
-		</button>
-          <button id="boton5_2" onclick="id055_1pag2()" class="btn5_2" style="width: 100%; margin: 1%;">
-            <img src="images/recili.png" class="resili">  
-            Resciliación
-      
-          </button>
-     
-          <div class="instruccion_interna">Pasa dar click en cada uno de los botones</div>
-
-        </div>
-        <div class="img_id01">
-          <img src="images/img1.gif" height="250px" style="position: absolute; right: 10px; bottom: 15px; bottom: 10px;">
-        </div>
-        
+        </p>
+        <hr>
+        <button id="boton5_1" onclick="id055_1pag1()" class="btn5_1" style="width: 100%; margin: 1%;">
+          <img src="images/cancelar.png" class="resili">
 
 
-</div>
-    
-    
-<div id="pop0" class="pop">
-  Puede pasar al siguiente punto
-</div>
-<div id="pop1" class="pop"> 
-  Puede pasar al siguiente punto</div>
-<div id="pop2" class="pop">
-   Puede pasar al siguiente punto
-</div>
-<!-- <div id="pop3" class="pop"> Expedientes abiertos al público. </div>
+          Cancelación de la Orden de Compra y/o del Contrato.
+
+        </button>
+        <button id="boton5_2" onclick="id055_1pag2()" class="btn5_2" style="width: 100%; margin: 1%;">
+          <img src="images/recili.png" class="resili">
+          Resciliación
+
+        </button>
+
+        <div class="instruccion_interna">Pasa dar click en cada uno de los botones</div>
+
+      </div>
+      <div class="img_id01">
+        <img src="images/img1.gif" height="250px" style="position: absolute; right: 10px; bottom: 15px; bottom: 10px;">
+      </div>
+
+
+
+    </div>
+
+
+    <div id="pop0" class="pop">
+      Puede pasar al siguiente punto
+    </div>
+    <div id="pop1" class="pop">
+      Puede pasar al siguiente punto</div>
+    <div id="pop2" class="pop">
+      Puede pasar al siguiente punto
+    </div>
+    <!-- <div id="pop3" class="pop"> Expedientes abiertos al público. </div>
 <div id="pop4" class="pop"> No incluir en los pliegos de condiciones exigencias de imposible cumplimiento. </div>
 <div id="pop5" class="pop"> Previamente al inicio de un proceso de selección, la entidad estatal debe asegurarse de contar con las partidas presupuestales necesarias y los estudios previos que permitan establecer el objeto a contratar. </div>
 <div id="pop6" class="pop"> Adelantar los trámites con austeridad en tiempo y de recursos. </div>
@@ -370,81 +436,113 @@ function handleComplete(evt) {
 <div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div>
 <div id="pop16" class="pop"> Escoger el contratista sin consideraciones subjetivas, afecto o interés. </div> -->
 </body>
+
 </html>
 
 <script>
-     	var audio1 = document.getElementById('audio1')
+  var audio1 = document.getElementById('audio1')
+  var title1 = document.getElementById('title1')
+  var title1_1 = document.getElementById('title1_1')
+  var title1_2 = document.getElementById('title1_2')
+  var title1_3 = document.getElementById('title1_3')
+  var title1_4 = document.getElementById('title1_4')
 
-  function id055_1pag1(){
+  var title2 = document.getElementById('title2')
+  var title2_1 = document.getElementById('title2_1')
+
+
+  function id055_1pag1() {
     document.getElementById('id055_1pag1').style.display = 'block'
-    document.getElementById('boton5_1').style.background ="#e7e7e7"; 
-    audio1.play();
+    document.getElementById('boton5_1').style.background = "#e7e7e7";
+    title1.play();
 
   }
-  function Salir_id055_1pag1(){
+
+  function Salir_id055_1pag1() {
     document.getElementById('id055_1pag1').style.display = 'none'
   }
-  function id055_1pag1_1(){
+
+  function id055_1pag1_1() {
     document.getElementById('id055_1pag1_1').style.display = 'block'
-    document.getElementById('boton-paso1').style.background ="#e7e7e7"; 
+    document.getElementById('boton-paso1').style.background = "#e7e7e7";
+    title1_1.play();
+
   }
-  function Salir_id055_1pag1_1(){
+
+  function Salir_id055_1pag1_1() {
     document.getElementById('id055_1pag1_1').style.display = 'none'
-	document.getElementById('id055_1pag1').style.display = 'block'
+    document.getElementById('id055_1pag1').style.display = 'block'
+    title1_1.load();
+
 
   }
-  function id055_1pag1_2(){
+
+  function id055_1pag1_2() {
     document.getElementById('id055_1pag1_2').style.display = 'block'
-    document.getElementById('boton-paso2').style.background ="#e7e7e7"; 
+    document.getElementById('boton-paso2').style.background = "#e7e7e7";
+    title1_2.play();
+
   }
-  function Salir_id055_1pag1_2(){
+
+  function Salir_id055_1pag1_2() {
     document.getElementById('id055_1pag1_2').style.display = 'none'
-	document.getElementById('id055_1pag1').style.display = 'block'
+    document.getElementById('id055_1pag1').style.display = 'block'
+    title1_2.load();
+
+
   }
 
-  function id055_1pag1_3(){
+  function id055_1pag1_3() {
     document.getElementById('id055_1pag1_3').style.display = 'block'
-    document.getElementById('boton-paso3').style.background ="#e7e7e7"; 
+    document.getElementById('boton-paso3').style.background = "#e7e7e7";
+    title1_3.play();
+
   }
-  function Salir_id055_1pag1_3(){
+
+  function Salir_id055_1pag1_3() {
     document.getElementById('id055_1pag1_3').style.display = 'none'
-	document.getElementById('id055_1pag1').style.display = 'block'
+    document.getElementById('id055_1pag1').style.display = 'block'
+    title1_3.load();
+
   }
-  function id055_1pag1_4(){
+
+  function id055_1pag1_4() {
     document.getElementById('id055_1pag1_4').style.display = 'block'
-    document.getElementById('boton-paso4').style.background ="#e7e7e7"; 
+    document.getElementById('boton-paso4').style.background = "#e7e7e7";
+    title1_4.play();
+
   }
-  function Salir_id055_1pag1_4(){
+
+  function Salir_id055_1pag1_4() {
     document.getElementById('id055_1pag1_4').style.display = 'none'
-	document.getElementById('id055_1pag1').style.display = 'block'
+    document.getElementById('id055_1pag1').style.display = 'block'
+    title1_4.load();
+
   }
 
-  function id055_1pag2(){
+  function id055_1pag2() {
     document.getElementById('id055_1pag2').style.display = 'block'
-    document.getElementById('boton5_2').style.background ="#e7e7e7"; 
-    audio1.play();
+    document.getElementById('boton5_2').style.background = "#e7e7e7";
+    title2.play();
 
   }
-  function Salir_id055_1pag2(){
+
+  function Salir_id055_1pag2() {
     document.getElementById('id055_1pag2').style.display = 'none'
   }
 
-  function id055_1pag2_1(){
+  function id055_1pag2_1() {
     document.getElementById('id055_1pag2_1').style.display = 'block'
-	document.getElementById('id055_1pag2').style.display = 'none'
-  document.getElementById('boton-acofa').style.background ="#e7e7e7"; 
+    document.getElementById('id055_1pag2').style.display = 'none'
+    document.getElementById('boton-acofa').style.background = "#e7e7e7";
+    title2_1.play();
+
 
   }
-  function Salir_id055_1pag2_1(){
+
+  function Salir_id055_1pag2_1() {
     document.getElementById('id055_1pag2_1').style.display = 'none'
-	document.getElementById('id055_1pag2').style.display = 'block'
+    document.getElementById('id055_1pag2').style.display = 'block'
 
   }
-
-
-
-
-
-
-
 </script>
