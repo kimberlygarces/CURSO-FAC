@@ -74,6 +74,14 @@ button{
 }
 
 
+.fondoimg{
+  position:center;
+  width: 120px;
+height: 120PX;
+margin-left: 35%;
+}
+
+
 .ventana1{
     z-index: 3;
 
