@@ -39,7 +39,7 @@
       left: 10%;
       top: 15%;
       display: none;
-      z-index: 1;
+      z-index: 3;
       -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
         -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
         
@@ -67,7 +67,7 @@
     left: 10%;
     top: 15%;
     display: none;
-    z-index: 1;
+    z-index: 3;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
       -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
       
@@ -96,7 +96,7 @@
     left: 10%;
     top: 15%;
     display: none;
-    z-index: 1;
+    z-index: 3;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
       -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
       
@@ -124,9 +124,10 @@
     left: 10%;
     top: 15%;
     display: none;
-    z-index: 1;
+    z-index: 3;
+
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
-      -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
       
       box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
 
@@ -136,6 +137,7 @@
       animation-name: jello;
       animation-duration: 2s;
 
+      
 
 }
 
@@ -153,7 +155,7 @@
     left: 10%;
     top: 15%;
     display: none;
-    z-index: 1;
+    z-index: 3;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
       -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
       
@@ -181,7 +183,7 @@
     left: 10%;
     top: 15%;
     display: none;
-    z-index: 1;
+    z-index: 3;
     -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
       -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
       
@@ -285,7 +287,7 @@
   
 }
 
-.img6{
+.img6_2{
     
   margin-bottom: 1%;
   margin-left: 40%;
@@ -293,7 +295,7 @@
   height: auto;
 
 }
-.img7{
+.img7_2{
     
   margin-bottom: 1%;
   margin-left: 30%;
@@ -301,7 +303,7 @@
   height: auto;
 
 }
-.img8{
+.img8_2{
     
   margin-bottom: 1%;
   margin-left: 40%;
@@ -310,7 +312,7 @@
 
 }
 
-.img9{
+.img9_2{
     
   margin-bottom: 1%;
   margin-left: 65%;
@@ -379,7 +381,7 @@ margin-top: 25%;
 
 }
 
-.btn-def{
+.btn-def2{
   width: 280px;
   height: 39px;
   text-align: center;
@@ -394,7 +396,8 @@ margin-top: 25%;
   background-color: #eccd41;
 }
 
-#contenedor1, #contenedor2, #contenedor3, #contenedor4, #contenedor5, #contenedor6, #contenedor7, #contenedor8, #boton9, #boton10,
+#contenedor1, #contenedor2, #contenedor3, #contenedor4, #contenedor5, #contenedor6, #contenedor7, #contenedor8, 
+#boton9, #boton10,
 #boton11, #boton12, #boton13, #boton14, #boton15, #boton16, #boton17, #boton18, #boton19, #boton20, #boton21{
   background-color: #f8e48c;
   border-style: none;

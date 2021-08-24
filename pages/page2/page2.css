@@ -49,6 +49,346 @@ button{
     border-radius: 10px;
 
   }
+  .btn-subMenu{
+    width: 100%;
+    margin: 2%;
+
+}
+.imgContenedor{
+    
+  margin-bottom: 2%;
+  margin-left: 12%;
+  width: 10%;
+  height: auto;
+  text-align: right;
+
+
+}
+
+.fondo{
+  z-index: 2;
+  width: 100%;
+  height: 90%;
+  background-color: rgb(255, 255, 255);
+
+}
+
+
+.ventana1{
+    z-index: 3;
+
+    background: rgb(255, 255, 255);
+    width: 80%;
+    height: 70%;
+    color: black;
+    font-family: "klavika-regular";
+    font-size: 18px;
+    text-align: justify;
+    padding: 50px;
+    min-height: 200px;
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    display: none;
+    -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);  
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+    border-style: solid;
+    border: 2px solid #0877B5;
+    color:#0877B5;
+    animation-name: jello;
+    animation-duration: 2s;
+
+}
+
+.ventana2{
+  background: rgb(255, 255, 255);
+  width: 80%;
+  height: 80%;
+  color: black;
+  font-family: "klavika-regular";
+  font-size: 18px;
+  text-align: left;
+  padding: 50px;
+  min-height: 200px;
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  display: none;
+  z-index: 3;
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+    border-style: solid;
+    border: 2px solid #0877B5;
+    color:#0877B5;
+    animation-name: jello;
+    animation-duration: 2s;
+
+
+}
+
+.ventana3{
+  background: rgb(255, 255, 255);
+  width: 80%;
+  height: 60%;
+  color: black;
+  font-family: "klavika-regular";
+  font-size: 18px;
+  text-align: left;
+  padding: 50px;
+  min-height: 200px;
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  display: none;
+  z-index: 3;
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+    border-style: solid;
+    border: 2px solid #0877B5;
+    color:#0877B5;
+    animation-name: jello;
+    animation-duration: 2s;
+
+
+}
+.ventana4{
+  background: rgb(255, 255, 255);
+  width: 80%;
+  height: 80%;
+  color: black;
+  font-family: "klavika-regular";
+  font-size: 16px;
+  text-align: justify;
+  padding: 50px;
+  min-height: 200px;
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  display: none;
+  z-index: 3;
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+    border-style: solid;
+    border: 2px solid #0877B5;
+    color:#0877B5;
+    animation-name: jello;
+    animation-duration: 2s;
+
+
+}
+
+.ventana5{
+  background: rgb(255, 255, 255);
+  width: 90%;
+  height: 85%;
+  color: black;
+  font-family: "klavika-regular";
+  font-size: 15px;
+  text-align: justify;
+  padding: 40px;
+  min-height: 200px;
+  position: absolute;
+  left: 5%;
+  top: 15%;
+  display: none;
+  z-index: 3;
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+    border-style: solid;
+    border: 2px solid #0877B5;
+    color:#0877B5;
+    animation-name: jello;
+    animation-duration: 2s;
+
+}
+
+.ventana6{
+  background: rgb(255, 255, 255);
+  width: 80%;
+  height: 80%;
+  color: black;
+  font-family: "klavika-regular";
+  font-size: 16px;
+  text-align: justify;
+  padding: 50px;
+  min-height: 200px;
+  position: absolute;
+  left: 10%;
+  top: 15%;
+  display: none;
+  z-index: 3;
+  -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+
+    border-style: solid;
+    border: 2px solid #0877B5;
+    color:#0877B5;
+    animation-name: jello;
+    animation-duration: 2s;
+
+}
+
+#cerrar1{
+  position: absolute;
+  right: -10px;
+  top: -15px;
+  }
+#cerrar2{
+  position: absolute;
+  right: -10px;
+  top: -15px;
+}
+
+#cerrar3{
+  position: absolute;
+  right: -10px;
+  top: -15px;
+}
+#cerrar4{
+  position: absolute;
+  right: -10px;
+  top: -15px;
+}
+#cerrar5{
+  position: absolute;
+  right: -10px;
+  top: -15px;
+}
+#cerrar6{
+  position: absolute;
+  right: -10px;
+  top: -15px;
+}
+
+
+
+  .btn-def2{
+    width: 290px;
+    height: 39px;
+    text-align: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: 5%;
+  
+  }
+
+  #resaltado_especial{
+    background: #005688; /* For browsers that do not support gradients */
+  
+    border-style: solid;
+     border: 2px solid #0877B5;
+     
+     border-radius: 0px;
+     
+     width:auto;
+     padding: 15px 35px; 
+     font-size: 16px;
+     line-height: 25px;
+    font-family: "klavika-regular";
+  
+    
+    text-align: left;
+    height: auto;
+    
+    color:#0877B5;
+  
+    background-color: transparent;
+  
+    box-shadow: 0 0 0px rgba(0,0,0,0.3);
+  
+    margin:15px 5px;
+  
+    display: inline-block;
+    
+  
+     
+  }
+  .delegado{
+    width: 48%;
+    height: 68%; 
+    margin-left: 62%;
+    margin-top: -30%;
+  
+  }
+  .unidades{
+    width: 70%;
+    height: 95%; 
+    top: 5%;
+    position: absolute;
+    margin-left: 7%;
+    opacity: 0.2;
+    
+  }
+  
+  .deposito{
+    width: 30% ;
+    height: 60%;
+    margin-bottom: 1%;
+  }
+  .area{
+    position:relative;
+    width: 50%;
+    height: 70%;
+    margin-left: 20%;
+    margin-top: 2%;
+  }
+  .servicio{
+    width: 70%;
+    height: 95%; 
+    top: 5%;
+    position: absolute;
+    margin-left: 7%;
+    opacity: 0.2;
+  
+  }
+  .doc{
+    width:40% ;
+    height:60% ;
+    margin-bottom: 3%;
+    margin-left: 25%;
+  
+  }
+
+  #contenedor1, #contenedor2, #contenedor3, #contenedor4, #contenedor5, #contenedor6{
+    background-color: #f8e48c;
+    border-style: none;
+    -webkit-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+    z-index: 1;
+    margin: 2%;
+  }
+  #contenedor1:hover, #contenedor2:hover, #contenedor3:hover, #contenedor4:hover, #contenedor5:hover, #contenedor6:hover{
+    background-color: #eccd41;
+
+  }
+
+
+
+
+
+
+  #page2{
+    background-color: rgb(255, 255, 255);
+  }
+
+  
   #boton1:hover, #boton2:hover, #boton3:hover, #boton4:hover, #boton5:hover, #boton6:hover,#boton7:hover, #boton8:hover, #boton9:hover, #boton10:hover,
   #boton11:hover, #boton12:hover, #boton13:hover, #boton14:hover, #boton15:hover, #boton16:hover,#boton17:hover, #boton18:hover, #boton19:hover,#boton20:hover, #boton21:hover
   {
@@ -212,5 +552,41 @@ border-radius: 5px;
   width: 50%;
   height: 50%;
   margin-right: 80%;
+}
+
+
+
+.img6_2{
+    
+  margin-bottom: 1%;
+  margin-left: 40%;
+  width: 10%;
+  height: auto;
+
+}
+.img7_2{
+    
+  margin-bottom: 1%;
+  margin-left: 30%;
+  width: 10%;
+  height: auto;
+
+}
+.img8_2{
+    
+  margin-bottom: 1%;
+  margin-left: 40%;
+  width: 10%;
+  height: auto;
+
+}
+
+.img9_2{
+    
+  margin-bottom: 1%;
+  margin-left: 65%;
+  width: 10%;
+  height: auto;
+
 }
 
