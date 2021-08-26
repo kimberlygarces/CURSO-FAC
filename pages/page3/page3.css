@@ -43,10 +43,10 @@ border: 1.5px  inset #666363;
       float: left;
     }
 
-    .img3{
+    /* .img3{
         animation-name: slideInRight;
         animation-duration: 2s;
-      }
+      } */
        
 
 .img4{
@@ -65,6 +65,40 @@ height: 35%;
     animation-name: swing;
     animation-duration: 2s;
     
+}
+.btn-contrato{
+    background-color: #eccd41;
+    border: none;
+    outline:none;
+    -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+    transform:  transform 1.5s linear;
+
+}
+#btn-contrato1:hover{
+
+    background-color: #b8b192;
+
+}
+
+#btn-contrato2:hover{
+
+    background-color: #b8b192;
+
+}
+
+#contrato1{
+        
+    animation-name: swing;
+    animation-duration: 2s;
+
+}
+#contrato2{
+        
+    animation-name: swing;
+    animation-duration: 2s;
+
 }
 .img6{
     position: relative;
@@ -153,10 +187,10 @@ height: 35%;
 
 }
 
-.w3-col{
+/* .w3-col{
     animation-name: fadeInUp;
     animation-duration: 2s;
-}
+} */
 
 .img17{
     width: 35%;

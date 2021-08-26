@@ -34,8 +34,8 @@ padding-left: 120PX;
 border-radius: 6px 89px 0px 48px;
     -moz-border-radius: 6px 89px 0px 48px;
     -webkit-border-radius: 6px 89px 0px 48px;
-	animation-name: zoomIn;
-	animation-duration: 2s;
+	/* animation-name: zoomIn;
+	animation-duration: 2s; */
 
 }
 .w3-modal-content{
@@ -43,8 +43,8 @@ border-radius: 6px 89px 0px 48px;
 	border-radius: 6px 89px 0px 48px;
     -moz-border-radius: 6px 89px 0px 48px;
     -webkit-border-radius: 6px 89px 0px 48px;
-	animation-name: zoomIn;
-	animation-duration: 2s;
+	/* animation-name: zoomIn;
+	animation-duration: 2s; */
 
 }
 .w3-card{
@@ -60,7 +60,7 @@ border-radius: 6px 89px 0px 48px;
 
 #id01, #id02, #id03, #id04, #id04_2, #id05, #id06, #id07, #id08, #id09, 
 #id010, #id011, #id012, #id012_1, #id012_2, #id012_4, #id012_3_2 ,#id012_2_2, #id012_3, 
-#id018, #id017, #id016, #id015, #id011_2, #id012_2_3, #id012_3_1, #id012_3, #id012_3_1, #id012_4_2{
+#id018, #id017, #id016, #id015, #id011_2, #id012_2_3, #id012_3_1, #id012_3, #id012_3_1, #id012_4_2, #contrato1, #contrato2{
 	background-color: rgb(255, 255, 255);
 }
 #modal-content{
@@ -68,16 +68,16 @@ border-radius: 6px 89px 0px 48px;
 	-webkit-box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
-	animation-name: zoomIn;
-    animation-duration: 2s;
+	/* animation-name: zoomIn;
+    animation-duration: 2s; */
 }
 #modal-contentSiguiente{
 	background-color: rgb(255, 255, 255);
 	-webkit-box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
 	-moz-box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: 3px -1px 5px 0px rgba(0,0,0,0.75);
-	animation-name: fadeIn;
-    animation-duration: 2s;
+	/* animation-name: fadeIn;
+    animation-duration: 2s; */
 }
 
 
