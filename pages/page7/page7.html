@@ -1,164 +1,178 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title></title>
+	<meta charset="UTF-8">
+	<title></title>
 
-<link rel="stylesheet" href="../../index.css">
-<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
-<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
+	<link rel="stylesheet" href="../../index.css">
+	<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
+	<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
 
-<script src="../../cjs/easeljs-0.8.2.min.js"></script>
-<script src="../../cjs/tweenjs-0.6.2.min.js"></script>
-<script src="../../cjs/preloadjs-0.6.2.min.js"></script>
-<script src="../../cjs/soundjs-0.6.2.min.js"></script>
-<script src="page.js"></script>
-<script src="../../principal.js"></script>
-<script src="../../cjs/jquery.min.js"></script>
-<script src="../../cjs/jquery.imagemapster.js"></script>
-<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script src="../../cjs/easeljs-0.8.2.min.js"></script>
+	<script src="../../cjs/tweenjs-0.6.2.min.js"></script>
+	<script src="../../cjs/preloadjs-0.6.2.min.js"></script>
+	<script src="../../cjs/soundjs-0.6.2.min.js"></script>
+	<script src="page.js"></script>
+	<script src="../../principal.js"></script>
+	<script src="../../cjs/jquery.min.js"></script>
+	<script src="../../cjs/jquery.imagemapster.js"></script>
+	<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
 
-<script>
-var canvas, stage, exportRoot;
+	<script>
+		var canvas, stage, exportRoot;
 
-function init() {
+		function init() {
 
-	canvas = document.getElementById("canvas");
+			canvas = document.getElementById("canvas");
 
-	var loader = new createjs.LoadQueue(false);
-	loader.installPlugin(createjs.Sound);
-	loader.addEventListener("fileload", handleFileLoad);
-	loader.addEventListener("complete", handleComplete);
-	loader.addEventListener("progress", handleProgress);
-	loader.loadManifest(lib.properties.manifest);	
-}
+			var loader = new createjs.LoadQueue(false);
+			loader.installPlugin(createjs.Sound);
+			loader.addEventListener("fileload", handleFileLoad);
+			loader.addEventListener("complete", handleComplete);
+			loader.addEventListener("progress", handleProgress);
+			loader.loadManifest(lib.properties.manifest);
+		}
 
-function handleFileLoad(evt) {
-	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
-}
+		function handleFileLoad(evt) {
+			if (evt.item.type == "image") {
+				images[evt.item.id] = evt.result;
+			}
+		}
 
-function playSound(id, loop) {
-	createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
-}
+		function playSound(id, loop) {
+			createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+		}
 
-ancho_linea = 0;
-alto_linea = 10;
-max_ancho = 450;
+		ancho_linea = 0;
+		alto_linea = 10;
+		max_ancho = 450;
 
-function handleProgress(evt) {
-	stage = new createjs.Stage(canvas);
-	var bordePadding = 2;
-	var borde = new createjs.Shape;
-	borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding*2, alto_linea).endFill();
-	var linea_carga = new createjs.Shape();
-	linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding,0 + bordePadding, ancho_linea, alto_linea - bordePadding*2).endFill();
-	
-	progreso = Math.round(evt.loaded * max_ancho);
-	ancho_linea = progreso;
-	
-	contenedor = new createjs.Container();
-	contenedor.x = 1240/2 - max_ancho/2;
-	contenedor.y = 495*4/5 - alto_linea/2;
-	contenedor.addChild(borde, linea_carga);
-	
-	//stage.addChild(contenedor);
-	stage.update();
-}
+		function handleProgress(evt) {
+			stage = new createjs.Stage(canvas);
+			var bordePadding = 2;
+			var borde = new createjs.Shape;
+			borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding * 2, alto_linea)
+				.endFill();
+			var linea_carga = new createjs.Shape();
+			linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding, 0 + bordePadding, ancho_linea, alto_linea -
+				bordePadding * 2).endFill();
 
-function handleComplete(evt) {
-	var queue = evt.target;
-	
-	stage = new createjs.Stage(canvas);
-	createjs.Ticker.addEventListener("tick", stage);
+			progreso = Math.round(evt.loaded * max_ancho);
+			ancho_linea = progreso;
 
-	/////Variables
-	sin_personaje = false;
-	globo_personaje = "Con el fin de reforzar los contenidos aprendidos en este módulo, te invitamos a observar el siguiente vídeo y a realizar la actividad propuesta.";
-	pausas_audio = [[0,7190],[699,7880]];
-	
-	contenidos();	
-}
+			contenedor = new createjs.Container();
+			contenedor.x = 1240 / 2 - max_ancho / 2;
+			contenedor.y = 495 * 4 / 5 - alto_linea / 2;
+			contenedor.addChild(borde, linea_carga);
 
-</script>
+			//stage.addChild(contenedor);
+			stage.update();
+		}
+
+		function handleComplete(evt) {
+			var queue = evt.target;
+
+			stage = new createjs.Stage(canvas);
+			createjs.Ticker.addEventListener("tick", stage);
+
+			/////Variables
+			sin_personaje = false;
+			globo_personaje =
+				"Con el fin de reforzar los contenidos aprendidos en este módulo, te invitamos a observar el siguiente vídeo y a realizar la actividad propuesta.";
+			pausas_audio = [
+				[0, 7190],
+				[699, 7880]
+			];
+
+			contenidos();
+		}
+	</script>
 
 </head>
 
 <body onload="init();">
-<canvas id="canvas" width="1265" height="550"></canvas>
-	<div id="instruccion_circulos" class="instruccion_circulos"> 
+	<canvas id="canvas" width="1265" height="550"></canvas>
+	<div id="instruccion_circulos" class="instruccion_circulos">
 		Analiza el hallazgo y selecciona las dos conclusiones que es posible obtener:
 
 
 	</div>
-	
+
 	<!--INICIO CONTENIDO-->
 
 	<!-- Inicio contenido principal-->
-	<div class="c_principal c_1_1"><!--modificar clase c_1_1 según distribución de contenido;-->
+	<div class="c_principal c_1_1">
+		<!--modificar clase c_1_1 según distribución de contenido;-->
 		<h1></h1>
-		<div class="item_c" style="margin-top: 70px;"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+		<div class="item_c" style="margin-top: 70px;">
+			<!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
 			<video controls preload="auto">
-  	<source src="video/page7.mp4" type="video/mp4">
-	Su navegador no soporta video HTML5.
-</video>
+				<source src="video/page7.mp4" type="video/mp4">
+				Su navegador no soporta video HTML5.
+			</video>
 
 		</div>
-					
-		<div class="item_c" style="margin-top: 70px;"><!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-			
-            
-            
-            
-            
-            
-            
-            
-            
+
+		<div class="item_c" style="margin-top: 70px;">
+			<!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+
+
+
+
+
+
+
+			De las siguientes opciones cuál pertenece a la etapa contractual del proceso de contratación?
+
+
 			<div class="opciones_preg">
-                
-                
-                <table>
-        <tr>
-          <td style="width: 305px;"><div id="correcto0" class="opcion_preg">
-En la etapa precontractual, la Entidad no verificó las capacidades de la compañía seleccionada, lo cual se evidencia con la subcontratación de la empresa fabricante y el incumplimiento de los plazos.
 
-				</div>
-            </td>
-          <td> <div id="incorrecto0" class="opcion_preg">
-En la etapa contractual no se desempeñó el rol de supervisor del contrato.
-               <div style="height: 56px;"></div>
+				<table>
+					<tr>
+						<td style="width: 305px;">
+							<div id="correcto0" class="opcion_preg">
+								Recepción y evaluación de ofertas
+							</div>
+						</td>
+						<td>
+							<div id="incorrecto0" class="opcion_preg">
+								Recibo y aceptación de bienes y servicios en la ejecución del contrato.
+								<!-- <div style="height: 56px;"></div> -->
 
-				</div>
-           </td>
-        </tr>
-          <tr style="height: 20px;"></tr>
-        <tr>
-          <td><div id="correcto1" class="opcion_preg">
-En la etapa contractual se evidencian debilidades de gestión frente al contratista para el suministro oportuno de los elementos y/o servicios.
+							</div>
+						</td>
+					</tr>
+					<tr style="height: 20px;"></tr>
+					<tr>
+						<td>
+							<div id="correcto1" class="opcion_preg">
+								Estudio de mercado
+							</div>
+						</td>
+						<td>
+							<div id="incorrecto1" class="opcion_preg">
+								Negociación
+							</div>
+						</td>
+					</tr>
+				</table>
 
-				</div></td>
-          <td><div id="incorrecto1" class="opcion_preg">
-En la etapa postcontractual no se efectuó la liquidación del contrato en la fecha correspondiente.
 
-				</div></td>
-        </tr>
-      </table>
-                
-                
-                
-				
-				
 
-				
 
-				
 
-				
-				
+
+
+
+
+
+
+
 			</div>
 		</div>
 	</div>
-	
+
 
 	<div id="pop0" class="pop">
 		<div class="titulo_pop">
@@ -172,7 +186,7 @@ En la etapa postcontractual no se efectuó la liquidación del contrato en la fe
 	<div id="pop2" class="pop">
 		Texto
 	</div>
-	
+
 </body>
+
 </html>
-				
