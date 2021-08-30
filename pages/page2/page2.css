@@ -415,7 +415,8 @@ margin-left: 35%;
 
 
 
-#variable1, #variable3, #variable5, #variable7, #variable9, #variable13, #variable15, #variable17, #variable19, #variable21 {
+#variable1, #variable3, #variable5, #variable7, #variable9, #variable11, #variable13, #variable15, #variable17, 
+#variable19, #variable21 {
   animation-name: fadeIn;
   animation-duration: 1s;
   background: white;
@@ -425,7 +426,7 @@ box-shadow: 10px 10px 87px 2px rgba(0,0,0,0.75);
   border-radius: 5px;
 }
 
-#variable2, #variable4, #variable6, #variable8, #variable10, #variable12, #variable11, #variable14, #variable16, #variable18, #variable20, #variable22 {
+#variable2, #variable4, #variable6, #variable8, #variable10, #variable12,  #variable14, #variable16, #variable18, #variable20 {
   animation-name: jackInTheBox;
   animation-duration: 1.5s;
   background: white;
@@ -433,6 +434,7 @@ box-shadow: 10px 10px 87px 2px rgba(0,0,0,0.75);
   -moz-box-shadow: 11px 13px 191px 23px rgba(0,0,0,0.75);
   box-shadow: 11px 13px 191px 23px rgba(0,0,0,0.75);
 border-radius: 5px;
+position:relative; z-index:1;
 }
 
 .img1 {
