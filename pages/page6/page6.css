@@ -6,6 +6,16 @@
     background-color: rgb(255, 255, 255);
 
 }
+#document{
+    background-color: #689b09;
+    border-style: none;
+    -webkit-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
+    z-index: 1;
+    margin: 2%;
+
+}
 .sancion{
     float: left;
 }
@@ -97,7 +107,7 @@
     
 }
 #sancion6_1:hover, #sancion6_2:hover, #sancion6_3:hover,
-#boton-tipo1:hover, #boton-tipo2:hover, #boton-tipo3:hover, #boton-tipo4:hover {
+#boton-tipo1:hover, #boton-tipo2:hover, #boton-tipo3:hover, #boton-tipo4:hover, #document:hover {
     background-color: #eccd41;
 }
 #sancion6_1, #sancion6_2, #sancion6_3, #boton-tipo1, #boton-tipo2, #boton-tipo3, #boton-tipo4{
