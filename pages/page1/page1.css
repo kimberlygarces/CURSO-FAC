@@ -1,0 +1,18 @@
+.btn-play{
+	border-radius: 20px;
+	background-color: #eccd41;
+	position: absolute;
+	top: 250px; left: 85%;
+    border: none;
+	outline:none;
+	-webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+	-moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+	box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+	transform:  transform 1.5s linear;
+  
+  }
+  .btn-play:hover{
+	/* background-color: rgb(184, 164, 164); */
+	transform: scale(0.9);
+	transition: transform 1s linear;
+  }
