@@ -41,6 +41,11 @@ button{
       float: right;
   }
 
+  .fondoimg{
+    position: absolute;
+    left: 20%;
+    width: 20%;
+  }
   .btn-def{
     width: 120px;
     height: 39px;
