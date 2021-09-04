@@ -59,8 +59,8 @@ height: 35%;
 .img5{
     position: relative;
     float:left;
-    height: 40%;
-    width: 20%;
+    height: auto;
+    width: 35%;
     
     animation-name: swing;
     animation-duration: 2s;
@@ -103,8 +103,8 @@ height: 35%;
 .img6{
     position: relative;
     float:right;
-    height: 35%;
-    width: 15%;
+    height: auto;
+    width: 35%;
     
     animation-name: swing;
     animation-duration: 2s;
@@ -121,7 +121,7 @@ height: 35%;
     
 }
 .img8{
-    opacity: 0.2;
+    opacity: 0.1;
     position: absolute;
        width: 45%;
    height: 95%;
