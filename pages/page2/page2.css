@@ -41,6 +41,11 @@ button{
       float: right;
   }
 
+  .fondoimg{
+    position: absolute;
+    left: 20%;
+    width: 20%;
+  }
   .btn-def{
     width: 120px;
     height: 39px;
@@ -81,6 +86,26 @@ height: 120PX;
 margin-left: 35%;
 }
 
+.btn-play{
+  border-radius: 20px;
+  background-color: #eccd41;
+  position: absolute;
+  left: 0;
+  border: none;
+  outline:none;
+  -webkit-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 4px 4px 5px 0px rgba(0,0,0,0.75);
+  transform:  transform 1.5s linear;
+
+
+}
+.btn-play:hover{
+  /* background-color: rgb(184, 164, 164); */
+  transform: scale(0.9);
+  transition: transform 1s linear;
+}
+
 
 .ventana1{
     z-index: 3;
@@ -113,7 +138,7 @@ margin-left: 35%;
 .ventana2{
   background: rgb(255, 255, 255);
   width: 80%;
-  height: 80%;
+  height: 70%;
   color: black;
   font-family: "klavika-regular";
   font-size: 18px;
@@ -170,7 +195,7 @@ margin-left: 35%;
 .ventana4{
   background: rgb(255, 255, 255);
   width: 80%;
-  height: 80%;
+  height: 70%;
   color: black;
   font-family: "klavika-regular";
   font-size: 16px;
@@ -198,17 +223,17 @@ margin-left: 35%;
 
 .ventana5{
   background: rgb(255, 255, 255);
-  width: 90%;
-  height: 85%;
+  width: 98%;
+  height: 75%;
   color: black;
   font-family: "klavika-regular";
   font-size: 15px;
   text-align: justify;
-  padding: 40px;
+  padding: 20px;
   min-height: 200px;
   position: absolute;
-  left: 5%;
-  top: 15%;
+  left: 1%;
+  top: 12%;
   display: none;
   z-index: 3;
   -webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
@@ -226,16 +251,16 @@ margin-left: 35%;
 
 .ventana6{
   background: rgb(255, 255, 255);
-  width: 80%;
-  height: 80%;
+  width: 90%;
+  height: 70%;
   color: black;
   font-family: "klavika-regular";
   font-size: 16px;
   text-align: justify;
-  padding: 50px;
+  padding: 20px;
   min-height: 200px;
   position: absolute;
-  left: 10%;
+  left: 5%;
   top: 15%;
   display: none;
   z-index: 3;
@@ -335,25 +360,25 @@ margin-left: 35%;
   
   }
   .unidades{
-    width: 70%;
-    height: 95%; 
+    width: 60%;
+    height: auto; 
     top: 5%;
     position: absolute;
     margin-left: 7%;
-    opacity: 0.2;
+    opacity: 0.05;
     
   }
   
   .deposito{
-    width: 30% ;
-    height: 60%;
+    width: 25% ;
+    height: auto;
     margin-bottom: 1%;
   }
   .area{
     position:relative;
-    width: 50%;
-    height: 70%;
-    margin-left: 20%;
+    width: 25%;
+    height: auto;
+    margin-left: 70%;
     margin-top: 2%;
   }
   .servicio{
@@ -362,14 +387,15 @@ margin-left: 35%;
     top: 5%;
     position: absolute;
     margin-left: 7%;
-    opacity: 0.2;
+    opacity: 0.02;
   
   }
   .doc{
-    width:40% ;
-    height:60% ;
-    margin-bottom: 3%;
-    margin-left: 25%;
+    width:28% ;
+    height:auto;
+    position: absolute;
+    right: 5%;
+    bottom: 5%;
   
   }
 

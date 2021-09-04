@@ -5,6 +5,8 @@
 <title></title>
 
 <link rel="stylesheet" href="../../index.css">
+<link rel="stylesheet" href="page1.css">
+
 <link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
 <link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
 
@@ -24,7 +26,6 @@ var canvas, stage, exportRoot;
 function init() {
 
 	canvas = document.getElementById("canvas");
-	// var audio = document.getElementById('audio')
 
 
 	var loader = new createjs.LoadQueue(false);
@@ -106,13 +107,24 @@ function handleComplete(evt) {
 
 			<div class="w3-col resaltado_especial">
 				La Dirección de la Agencia de Compras FAC, realiza la contratación fuera del territorio nacional con la autorización que le confiere el Artículo 13 de la Ley 80 de 1993 y el Artículo 2.2.1.2.4.3.1 del Decreto 1082 de 2015 y Decreto 2400 de 1956 según los cuales, contratos celebrados en el exterior se podrán regir por las reglas del país en donde se hayan suscrito.
-				<div id="zona_sensible0" class="negrilla_sensible">
-					<p><i class="fad fa-lightbulb-on"></i></p>
-					<p> Concepto Aprendido </p>
-				  </div>
-				  <div class="instruccion_interna">Debe pasar el mause por el texto resaltado</div>
+				<div id="concepto1" style="display: none;">
 
+					<div id="zona_sensible0" class="negrilla_sensible">
+						<p><i class="fad fa-lightbulb-on"></i></p>
+						<p> Concepto Aprendido </p>
+					</div>
+					<div class="instruccion_interna">Debe pasar el mause por el texto resaltado</div>
+
+				</div>
+
+			
 			</div>
+
+			<button onclick="btnplay()" id="btn-play" ng-click="levelOU()"  class="btn-play">
+				<img src="images/play.png">
+			  </button>
+			  <div class="instruccion_interna" id="instruccion_play">Debe dar clic en el boton</div>
+
 			<!-- <div class="instruccion_interna" style="position: absolute;top: 378px; left: 25%;">Debe dar click sobre boton 2 para continuar.</div> -->
 
 
@@ -132,8 +144,11 @@ function handleComplete(evt) {
 			
 		</div>
 	</div>	
-	<!-- <audio id="audio">
+	<audio id="audio">
 		<source src="sounds/concepto.mp3" type="audio/mpeg">
+	</audio>
+	<!-- <audio id="audio2">
+		<source src="sounds/concepto2.mp3" type="audio/mpeg">
 	</audio> -->
 
 	
@@ -148,6 +163,31 @@ function handleComplete(evt) {
 
 </body>
 </html>
+
+<script>
+	var audio = document.getElementById('audio')
+	// var audio2 = document.getElementById('audio2')
+
+
+	function btnplay(){
+	
+		audio.play();
+		setInterval(
+			function(){
+			
+				document.getElementById("btn-play").style.background = "#e7e7e7";  
+
+				setInterval(
+					function(){
+						document.getElementById('concepto1').style.display = 'block';
+						document.getElementById('instruccion_play').style.display = 'none';
+					
+					},29000);
+			},3000);
+
+
+	}
+</script>
 
 <!-- <script>
 	setTimeout(function(){ alert("Hello"); }, 3000);
