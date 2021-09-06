@@ -201,11 +201,11 @@ height: 35%;
     height: 25%;
 }
 .img19{
-    opacity: 0.2;
+    opacity: 0.1;
     position: absolute;
-    width: 45%;
+    width: auto;
    height: 85%;
-   left: 250px;
+   left: 200px;
    
 }
 .img20{
@@ -225,15 +225,15 @@ width: 20%;
     height: 20%;
 }
 .img23{
-    width: 65%;
-    height: 95%;
+    width: 35%;
+    height: auto;
     position: absolute;
-    opacity: 0.2;
+    opacity: 0.1;
 }
 .img24
 {
-    width: 65%;
-    height: 95%;
+    width: 35%;
+    height: auto;
     position: absolute;
     opacity: 0.2;
 }
@@ -242,10 +242,11 @@ width: 20%;
   height: 50%;
 }
 .img27{
-    opacity: 0.2;
+    opacity: 0.1;
     position: absolute; 
-    width: 80%;
-    height: 105%;
+    width: 40%;
+    height: auto;
+    
 }
 .img28{
     width: 20%;
@@ -298,7 +299,9 @@ top: 4%;
 }
 .img30{
     width: 30%;
-    height: 30%;
+    height: auto;
+    animation-name: fadeIn;
+    animation-duration: 2s;
 }
 .img33{
     width: 15%;
