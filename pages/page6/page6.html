@@ -157,7 +157,7 @@
               Por el Incumplimiento Contractual en el plazo de ejecución
               <!-- ,con entregas posteriores al mismo o por cancelación de material atribuible al contratista.       -->
             </button>
-            <button id="boton-tipo4" onclick="id066_1pag1_4()" class="btn-tipo3" style="width: 100%; margin: 1%;">
+            <button id="boton-tipo4" onclick="id066_1pag1_4()" class="btn-tipo4" style="width: 100%; margin: 1%;">
               <img src="images/letra-D.png" class="letras">
               Por el Incumplimiento Contractual en la entrega de los bienes y/o servicios
             </button>
@@ -165,7 +165,7 @@
 
           </div>
           
-          <div id="zona_sensible1" class="negrilla_sensible">
+          <div id="zona_sensible2" class="negrilla_sensible" style="display: none;">
             <!-- <p><i class="fad fa-lightbulb-on"></i></p> -->
             Concepto Visto
           </div>
@@ -178,7 +178,7 @@
       <div id="modal-contentSiguiente" class="w3-modal-content">
         <div class="w3-container">
           <div class="w3-display-topright">
-            <button onclick="Salir_id066_1pag1_1()" id="btn-cerrar"
+            <button onclick="Salir_id066_1pag1_1()" id="btn-cerrar">
              </button>
           </div>
           <div class="w3-col resaltado_especial" style="width:90%; margin-top:2%;">
@@ -888,9 +888,9 @@
     <div id="pop1" class="pop">
       Si como consecuencia del Incumplimiento de un contrato imputable al contratista se deriva un diferencial cambiario que afecte el pago del contrato, este será asumido por el contratista. Igual regla se aplicará para el pago de tributos aduaneros.
       Nota: Aquellas empresas a las que les inicie procesos judiciales y/o cobros persuasivos, para lograr el pago de los dineros adeudados al Estado, por obligaciones contractuales se les cancelara el registro de proveedor.
-          <div id="pop2" class="pop">
+         <!--<div id="pop2" class="pop">
       Fin de la lección
-    </div>
+    </div>--> 
     <!-- <div id="pop3" class="pop"> Expedientes abiertos al público. </div>
 <div id="pop4" class="pop"> No incluir en los pliegos de condiciones exigencias de imposible cumplimiento. </div>
 <div id="pop5" class="pop"> Previamente al inicio de un proceso de selección, la entidad estatal debe asegurarse de contar con las partidas presupuestales necesarias y los estudios previos que permitan establecer el objeto a contratar. </div>
@@ -973,6 +973,8 @@ var title3 = document.getElementById('title3')
 
   function Salir_id066_1pag1_33(){
     document.getElementById('id066_1pag1_33').style.display = 'none'
+    document.getElementById('boton-tipo3').style.background ="#e7e7e7"; 
+
   }
 
   function A_id066_1pag1_33(){
