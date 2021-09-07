@@ -34,9 +34,6 @@
     height: 80%;
 }
 .sanciones{
-    width: 21%;
-    height: auto;
-    margin:auto;
     border-radius: 79px 79px 79px 79px;
     -moz-border-radius: 79px 79px 79px 79px;
     -webkit-border-radius: 79px 79px 79px 79px;
@@ -57,9 +54,7 @@
 
 }
 .sanciones2{
-    width: 20%;
-    height: auto;
-    float: right;
+    margin-top:2%;
     border-radius: 79px 79px 79px 79px;
     -moz-border-radius: 79px 79px 79px 79px;
     -webkit-border-radius: 79px 79px 79px 79px;
@@ -78,13 +73,15 @@
 }
 .plazo1{
     width: 25%;
-    height: 25%;
+    height: auto;
     animation-name: zoomInRight;
     animation-duration: 2s;
     margin-left: 185px;
+    margin-top:2%;
     
 }
 .plazo2{
+    margin-bottom:3%;
     width: 20%;
     height: 20%;
     margin-left: 240px;
