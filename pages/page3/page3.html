@@ -356,7 +356,7 @@
           <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
           <img src="images/img2.png" height="">
 
-          <div id="btn-abrir">
+          <div id="btn-abrir"  style="display: none;">
             <button onclick="id01()" class="w3-button w3-blue btn-abrir">
               <i class="fa fa-book" aria-hidden="true"></i> Tipos de Contrato</button>
           </div>
@@ -365,6 +365,8 @@
           <button onclick="audioItens1()" id="audioItensOne" ng-click="levelOU()"  class="btn-play">
             <img src="images/play.png">
           </button>
+           <div class="instruccion_interna" style="position: absolute; left: 30%;">Debe dar clic sobre el botón.</div>
+
          </div>
       
       
@@ -374,8 +376,7 @@
         </div>
         <div class="item_c">
           <!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
-          <div class="txt_c">
-            <div class="instruccion_interna">Debe dar clic sobre el botón Tipos de contrato.</div>
+          <div class="txt_c" >
             <div>
 
             </div>
@@ -1397,7 +1398,7 @@
             <button onclick="myFunction()" class="w3-button w3-blue w3-margin top:1px">
               Tipos de contratos
             </button>
-            <div class="instruccion_interna">Debe dar click sobre el botón.</div>
+            <div class="instruccion_interna">Debe dar clic sobre el botón.</div>
           </div>
         </div>
 
@@ -2237,6 +2238,7 @@
     document.getElementById('id01').style.display = 'block'
     tipos_contrato.load()
 
+
   
   }
 
@@ -2755,7 +2757,14 @@ audio.play()
 
 			 function audioItens1(){
 			
-					    tipos_contrato.play()
+					  tipos_contrato.play()
+            setInterval(
+					function(){
+            
+            document.getElementById('btn-abrir').style.display = 'block'
+
+					
+					},51500);
 
            document.getElementById('audioItensOne').style.background = "#e7e7e7";
 	
