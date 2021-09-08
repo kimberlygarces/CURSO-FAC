@@ -155,7 +155,7 @@
     <source src="sounds/title9_3.mp3" type="audio/mpeg">
   </audio>
 
-  <audio id="title">
+  <audio id="title.mp3">
     <source src="sounds/title.mp3" type="audio/mpeg">
   </audio>
 
@@ -2235,7 +2235,8 @@
 
   function id01() {
     document.getElementById('id01').style.display = 'block'
-    tipos_contrato.play()
+    tipos_contrato.load()
+
   
   }
 
@@ -2754,7 +2755,8 @@ audio.play()
 
 			 function audioItens1(){
 			
-					 title.play();
+					    tipos_contrato.play()
+
            document.getElementById('audioItensOne').style.background = "#e7e7e7";
 	
 			 }
