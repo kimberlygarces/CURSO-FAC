@@ -5,6 +5,7 @@
 <title></title>
 
 <link rel="stylesheet" href="../../index.css">
+<link rel="stylesheet" href="page8.css">
 <link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
 <link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
 
@@ -77,7 +78,7 @@ function handleComplete(evt) {
 
 	/////Variables
 	sin_personaje = false;
-	globo_personaje = "Hemos llegado al final del segundo módulo. Repasemos lo que hemos aprendido por medio de las siguientes actividades.";
+	globo_personaje = "Para iniciar la etapa precontractual es necesario que la unidad ejecutora realice una solicitud formal por medio de oficio a ACOFA con el objeto con el que se va a identificar el proceso, con este documento deben llegar adjuntos los formatos de anexo T, anexo técnico y un formato en Excel donde se encuentra la información inicial del proceso, los cuales deben estar diligenciados en su totalidad para iniciar con la estructuración del proceso.";
 	pausas_audio = [[0,2375,6958],[0,2625,7071]];
 	contenidos();	
 }
@@ -86,42 +87,225 @@ function handleComplete(evt) {
 <body onload="init();">
 <canvas id="canvas" width="1165" height="550"></canvas>
 	<div id="instruccion_circulos" class="instruccion_circulos">
-Selecciona verdadero (V) o falso (F) según corresponda a cada una de las siguientes afirmaciones:
+		ELABORACIÓN DE ANEXOS T, ANEXOS TÉCNICOS Y FORMATO INICIAL DEL PROCESO (EXCEL).
 
 	</div>
 	
 <!---------------------------INICIO CONTENIDO------------------->
 	<!-----------------------Inicio boton uno------------------->
 	<div class="c_principal c_1_3_1">
-        <div class="item_c">
-		</div>
 		<div class="item_c">
-
-			<div class="enunciado_vf" data-rta="v">
-La elaboración del Plan Anual de Adquisiciones es una obligación legal de las entidades del Estado, la cual hace parte de la etapa de planeación contractual.
-			</div>
-			<div class="enunciado_vf" data-rta="f">
-Al finalizar la ejecución de un contrato, la entidad debe adelantar las gestiones para que, en lo posible, la liquidación se realice unilateralmente. 
-			</div>
-			<div class="enunciado_vf" data-rta="f">
-La modificación del contrato debe ser solicitada de forma verbal por el contratista.
-			</div>
+		
+		<div class="item_c">
+		
+	
+			
+		<div class="btn-def" style="position: absolute;top: 150px; left: 70px;">
+			<button id="boton1" class="btn-def">1</button>
 		</div>
-        <div class="item_c">
+
+			<div class="btn-def" style="position: absolute;top: 150px; left: 200px;">
+			<button id="boton2" class="btn-def">2</button>
+			</div>
+
+			<div class="btn-def" style="position: absolute;top: 150px; left: 330px;">
+			<button id="boton3" class="btn-def">3</button>
+			</div>
+
+			<div class="btn-def" style="position: absolute;top: 150px; left: 460px;">
+            <button id="boton4" class="btn-def">4</button>
+			</div>
+
+			<div class="btn-def" style="position: absolute;top: 150px; left: 590px;">
+            <button id="boton5" class="btn-def">5</button>
+			</div>
+
+			<div class="btn-def" style="position: absolute;top: 150px; left: 720px;">
+            <button id="boton6" class="btn-def">6</button>
+			</div>
+
+			<div class="btn-def" style="position: absolute;top: 150px; left: 850px;">
+            <button id="boton7" class="btn-def">7</button>
+			</div>
+
+			<div class="btn-def" style="position: absolute;top: 150px; left: 980px;">
+            <button id="boton8" class="btn-def">8</button>
+
+			</div>
+			
+        
+		<div id="variable1" class="ventana1" style="bottom:-95%; left:30%;">
+			La principal falencia que se ha encontrado es que en el formato de Excel se encuentra mal diligenciada la
+			 pestaña de históricos, donde la dependencia que genera la necesidad debe incluir los datos históricos del
+			  material que se incluye dentro del proceso; estos históricos son extraídos del sistema SAP y se deben
+			   incluir las adquisiciones del material de los últimos tres años. 
+		</div>
+
+		<div id="variable2" class="ventana1" style="bottom:-95%; left:30%;">
+			Si estos datos no son correctos y no se diligencia la pestaña de forma adecuada, esto produce que las empresas
+			 especulen con los precios del material ofertado y como consecuencia de esto se realiza una evaluación económica
+			  errónea, provocando que la administración adjudique elementos a las empresas por valores superiores al 25% a
+			   adquisiciones de las últimas tres vigencias inmediatamente anteriores a la que se está haciendo el proceso.
+			    De ahí la importancia de suministrar la información de manera correcta y de esta forma dar un mejor uso a
+				 los recursos del estado. 
+		</div>
+
+		<div id="variable3" class="ventana1" style="bottom:-95%; left:30%;">
+			De igual manera, sucede con los anexos técnicos, dado que muchas veces son procesos que se ejecutan en todas
+			 las vigencias y los estructuradores técnicos tienden a copiar y pegar sin verificar la información están
+			  suministrando, lo que ha llevado a errores en la adquisición del material por no ser claros en las 
+			  especificaciones técnicas que se están solicitando, provocando que llegue material incompleto porque el 
+			  número de parte incluía una parte del material requerido y le faltan partes, debido a que era otro número
+			   de parte el que se debía solicitar para que el material llegara completo.
+		</div>
+
+		<div id="variable4" class="ventana1" style="bottom:-95%; left:30%;">
+			Inadecuada definición de la necesidad y oportunidad de la contratación.
+		</div>
+
+		<div id="variable5" class="ventana1" style="bottom:-95%; left:30%;">
+			La selección del personal integrante de los comités estructuradores, supervisor y gerente de proyecto 
+			debe de cumplir con lo establecido en la Directiva Permanente No. 12 del 21 de septiembre de 2020, 
+			en caso de que no se pueda cumplir con el grado se debe justificar muy bien el porque del nombramiento
+			 de una persona con el grado inferior, ya que se observa continuamente que se realizan nombramientos sin
+			  cumplir con lo establecido en la directiva en mención y no son justificados, lo que genera que se retrasen
+			   los procesos de estructuración. 
+		</div>
+
+		<div id="variable6" class="ventana1" style="bottom:-95%; left:30%;">
+			Se observa que el personal nombrado como estructurador técnico no tiene interés por dar pronta respuesta
+			 a los requerimientos jurídicos y económicos dentro de la etapa de estructuración y esto hace que un proceso
+			  pueda demorarse más del tiempo normal para la adjudicación.
+		</div>
+
+		<div id="variable7" class="ventana1" style="bottom:-95%; left:30%;">
+			La Dependencia a través del comité estructurador técnico no realiza la revisión en SAP de los elementos o
+			 servicios que requiere, por tal motivo, en el momento de trámite de elaboración de minuta, se presentan 
+			 retrasos por no coincidir la información de la ficha técnica con lo que está en el sistema SAP.
+		</div>
+
+		<div id="variable8" class="ventana1" style="bottom:-95%; left:30%;">
+			Se evidencia que el comité estructurador técnico no analiza la garantía técnica que requiere el
+			 proceso que está estructurando y se limita a copiar el ejemplo de garantía técnica que fue redactado
+			  por ACOFA para dar un apoyo general a los comités estructuradores.
+
 		</div>
 		
-
-		
-	</div>	
+	</div>
 	<!------------------------Fin boton uno---------------------->
 	<!-- Personaje interno-->
 	
 	<!--Fin personaje interno-->
 <!----------------------------FIN CONTENIDO---------------------->
 <!----------------------------POPS------------------------------->
-	<div id="pop0" class="pop">
-		txt
-	</div>	
+	</div>
+	
+	
+	<script src="jquery-3.4.1.min.js"></script>
+		<script>
+		$(document).ready(() => {
+			$('#variable1').hide();
+			$('#variable2').hide();
+			$('#variable3').hide();
+			$('#variable4').hide();
+			$('#variable5').hide();
+			$('#variable6').hide();
+			$('#variable7').hide();
+			$('#variable8').hide();
+
+			$('#boton1').click(function() {
+				$('#variable1').show();
+				$('#variable2').hide();
+				$('#variable3').hide();
+				$('#variable4').hide();
+				$('#variable5').hide();
+				$('#variable6').hide();
+				$('#variable7').hide();
+				$('#variable8').hide();
+			});
+			
+			$('#boton2').click(function(){
+				$('#variable2').show();
+				$('#variable1').hide();
+				$('#variable3').hide();
+				$('#variable4').hide();
+				$('#variable5').hide();
+				$('#variable6').hide();
+				$('#variable7').hide();
+				$('#variable8').hide();
+			});
+
+			
+			$('#boton3').click(function(){
+				$('#variable3').show();
+				$('#variable1').hide();
+				$('#variable2').hide();
+				$('#variable4').hide();
+				$('#variable5').hide();
+				$('#variable6').hide();
+				$('#variable7').hide();
+				$('#variable8').hide();
+			});
+
+			$('#boton4').click(function(){
+				$('#variable4').show();
+				$('#variable1').hide();
+				$('#variable2').hide();
+				$('#variable3').hide();
+				$('#variable5').hide();
+				$('#variable6').hide();
+				$('#variable7').hide();
+				$('#variable8').hide();
+			});
+			$('#boton5').click(function(){
+				$('#variable5').show();
+				$('#variable1').hide();
+				$('#variable2').hide();
+				$('#variable3').hide();
+				$('#variable4').hide();
+				$('#variable6').hide();
+				$('#variable7').hide();
+				$('#variable8').hide();
+			});
+			$('#boton6').click(function(){
+				$('#variable6').show();
+				$('#variable1').hide();
+				$('#variable2').hide();
+				$('#variable3').hide();
+				$('#variable4').hide();
+				$('#variable5').hide();
+				$('#variable7').hide();
+				$('#variable8').hide();
+			});
+			$('#boton7').click(function(){
+				$('#variable7').show();
+				$('#variable1').hide();
+				$('#variable2').hide();
+				$('#variable3').hide();
+				$('#variable4').hide();
+				$('#variable5').hide();
+				$('#variable6').hide();
+				$('#variable8').hide();
+			});
+			$('#boton8').click(function(){
+				$('#variable8').show();
+				$('#variable1').hide();
+				$('#variable2').hide();
+				$('#variable3').hide();
+				$('#variable4').hide();
+				$('#variable5').hide();
+				$('#variable6').hide();
+				$('#variable7').hide();
+			});
+		});
+		
+	</script>
+	<div class="instruccion_interna">Debe pasar el mause por el texto resaltado
+
+
+	</div>
+	</div>
+	
 </body>
+
 </html>
-				
