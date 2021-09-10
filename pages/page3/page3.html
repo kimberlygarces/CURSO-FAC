@@ -310,34 +310,35 @@
           </div>
         </div>
 
+        <!-- ********************************************************************************************************** -->
+        <!-- este es el modal principal de la unidad 3 - 1 -->
+        <!-- ETAPAS CONTRACTUALES -->
         <div id="id01" class="w3-modal">
           <div id="modal-content" class="w3-modal-content">
             <div class="w3-container">
               <div class="w3-display-topright">
+                <!-- BOTON PARA CERRAR EL MODAL -->
                 <button onclick="document.getElementById('id01').style.display='none'" id="btn-cerrar"
                   ><img src="images/cerrar.png"></button>
               </div>
+              <!-- div 1 definición de contrato cerrado -->
               <div class="w3-col resaltado_especial" style="width:50%">
-                <p  style="font-size: 22px;"><b>Contrato Cerrado:</b></p>
-                <hr>
+                <p><b>Contrato Cerrado:</b></p>
                 Es el contrato que especifica cantidades, precios, condiciones técnicas y términos de entrega.
               </div>
+              <!-- div 2 definición contrato abierto -->
+
               <div class="w3-col  resaltado_especial" style="width:50%">
-                <p  style="font-size: 22px;"><b>Contrato Abierto:</b></p>
-                <hr>
+                <p><b>Contrato Abierto:</b></p>
+                <!-- boton contrato abierto - despliega modal con la defición de contrato abierto marco -->
                 <button id="btn-contrato1" onclick="contrato1()" class="btn-contrato" style="width: 300px; height: 50px; margin: 2%;">
                   Contrato Abierto Marco:
                 </button>
+                <!-- boton Contrato Abierto Con Lista de Precios abre el modal con la la deficicón -->
               <button id="btn-contrato2" onclick="contrato2()" class="btn-contrato" style="width: 300px; height: 50px; margin: 2%;">
                 Contrato Abierto Con Lista de Precios:
               </button>
 
-                  
-        
-                
-                  <!-- El contrato abierto, posee dos tipologías, como son: Contrato Abierto Marco y Contrato Abierto con
-                  Lista de Precios.
-                </p> -->
 
               </div>
               <div class="img3">
@@ -1202,7 +1203,7 @@
               </div>
               <div class="w3-col resaltado_especial" style="width:90%">
                 <img src="images/diap39.png" class="img8">
-                <p class="w3-serif" style="font-size: 22px; text-align: center;"><b>Causales de contratación</b></p>
+                <p style="font-size: 22px; text-align: center;"><b>Causales de contratación</b></p>
                 <hr>
                 Los procedimientos que rigen estas modalidades, causales y tipo de contratos, se encuentran establecidos
                 en el Instructivo GA-JEAD-INS-018.<br>
@@ -1228,13 +1229,13 @@
         <!-- 4. MODAL Causales de contratación -->
         <div id="id04" class="w3-modal">
           <div id="modal-contentSiguiente" class="w3-modal-content">
-            <div class="w3-container">
+            <div class="w3-container" >
               <div class="w3-display-topright">
                 <button onclick="document.getElementById('id04').style.display='none'" id="btn-cerrar"
                   ><img src="images/cerrar.png"></button>
               </div>
               <div class="w3-col" style="width:90%">
-                <div class="resaltado_especial">
+                <div class="resaltado_especial content_contratacion2">
                 <p  style="font-size: 22px;"><b>Causales de contratación</b></p>
                 <hr>
                 <p class="w3-serif" style="font-size: 22px;">
@@ -1292,16 +1293,16 @@
                   </table>
                 </div>
                 </div>
-
+                <button onclick="Anterior_id04()" class="w3-button w3-blue btn-id04">
+                  Anterior
+                </button>
+                <button onclick="Siguiente_id04()" class="w3-button w3-blue btn-id04">
+                  Siguiente
+                </button>
 
 
               </div>
-              <button onclick="Anterior_id04()" class="w3-button w3-blue btn-id04">
-                Anterior
-              </button>
-              <button onclick="Siguiente_id04()" class="w3-button w3-blue btn-id04">
-                Siguiente
-              </button>
+        
               <br>
             </div>
           </div>
@@ -1313,25 +1314,29 @@
               <div class="w3-display-topright">
                 <button onclick="document.getElementById('id02').style.display='none'" id="btn-cerrar"
                   ><img src="images/cerrar.png"></button>
-
               </div>
-              <div class="w3-col resaltado_especial" style="width:90%; margin-top: 2%;">
+              <div class="resaltado_especial" style="width:90%; margin-top: 2%;">
                 <p style="font-size: 22px; text-align: center;"><b>Modalidad de selección</b></p>
                 <hr>
-                <img src="images/diap44.png" style="width: 120px; height: auto;" class="img4">
-                Para garantizar la eficiencia y la transparencia en la contratación realizada a través de la Dirección
-                de la Agencia de Compras FAC, se aplicarán las siguientes modalidades:
-                <br>1) Proceso Abreviado.
-                <br>2) Proceso Mayor.<br>
+                <div class="w3-col">
+                <div class="w3-col s3">
+                  <img src="images/diap44.png" style="width: 120px; height: auto;" class="img4">
+                </div>
+                <div class="w3-col s7">
+                  Para garantizar la eficiencia y la transparencia en la contratación realizada a través de la Dirección
+                  de la Agencia de Compras FAC, se aplicarán las siguientes modalidades:
+                  <br>1) Proceso Abreviado.
+                  <br>2) Proceso Mayor.<br>
+                </div>
+              </div> 
 
-              
+              <!-- boton de concepto aprendido en el modal modalidad de selección -->
               <div id="zona_sensible2" class="negrilla_sensible">
                 <img src="images/menu1.png" class="menu1">
                 <p> Concepto Aprendido </p>
               </div>
               
               <div class="instruccion_interna">Debe pasar el mouse por el texto resaltado.</div>
-              <hr>
           
           </div>
             </div>
@@ -1342,21 +1347,20 @@
         <div id="id03" class="w3-modal">
           <div id="modal-content" class="w3-modal-content" >
             <div class="w3-container">
-              <div class="w3-display-topright">
+              <div class="w3-display-topright" style="z-index: 4;">
                 <button onclick="document.getElementById('id03').style.display='none'" id="btn-cerrar"
                   ><img src="images/cerrar.png"></button>
               </div>
 
 
 
-              <div class="w3-col resaltado_especial" style="width: 90%; margin-top:2%;"  >
-              <h3 style="font-size: 22px;"><b>Causales de contratación</b></h3>
-              <hr>
+          <div class="w3-col resaltado_especial" style="width: 90%; margin-top:2%;"  >
+              <h3 style="font-size: 22px; text-align: center;"><b>Causales de contratación</b></h3>
+<!-- contenido latel del modal  Causales de contratación -->
 
-              <div class="w3-col s5">
+              <div class="w3-col s5 w3-card content_contratacion">
                 
                 <p><b>Proceso Abreviado.</b><br>
-                  <hr>
                   
                   Serán causales del proceso abreviado las siguientes:
                 </p>                              
@@ -1372,34 +1376,38 @@
                 
               
               </div>
-        <div class="w3-col s5">
-                <img src="images/img6.png" class="img6">
-                <b>Proceso Mayor.</b><br>
-                <hr>
-                  Serán causales del proceso mayor las siguientes:<br>
-                               
-              
-                  - Procesos por cuantía superior a USD$200.000
-                                     <br>
+<!-- contenido latel del modal  Causales de contratación -->
+              <div class="w3-col s5 w3-card content_contratacion">
+                      <b>Proceso Mayor.</b><br>
+                        Serán causales del proceso mayor las siguientes:<br>
+                                    
                     
-                  - Procesos para mantenimiento de Productos Clase I (Mensaje Técnico 920 o el que lo derogue,
-                      modifique o complemente).
-                      <br>
-                  
-                  - Procesos de adquisición de Productos Clase I (Mensaje Técnico 920 o el que lo derogue, modifique o
-                  complemente).
-                   
+                        - Procesos por cuantía superior a USD$200.000
+                                          <br>
+                          
+                        - Procesos para mantenimiento de Productos Clase I (Mensaje Técnico 920 o el que lo derogue,
+                            modifique o complemente).
+                            <br>
+                        
+                        - Procesos de adquisición de Productos Clase I (Mensaje Técnico 920 o el que lo derogue, modifique o
+                        complemente).
+                        
+              </div>
+              <div style="text-align: center;">
+                <img src="images/img6.png" class="img6">
 
+                <button onclick="myFunction()" class="w3-button w3-blue">
+                  Tipos de contratos
+                </button>
+              </div>
+        
+              <div class="instruccion_interna">Debe dar clic sobre el botón.</div>
               
             </div>
-              
-</div>
+        
             
             </div>
-            <button onclick="myFunction()" class="w3-button w3-blue w3-margin top:1px">
-              Tipos de contratos
-            </button>
-            <div class="instruccion_interna">Debe dar clic sobre el botón.</div>
+          
           </div>
         </div>
 
@@ -2767,15 +2775,15 @@ audio.play()
 
 			 function audioItens1(){
 			
-					  tipos_contrato.play()
+					  // tipos_contrato.play()
             setInterval(
 					function(){
             
             document.getElementById('btn-abrir').style.display = 'block'
 
 					
-					},51500);
-
+					},5);
+          // 51500
            document.getElementById('audioItensOne').style.background = "#e7e7e7";
 	
 			 }

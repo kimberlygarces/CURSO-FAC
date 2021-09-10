@@ -101,10 +101,10 @@ height: 35%;
 
 }
 .img6{
-    position: relative;
+    position: absolute;
     float:right;
     height: auto;
-    width: 35%;
+    width: 15%;
     
     animation-name: swing;
     animation-duration: 2s;
@@ -443,4 +443,14 @@ height: 25%;
 
 .playOne{
     display: flex;
+}
+
+.content_contratacion{
+    height: 170px; 
+    overflow-y: scroll;
+}
+
+.content_contratacion2{
+height: 330px;  
+overflow-y: scroll;
 }
