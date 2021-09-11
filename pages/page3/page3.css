@@ -50,8 +50,9 @@ border: 1.5px  inset #666363;
        
 
 .img4{
-height: 35%;    
-    width: 35%;
+float: left;
+width: 150px;
+height: auto;
     animation-name: rotateInDownRight;
         animation-duration: 3s;
  
@@ -104,7 +105,7 @@ height: 35%;
     position: absolute;
     float:right;
     height: auto;
-    width: 15%;
+    width: 10%;
     
     animation-name: swing;
     animation-duration: 2s;
@@ -112,10 +113,9 @@ height: 35%;
 }
 .img7{
     
-    float: center;
+    float: right;
     width: 15%;
-    height: 25%; 
-    
+    height: auto; 
     animation-name: swing;
     animation-duration: 2s; 
     
@@ -128,19 +128,27 @@ height: 35%;
    float: right;
    
 }
+.img29{
+    float: left;
+    width: 170px;
+    height: auto;
+    animation-name: swing;
+    animation-duration: 2s;
+
+
+}
 .img9{
-    position:relative;
-    width: 35%;
-    height: 35%;
     
+    float:right;
+    width: 200px;
+    height: auto;
     animation-name: swing;
     animation-duration: 2s;
 
 }
 .img10{
-    width: 30%;
-    height: 40%;
-    
+    width: 12%;
+    height: auto;
     animation-name: fadeInDown;
     animation-duration: 2s;
 }
@@ -161,21 +169,25 @@ height: 35%;
     width: 55%;
     height: 55%;
 }
-.img14{
-    
- 
-    position: relative;
-       width: 40%;
-   height: 60%;
+.img14{  
+float:right;
+ width: 30%;
+ height: auto;
    
 }
 .img15{
-    width: 60%;
-    height: 60%;
-    position: relative;
-
+    width: 40%;
+    height:auto;
+    float:left;
+} 
+   .img40{
+position:absolute;
+width:30%;
+height:auto;
 }
 .img16{
+    width:5px;
+    height:auto;
     margin-top:5%;
     
 }
@@ -453,4 +465,8 @@ height: 25%;
 .content_contratacion2{
 height: 330px;  
 overflow-y: scroll;
+}
+.content_contratacion3{
+    height: 255px; 
+    overflow-y: scroll;
 }

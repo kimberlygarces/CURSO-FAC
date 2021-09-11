@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="page8.css">
 <link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
 <link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
 <script src="../../cjs/easeljs-0.8.2.min.js"></script>
 <script src="../../cjs/tweenjs-0.6.2.min.js"></script>
@@ -101,94 +102,121 @@ function handleComplete(evt) {
 	
 			
 		<div class="btn-def" style="position: absolute;top: 150px; left: 70px;">
-			<button id="boton1" class="btn-def">1</button>
+			<button id="boton1" class="btn-def" onclick="btn1()">1</button>
+			<audio id="audio1">
+				<source src="sounds/star.mp3" type="audio/mpeg">
+			  </audio>
 		</div>
 
 			<div class="btn-def" style="position: absolute;top: 150px; left: 200px;">
-			<button id="boton2" class="btn-def">2</button>
+			<button id="boton2" class="btn-def" onclick="btn2()">2</button>
+			
 			</div>
 
 			<div class="btn-def" style="position: absolute;top: 150px; left: 330px;">
-			<button id="boton3" class="btn-def">3</button>
+			<button id="boton3" class="btn-def" onclick="btn3()">3</button>
 			</div>
 
 			<div class="btn-def" style="position: absolute;top: 150px; left: 460px;">
-            <button id="boton4" class="btn-def">4</button>
+            <button id="boton4" class="btn-def" onclick="btn4()">4</button>
 			</div>
 
 			<div class="btn-def" style="position: absolute;top: 150px; left: 590px;">
-            <button id="boton5" class="btn-def">5</button>
+            <button id="boton5" class="btn-def" onclick="btn5()">5</button>
 			</div>
 
 			<div class="btn-def" style="position: absolute;top: 150px; left: 720px;">
-            <button id="boton6" class="btn-def">6</button>
+            <button id="boton6" class="btn-def" onclick="btn6()">6</button>
 			</div>
 
 			<div class="btn-def" style="position: absolute;top: 150px; left: 850px;">
-            <button id="boton7" class="btn-def">7</button>
+            <button id="boton7" class="btn-def" onclick="btn7()">7</button>
 			</div>
 
 			<div class="btn-def" style="position: absolute;top: 150px; left: 980px;">
-            <button id="boton8" class="btn-def">8</button>
+            <button id="boton8" class="btn-def" onclick="btn8()">8</button>
 
 			</div>
 			
         
-		<div id="variable1" class="ventana1" style="bottom:-95%; left:30%;">
+		<div id="variable1" class="ventana1" style="bottom:-70px; left:30%;">
+			<p>
+				<img src="images/excel.png " class="excel">
 			La principal falencia que se ha encontrado es que en el formato de Excel se encuentra mal diligenciada la
 			 pestaña de históricos, donde la dependencia que genera la necesidad debe incluir los datos históricos del
 			  material que se incluye dentro del proceso; estos históricos son extraídos del sistema SAP y se deben
 			   incluir las adquisiciones del material de los últimos tres años. 
+			</p>
 		</div>
 
-		<div id="variable2" class="ventana1" style="bottom:-95%; left:30%;">
+		<div id="variable2" class="ventana2" style="bottom:-100px; left:30%;">
+			<p>
+				<img src="images/img1.png" class="img1">
 			Si estos datos no son correctos y no se diligencia la pestaña de forma adecuada, esto produce que las empresas
 			 especulen con los precios del material ofertado y como consecuencia de esto se realiza una evaluación económica
 			  errónea, provocando que la administración adjudique elementos a las empresas por valores superiores al 25% a
 			   adquisiciones de las últimas tres vigencias inmediatamente anteriores a la que se está haciendo el proceso.
 			    De ahí la importancia de suministrar la información de manera correcta y de esta forma dar un mejor uso a
 				 los recursos del estado. 
+				</p>
 		</div>
 
-		<div id="variable3" class="ventana1" style="bottom:-95%; left:30%;">
+		<div id="variable3" class="ventana3" style="bottom:-130px; left:30%;">
+			<p>
+			<img src="images/img2.png" class="img2">
 			De igual manera, sucede con los anexos técnicos, dado que muchas veces son procesos que se ejecutan en todas
 			 las vigencias y los estructuradores técnicos tienden a copiar y pegar sin verificar la información están
 			  suministrando, lo que ha llevado a errores en la adquisición del material por no ser claros en las 
 			  especificaciones técnicas que se están solicitando, provocando que llegue material incompleto porque el 
-			  número de parte incluía una parte del material requerido y le faltan partes, debido a que era otro número
+			  número de parte incluía una parte del material requerido y le faltan partes,                              debido a que era otro número
 			   de parte el que se debía solicitar para que el material llegara completo.
+			</p>
 		</div>
 
-		<div id="variable4" class="ventana1" style="bottom:-95%; left:30%;">
+		<div id="variable4" class="ventana4" style="bottom:-130px; left:170%;">
+		<p>
+			<img src="images/img3.gif" class="img3">
 			Inadecuada definición de la necesidad y oportunidad de la contratación.
+		</p>
 		</div>
 
-		<div id="variable5" class="ventana1" style="bottom:-95%; left:30%;">
+		<div id="variable5" class="ventana5" style="bottom:-130px; left:30%;">
+			<p>
+				<img src="images/img4.png" class="img4">
 			La selección del personal integrante de los comités estructuradores, supervisor y gerente de proyecto 
 			debe de cumplir con lo establecido en la Directiva Permanente No. 12 del 21 de septiembre de 2020, 
 			en caso de que no se pueda cumplir con el grado se debe justificar muy bien el porque del nombramiento
 			 de una persona con el grado inferior, ya que se observa continuamente que se realizan nombramientos sin
 			  cumplir con lo establecido en la directiva en mención y no son justificados, lo que genera que se retrasen
 			   los procesos de estructuración. 
+			</p>
 		</div>
 
-		<div id="variable6" class="ventana1" style="bottom:-95%; left:30%;">
+		<div id="variable6" class="ventana6" style="bottom:-125px; left:30%;">
+			<p>
+				<img src="images/img5.png" class="img5">
 			Se observa que el personal nombrado como estructurador técnico no tiene interés por dar pronta respuesta
 			 a los requerimientos jurídicos y económicos dentro de la etapa de estructuración y esto hace que un proceso
 			  pueda demorarse más del tiempo normal para la adjudicación.
+			</p>
 		</div>
 
-		<div id="variable7" class="ventana1" style="bottom:-95%; left:30%;">
+		<div id="variable7" class="ventana7" style="bottom:-100px; left:30%;">
+			<p>
+				<img src="images/img6.png" class="img6">
 			La Dependencia a través del comité estructurador técnico no realiza la revisión en SAP de los elementos o
 			 servicios que requiere, por tal motivo, en el momento de trámite de elaboración de minuta, se presentan 
 			 retrasos por no coincidir la información de la ficha técnica con lo que está en el sistema SAP.
+			</p>
 		</div>
 
-		<div id="variable8" class="ventana1" style="bottom:-95%; left:30%;">
+		<div id="variable8" class="ventana8" style="bottom:-80px; left:30%;">
+			<p>
+				<img src="images/img7.png" class="img7">
 			Se evidencia que el comité estructurador técnico no analiza la garantía técnica que requiere el
 			 proceso que está estructurando y se limita a copiar el ejemplo de garantía técnica que fue redactado
 			  por ACOFA para dar un apoyo general a los comités estructuradores.
-
+			</p>
 		</div>
 		
 	</div>
@@ -298,12 +326,50 @@ function handleComplete(evt) {
 				$('#variable7').hide();
 			});
 		});
+
+		var start1 = document.getElementById("audio1")
+
+		function btn1(){
+			document.getElementById('boton1').style.background ="#e7e7e7"; 
+			start1.play()
+		}
 		
+		function btn2(){
+			document.getElementById('boton2').style.background ="#e7e7e7"; 
+			start1.play()
+		}
+		function btn3(){
+			document.getElementById('boton3').style.background ="#e7e7e7"; 
+			start1.play()
+		}
+		function btn4(){
+			document.getElementById('boton4').style.background ="#e7e7e7"; 
+			start1.play()
+		}
+		function btn5(){
+			document.getElementById('boton5').style.background ="#e7e7e7"; 
+			start1.play()
+		}
+		function btn6(){
+			document.getElementById('boton6').style.background ="#e7e7e7"; 
+			start1.play()
+		}
+		function btn7(){
+			document.getElementById('boton7').style.background ="#e7e7e7"; 
+			start1.play()
+		}
+		function btn8(){
+			document.getElementById('boton8').style.background ="#e7e7e7"; 
+			start1.play()
+		}
+
+
 	</script>
 	<div class="instruccion_interna">Debe pasar el mause por el texto resaltado
 
 
 	</div>
+	
 	</div>
 	
 </body>
