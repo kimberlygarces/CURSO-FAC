@@ -34,17 +34,11 @@
     height: 80%;
 }
 .sanciones{
-    border-radius: 79px 79px 79px 79px;
-    -moz-border-radius: 79px 79px 79px 79px;
-    -webkit-border-radius: 79px 79px 79px 79px;
-    border: 0px solid #000000;
-    animation-name: jackInTheBox;
-    animation-duration: 2s;
-}
-.sanciones1{
-    width: 20%;
+    width: 150px;
     height: auto;
-    margin-left: 215px;
+    float: right;
+
+
     border-radius: 79px 79px 79px 79px;
     -moz-border-radius: 79px 79px 79px 79px;
     -webkit-border-radius: 79px 79px 79px 79px;
@@ -54,7 +48,9 @@
 
 }
 .sanciones2{
-    margin-top:2%;
+    width: 150px;
+    float: right;
+    height: auto;
     border-radius: 79px 79px 79px 79px;
     -moz-border-radius: 79px 79px 79px 79px;
     -webkit-border-radius: 79px 79px 79px 79px;
@@ -65,26 +61,29 @@
 }
 .plazo{
     float: right;
-    width: 25%;
-    height: 25%;
-    animation-name: zoomInRight;
-    animation-duration: 2s;
-    
-}
-.plazo1{
-    width: 25%;
+    width: 150px;
     height: auto;
     animation-name: zoomInRight;
     animation-duration: 2s;
-    margin-left: 185px;
-    margin-top:2%;
+    position: absolute;
+    top:150px;
+    
+}
+.plazo1{
+    width: 150px;
+    height: auto;
+    float: right;
+    top:150px;
+    animation-name: zoomInRight;
+    animation-duration: 2s;
+   
     
 }
 .plazo2{
-    margin-bottom:3%;
-    width: 20%;
-    height: 20%;
-    margin-left: 240px;
+    width: 150px;
+    height: auto;
+    float: right;
+    top:150px;
     animation-name: flash;
     animation-duration: 2s;
 }
