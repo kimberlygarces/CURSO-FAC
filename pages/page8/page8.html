@@ -1,380 +1,191 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset="UTF-8">
-<title></title>
+	<meta charset="UTF-8">
+	<title></title>
 
-<link rel="stylesheet" href="../../index.css">
-<link rel="stylesheet" href="page8.css">
-<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
-<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	<link rel="stylesheet" href="../../index.css">
+	<link rel="stylesheet" href="../../cjs/jquery.mCustomScrollbar.css" />
+	<link href="../../fonts/font-awesome/css/all.css" rel="stylesheet">
 
-<script src="../../cjs/easeljs-0.8.2.min.js"></script>
-<script src="../../cjs/tweenjs-0.6.2.min.js"></script>
-<script src="../../cjs/preloadjs-0.6.2.min.js"></script>
-<script src="../../cjs/soundjs-0.6.2.min.js"></script>
-<script src="page.js"></script>
-<script src="../../principal.js"></script>
-<script src="../../cjs/jquery.min.js"></script>
-<script src="../../cjs/jquery.imagemapster.js"></script>
-<script src="../../cjs/jquery-1.7.2.min.js"></script>
-<script src="../../cjs/jquery.ui.touch-punch.min.js"></script>
-<script src="../../cjs/jquery-ui.min.js"></script>
+	<script src="../../cjs/easeljs-0.8.2.min.js"></script>
+	<script src="../../cjs/tweenjs-0.6.2.min.js"></script>
+	<script src="../../cjs/preloadjs-0.6.2.min.js"></script>
+	<script src="../../cjs/soundjs-0.6.2.min.js"></script>
+	<script src="page.js"></script>
+	<script src="../../principal.js"></script>
+	<script src="../../cjs/jquery.min.js"></script>
+	<script src="../../cjs/jquery.imagemapster.js"></script>
+	<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
 
-<script src="../../cjs/jquery.mCustomScrollbar.concat.min.js"></script>
+	<script>
+		var canvas, stage, exportRoot;
 
-<script>
-var canvas, stage, exportRoot;
+		function init() {
 
-function init() {
+			canvas = document.getElementById("canvas");
 
-	canvas = document.getElementById("canvas");
-
-	var loader = new createjs.LoadQueue(false);
-	loader.installPlugin(createjs.Sound);
-	loader.addEventListener("fileload", handleFileLoad);
-	loader.addEventListener("complete", handleComplete);
-	loader.addEventListener("progress", handleProgress);
-	loader.loadManifest(lib.properties.manifest);	
-}
-
-function handleFileLoad(evt) {
-	if (evt.item.type == "image") { images[evt.item.id] = evt.result; }
-}
-
-function playSound(id, loop) {
-	createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
-}
-
-ancho_linea = 0;
-alto_linea = 10;
-max_ancho = 450;
-
-function handleProgress(evt) {
-	stage = new createjs.Stage(canvas);
-	var bordePadding = 2;
-	var borde = new createjs.Shape;
-	borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding*2, alto_linea).endFill();
-	var linea_carga = new createjs.Shape();
-	linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding,0 + bordePadding, ancho_linea, alto_linea - bordePadding*2).endFill();
-	
-	progreso = Math.round(evt.loaded * max_ancho);
-	ancho_linea = progreso;
-	
-	contenedor = new createjs.Container();
-	contenedor.x = 1240/2 - max_ancho/2;
-	contenedor.y = 495*4/5 - alto_linea/2;
-	contenedor.addChild(borde, linea_carga);
-	
-	//stage.addChild(contenedor);
-	stage.update();
-}
-
-function handleComplete(evt) {
-	var queue = evt.target;
-	
-	stage = new createjs.Stage(canvas);
-	createjs.Ticker.addEventListener("tick", stage);
-
-	/////Variables
-	sin_personaje = false;
-	globo_personaje = "En esta unidad estudiaremos los principales hallazgos evidenciados en las auditorias periódicas, en la etapa precontractual y la etapa de ejecución del proceso de contratación a través de la agencia de compras FAC. Las lecciones aprendidas te ayudaran a identificar acciones o situaciones que pueden causar deficiencias en el proceso, y así establecer acciones de mejora para una adecuada gestión de contratación."
-	pausas_audio = [[0,2375,6958],[0,2625,7071]];
-	contenidos();	
-}
-</script>
-</head>
-<body onload="init();">
-<canvas id="canvas" width="1165" height="550"></canvas>
-	<div id="instruccion_circulos" class="instruccion_circulos">
-		ELABORACIÓN DE ANEXOS T, ANEXOS TÉCNICOS Y FORMATO INICIAL DEL PROCESO (EXCEL).
-
-	</div>
-	
-<!---------------------------INICIO CONTENIDO------------------->
-	<!-----------------------Inicio boton uno------------------->
-	
-	<div class="c_principal c_1_3_1">
-		<img src="images/fondo1.png" class="fondoppal">	
-
-		<div class="item_c">
-			
-			
-		
-		<div class="item_c">
-		
-			
-			
-		<div class="btn-def" style="position: absolute;top: 150px; left: 70px;">
-			<button id="boton1" class="btn-def" onclick="btn1()">1</button>
-			<audio id="audio1">
-				<source src="sounds/star.mp3" type="audio/mpeg">
-			  </audio>
-		</div>
-
-			<div class="btn-def" style="position: absolute;top: 150px; left: 200px;">
-			<button id="boton2" class="btn-def" onclick="btn2()">2</button>
-			
-			</div>
-
-			<div class="btn-def" style="position: absolute;top: 150px; left: 330px;">
-			<button id="boton3" class="btn-def" onclick="btn3()">3</button>
-			</div>
-
-			<div class="btn-def" style="position: absolute;top: 150px; left: 460px;">
-            <button id="boton4" class="btn-def" onclick="btn4()">4</button>
-			</div>
-
-			<div class="btn-def" style="position: absolute;top: 150px; left: 590px;">
-            <button id="boton5" class="btn-def" onclick="btn5()">5</button>
-			</div>
-
-			<div class="btn-def" style="position: absolute;top: 150px; left: 720px;">
-            <button id="boton6" class="btn-def" onclick="btn6()">6</button>
-			</div>
-
-			<div class="btn-def" style="position: absolute;top: 150px; left: 850px;">
-            <button id="boton7" class="btn-def" onclick="btn7()">7</button>
-			</div>
-
-			<div class="btn-def" style="position: absolute;top: 150px; left: 980px;">
-            <button id="boton8" class="btn-def" onclick="btn8()">8</button>
-
-			</div>
-			
-        
-		<div id="variable1" class="ventana1" style="bottom:-70px; left:30%;">
-			<p>
-				<img src="images/excel.png " class="excel">
-			La principal falencia que se ha encontrado es que en el formato de Excel se encuentra mal diligenciada la
-			 pestaña de históricos, donde la dependencia que genera la necesidad debe incluir los datos históricos del
-			  material que se incluye dentro del proceso; estos históricos son extraídos del sistema SAP y se deben
-			   incluir las adquisiciones del material de los últimos tres años. 
-			</p>
-		</div>
-
-		<div id="variable2" class="ventana2" style="bottom:-100px; left:30%;">
-			<p>
-				<img src="images/img1.png" class="img1">
-			Si estos datos no son correctos y no se diligencia la pestaña de forma adecuada, esto produce que las empresas
-			 especulen con los precios del material ofertado y como consecuencia de esto se realiza una evaluación económica
-			  errónea, provocando que la administración adjudique elementos a las empresas por valores superiores al 25% a
-			   adquisiciones de las últimas tres vigencias inmediatamente anteriores a la que se está haciendo el proceso.
-			    De ahí la importancia de suministrar la información de manera correcta y de esta forma dar un mejor uso a
-				 los recursos del estado. 
-				</p>
-		</div>
-
-		<div id="variable3" class="ventana3" style="bottom:-130px; left:30%;">
-			<p>
-			<img src="images/img2.png" class="img2">
-			De igual manera, sucede con los anexos técnicos, dado que muchas veces son procesos que se ejecutan en todas
-			 las vigencias y los estructuradores técnicos tienden a copiar y pegar sin verificar la información están
-			  suministrando, lo que ha llevado a errores en la adquisición del material por no ser claros en las 
-			  especificaciones técnicas que se están solicitando, provocando que llegue material incompleto porque el 
-			  número de parte incluía una parte del material requerido y le faltan partes,                              debido a que era otro número
-			   de parte el que se debía solicitar para que el material llegara completo.
-			</p>
-		</div>
-
-		<div id="variable4" class="ventana4" style="bottom:-130px; left:170%;">
-		<p>
-			<img src="images/img3.gif" class="img3">
-			Inadecuada definición de la necesidad y oportunidad de la contratación.
-		</p>
-		</div>
-
-		<div id="variable5" class="ventana5" style="bottom:-130px; left:30%;">
-			<p>
-				<img src="images/img4.png" class="img4">
-			La selección del personal integrante de los comités estructuradores, supervisor y gerente de proyecto 
-			debe de cumplir con lo establecido en la Directiva Permanente No. 12 del 21 de septiembre de 2020, 
-			en caso de que no se pueda cumplir con el grado se debe justificar muy bien el porque del nombramiento
-			 de una persona con el grado inferior, ya que se observa continuamente que se realizan nombramientos sin
-			  cumplir con lo establecido en la directiva en mención y no son justificados, lo que genera que se retrasen
-			   los procesos de estructuración. 
-			</p>
-		</div>
-
-		<div id="variable6" class="ventana6" style="bottom:-125px; left:30%;">
-			<p>
-				<img src="images/img5.png" class="img5">
-			Se observa que el personal nombrado como estructurador técnico no tiene interés por dar pronta respuesta
-			 a los requerimientos jurídicos y económicos dentro de la etapa de estructuración y esto hace que un proceso
-			  pueda demorarse más del tiempo normal para la adjudicación.
-			</p>
-		</div>
-
-		<div id="variable7" class="ventana7" style="bottom:-100px; left:30%;">
-			<p>
-				<img src="images/img6.png" class="img6">
-			La Dependencia a través del comité estructurador técnico no realiza la revisión en SAP de los elementos o
-			 servicios que requiere, por tal motivo, en el momento de trámite de elaboración de minuta, se presentan 
-			 retrasos por no coincidir la información de la ficha técnica con lo que está en el sistema SAP.
-			</p>
-		</div>
-
-		<div id="variable8" class="ventana8" style="bottom:-80px; left:30%;">
-			<p>
-				<img src="images/img7.png" class="img7">
-			Se evidencia que el comité estructurador técnico no analiza la garantía técnica que requiere el
-			 proceso que está estructurando y se limita a copiar el ejemplo de garantía técnica que fue redactado
-			  por ACOFA para dar un apoyo general a los comités estructuradores.
-			</p>
-		</div>
-		
-		
-	</div>
-	<!------------------------Fin boton uno---------------------->
-	<!-- Personaje interno-->
-	
-	<!--Fin personaje interno-->
-<!----------------------------FIN CONTENIDO---------------------->
-<!----------------------------POPS------------------------------->
-	</div>
-	
-	
-	<script src="jquery-3.4.1.min.js"></script>
-		<script>
-		$(document).ready(() => {
-			$('#variable1').hide();
-			$('#variable2').hide();
-			$('#variable3').hide();
-			$('#variable4').hide();
-			$('#variable5').hide();
-			$('#variable6').hide();
-			$('#variable7').hide();
-			$('#variable8').hide();
-
-			$('#boton1').click(function() {
-				$('#variable1').show();
-				$('#variable2').hide();
-				$('#variable3').hide();
-				$('#variable4').hide();
-				$('#variable5').hide();
-				$('#variable6').hide();
-				$('#variable7').hide();
-				$('#variable8').hide();
-			});
-			
-			$('#boton2').click(function(){
-				$('#variable2').show();
-				$('#variable1').hide();
-				$('#variable3').hide();
-				$('#variable4').hide();
-				$('#variable5').hide();
-				$('#variable6').hide();
-				$('#variable7').hide();
-				$('#variable8').hide();
-			});
-
-			
-			$('#boton3').click(function(){
-				$('#variable3').show();
-				$('#variable1').hide();
-				$('#variable2').hide();
-				$('#variable4').hide();
-				$('#variable5').hide();
-				$('#variable6').hide();
-				$('#variable7').hide();
-				$('#variable8').hide();
-			});
-
-			$('#boton4').click(function(){
-				$('#variable4').show();
-				$('#variable1').hide();
-				$('#variable2').hide();
-				$('#variable3').hide();
-				$('#variable5').hide();
-				$('#variable6').hide();
-				$('#variable7').hide();
-				$('#variable8').hide();
-			});
-			$('#boton5').click(function(){
-				$('#variable5').show();
-				$('#variable1').hide();
-				$('#variable2').hide();
-				$('#variable3').hide();
-				$('#variable4').hide();
-				$('#variable6').hide();
-				$('#variable7').hide();
-				$('#variable8').hide();
-			});
-			$('#boton6').click(function(){
-				$('#variable6').show();
-				$('#variable1').hide();
-				$('#variable2').hide();
-				$('#variable3').hide();
-				$('#variable4').hide();
-				$('#variable5').hide();
-				$('#variable7').hide();
-				$('#variable8').hide();
-			});
-			$('#boton7').click(function(){
-				$('#variable7').show();
-				$('#variable1').hide();
-				$('#variable2').hide();
-				$('#variable3').hide();
-				$('#variable4').hide();
-				$('#variable5').hide();
-				$('#variable6').hide();
-				$('#variable8').hide();
-			});
-			$('#boton8').click(function(){
-				$('#variable8').show();
-				$('#variable1').hide();
-				$('#variable2').hide();
-				$('#variable3').hide();
-				$('#variable4').hide();
-				$('#variable5').hide();
-				$('#variable6').hide();
-				$('#variable7').hide();
-			});
-		});
-
-		var start1 = document.getElementById("audio1")
-
-		function btn1(){
-			document.getElementById('boton1').style.background ="#e7e7e7"; 
-			start1.play()
-		}
-		
-		function btn2(){
-			document.getElementById('boton2').style.background ="#e7e7e7"; 
-			start1.play()
-		}
-		function btn3(){
-			document.getElementById('boton3').style.background ="#e7e7e7"; 
-			start1.play()
-		}
-		function btn4(){
-			document.getElementById('boton4').style.background ="#e7e7e7"; 
-			start1.play()
-		}
-		function btn5(){
-			document.getElementById('boton5').style.background ="#e7e7e7"; 
-			start1.play()
-		}
-		function btn6(){
-			document.getElementById('boton6').style.background ="#e7e7e7"; 
-			start1.play()
-		}
-		function btn7(){
-			document.getElementById('boton7').style.background ="#e7e7e7"; 
-			start1.play()
-		}
-		function btn8(){
-			document.getElementById('boton8').style.background ="#e7e7e7"; 
-			start1.play()
+			var loader = new createjs.LoadQueue(false);
+			loader.installPlugin(createjs.Sound);
+			loader.addEventListener("fileload", handleFileLoad);
+			loader.addEventListener("complete", handleComplete);
+			loader.addEventListener("progress", handleProgress);
+			loader.loadManifest(lib.properties.manifest);
 		}
 
-		
+		function handleFileLoad(evt) {
+			if (evt.item.type == "image") {
+				images[evt.item.id] = evt.result;
+			}
+		}
+
+		function playSound(id, loop) {
+			createjs.Sound.play(id, createjs.Sound.INTERRUPT_EARLY, 0, 0, loop);
+		}
+
+		ancho_linea = 0;
+		alto_linea = 10;
+		max_ancho = 450;
+
+		function handleProgress(evt) {
+			stage = new createjs.Stage(canvas);
+			var bordePadding = 2;
+			var borde = new createjs.Shape;
+			borde.graphics.beginFill("rgba(131,120,111,0.4)").drawRect(0, 0, max_ancho + bordePadding * 2, alto_linea)
+				.endFill();
+			var linea_carga = new createjs.Shape();
+			linea_carga.graphics.beginFill("#009DDF").drawRect(0 + bordePadding, 0 + bordePadding, ancho_linea, alto_linea -
+				bordePadding * 2).endFill();
+
+			progreso = Math.round(evt.loaded * max_ancho);
+			ancho_linea = progreso;
+
+			contenedor = new createjs.Container();
+			contenedor.x = 1240 / 2 - max_ancho / 2;
+			contenedor.y = 495 * 4 / 5 - alto_linea / 2;
+			contenedor.addChild(borde, linea_carga);
+
+			//stage.addChild(contenedor);
+			stage.update();
+		}
+
+		function handleComplete(evt) {
+			var queue = evt.target;
+
+			stage = new createjs.Stage(canvas);
+			createjs.Ticker.addEventListener("tick", stage);
+
+			/////Variables
+			sin_personaje = false;
+			globo_personaje =
+				"Con el fin de reforzar los contenidos aprendidos en este módulo, te invitamos a observar el siguiente vídeo y a realizar la actividad propuesta.";
+			pausas_audio = [
+				[0, 7190],
+				[699, 7880]
+			];
+
+			contenidos();
+		}
 	</script>
-	
-	<div class="instruccion_interna">Debe dar clic sobre cada uno de los botones.</div>
+
+</head>
+
+<body onload="init();">
+	<canvas id="canvas" width="1265" height="550"></canvas>
+	<div id="instruccion_circulos" class="instruccion_circulos">
+		Analiza el hallazgo y selecciona las dos conclusiones que es posible obtener:
+
+
 	</div>
-	
+
+	<!--INICIO CONTENIDO-->
+
+	<!-- Inicio contenido principal-->
+	<div class="c_principal c_1_1">
+		<!--modificar clase c_1_1 según distribución de contenido;-->
+		<h1></h1>
+		<div class="item_c" style="margin-top: 70px;">
+			<!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+			<video controls preload="auto">
+				<source src="video/page7.mp4" type="video/mp4">
+				Su navegador no soporta video HTML5.
+			</video>
+
+		</div>
+
+		<div class="item_c" style="margin-top: 70px;">
+			<!--align-self(center) auto | flex-start | flex-end | center | baseline | stretch; margin-top(0);text-aling(center)-->
+
+
+
+
+
+
+
+			De las siguientes opciones ¿Cuáles hacen parte de la etapa contractual del proceso de contratación?
+
+			<div class="opciones_preg">
+
+				<table>
+					<tr>
+						<td style="width: 305px;">
+							<div id="correcto0" class="opcion_preg">
+								Recepción y evaluación de ofertas. 
+							</div>
+						</td>
+						<td>
+							<div id="incorrecto0" class="opcion_preg">
+								Recibo y aceptación de bienes y servicios en la ejecución del contrato. 
+								<!-- <div style="height: 56px;"></div> -->
+
+							</div>
+						</td>
+					</tr>
+					<tr style="height: 20px;"></tr>
+					<tr>
+						<td>
+							<div id="correcto1" class="opcion_preg">
+								Desaduanamiento
+							</div>
+						</td>
+						<td>
+							<div id="incorrecto1" class="opcion_preg">
+								Estudio de mercado
+							</div>
+						</td>
+					</tr>
+				</table>
+
+
+
+
+
+
+
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+
+
+	<div id="pop0" class="pop">
+		<div class="titulo_pop">
+			Título en Over
+		</div>
+		texto en over <span class="negrilla_pop">texto negrilla en over</span>.
+	</div>
+	<div id="pop1" class="pop">
+		Texto
+	</div>
+	<div id="pop2" class="pop">
+		Texto
+	</div>
+
 </body>
 
 </html>
