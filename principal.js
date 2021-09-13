@@ -96,8 +96,8 @@ function interface_principal() {
 
         function _0x67eex5() {
            //window[_0xa008[44]][_0xa008[43]]();
-           //location.reload();
-            window.close();
+           location.reload();
+           // window.close();
             parent[_0xa008[45]]()
         }
         una_vez_pag = true;
