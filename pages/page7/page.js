@@ -1,4 +1,3 @@
-
 (function (lib, img, cjs, ss) {
 
 var p; // shortcut to reference prototypes
@@ -9,7 +8,7 @@ lib.properties = {
 	height: 485,
 	fps: 24,
 	color: "#FFFFFF",
-	manifest: [{src:"sounds/audio8.mp3"},{src:"sounds/audio8_0.mp3"}]
+	manifest: [{src:"sounds/audio7.mp3"}]
 };
 
 

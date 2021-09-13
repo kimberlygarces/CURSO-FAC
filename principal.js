@@ -95,7 +95,9 @@ function interface_principal() {
         var_acepta_salir[_0xa008[28]](_0xa008[27], _0x67eex5);
 
         function _0x67eex5() {
-            window[_0xa008[44]][_0xa008[43]]();
+           //window[_0xa008[44]][_0xa008[43]]();
+           //location.reload();
+            window.close();
             parent[_0xa008[45]]()
         }
         una_vez_pag = true;
