@@ -237,7 +237,10 @@
 							<a href="javascript:abrir1()">Área Centro de Distribución
 								<img src="images/truck.png" class="imgContenedor">
 							</a>
-					
+						
+							<audio id="audio_abrir1">
+								<source src="sounds/abrir1.mp3" type="audio/mpeg">
+							</audio>
 				
 						</button>
 				
@@ -245,6 +248,11 @@
 						<a href="javascript:abrir2()">(AETEC) y (ACONT)
 							<img src="images/plane.png" class="img6_2">
 						</a>
+
+						<audio id="audio_abrir2">
+							<source src="sounds/abrir2.mp3" type="audio/mpeg">
+						</audio>
+			
 					
 						</button>
 					
@@ -252,6 +260,11 @@
 						<a href="javascript:abrir3()">Delegado Contractual
 							<img src="images/user.png" class="img7_2">
 						</a>
+
+						
+						<audio id="audio_abrir3">
+							<source src="sounds/abrir3.mp3" type="audio/mpeg">
+						</audio>
 						 
 						</button>
 					</div>
@@ -262,6 +275,10 @@
 					<a href="javascript:abrir4()">Unidades Ejecutoras
 						<img src="images/pendrive.png" class="img7_2">
 					</a>
+
+					<audio id="audio_abrir4">
+						<source src="sounds/abrir4.mp3" type="audio/mpeg">
+					</audio>
 				  
 					</button>
 				
@@ -269,6 +286,10 @@
 					<a href="javascript:abrir5()">Servicio Posventa
 						<img src="images/sale.png" class="img8_2">
 					</a>
+					<audio id="audio_abrir5">
+						<source src="sounds/abrir5.mp3" type="audio/mpeg">
+					</audio>
+				  
 				
 					</button>
 				
@@ -276,7 +297,9 @@
 					<a href="javascript:abrir6()">OFFSET
 						<img src="images/off.png" class="img9_2">
 					</a>
-				
+					<audio id="audio_abrir6">
+						<source src="sounds/abrir6.mp3" type="audio/mpeg">
+					</audio>
 					</button>
 					
 					</div>
@@ -634,6 +657,13 @@
 
 		<script>
 			var audio = document.getElementById('audio')
+			var audio_abrir1 = document.getElementById('audio_abrir1')
+			var audio_abrir2 = document.getElementById('audio_abrir2')
+			var audio_abrir3 = document.getElementById('audio_abrir3')
+			var audio_abrir4 = document.getElementById('audio_abrir4')
+			var audio_abrir5 = document.getElementById('audio_abrir5')
+			var audio_abrir6 = document.getElementById('audio_abrir6')
+
 			var intro = document.getElementById('intro')
 			var definiciones = document.getElementById('definiciones')
 
@@ -1483,7 +1513,7 @@
 			document.getElementById('fondo').style.display = 'block'
 			document.getElementById('img2').style.display = 'none';
             cont1.style.background = "#e7e7e7"; 
- 				audio.play();
+			audio_abrir1.play();
 
         }
 
@@ -1493,7 +1523,7 @@
 			document.getElementById('fondo').style.display = 'none'
 
 
- 			audio.load();
+			audio_abrir1.load();
         }
 
         function abrir2() {
@@ -1502,7 +1532,7 @@
 			document.getElementById('fondo').style.display = 'block'
 			document.getElementById('img2').style.display = 'none'
 			document.getElementById("contenedor2").style.background = "#e7e7e7";  
-            audio.play();
+            audio_abrir2.play();
 
         }
 
@@ -1510,7 +1540,7 @@
             document.getElementById("vent2").style.display = "none";
 			document.getElementById('page2').style.display = 'block'
 			document.getElementById('fondo').style.display = 'none'
-            audio.load();
+            audio_abrir2.load();
         }
 
         function abrir3() {
@@ -1519,14 +1549,14 @@
 			document.getElementById('fondo').style.display = 'block'
 			document.getElementById('img2').style.display = 'none'
             cont3.style.background = "#e7e7e7";  
-            audio.play();
+            audio_abrir3.play();
         }
 
         function cerrar3() {
             document.getElementById("vent3").style.display = "none";
 			document.getElementById('page2').style.display = 'block';
 			document.getElementById('fondo').style.display = 'none'
-            audio.load();
+            audio_abrir3.load();
         }
 
         function abrir4() {
@@ -1535,14 +1565,14 @@
 			document.getElementById('fondo').style.display = 'block'
 			document.getElementById('img2').style.display = 'none';
 			cont4.style.background = "#e7e7e7";  
-            audio.play();
+            audio_abrir4.play();
         }
 
         function cerrar4() {
             document.getElementById("vent4").style.display = "none";
 			document.getElementById('page2').style.display = 'block'
 			document.getElementById('fondo').style.display = 'none'
-            audio.load()
+            audio_abrir4.load()
         }
 
         function abrir5() {
@@ -1551,14 +1581,14 @@
 			document.getElementById('fondo').style.display = 'block'
 			document.getElementById('img2').style.display = 'none'
             cont5.style.background = "#e7e7e7";  
-            audio.play();
+            audio_abrir5.play();
         }
 
         function cerrar5() {
             document.getElementById("vent5").style.display = "none";
 			document.getElementById('page2').style.display = 'block'
 			document.getElementById('fondo').style.display = 'none'
-            audio.load()
+            audio_abrir5.load()
         }
 
         function abrir6() {
@@ -1567,14 +1597,14 @@
 			document.getElementById('fondo').style.display = 'block';
 			document.getElementById('img2').style.display = 'none'
             cont6.style.background = "#e7e7e7";  
-            audio.play();
+            audio_abrir6.play();
         }
 
         function cerrar6() {
             document.getElementById("vent6").style.display = "none";
 			document.getElementById('page2').style.display = 'block'
 			document.getElementById('fondo').style.display = 'none'
-            audio.load()
+            audio_abrir6.load()
         }
 
 		</script>
