@@ -7,7 +7,7 @@
 
 }
 #document{
-    background-color: #689b09;
+    background-color: #0877B5;
     border-style: none;
     -webkit-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 2px -2px 5px 0px rgba(0,0,0,0.75);
@@ -131,4 +131,9 @@
     justify-content: center;
     border-radius: 10px;
     margin: 3%;
+}
+
+.content_contratacion{
+height: 400px; 
+overflow-y: scroll;
 }
