@@ -81,3 +81,10 @@ animation-duration: 4s;
     transform: scale(1.2);
     transition: transform 0.5s linear;
 }
+
+.content_contratacion1{
+    height: 310px; 
+    width: 500px;
+    overflow-y: scroll;
+}
+

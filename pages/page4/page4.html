@@ -173,7 +173,7 @@ function handleComplete(evt) {
         <div class="w3-display-topright">
           <button onclick="Salir_id044_1pag2()" id="btn-cerrar"><img src="images/cerrar.png"></button>
         </div>
-        <div class="w3-col resaltado_especial" style="width:80%">
+        <div class="w3-col resaltado_especial content_contratacion1" style="width:80%">
           <p style="font-size: 22px;">
             
             <b>Condiciones para modificar un contrato</b>
@@ -227,7 +227,7 @@ function handleComplete(evt) {
           <button onclick="Salir_id044_1pag2_2()" id="btn-cerrar"
             ><img src="images/cerrar.png"></button>
         </div>
-        <div class="w3-col resaltado_especial" style="width:90%">
+        <div class="w3-col resaltado_especial content_contratacion1" style="width:90%">
           <p style="font-size: 22px;">
             
             <b>Condiciones para modificar un contrato</b>
@@ -268,6 +268,9 @@ function handleComplete(evt) {
         </button>
         <button onclick="id044_1pag2_3()" class="w3-button w3-blue btn-id04" style="margin: 2%;">
           Siguiente
+          <audio id="titled">
+            <source src="sounds/title_d.mp3" type="audio/mpeg">
+            </audio>
         </button>
        
       </div>
@@ -316,6 +319,9 @@ function handleComplete(evt) {
         </button>
         <button onclick="id044_1pag2_4()" class="w3-button w3-blue btn-id04" style="margin: 2%;">
           Siguiente
+          <audio id="titlee">
+            <source src="sounds/title_e.mp3" type="audio/mpeg">
+            </audio>
         </button>
        
       </div>
@@ -376,7 +382,7 @@ function handleComplete(evt) {
           <button onclick="Salir_id044_1pag3()" id="btn-cerrar"
             ><img src="images/cerrar.png"></button>
         </div>
-        <div class="w3-col resaltado_especial" style="width:90%">
+        <div class="w3-col resaltado_especial content_contratacion1" style="width:90%">
           <p style="font-size: 22px;">
             <b>Documentos requeridos para modificar un contrato</b>
           </p>
@@ -412,6 +418,9 @@ Para que sea efectiva la modificación del contrato ambas partes deben aceptarlo
         </div>
         <button onclick="id044_1pag3_1()" class="w3-button w3-blue btn-id04" style="margin: 2%;">
           Siguiente
+          <audio id="titlef">
+            <source src="sounds/title_f.mp3" type="audio/mpeg">
+            </audio>
         </button>
        
       </div>
@@ -426,7 +435,7 @@ Para que sea efectiva la modificación del contrato ambas partes deben aceptarlo
           <button onclick="Salir_id044_1pag3_1()" id="btn-cerrar"
             ><img src="images/cerrar.png"></button>
         </div>
-        <div class="w3-col resaltado_especial" style="width:95%">
+        <div class="w3-col resaltado_especial content_contratacion1" style="width: 90%;">
           <!-- <p class="w3-serif" style="font-size: 22px;">
             c) Documentos requeridos para modificar un contrato
           </p> -->
@@ -434,12 +443,13 @@ Para que sea efectiva la modificación del contrato ambas partes deben aceptarlo
             
             <b>Modificación orden de compra o pedido en los contratos abiertos</b>
           </p>
-          <img src="images/requerido2.png" class="img8" style="margin-top:3%;" >
+          <img src="images/requerido2.png" class="img8" style="margin: top 2%;" >
           <hr>
-          
+          <p style="font-size: 18px;">
           La orden de compra se regirá por los términos del contrato, de conformidad con el Anexo P y el procedimiento establecido para los contratos abiertos en la presente Directiva.
           Se podrá modificar la orden de compra  en los siguientes casos: para identificación del material (números de parte, número de serie), cantidades, condición técnica (solamente en el caso del cambio de la condición a inspección o devolución de elementos los cuales la Administración haya enviado en condición BER sin que esta falta se pueda trasladar al contratista, en ningún caso se debe desmejorar la condición), la fecha de entrega del elemento (lo anterior aplicara únicamente para los casos en que la selección no haya sido basada en el plazo de la oferta o entrega del elemento).   
           En los demás casos se deberá realizar el procedimiento del numeral 4.3.6. MODIFICACIÓN DEL CONTRATO.
+        </p>
           <div class="instruccion_interna">Debe pasar el mouse por el texto resaltado</div>
           <div id="zona_sensible0" class="negrilla_sensible">
             <img src="images/doc.png" class ="img3">
@@ -529,6 +539,9 @@ Para que sea efectiva la modificación del contrato ambas partes deben aceptarlo
    	var titlea = document.getElementById('titlea')
    	var titleb = document.getElementById('titleb')
    	var titlec = document.getElementById('titlec')
+    var titled = document.getElementById('titled')
+    var titlee = document.getElementById('titlee')
+    var titlef = document.getElementById('titlef')
 
   function id044_1pag1(){
     document.getElementById('id044_1pag1').style.display = 'block';
@@ -555,46 +568,57 @@ Para que sea efectiva la modificación del contrato ambas partes deben aceptarlo
   function id044_1pag2_2(){
     document.getElementById('id044_1pag2').style.display = 'none'
     document.getElementById('id044_1pag2_2').style.display = 'block'
+    titleb.load()
 
   }
   function Salir_id044_1pag2_2(){
     document.getElementById('id044_1pag2_2').style.display = 'none'
+    
   }
   function A_id044_1pag2_2(){
 
     document.getElementById('id044_1pag2').style.display = 'block'
     document.getElementById('id044_1pag2_2').style.display = 'none'
+    titled.load()
+    
 
   }
 
   function id044_1pag2_3(){
     document.getElementById('id044_1pag2_3').style.display = 'block'
     document.getElementById('id044_1pag2_2').style.display = 'none'
+    titled.play()
+    
 
   }
 
   function A_id044_1pag2_3(){
     document.getElementById('id044_1pag2_2').style.display = 'block'
     document.getElementById('id044_1pag2_3').style.display = 'none'
-
+    titled.load()
   }
   function id044_1pag2_4(){
     document.getElementById('id044_1pag2_3').style.display = 'none'
     document.getElementById('id044_1pag2_4').style.display = 'block'
+    titlee.play()
+    titled.load()
 
   }
   function A_id044_1pag2_4(){
     document.getElementById('id044_1pag2_3').style.display = 'block'
     document.getElementById('id044_1pag2_4').style.display = 'none'
+    titlee.load()
 
   }
 
   function Salir_id044_1pag2_4(){
     document.getElementById('id044_1pag2_4').style.display = 'none'
+    titlee.load()
   }
 
   function Salir_id044_1pag2_3(){
     document.getElementById('id044_1pag2_3').style.display = 'none'
+    titled.load()
 
   }
 
@@ -612,23 +636,30 @@ Para que sea efectiva la modificación del contrato ambas partes deben aceptarlo
   function Salir_id044_1pag3(){
     document.getElementById('id044_1pag3').style.display = 'none'
     document.getElementById('Salir_id044_1pag3()').style.background ="#e7e7e7"; 
-    titlec.load();
+    titlec.load()
+    
 
 
   }
+
   function id044_1pag3_1(){
     document.getElementById('id044_1pag3').style.display = 'none'
     document.getElementById('id044_1pag3_1').style.display = 'block'
+    titlef.play()
+    titlec.load()
 
   }
 
   function Salir_id044_1pag3_1(){
     document.getElementById('id044_1pag3_1').style.display = 'none'
+    titlef.load()
+    
   }
 
   function A_id044_1pag3_1(){
     document.getElementById('id044_1pag3').style.display = 'block'
     document.getElementById('id044_1pag3_1').style.display = 'none'
+    titlef.load()
 
   }
 </script>
