@@ -106,11 +106,11 @@
     </audio>
 
     <audio id="title1_a">
-      <source src="sounds/title1_a.mp3" type="audio/mpeg">
+      <source src="sounds/audio58_a.mp3" type="audio/mpeg">
     </audio>
 
     <audio id="title1_b">
-      <source src="sounds/title1_b.mp3" type="audio/mpeg">
+      <source src="sounds/audio59_a.mp3" type="audio/mpeg">
     </audio>
 
     <audio id="title1_c">
@@ -216,6 +216,9 @@
           </div>
           <button onclick="id066_1pag1_22()" class="w3-button w3-blue" style="margin: 2%;">
             Siguiente
+            <audio id="title1_b2">
+              <source src="sounds/audio58_b.mp3" type="audio/mpeg">
+              </audio>
           </button>
         </div>
       </div>
@@ -256,12 +259,12 @@
               </tr>
               
             </table>
-    
+            <button onclick="A_id066_1pag1_22()" class="w3-button w3-blue" style="margin: 2%;">
+              Anterior
+            </button>
 
           </div>
-          <button onclick="A_id066_1pag1_22()" class="w3-button w3-blue" style="margin: 2%;">
-            Anterior
-          </button>
+          
         </div>
       </div>
     </div>
@@ -306,6 +309,9 @@
           </div>
           <button onclick="id066_1pag2_1()" class="w3-button w3-blue" style="margin: 2%;">
             Siguiente
+            <audio id="title59_b">
+              <source src="sounds/audio59_b.mp3" type="audio/mpeg">
+              </audio>
           </button>
         </div>
       </div>
@@ -345,6 +351,9 @@
               
 
             </table>
+            <button onclick="A_id066_1pag1_23()" class="w3-button w3-blue" style="margin: 2%;">
+                Anterior
+              </button>
             <!-- <div class="instruccion_interna">Debe dar click en cada uno de los botones</div> -->
 
 
@@ -934,6 +943,10 @@ var title1_a = document.getElementById('title1_a')
 var title1_b = document.getElementById('title1_b')
 var title1_c = document.getElementById('title1_c')
 var title1_d = document.getElementById('title1_d')
+var title1_b2 = document.getElementById('title1_b2')
+var title59_b = document.getElementById('title59_b')
+
+
 
 
 var title2 = document.getElementById('title2')
@@ -958,16 +971,24 @@ var title3 = document.getElementById('title3')
   function id066_1pag1_22(){
     document.getElementById('id066_1pag1_22').style.display = 'block'
     document.getElementById('id066_1pag1_1').style.display = 'none'
+    title1_a.load()
+    title1_b2.play()
+    
+    
 
   }
 
   function Salir_id066_1pag1_22(){
     document.getElementById('id066_1pag1_22').style.display = 'none'
+    title1_b2.load()
+    title59_b.load()
+    
   }
 
   function A_id066_1pag1_22(){
     document.getElementById('id066_1pag1_22').style.display = 'none'
     document.getElementById('id066_1pag1_1').style.display = 'block'
+    title1_b2.load()
 
   }
 
@@ -1070,35 +1091,17 @@ var title3 = document.getElementById('title3')
     document.getElementById('id066_3pag1').style.display = 'none'
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function A_id066_1pag1_23(){
+  document.getElementById('id066_1pag2').style.display = 'block'
+  document.getElementById('id066_1pag2_1').style.display = 'none'
+  title59_b.load()
+}
 
 
   function A_id066_1pag1_22(){
     document.getElementById('id066_1pag1_22').style.display = 'none'
     document.getElementById('id066_1pag1_1').style.display = 'block'
+    title1_b2.load()
 
   }
  
@@ -1157,11 +1160,14 @@ var title3 = document.getElementById('title3')
   function Salir_id066_1pag2() {
     document.getElementById('id066_1pag2').style.display = 'none'
     title1_b.play()
+    title1_b.load()
   }
 
   function id066_1pag2_1() {
     document.getElementById('id066_1pag2_1').style.display = 'block'
     document.getElementById('id066_1pag2').style.display = 'none'
+    title1_b.load()
+    title59_b.play()
 
   }
 
@@ -1169,6 +1175,7 @@ var title3 = document.getElementById('title3')
     document.getElementById('id066_1pag2_1').style.display = 'none'
     document.getElementById('id066_1pag2').style.display = 'block'
     document.getElementById('id066_1pag2').style.display = 'none'
+    title59_b.load()
 
   }
 </script>
