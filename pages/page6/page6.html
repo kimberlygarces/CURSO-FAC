@@ -114,19 +114,19 @@
     </audio>
 
     <audio id="title1_c">
-      <source src="sounds/title1_c.mp3" type="audio/mpeg">
+      <source src="sounds/audio60_a.mp3" type="audio/mpeg">
     </audio>
 
     <audio id="title1_d">
-      <source src="sounds/title1_d.mp3" type="audio/mpeg">
+      <source src="sounds/audio61_a.mp3" type="audio/mpeg">
     </audio>
 
     <audio id="title2">
-      <source src="sounds/title2.mp3" type="audio/mpeg">
+      <source src="sounds/audio63_a.mp3" type="audio/mpeg">
     </audio>
 
     <audio id="title3">
-      <source src="sounds/title3.mp3" type="audio/mpeg">
+      <source src="sounds/audio65.mp3" type="audio/mpeg">
     </audio>
 
 
@@ -407,6 +407,9 @@
           </div>
           <button onclick="id066_1pag1_33()" class="w3-button w3-blue" style="margin: 2%;">
             Siguiente
+            <audio id="title60_b">
+              <source src="sounds/audio60_b.mp3" type="audio/mpeg">
+              </audio>
           </button>
         </div>
       </div>
@@ -516,6 +519,9 @@
           </div>
           <button onclick="id066_1pag1_44()" class="w3-button w3-blue" style="margin: 2%;">
             Siguiente
+            <audio id="title61_b">
+              <source src="sounds/audio61_b.mp3" type="audio/mpeg">
+              </audio>
           </button>
         </div>
       </div>
@@ -594,6 +600,9 @@
             
           </div>
           <button onclick="id066_2pag1()" class="w3-button w3-blue" style="margin: 2%;">
+            <audio id="title64_a">
+              <source src="sounds/audio64_a.mp3" type="audio/mpeg">
+              </audio>
             Siguiente
           </button>
         </div>
@@ -945,11 +954,17 @@ var title1_c = document.getElementById('title1_c')
 var title1_d = document.getElementById('title1_d')
 var title1_b2 = document.getElementById('title1_b2')
 var title59_b = document.getElementById('title59_b')
+var title59_b = document.getElementById('title59_b')
+var title60_b = document.getElementById('title60_b')
+var title61_b = document.getElementById('title61_b')
+
 
 
 
 
 var title2 = document.getElementById('title2')
+var title64_a = document.getElementById('title64_a')
+
 var title3 = document.getElementById('title3')
 
 
@@ -997,18 +1012,27 @@ var title3 = document.getElementById('title3')
   function id066_1pag1_33(){
     document.getElementById('id066_1pag1_33').style.display = 'block'
     document.getElementById('id066_1pag1_3').style.display = 'none'
+    title1_c.load()
+    title60_b.play()
+    
+    
 
   }
 
   function Salir_id066_1pag1_33(){
     document.getElementById('id066_1pag1_33').style.display = 'none'
     document.getElementById('boton-tipo3').style.background ="#e7e7e7"; 
+    title1_c.load()
+    title60_b.load()
+    
 
   }
 
   function A_id066_1pag1_33(){
     document.getElementById('id066_1pag1_33').style.display = 'none'
     document.getElementById('id066_1pag1_3').style.display = 'block'
+    
+
 
   }
 
@@ -1017,16 +1041,20 @@ var title3 = document.getElementById('title3')
   function id066_1pag1_44(){
     document.getElementById('id066_1pag1_44').style.display = 'block'
     document.getElementById('id066_1pag1_4').style.display = 'none'
+    title1_d.load()
+    title61_b.play()
 
   }
 
   function Salir_id066_1pag1_44(){
     document.getElementById('id066_1pag1_44').style.display = 'none'
+    title61_b.load()
   }
 
   function A_id066_1pag1_44(){
     document.getElementById('id066_1pag1_44').style.display = 'none'
     document.getElementById('id066_1pag1_4').style.display = 'block'
+    title61_b.load()
 
   }
 
@@ -1042,14 +1070,18 @@ var title3 = document.getElementById('title3')
 
   function Salir_id066_2(){
     document.getElementById('id066_2').style.display = 'none'
+    title2.load()
   }
   function id066_2pag1(){
     document.getElementById('id066_2').style.display = 'none'
     document.getElementById('id066_2pag1').style.display = 'block'
+    title2.load()
+    title64_a.play()
 
   }
   function Salir_id066_2pag1(){
     document.getElementById('id066_2pag1').style.display = 'none'
+    title64_a.load()
 
   }
 
@@ -1057,6 +1089,7 @@ var title3 = document.getElementById('title3')
     document.getElementById('id066_2').style.display = 'block'
 
     document.getElementById('id066_2pag1').style.display = 'none'
+    title64_a.load()
   }
 
   // Procedimientos específicos
@@ -1066,11 +1099,12 @@ var title3 = document.getElementById('title3')
   function id066_3(){
     document.getElementById('id066_3').style.display = 'block'
     document.getElementById('sancion6_3').style.background ="#e7e7e7"; 
-    title3.play()
+    
   }
 
   function Salir_id066_3(){
     document.getElementById('id066_3').style.display = 'none'
+    
   }
 
 
@@ -1078,10 +1112,12 @@ var title3 = document.getElementById('title3')
     document.getElementById('id066_3').style.display = 'none'
     document.getElementById('id066_3pag1').style.display = 'block'
     document.getElementById('sancion6_3').style.background ="#e7e7e7"; 
+    title3.play()
 
   }
   function Salir_id066_3pag1(){
     document.getElementById('id066_3pag1').style.display = 'none'
+    title3.load()
 
   }
 
