@@ -197,16 +197,16 @@
     <source src="sounds/audio43.mp3" type="audio/mpeg">
   </audio>
   <audio id="title2_3">
-    <source src="sounds/title2_3.mp3" type="audio/mpeg">
+    <source src="sounds/audio45.mp3" type="audio/mpeg">
   </audio>
   <audio id="title3_3">
     <source src="sounds/title3_3.mp3" type="audio/mpeg">
   </audio>
   <audio id="title4_3">
-    <source src="sounds/title4_3.mp3" type="audio/mpeg">
+    <source src="sounds/audio47.mp3" type="audio/mpeg">
   </audio>
   <audio id="title5_3">
-    <source src="sounds/title5_3.mp3" type="audio/mpeg">
+    <source src="sounds/audio48.mp3" type="audio/mpeg">
   </audio>
 
   <!-- tipos de contrato -->
@@ -1922,9 +1922,10 @@
           <div id="modal-contentSiguiente" class="w3-modal-content">
             <div class="w3-container">
               <div class="w3-display-topright">
-                <button onclick="document.getElementById('id033_4').style.display='none'" id="btn-cerrar"
+                <button onclick="salir47()" id="btn-cerrar"
                   ><img src="images/cerrar.png"></button>
               </div>
+              
               <div class="w3-col resaltado_especial" style="width:90%; margin-top:2%;">
                 <p style="font-size: 22px;">
                   <b>Pagos</b>
@@ -2061,9 +2062,10 @@
           <div id="modal-contentSiguiente" class="w3-modal-content">
             <div class="w3-container">
               <div class="w3-display-topright">
-                <button onclick="document.getElementById('id033_5').style.display='none'" id="btn-cerrar"
+                <button onclick="salir48()" id="btn-cerrar"
                   ><img src="images/cerrar.png"></button>
               </div>
+              
               <div class="w3-col resaltado_especial" style="width:90%; margin-top:2%;">
                 <p style="font-size: 22px;">
                   <b>Balance Final del Contrato</b>
@@ -2078,11 +2080,17 @@
                 </p>
                 <br>
                 <button id="btn3_5_1" onclick="id033_5pag1()" class="boton1" style="width: 180px; margin: 3%;"><img
-                    src="images/paso1.png" class="num1"></button>
+                    src="images/paso1.png" class="num1"><audio id="title5_31">
+                      <source src="sounds/audio48_1.mp3" type="audio/mpeg">
+                      </audio></button>
                 <button id="btn3_5_2" onclick="id033_5pag2()" class="boton1" style="width: 180px; margin: 3%;"><img
-                    src="images/paso2.png" class="num1"></button>
+                    src="images/paso2.png" class="num1"><audio id="title5_32">
+                      <source src="sounds/audio48_2.mp3" type="audio/mpeg">
+                      </audio></button>
                 <button id="btn3_5_3" onclick="id033_5pag3()" class="boton1" style="width: 180px; margin: 3%;"><img
-                    src="images/paso3.png" class="num1"></button>
+                    src="images/paso3.png" class="num1"><audio id="title5_33">
+                      <source src="sounds/audio48_3.mp3" type="audio/mpeg">
+                      </audio></button>
 
                 <div class="instruccion_interna">Debe dar click cada uno de los botones</div>
 
@@ -2101,9 +2109,10 @@
             <div id="modal-contentSiguiente" class="w3-modal-content">
               <div class="w3-container">
                 <div class="w3-display-topright">
-                  <button onclick="Salir_id033_pag5()" id="btn-cerrar"
+                  <button onclick="salir48_1()" id="btn-cerrar"
                     ><img src="images/cerrar.png"></button>
                 </div>
+
                 <div class="w3-col resaltado_especial" style="width:90%; margin-top:2%;">
                   <p style="font-size: 22px;">
                     <b>Balance Final del Contrato</b>
@@ -2132,7 +2141,7 @@
             <div id="modal-contentSiguiente" class="w3-modal-content">
               <div class="w3-container">
                 <div class="w3-display-topright">
-                  <button onclick="Salir_id033_pag5()" id="btn-cerrar"
+                  <button onclick="salir49()" id="btn-cerrar"
                     ><img src="images/cerrar.png"></button>
                 </div>
                 <div class="w3-col resaltado_especial" style="width:90%; margin-top:2%;">
@@ -2158,7 +2167,7 @@
             <div id="modal-contentSiguiente" class="w3-modal-content">
               <div class="w3-container">
                 <div class="w3-display-topright">
-                  <button onclick="Salir_id033_pag5()" id="btn-cerrar"
+                  <button onclick="salir50()" id="btn-cerrar"
                     ><img src="images/cerrar.png"></button>
                 </div>
                 <div class="w3-col resaltado_especial" style="width:90%; margin-top:2%;">
@@ -2366,6 +2375,10 @@
   var title3_3 = document.getElementById('title3_3')
   var title4_3 = document.getElementById('title4_3')
   var title5_3 = document.getElementById('title5_3')
+  var title5_31 = document.getElementById('title5_31')
+  var title5_32 = document.getElementById('title5_32')
+  var title5_33 = document.getElementById('title5_33')
+  
 
 
 
@@ -2950,11 +2963,17 @@ title1_3.load()
 
   }
 
+  function salir47(){
+    document.getElementById('id033_4').style.display='none'
+    title4_3.load()
+    }
+
   function id033_4pag1() {
     document.getElementById('id033_1').style.display = 'none'
     document.getElementById('id033_4pag1').style.display = 'block'
     document.getElementById('boton1_1').style.background = "#e7e7e7";
     titlepagos1.play()
+    title4_3.load()
 
   }
 
@@ -2964,6 +2983,7 @@ title1_3.load()
     document.getElementById('id033_4pag2').style.display = 'block'
     document.getElementById('boton1_2').style.background = "#e7e7e7";
     titlepagos2.play()
+    title4_3.load()
 
   }
 
@@ -2972,6 +2992,7 @@ title1_3.load()
     document.getElementById('id033_4pag3').style.display = 'block'
     document.getElementById('boton1_3').style.background = "#e7e7e7";
     titlepagos3.play()
+    title4_3.load()
   }
 
   function id033_4pag4() {
@@ -2979,6 +3000,7 @@ title1_3.load()
     document.getElementById('id033_4pag4').style.display = 'block'
     document.getElementById('boton1_4').style.background = "#e7e7e7";
     titlepagos4.play()
+    title4_3.load()
 
     
 
@@ -3006,12 +3028,24 @@ title1_3.load()
 
   }
 
+  function salir48(){
+  document.getElementById('id033_5').style.display='none'
+  title5_3.load()
+
+  }
+  function salir49(){
+    document.getElementById('id033_5pag2').style.display = 'none'
+    title5_32.load()
+
+  }
+
 
   function id033_5pag1() {
     // document.getElementById('id033_5').style.display = 'none'
     document.getElementById('id033_5pag1').style.display = 'block'
     document.getElementById('btn3_5_1').style.background = "#e7e7e7";
-    audio.play()
+    title5_31.play()
+    title5_3.load()
 
 
   }
@@ -3021,28 +3055,42 @@ title1_3.load()
     // document.getElementById('id033_5').style.display = 'none'
     document.getElementById('id033_5pag2').style.display = 'block'
     document.getElementById('btn3_5_2').style.background = "#e7e7e7";
-    audio.play()
+    title5_32.play()
+    title5_3.load()
 
 
   }
+
 
   function id033_5pag3() {
     // document.getElementById('id033_5').style.display = 'none'
     document.getElementById('id033_5pag3').style.display = 'block'
     document.getElementById('btn3_5_3').style.background = "#e7e7e7";
-    audio.play()
+    title5_33.play()
+    title5_3.load()
 
   }
 
   function Salir_id033_pag5() {
-    document.getElementById('id033_5').style.display = 'block'
-    document.getElementById('id033_5pag1').style.display = 'none'
-    document.getElementById('id033_5pag2').style.display = 'none'
-    document.getElementById('id033_5pag3').style.display = 'none'
+    
+    
+    
+    
     document.getElementById('id033_5pag4').style.display = 'none'
-
+    
+    
+    
   }
-
+  function salir48_1(){
+    document.getElementById('id033_5pag1').style.display = 'none'
+    title5_31.load()
+    
+    
+  }
+function salir50(){
+  document.getElementById('id033_5pag3').style.display = 'none'
+  title5_33.load()
+}
 
   function Salirid033_2(){
     
