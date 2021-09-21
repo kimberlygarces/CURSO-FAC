@@ -1893,9 +1893,10 @@
           <div id="modal-contentSiguiente" class="w3-modal-content">
             <div class="w3-container">
               <div class="w3-display-topright">
-                <button onclick="document.getElementById('id033_3').style.display='none'" id="btn-cerrar"
+                <button onclick="salir46()" id="btn-cerrar"
                   ><img src="images/cerrar.png"></button>
               </div>
+              
               <div class="w3-col resaltado_especial content_contratacion5" style="width:90%; margin-top:2%;">
                 <p style="font-size: 22px;">
                   <b>Trazabilidad</b>
@@ -2228,6 +2229,9 @@
 
                   <button id="boton3_3" onclick="Siguiente_id033_3()" class="btn-def3_3">
                     Trazabilidad
+                    <audio id="title46">
+                      <source src="sounds/audio46.mp3" type="audio/mpeg">
+                      </audio>
                     <img src="images/traza.png" class="menu11">
                   </button>
                   <button id="boton3_4" onclick="Siguiente_id033_4()" class="btn-def3_4">
@@ -2378,6 +2382,7 @@
   var title5_31 = document.getElementById('title5_31')
   var title5_32 = document.getElementById('title5_32')
   var title5_33 = document.getElementById('title5_33')
+  var title46 = document.getElementById('title46')
   
 
 
@@ -2469,6 +2474,11 @@
   function salir22(){
                 document.getElementById('id06').style.display='none'
                 title4.load()
+              }
+
+              function salir46(){
+                document.getElementById('id033_3').style.display='none'
+                title46.load()
               }
 
   function boton5() {
@@ -2951,7 +2961,7 @@ title1_3.load()
   function Siguiente_id033_3() {
     document.getElementById('id033_3').style.display = 'block'
     document.getElementById('boton3_3').style.background = "#e7e7e7";
-    title3_3.play()
+    title46.play()
 
   }
 

@@ -212,6 +212,9 @@ function handleComplete(evt) {
         </div>
         <button onclick="id044_1pag2_2()" class="w3-button w3-blue btn-id04" style="margin: 2%;">
           Siguiente
+          <audio id="title50b">
+            <source src="sounds/AUDIO50B.mp3" type="audio/mpeg">
+            </audio>
         </button>
       </div>
     </div>
@@ -542,6 +545,7 @@ Para que sea efectiva la modificación del contrato ambas partes deben aceptarlo
     var titled = document.getElementById('titled')
     var titlee = document.getElementById('titlee')
     var titlef = document.getElementById('titlef')
+    var title50b = document.getElementById('title50b')
 
   function id044_1pag1(){
     document.getElementById('id044_1pag1').style.display = 'block';
@@ -569,10 +573,12 @@ Para que sea efectiva la modificación del contrato ambas partes deben aceptarlo
     document.getElementById('id044_1pag2').style.display = 'none'
     document.getElementById('id044_1pag2_2').style.display = 'block'
     titleb.load()
+    title50b.play()
 
   }
   function Salir_id044_1pag2_2(){
     document.getElementById('id044_1pag2_2').style.display = 'none'
+    title50b.load()
     
   }
   function A_id044_1pag2_2(){
@@ -580,6 +586,7 @@ Para que sea efectiva la modificación del contrato ambas partes deben aceptarlo
     document.getElementById('id044_1pag2').style.display = 'block'
     document.getElementById('id044_1pag2_2').style.display = 'none'
     titled.load()
+    title50b.load()
     
 
   }
@@ -588,6 +595,7 @@ Para que sea efectiva la modificación del contrato ambas partes deben aceptarlo
     document.getElementById('id044_1pag2_3').style.display = 'block'
     document.getElementById('id044_1pag2_2').style.display = 'none'
     titled.play()
+    title50b.load()
     
 
   }
