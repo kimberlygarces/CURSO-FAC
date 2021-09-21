@@ -130,7 +130,7 @@ height: auto;
 }
 .img29{
     float: left;
-    width: 170px;
+    width: 100px;
     height: auto;
     animation-name: swing;
     animation-duration: 2s;
@@ -147,7 +147,7 @@ height: auto;
 
 }
 .img10{
-    width: 12%;
+    width: 5%;
     height: auto;
     animation-name: fadeInDown;
     animation-duration: 2s;
